@@ -1,0 +1,17 @@
+{
+	"code": 0,
+	"msg": "",
+	"data": [
+		{
+			"src": "/static/images/userface1.jpg"
+		},{
+			"src": "/static/images/userface2.jpg"
+		},{
+			"src": "/static/images/userface3.jpg"
+		},{
+			"src": "/static/images/userface4.jpg"
+		},{
+			"src": "/static/images/userface5.jpg"
+		}
+	]
+}

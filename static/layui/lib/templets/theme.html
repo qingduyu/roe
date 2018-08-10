@@ -1,0 +1,230 @@
+LarryMS主题设置模板 -->
+<form class="layui-form">
+<div class="larryms-themeset-tit">系统主题设置</div>
+<div class="larryms-themeset-body">
+	<!-- 主题配色 -->
+	<ul class="theme-scheme">
+		<li class="larryms-this default" data-alias="default" title="系统默认主题">
+			<div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>默认主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="deepBlue" data-alias="deepBlue" title="深蓝主题">
+            <div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>深蓝主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="navy" data-alias="navy" title="藏青主题">
+			<div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>藏青主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="green" data-alias="green" title="墨绿主题">
+            <div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>墨绿主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="orange" data-alias="orange" title="橙色主题">
+			<div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>橙色主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="custom" data-alias="custom" title="自定义主题">
+			<div class="custom-themeset">自定义系统主题配色</div>
+		</li>
+	</ul>
+	<div class="custom-box">
+		<input type="text" placeholder="顶部颜色" class="layui-input" name="topColor">
+		<input type="text" placeholder="顶部选中色" class="layui-input" name="topThis">
+		<input type="text" placeholder="顶部下边框" class="layui-input" name="topBottom">
+		<input type="text" placeholder="左侧颜色" class="layui-input" name="leftColor">
+		<input type="text" placeholder="左侧有边框" class="layui-input" name="leftRight">
+		<input type="text" placeholder="菜单选中颜色" class="layui-input" name="navThis">
+		<input type="text" placeholder="Tab标题栏下边框" class="layui-input" name="titBottom">
+		<input type="text" placeholder="页脚颜色" class="layui-input" name="footColor">
+		<input type="text" placeholder="页脚文字颜色" class="layui-input" name="footFont">
+	</div>
+</div>
+<div class="larryms-themeset-sys">
+	<div class="larryms-themeset-tit">Tab选项卡相关设置</div>
+    <div class="layui-form-item tab-session">
+    	<label class="layui-form-label">开启Tab缓存</label>
+    	<div class="layui-input-block">
+    		<input type="checkbox" id="tabCache" lay-filter="tabSession" lay-skin="switch"  value="1">
+    		<div class="layui-word-aux">将记录并保持当前状态</div>
+    	</div>
+    </div>
+    <div class="layui-form-item">
+    	<label class="layui-form-label">Tab切换刷新</label>
+    	<div class="layui-input-block">
+            <input type="checkbox" id="tabAutoRefresh" lay-filter="tabAutoRefresh" lay-skin="switch"  value="1">
+            <div class="layui-word-aux">切换选项卡将自动刷新</div>
+        </div>
+    </div>
+    <div class="larryms-themeset-tit">其他系统设置（布局）</div>
+    <div class="layui-form-item tab-session">
+    	<label class="layui-form-label">开启页脚</label>
+    	<div class="layui-input-block">
+    		<input type="checkbox" id="footSet" lay-filter="footSet" lay-skin="switch"  value="1">
+    	</div>
+    </div>
+    <div class="layui-form-item tab-session">
+    	<label class="layui-form-label">开启全屏</label>
+    	<div class="layui-input-block">
+    		<input type="checkbox" id="fullScreen" lay-filter="fullScreen" lay-skin="switch"  value="1">
+    		<div class="layui-word-aux">客户端将自动全屏</div>
+    	</div>
+    </div>
+
+</div>
+<!-- <div class="layui-btn larryms-setTheme" lay-submit="" lay-filter="submitTheme">保存主题设置</div> -->
+</form>
+<script>
+layui.use(['jquery','form','index','layer'],function(){
+    var $= layui.jquery,
+        form = layui.form,
+        layer = layui.layer,
+        index = layui.index;
+    
+    // 读取缓存配置
+    var tName = layui.data('larryms').theme !== undefined ? layui.data('larryms').theme.name :'undefined' ,
+        systemSet = layui.data('larryms').systemSet;  
+    if(tName !== 'undefined'){
+    	$('.theme-scheme li[data-alias='+tName+']').addClass('larryms-this').siblings().removeClass('larryms-this');
+        if($('.theme-scheme li[data-alias="custom"]').hasClass('larryms-this')){
+            $('.custom-box').show();
+            var curThemes = layui.data('larryms').theme;
+            for(attrN  in curThemes ){
+                $('.custom-box input[name='+attrN+']').val(curThemes[attrN]);
+            }
+        }  
+    }
+
+    if(systemSet.tabCache){
+          $('#tabCache').attr('checked', 'checked');
+    }else{
+    	 $('#tabCache').removeAttr("checked");
+    }
+    if(systemSet.tabRefresh){
+         $('#tabAutoRefresh').attr('checked', 'checked');
+    }else{
+    	 $('#tabAutoRefresh').removeAttr("checked");
+    }
+    if(systemSet.footSet == 'on'){
+    	$('#footSet').attr('checked', 'checked');
+    }else{
+    	$('#footSet').removeAttr("checked");
+    }
+    if(systemSet.fullScreen){
+        $('#fullScreen').attr('checked', 'checked');
+    }else{
+    	$('#fullScreen').removeAttr("checked");
+    }
+    form.render();
+    //设置主题配色
+    $('.theme-scheme li').on('click',function(){
+        $(this).addClass('larryms-this').siblings().removeClass('larryms-this');
+        var themeName = $(this).data('alias');
+        if(themeName!=='custom'){
+        	$('.custom-box').hide();
+        	if(themeName !=='default'){
+                index.theme(index.themeColor[themeName]);
+        	}else{
+                index.theme({
+                	name:'default',
+                });
+        	}
+        }else{
+        	$('.custom-box').show();
+        }
+        
+    });
+    //自定义主题配色
+    $('.custom-box input').blur(function(){
+          var colorStr = $(this).val();
+          if(CheckIsColor(colorStr)){
+               setCustomTheme($(this).attr('name'),colorStr);
+          }else{
+                layer.tips('颜色值格式不正确', $(this), {
+                    tips: [1, '#FF5722']
+                });                
+          }
+    });
+    $('.custom-box input').focus(function(){
+         $(this).val('');
+    });
+    function setCustomTheme(attrName,curValue){
+        var localValue = layui.data('larryms').theme;
+        if(localValue !== undefined){
+            localValue.name = 'custom';
+            localValue[attrName] = curValue;
+            index.theme(localValue);
+        }else{
+            var options = {name:'custom'};
+            options[attrName] = curValue;
+            index.theme(options);
+        }
+    }
+    // 系统其他功能项设置
+    form.on('switch(tabSession)', function(data) {
+         setCurData('tabCache',data.elem.checked);
+	});
+    
+    form.on('switch(tabAutoRefresh)', function(data) {
+         setCurData('tabRefresh',data.elem.checked);
+	});
+    form.on('switch(footSet)', function(data) {
+         var val = data.elem.checked === true ? 'on' : 'off';
+         setCurData('footSet',val);
+         index.footInit(val);
+	});
+    
+    function setCurData(name,data){
+         var curData = layui.data('larryms').systemSet;
+             curData[name] = data;
+         layui.data('larryms',{
+         	key:'systemSet',
+         	value: curData
+         });
+    }
+    
+
+    //颜色值检查
+    function CheckIsColor(data){
+        var type = "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$"; 
+        var res = new RegExp(type);
+        if(data.match(res) == null){
+             type= "^[rR][gG][Bb][\(]([\\s]*(2[0-4][0-9]|25[0-5]|[01]?[0-9][0-9]?)[\\s]*,){2}[\\s]*(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)[\\s]*[\)]{1}$";
+             res = new RegExp(type); 
+             if(data.match(res) == null){
+                return false;
+             }else{
+                return true;
+             }
+        }else{
+            return true;
+        }
+    }
+    
+});
+</script>
+<!-- /**
+ * 根据获取到的当前选中主题，存储主题
+ * 并调用theme方法生成主题
+ * 
+ */

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+	<title>鱼仔技术2.0</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/static/layui/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="/static/layui/css/public.css" media="all" />
+{#  引入自己的头部 #}
+    {% block self_head %} {% endblock %}
+
+</head>
+
+<body class="childrenBody">
+
+{% block content %}
+
+{% endblock %}
+
+<script type="text/javascript" src="/static/layui/layui/layui.js"></script>
+{#引入自己的foot#}
+{% block self_foot %}
+
+ {% endblock %}
+</body>
+
+</html>
