@@ -1,0 +1,295 @@
+{% extends 'base.html' %}
+{% load mytags %}
+{% block self_head_css_js %}
+    <script src="/static/layer/layer.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="/static/plugins/datatables/dataTables.bootstrap.css"></script>
+
+{% endblock %}
+{% block content %}
+<script>
+    window.onload=init;
+    function init() {
+        showhide(2);
+    }
+    function showhide(n) {
+        var box = document.getElementById("netcmdb");
+        box.className="active";
+        var box = document.getElementById("netdevice_full");
+        box.className="active";
+    }
+</script>
+<script>
+    $(document).ready(function(){
+        $('.asset_del').click(function(){
+            var row = $(this).closest('tr');
+            if (confirm("确定删除?")) {
+                $.get(
+                        $(this).attr('value'),
+                        {},
+                        function (data) {
+                            row.remove()
+                        }
+                )
+            }
+        });
+    });
+</script>
+
+<div class="content-wrapper" >
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    </section>
+
+    <!-- Main content -->
+    <section class="content" >
+        <div   >
+            <form action="" method="post" id="asset_form">
+            {% csrf_token %}
+            <div  class="box " style="overflow:auto;">
+                <div class="box-header">
+                    <div class="col-sm-2" style="padding-left: 0">
+						 <a href="{% url 'netasset_add' %}"><li class="btn btn-success" ><b>添加设备</b></li></a>
+                  </div>
+                <div class="col-sm-6" style="padding-left: 0px">
+                            <label>
+                                <select name="idc" class="form-control m-b input-sm" onchange="change_info()">
+                                    <option value="">机房</option>
+                                    {% for idc in idc_info %}
+                                        {% ifequal idc.name idc_name %}
+                                            <option value="{{idc.name}}" selected> {{ idc.name|slice:":20" }}</option>
+                                        {% else %}
+                                            <option value="{{idc.name}}"> {{ idc.name|slice:":20" }}</option>
+                                        {% endifequal %}
+                                    {% endfor %}
+                                </select>
+                            </label>
+
+                            <label>
+                                <select name="group" class="form-control m-b input-sm" onchange="change_info()">
+                                    <option value="">设备组</option>
+                                    {% for asset_group in group_info %}
+                                        {% ifequal asset_group.name group_name %}
+                                            <option value="{{ asset_group.name }}" selected> {{ asset_group.name|slice:":20" }} </option>
+                                        {% else %}
+                                            <option value="{{ asset_group.name }}"> {{ asset_group.name|slice:":20" }} </option>
+                                        {% endifequal %}
+                                    {% endfor %}
+                                </select>
+                            </label>
+
+                            <label>
+                                <select name="asset_type" class="form-control m-b input-sm" onchange="change_info()">
+                                    <option value="">设备类型</option>
+                                    {% for type in asset_types %}
+                                        {% ifequal type.0|int2str asset_type %}
+                                            <option value="{{ type.0 }}" selected> {{ type.1 }}</option>
+                                        {% else %}
+                                            <option value="{{ type.0 }}"> {{ type.1 }}</option>
+                                        {% endifequal %}
+                                    {% endfor %}
+                                </select>
+                            </label>
+
+                            <label>
+                                <select name="status" class="form-control m-b input-sm" onchange="change_info()">
+                                    <option value="">设备状态</option>
+                                    {% for s in asset_status %}
+                                        {% ifequal s.0|int2str status %}
+                                            <option value="{{ s.0 }}" selected> {{ s.1 }}</option>
+                                        {% else %}
+                                            <option value="{{ s.0 }}"> {{ s.1 }}</option>
+                                        {% endifequal %}
+                                    {% endfor %}
+                                </select>
+                            </label>
+                        </div>
+                    <div class="col-sm-4" style="padding-right: 0;">
+                             <div class="input-group inline-group padding-right: 10px">
+                                <input type="text" class="form-control m-b " id="search_input" name="keyword" value="{{ keyword }}" placeholder="Search">
+                                <input type="text" style="display: none">
+                                <div class="input-group-btn ">
+                                    <button id='search_btn' href="{% url 'netasset_full' %}?search=true" type="button" class="btn btn-primary "  onclick="change_info()">
+                                        <b>&nbsp;搜索&nbsp;</b>
+                                    </button>
+                                    <a href="#" onclick="return export_excel()"><li name="export" class="btn btn-success search-btn-excel"><b>&nbsp;导出&nbsp;</b></li></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="export"></div>
+                </div>
+
+                <!-- /.box-header -->
+                <div  >
+                  <div  >
+                          <table class="table table-striped table-bordered" id="dataform">
+                      <thead>
+                        <tr>
+                            <th>
+                                <input id="checkall" type="checkbox" class="i-checks" name="checkall" value="checkall" data-editable='false' onclick="check_all('asset_form')">
+                            </th>
+                                    <th>设备名</th>
+                                    <th>带内IP</th>
+                                    <th nowrap>带外IP</th>
+                                    <th nowrap>互联IP</th>
+                                    <th>分组</th>
+                                    <th>机房位置</th>
+                                    <th nowrap>资产类型</th>
+                                    <th nowrap>上线时间</th>
+                                    <th nowrap>使用状态</th>
+                                    <th nowrap>管理员</th>
+                                    <th nowrap>用途</th>
+
+                                    <th nowrap>资产编号</th>
+                                     <th nowrap>设备SN号</th>
+                                     <th>品牌型号</th>
+                                    <th nowrap>软件版本</th>
+                                     <th nowrap>备注</th>
+                                    <th nowrap >功能</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for netdvice in assets.object_list %}
+                                    <tr class="even gradeX">
+                                        <td><input type="checkbox" id="id" class="i-checks" value="{{ netdvice.id }}" name="id" /></td>
+                                        <td nowrap><a href="#"><li style="list-style-type:none" onclick="return tanchu(this.value)" value="{{ netdvice.id }}"> {{ netdvice.devicename }}</li></a></td>
+                                        <td>{{ netdvice.in_band_ip }}</td>
+                                        <td>{{ netdvice.out_band_ip }}</td>
+                                        <td>{{ netdvice.in_net_ip }}</td>
+                                         <td  nowrap>{{ netdvice.group }}</td>
+                                         <td  nowrap>{{ netdvice.idc }}|{{ netdvice.cabinet }}|{{ netdvice.location }}</td>
+                                         <td  nowrap>{{ netdvice.get_asset_type_display }}</td>
+
+                                         <td  nowrap>{{ netdvice.onlinedate }}</td>
+                                         <td  nowrap>{{ netdvice.get_status_display }}</td>
+                                         <td>{{ netdvice.useuser }}</td>
+                                         <td>{{ netdvice.purpose }}</td>
+                                         <td  nowrap>{{ netdvice.asset_no }}</td>
+                                         <td  nowrap>{{ netdvice.sn }}</td>
+                                         <td  nowrap>{{ netdvice.get_brand_display }}|{{ netdvice.brand_model }}</td>
+                                         <td  nowrap>{{ netdvice.soft_version }}</td>
+                                         <td>{{ netdvice.memo }}</td>
+
+                                         <td  nowrap class="text-center" data-editable='false'>
+                                        <a href="#"><li class="btn btn-sm btn-info" onclick="return tanchu(this.value)" value="{{ netdvice.id }}">编辑</li></a>
+                                        <a value="{% url 'netasset_del' %}?id={{ netdvice.id }}" class="btn btn-sm btn-danger asset_del">删除</a>
+                                    </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                  </table>
+                  </div>
+
+                    <div class="btn-group">
+                        <input type="button" id="asset_del" class="btn btn-danger"   name="del_button" value="删除设备"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+           </div>
+
+    </section>
+        <!-- /.content -->
+{#用于接收asset_edit.html中layui子层的传值#}
+<input id="handle_status" value="" hidden="hidden">
+</div>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#dataform').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+<script>
+function checkSubmit() {
+    if (!confirm("确定删除？")) {
+        window.event.returnValue = false;
+    }
+}
+</script>
+<script>
+function tanchu(n){
+    layer.open({
+    type: 2,
+    title: '修改主机信息',
+    closeBtn: 1,
+    area: ['700px', '550px'],
+    shadeClose: true, //点击遮罩关闭
+    content: ['/netcmdb/netasset/edit/' + n,],
+    end:function(){
+            var handle_status = $("#handle_status").val();
+            if ( handle_status == '1' ) {
+                layer.msg('保存成功！',{
+                    icon: 1,
+                    time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                },function(){
+                    history.go(0);
+                });
+            } else if ( handle_status == '2' ) {
+                layer.msg('修改失败！',{
+                    icon: 2,
+                    time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                },function(){
+                    history.go(0);
+                });
+            }
+        }
+  });
+}
+</script>
+<script>
+    function change_info(){
+        var args = $("#asset_form").serialize();
+        window.location = "{% url 'netasset_full' %}?" + args
+    }
+
+    function export_excel(){
+        var asset_id_all = getIDall();
+        if (asset_id_all == ''){
+            if(confirm('您没有勾选，是否导出全部信息？')){
+                var args = $("#asset_form").serialize();
+                window.location = "{% url 'netasset_full' %}?export=all&" + args
+                }else{
+                    return false;
+                }
+            }else{
+                var args = $("#asset_form").serialize();
+                window.location = "{% url 'netasset_full' %}?export=true&" + args
+            }
+    }
+    $("#search_input").keydown(function(e) {
+        if (e.keyCode == 13) {
+            change_info()
+        }
+        });
+</script>
+<script>
+    $('#asset_del').click(function () {
+        var asset_id_all = getIDall();
+        if (asset_id_all == ''){
+            alert("请至少选择一行!");
+            return false;
+        }
+        if (confirm("确定删除?")) {
+            $.ajax({
+                type: "post",
+                data: {asset_id_all: asset_id_all,csrfmiddlewaretoken: '{{ csrf_token }}'},
+                url: "{% url 'netasset_del' %}?arg=batch",
+                success: function () {
+                    parent.location.reload();
+                }
+            });
+        }
+    });
+</script>
+
+{% endblock %}

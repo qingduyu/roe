@@ -1,0 +1,59 @@
+{#{% extends 'base.html' %}#}
+{#{% block self_head_css_js %}#}
+{#    <script src="/static/layer/layer.js"></script>#}
+{#    <script src="/static/plugins/jQuery/jquery-3.1.1.min.js"></script>#}
+{#    {% load	bootstrap3 %}#}
+{#{% endblock %}#}
+{#{% block content %}#}
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'link_css.html' %}
+    {% include 'head_script.html' %}
+        {% load	bootstrap3 %}
+</head>
+<body>
+    <div class="content-wrapper">
+
+
+    <section class="content">
+
+<div id="dialog">
+        <div class="box">
+            <form class="form-horizontal" action="{% url 'netasset_edit' ids %}" method="POST">
+                        {% csrf_token %}
+                {{ af.as_p }}
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="submit" class="btn btn-info pull-left" style="width: 120px"><b>保存</b></button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+
+</div>
+</div>
+
+    </section>
+
+  </div>
+    <script src="/static/layui/laydate/laydate.js"></script>
+<script>laydate.render({elem: '#id_onlinedate'});</script>
+{#{% endblock %}#}
+
+{% block self_foot_js %}
+    {#回传参数至父层#}
+<script type="text/javascript">
+        var index = parent.layer.getFrameIndex(window.name);
+        var success = {{ status }};
+        if ( success == '1' ) {
+            parent.$("#handle_status").val('1');
+              parent.layer.close(index);
+        } else if( success == '2' ) {
+            parent.$("#handle_status").val('2');
+            parent.layer.close(index);
+        }
+</script>
+
+{% endblock %}
