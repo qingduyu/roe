@@ -1,10 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base_children.html' %}
+{% block self_head_css_js %}
+
+{% endblock %}
+{% block content %}
+
+
+<div id="page-wrapper">
+
+<div class="layui-box">
+
+
+<fieldset class="layui-elem-field site-demo-button" style="margin-top: 30px;">
+  <legend>机房管理</legend>
+  <div>
+    <button class="layui-btn layui-btn-primary">添加机房</button>
+        <div class="btn-group">
+						 <a href="{% url 'idc_add' %}"><li class="btn btn-success" ><b>添加机房</b></li></a>
+                  </div>
+  </div>
+</fieldset>
+
+
+        <form action="{% url 'idc_del' %}" method="post">
+                    {% csrf_token %}
+
+
+                <div class="layui-box">
+                  <table class="layui-table " id="dataform">
+                      <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" onclick="checkAll(this, 'item1');" />
+                            </th>
+                                    <th>机房名称</th>
+                                    <th>机房地址</th>
+                                    <th>机房电话</th>
+                                    <th>客户经理</th>
+                                    <th>移动电话</th>
+                                    <th>机柜信息</th>
+                                    <th>IP范围</th>
+                                    <th>接入带宽</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if idc_info %}
+                                {% for idc in idc_info %}
+                                    <tr class="even gradeA">
+                                        <td><input type="checkbox" id="u_id" class="item1" value="{{ idc.id }}" name="idc_check" /></td>
+                                        <td><a href="#"><li style="list-style-type:none" onclick="return tanchu(this.value)" value="{{ idc.id }}"> {{ idc.name }}</li></a></td>
+                                        <td>{{ idc.address }}</td>
+                                        <td>{{ idc.tel }}</td>
+                                        <td>{{ idc.contact }}</td>
+                                        <td>{{ idc.contact_phone }}</td>
+                                        <td>{{ idc.jigui }}</td>
+                                        <td>{{ idc.ip_range }}</td>
+                                        <td>{{ idc.bandwidth }}</td>
+                                    </tr>
+                                {% endfor %}
+                                {% else %}
+                                    <p>No Item are available.</p>
+                                {% endif %}
+                            </tbody>
+                  </table>
+                    <div class="btn-group">
+						 <button class="btn btn-danger" style="width: 60pt;font-size: medium" onclick="return checkSubmit()"><b>删除</b></button>
+                    </div>
+                </div>
+
+        </form>
+
+</div>
+</div>
+{#接收子层回传参数#}
+<input id="handle_status" value="" hidden="hidden">
+<script>
+{#全选框#}
+function checkAll(sender, checkClass) {
+    var checkItems = document.getElementsByTagName('input');
+    for (var i = 0; i < checkItems.length; i++) {
+        var checkItem = checkItems[i];
+        if (checkItem.type === 'checkbox' && checkItem.className === 'item1') {
+            checkItem.checked = sender.checked;
+        }
+    }
+}
+</script>
+
+<script>
+  $(function () {
+{#    $("#example1").DataTable();#}
+    $('#dataform').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+<script>
+function checkSubmit() {
+    if (!confirm("确定删除？")) {
+        window.event.returnValue = false;
+    }
+}
+</script>
+<script>
+{#弹出一个新的界面，传入idc id参数#}
+function tanchu(n){
+  layer.open({
+  type: 2,
+  title: '机房信息修改',
+  area: ['600px', '450px'],
+  shadeClose: true, //点击遮罩关闭
+  {#content: ["{% url "idc_edit" n %}"], #}
+  content: ['/cmdb/idc/idc_edit'+n],
+  end:function(){
+        var handle_status = $("#handle_status").val();
+        if ( handle_status == '1' ) {
+            layer.msg('保存成功！',{
+                icon: 1,
+                time: 2000 //2秒关闭（如果不配置，默认是3秒）
+            },function(){
+                history.go(0);
+            });
+        } else if ( handle_status == '2' ) {
+            layer.msg('修改失败！',{
+                icon: 2,
+                time: 2000 //2秒关闭（如果不配置，默认是3秒）
+            },function(){
+                history.go(0);
+            });
+        }
+    }
+  });
+}
+</script>
+{% endblock %}

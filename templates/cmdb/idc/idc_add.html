@@ -1,20 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'bootstrap_children.html' %}
 {% block self_head_css_js %}
-    <script src="/static/layer/layer.js"></script>
+    <script src="/static/layui/layer/layer.js"></script>
 {% endblock %}
 {% block content %}
-<script>
-    window.onload=init;
-    function init() {
-        showhide(2);
-    }
-    function showhide(n) {
-        var box = document.getElementById("cmdb");
-        box.className="active";
-        var box = document.getElementById("idc");
-        box.className="active";
-    }
-</script>
+
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

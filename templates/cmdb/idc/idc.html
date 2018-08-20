@@ -5,6 +5,7 @@
 {% block content %}
 
 
+<div id="page-wrapper">
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -69,6 +70,7 @@
     </section>
         <!-- /.content -->
       </div>
+</div>
 {#接收子层回传参数#}
 <input id="handle_status" value="" hidden="hidden">
 <script>
@@ -112,7 +114,8 @@ function tanchu(n){
   title: '机房信息修改',
   area: ['600px', '450px'],
   shadeClose: true, //点击遮罩关闭
-  content: [{% url 'idc_edit' n %} ],
+  {#content: ["{% url "idc_edit" n %}"], #}
+  content: ['/cmdb/idc/idc_edit'+n],
   end:function(){
         var handle_status = $("#handle_status").val();
         if ( handle_status == '1' ) {

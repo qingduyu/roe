@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # _#_ coding:utf-8 _*_
 
-from UserOps.models import Menus
+from system.models import Menus
 
-import json
 
 def topmenu(request):
 

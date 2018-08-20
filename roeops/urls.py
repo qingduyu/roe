@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """roeops URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,22 +14,23 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.contrib import admin
-from index import index,main
-from index import newslist,images,usercenter,sysbasicParameter,userchangePas,userGrade,syslogs,submenu
+from index import index,main,login,logout,noperm
+from index import submenu,codeing
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',index,name='index' ),
-    url(r'^getmenu/(?P<id>[0-9]+)/$',submenu,name='submenu'),
+    url(r'^login',login,name='login'),
+    url(r'^logout', logout, name='logout'),
+    url(r'^noperm', noperm, name='noperm'),
+    url(r'^$',index,name='index' ), #代码首页会获取到顶级菜单
+    url(r'^getmenu/(?P<id>[0-9]+)/$',submenu,name='submenu'),  #点击子菜单后动态获取
 
-    url(r'^page/main.html',main,name='page-main'),
-    url(r'^page/news/newsList.html',newslist,name='newslist'),
-    url('^page/img/images.html',images,name='images'),
-    url('^page/user/userList.html',usercenter,name='userlist'),
-    url('^page/systemSetting/basicParameter.html',sysbasicParameter,name='sysbasicParameter'),
-    url('^page/user/changePwd.html',userchangePas,name='userchangepassword'),
-    url('^page/user/userGrade.html',userGrade,name='usergrade'),
-    url('^page/systemSetting/logs.html',syslogs,name='syslogs'),
+    url(r'^codinghard',codeing,name='codinghard'),#正在努力开发代码中
+
+    url(r'^main.html',main,name='page-main'),
+
+    url(r'^cmdb/', include('CMDB.urls')),
+    url(r'^system/', include('system.urls')),
 ]

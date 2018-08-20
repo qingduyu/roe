@@ -5,7 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE) #使用自带的用户管理模块进行管理
+    user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='userprofile') #使用自带的用户管理模块进行管理
     real_name = models.CharField(max_length=32)
     phone=models.CharField(max_length=12,null=True)
     roles=models.ManyToManyField('Role',blank=True)
@@ -41,5 +41,6 @@ class Menus(models.Model):
     class Meta:
         verbose_name=u'Menus'
         verbose_name_plural=u'Menus'
+        db_table ='Menus'
 
 

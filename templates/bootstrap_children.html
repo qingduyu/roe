@@ -1,10 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="utf-8">
+    <title>鱼仔技术2.0</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="fanglianchao">
+    <!-- jQuery -->
+    <script src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/bootstrap/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS sb 模板板后期干掉-->
+    <link href="/static/bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/bootstrap/font-awesome/css/font-awesome.min.css"
+          rel="stylesheet" type="text/css">
+
+    <!-- Multiselect CSS -->
+    <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap-select.css"
+          type="text/css"/>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--    弹窗开始样式 -->
+    <script src="/static/bootstrap/dist/js/xcConfirm.js" type="text/javascript"
+            charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css"
+          href="/static/bootstrap/dist/css/xcConfirm.css"/>
+    <!--   csrf -->
+    <script src="/static/bootstrap/js/csrf.js"></script>
+
+    <!-- Datetimepicker  这个要换掉-->
+    <link rel="stylesheet"
+          href="/static/bootstrap/dist/css/bootstrap-datetimepicker.min.css"
+          type="text/css"/>
+    <script type="text/javascript"
+            src="/static/bootstrap/js/bootstrap-datetimepicker.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <link rel="stylesheet" href="/static/bootstrap/dist/css/jquery.dataTables.min.css">
+    <script src="/static/bootstrap/js/jquery.dataTables.min.js"></script>
+    {% block self_head %} {% endblock %}
+
 </head>
-<body>
-$END$
+
+<body class="childrenBody">
+
+{% block content %}
+{#这里是正是内容#}
+{% endblock %}
+
+
+<!-- Multiselect JavaScript -->
+<script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap-select.js"></script>
+
+<!-- DataTables JavaScript -->
+<link rel="stylesheet" href="/static/bootstrap/dist/css/jquery.dataTables.min.css">
+<script src="/static/bootstrap/js/jquery.dataTables.min.js"></script>
+
+
+{#引入自己的foot#}
+{% block self_foot %}
+
+{% endblock %}
 </body>
+
 </html>

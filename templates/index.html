@@ -10,7 +10,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="icon" href="favicon.ico">
+	<link rel="icon" href="/static/images/favicon.ico">
 	<link rel="stylesheet" href="/static/layui/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="/static/layui/css/index.css" media="all" />
 </head>
@@ -27,10 +27,9 @@
 					<li class="layui-nav-item" data-menu="contentManagement">
 						<a href="javascript:;"><i class="seraph icon-caidan"></i><cite>鱼仔技术</cite></a>
 						<dl class="layui-nav-child">
-							<dd class="layui-this" data-menu="contentManagement"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe63c;">&#xe63c;</i><cite>内容管理</cite></a></dd>
-							<dd data-menu="memberCenter"><a href="javascript:;"><i class="seraph icon-icon10" data-icon="icon-icon10"></i><cite>用户中心</cite></a></dd>
-							<dd data-menu="systemeSttings"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe620;">&#xe620;</i><cite>系统设置</cite></a></dd>
-							<dd data-menu="seraphApi"><a href="javascript:;"><i class="layui-icon" data-icon="&#xe705;">&#xe705;</i><cite>使用文档</cite></a></dd>
+                            {% for menu in menu_top %}
+                               <dd  data-menu={{menu.id}} >  <a href="javascript:;" ><i class="seraph "></i><cite>{{ menu.title }}</cite></a> 	</dd>
+                            {% endfor %}
 						</dl>
 					</li>
 				</ul>
@@ -42,32 +41,7 @@
 						<a href="javascript:;" ><i class="seraph "></i><cite>{{ menu.title }}</cite></a>
 					</li>
                    {% endfor %}
-
-{#                    <li class="layui-nav-item layui-this" data-menu="assetops">#}
-{#						<a href="javascript:;"><i class="layui-icon" data-icon="&#xe63c;">&#xe63c;</i><cite>资产管理</cite></a>#}
-{#					</li>#}
-{#					<li class="layui-nav-item" data-menu="memberCenter" pc>#}
-{#						<a href="javascript:;"><i class="seraph icon-icon10" data-icon="icon-icon10"></i><cite>环境部署</cite></a>#}
-{#					</li>#}
-{#					<li class="layui-nav-item" data-menu="systemeSttings" pc>#}
-{#						<a href="javascript:;"><i class="layui-icon" data-icon="&#xe620;">&#xe620;</i><cite>中间件管理</cite></a>#}
-{#					</li>#}
-{#					<li class="layui-nav-item" data-menu="seraphApi" pc>#}
-{#						<a href="javascript:;"><i class="layui-icon" data-icon="&#xe705;">&#xe705;</i><cite>代码管理</cite></a>#}
-{#					</li>#}
-{#					<li class="layui-nav-item layui-this" data-menu="contentManagement">#}
-{#						<a href="javascript:;"><i class="layui-icon" data-icon="&#xe63c;">&#xe63c;</i><cite>mysql</cite></a>#}
-{#					</li>#}
-{#					<li class="layui-nav-item" data-menu="memberCenter" pc>#}
-{#						<a href="javascript:;"><i class="seraph icon-icon10" data-icon="icon-icon10"></i><cite>Oracle</cite></a>#}
-{#					</li>#}
-{#					<li class="layui-nav-item" data-menu="systemeSttings" pc>#}
-{#						<a href="javascript:;"><i class="layui-icon" data-icon="&#xe620;">&#xe620;</i><cite>系统变量</cite></a>#}
-{#					</li>#}
-{#					<li class="layui-nav-item" data-menu="seraphApi" pc>#}
-{#						<a href="javascript:;"><i class="layui-icon" data-icon="&#xe705;">&#xe705;</i><cite>使用文档</cite></a>#}
-{#					</li>#}
-				</ul>
+			</ul>
 			    <!-- 顶部右侧菜单 -->
 			    <ul class="layui-nav top_menu">
 					<li class="layui-nav-item" pc>
@@ -83,7 +57,7 @@
 							<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="seraph icon-xiugai" data-icon="icon-xiugai"></i><cite>修改密码</cite></a></dd>
 							<dd pc><a href="javascript:;" class="functionSetting"><i class="layui-icon">&#xe620;</i><cite>功能设定</cite><span class="layui-badge-dot"></span></a></dd>
 							<dd pc><a href="javascript:;" class="changeSkin"><i class="layui-icon">&#xe61b;</i><cite>更换皮肤</cite></a></dd>
-							<dd><a href="page/login/login.html" class="signOut"><i class="seraph icon-tuichu"></i><cite>退出</cite></a></dd>
+							<dd><a href="{% url 'logout' %}" class="signOut"><i class="seraph icon-tuichu"></i><cite>退出</cite></a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -130,7 +104,7 @@
 				</ul>
 				<div class="layui-tab-content clildFrame">
 					<div class="layui-tab-item layui-show">
-						<iframe src="page/main.html"></iframe>
+						<iframe src="main.html"></iframe>
 					</div>
 				</div>
 			</div>
@@ -156,14 +130,13 @@
     	    layer = parent.layer === undefined ? layui.layer : top.layer;
 		    tab = layui.bodyTab({
 			    openTabNum : "50",  //最大可打开窗口数量
-			    url : "/getmenu/" //获取菜单json地址
+			    url : "/getmenu/1" //获取菜单json地址
 		    });
 
             function getsubmenu(id){
                 var urllink = '/getmenu/' + id ;
 	        	$.getJSON(urllink,function(data){
 				    dataStr = data;
-				    console.log(data);
 				//重新渲染左侧菜单
 				    tab.render();})
               }

@@ -19,10 +19,10 @@
 .layui-elem-quote{ word-break: break-all;}
 .icons li,.icons li:hover,.loginBody .seraph,.loginBody .seraph:hover,.loginBody .layui-form-item.layui-input-focus label,.loginBody .layui-form-item label,.loginBody .layui-form-item.layui-input-focus input,.loginBody .layui-form-item input{transition: all 0.3s ease-in-out;-webkit-transition: all 0.3s ease-in-out;}
 .icons li:hover i,.icons li i{transition: font-size 0.3s ease-in-out;-webkit-transition: font-size 0.3s ease-in-out;}
-.loginBody .layui-input-focus .layui-input::-webkit-input-placeholder{transition: color 0.2s linear 0.2s;-webkit-transition: color 0.2s linear 0.2s;}
-.loginBody .layui-input-focus .layui-input::-moz-placeholder{transition: color 0.2s linear 0.2s;}
-.loginBody .layui-input-focus .layui-input:-ms-input-placeholder{transition: color 0.2s linear 0.2s;}
-.loginBody .layui-input-focus .layui-input::placeholder{transition: color 0.2s linear 0.2s;-webkit-transition: color 0.2s linear 0.2s;}
+/*.loginBody .layui-input-focus .layui-input::-webkit-input-placeholder{transition: color 0.2s linear 0.2s;-webkit-transition: color 0.2s linear 0.2s;}*/
+/*.loginBody .layui-input-focus .layui-input::-moz-placeholder{transition: color 0.2s linear 0.2s;}*/
+/*.loginBody .layui-input-focus .layui-input:-ms-input-placeholder{transition: color 0.2s linear 0.2s;}*/
+/*.loginBody .layui-input-focus .layui-input::placeholder{transition: color 0.2s linear 0.2s;-webkit-transition: color 0.2s linear 0.2s;}*/
 /*后台首页*/
 .panel_box{ margin-bottom:5px;}
 .panel{ text-align:center; height:90px;}
@@ -92,27 +92,10 @@ form input.layui-input[disabled]{ background:#f2f2f2; color:#595963!important; }
 h2.method{ font-size:18px; line-height:45px; padding-left:5px;}
 /*登录*/
 .loginHtml,.loginBody{ height:100%;}
-.loginBody{ background:url("../../images/login_bg.jpg") no-repeat center center;}
-.loginBody form.layui-form{ padding:0 20px; width:300px; height:335px; position:absolute; left:50%; top:50%; margin:-150px 0 0 -150px; -webkit-box-sizing:border-box;-moz-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; background:#fff;-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; box-shadow:0 0 50px #009688;}
+
 .login_face{ margin:-55px auto 20px; width:100px; height:100px; -webkit-border-radius:50%; -moz-border-radius:50%; border-radius:50%; border:5px solid #fff; overflow:hidden;box-shadow:0 0 30px #009688;}
 .login_face img{ width:100%;}
-.loginBody .layui-form-item{ position:relative;}
-.loginBody .layui-form-item label{ position:absolute; color:#757575; left:10px; top:9px; line-height:20px; background:#fff; padding:0 5px; font-size:14px; cursor:text;}
-.loginBody .layui-form-item.layui-input-focus label{ top:-10px; font-size:12px; color:#ff6700;}
-.loginBody .layui-form-item.layui-input-active label{ top:-10px; font-size:12px;}
-.loginBody .layui-input::-webkit-input-placeholder{color:#fff;}
-.loginBody .layui-input::-moz-placeholder{color:#fff;}
-.loginBody .layui-input:-ms-input-placeholder{color:#fff;}
-.loginBody .layui-input::placeholder{color:#fff;}
-.loginBody .layui-form-item.layui-input-focus input{ border-color:#ff6700 !important;}
-.loginBody .layui-input-focus .layui-input::-webkit-input-placeholder{color:#757575;}
-.loginBody .layui-input-focus .layui-input::-moz-placeholder{color:#757575;}
-.loginBody .layui-input-focus .layui-input:-ms-input-placeholder{color:#757575;}
-.loginBody .layui-input-focus .layui-input::placeholder{color:#757575;}
-.loginBody .seraph{ font-size:30px; text-align:center;}
-.loginBody .seraph.icon-qq:hover{ color:#0288d1;}
-.loginBody .seraph.icon-wechat:hover{ color:#00d20d;}
-.loginBody .seraph.icon-sina:hover{ color:#d32f2f;}
+
 .imgCode{ position:relative;}
 #imgCode img{ position:absolute; top:1px; right:1px; cursor:pointer;}
 /*用户等级*/

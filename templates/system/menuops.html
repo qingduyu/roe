@@ -1,88 +1,210 @@
 {% extends 'base_children.html' %}
 
 {% block self_head %}
-{##这里是 个性化的头部脚本呢#}
+    {##这里是 个性化的头部脚本呢#}
 {% endblock %}
 
 {% block content %}
-{#    #这里是真正的内容部分#}
-<div class="layui-container">
-    <br>
-    <table id="auth-table" class="layui-table" lay-filter="auth-table"></table>
-</div>
+    {#    #这里是真正的内容部分#}
+    <div class="layui-container">
+        <br>
+        <div class="layui-btn-group">
+            <button class="layui-btn" id="btn-expand">全部展开</button>
+            <button class="layui-btn" id="btn-fold">全部折叠</button>
+        </div>
+        <table id="auth-table" class="layui-table" lay-filter="auth-table"></table>
+    </div>
 
 {% endblock %}
 
 {% block self_foot %}
-{#    #这里是个性化的底足脚本#}
-<script type="text/html" id="auth-state">
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">增加子菜单</a>
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-</script>
+    {#    #这里是个性化的底足脚本#}
+    <script type="text/html" id="auth-state">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="addsub">增加子菜单</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
 
 
-<script>
-    layui.config({
-        base: '/static/layui/js/'
-    }).extend({
-        treetable: 'treetable-lay/treetable'
-    }).use(['table', 'treetable'], function () {
-        var $ = layui.jquery;
-        var table = layui.table;
-        var treetable = layui.treetable;
+    <script>
+        layui.config({
+            base: '/static/layui/js/'
+        }).extend({
+            treetable: 'treetable-lay/treetable'
+        }).use(['table', 'treetable'], function () {
+            var $ = layui.jquery;
+            var table = layui.table;
+            var treetable = layui.treetable;
 
-        layer.load(2);
-        treetable.render({
-            treeColIndex: 1,
-            treeSpid: '-1',
-            treeIdName: 'id',
-            treePidName: 'parent_copy',
-            elem: '#auth-table',
-            url: '/system/getmenulist',
-            page: false,
-            cols: [[
-                {type: 'numbers'},
-                {field: 'title', minWidth: 100, title: '菜单名'},
-                {
-                    field: 'show',width: 80, align: 'center', templet: function (d) {
-                        if (d.show == 1){
-                            return '<span class="layui-badge layui-bg-gray">显示</span>';
-                        }else {
-                            return '<span class="layui-badge layui-bg-blue">隐藏</span>';
-                        }
+            layer.load(2);
+            treetable.render({
+                treeColIndex: 1,
+                treeSpid: '-1',
+                treeIdName: 'id',
+                treePidName: 'parent_copy',
+                elem: '#auth-table',
+                url: '/system/getmenulist',
+                page: false,
+                cols: [[
+                    {type: 'numbers'},
+                    {field: 'title', minWidth: 100, title: '菜单名'},
+                    {
+                        field: 'show', width: 80, align: 'center', templet: function (d) {
+                            if (d.show == 1) {
+                                return '<span class="layui-badge layui-bg-gray">显示</span>';
+                            } else {
+                                return '<span class="layui-badge layui-bg-blue">隐藏</span>';
+                            }
+                        },
+                        title: '显示'
                     },
-                    title: '显示'},
 
-                {
-                    field: 'spread',width: 80, align: 'center', templet: function (d) {
-                        if (d.spread == 0){
-                            return '<span class="layui-badge layui-bg-gray">false</span>';
-                        }else {
-                            return '<span class="layui-badge layui-bg-blue">true</span>';
-                        }
+                    {
+                        field: 'spread', width: 80, align: 'center', templet: function (d) {
+                            if (d.spread == 0) {
+                                return '<span class="layui-badge layui-bg-gray">false</span>';
+                            } else {
+                                return '<span class="layui-badge layui-bg-blue">true</span>';
+                            }
+                        },
+                        title: '展开'
                     },
-                    title: '展开'},
 
-                {field: 'href', minWidth: 200,title: '连接地址'},
-                {field: 'priority', width: 80, align: 'center', title: '优先级'},
-                {field: 'target', width: 80, align: 'center', title: 'target'},
-                {templet: '#auth-state', width: 280, align: 'center', title: '操作'}
-            ]],
-            done: function () {
-                layer.closeAll('loading');
-            }
+                    {field: 'href', minWidth: 200, title: '连接地址'},
+                    {field: 'priority', width: 80, align: 'center', title: '优先级'},
+                    {field: 'target', width: 80, align: 'center', title: 'target'},
+                    {templet: '#auth-state', width: 280, align: 'center', title: '操作'}
+                ]],
+                done: function () {
+                    layer.closeAll('loading');
+                    treetable.foldAll('#auth-table');
+                }
+            });
+
+            $('#btn-expand').click(function () {
+                treetable.expandAll('#auth-table');
+            });
+
+
+            $('#btn-fold').click(function () {
+                treetable.foldAll('#auth-table');
+            });
+            //监听表
+            table.on('tool(auth-table)', function (obj) {
+                var data = obj.data;
+
+                if (obj.event === 'addsub') {
+                    layer.msg('ID' + data.id + ' 的增加子菜单操作');
+                    openAdd(data.id);
+                } else if (obj.event === 'del') {
+                    layer.confirm('真的删除行马', function (index) {
+                        obj.del();
+                        layer.close(index);
+                    });
+                    openDelete(data.id);
+                } else if (obj.event === 'edit') {
+                    layer.alert('编辑行<br>' + JSON.stringify(data));
+                    openUpdate(data);
+                }
+            });
         });
 
-        $('#btn-expand').click(function () {
-            treetable.expandAll('#auth-table');
-        });
+        	//增加子菜单
+			function openAdd() {
+					layer.open({
+						type : 1,
+						title : '增加子菜单',
+						shadeClose : false,//遮罩关闭
+						anim : public_anim,
+						btnAlign : 'c',
+						shade : public_shade,//ÊÇ·ñÓÐÕÚÕÖ£¬¿ÉÒÔÉèÖÃ³Éfalse
+						maxmin : true, //开启最大化按钮
+						area: ['700px', '400px'],
+						{#area : [ '100%', '100%' ],#}
+						boolean : true,
+						content : [ 'MenuInfoAdd.jsp', 'yes'], //iframeµÄurl£¬no´ú±í²»ÏÔÊ¾¹ö¶¯Ìõ
+						success : function(layero, lockIndex) {
+							var body = layer.getChildFrame('body', lockIndex);
+							//绑定解锁按钮的绑定
+							body.find('button#close').on('click', function() {
+								layer.close(lockIndex);
+								location.reload();//Ë¢ÐÂ
+							});
+						}
+					});
+			}
 
-        $('#btn-fold').click(function () {
-            treetable.foldAll('#auth-table');
-        });
-    });
-</script>
+
+
+			//更新操作
+			function openUpdate(data){
+				layer.open({
+				      type: 2,
+				      title: '编辑',
+				      shadeClose: false,//µã»÷ÕÚÕÖ¹Ø±Õ
+				      anim: public_anim,
+				      btnAlign: 'c',
+				      shade: public_shade,
+				      maxmin: true, //¿ªÆô×î´ó»¯×îÐ¡»¯°´Å¥
+				      area: ['100%', '100%'],
+				      boolean:true,
+					  content: ['MenuInfoEdit.jsp?obj='+encodeURIComponent(JSON.stringify(data)), 'yes'], //
+					  success: function(layero, lockIndex) {
+						//alert(JSON.stringify(data));
+						var body = layer.getChildFrame('body', lockIndex);
+
+						body.find('button#close').on('click', function() {
+							layer.close(lockIndex);
+							location.reload();//Ë¢ÐÂ
+						});
+						pubUtil.load(body,data);//Ìî³ä±íµ¥
+						//body.find("select,:radio,:checkbox").attr("disabled", "disabled");
+					  }
+				    });
+				}
+
+			//删除操作
+			function openDelete(ids){
+				layer.open({
+			        title: '删除操作' //ÏÔÊ¾±êÌâÀ¸
+			        ,closeBtn: false
+			        ,area: '300px;'
+			        ,shade: 0.5
+			        ,id: 'LAY_layuipro' //设置一个id防止重复
+			        ,btn: ['删除', '确认删除']
+			        ,content: '是否要删除，删除本菜单，下面的子菜单会一并删除'
+			        ,success: function(layero){
+			          var btn = layero.find('.layui-layer-btn');
+			          btn.css('text-align', 'center');//¾ÓÖÐ
+			          btn.find('.layui-layer-btn0').on('click', function() {
+			        	  var loadindex = layer.load(1);//开启进度条
+			        	  $.ajax({
+								url : '/laysq/menuInf/remove.do',
+								data : {
+									id : ids
+								},
+								type:'POST',//默认以get 方式提交，后台会乱麻
+								dataType : 'json',
+								success : function(r) {
+									layer.close(loadindex);//关闭当前弹出层
+									if (r.success) {
+										pubUtil.msg(r.msg,layer,1,function(){
+											location.reload();//Ë¢ÐÂ
+										});
+									} else {
+										pubUtil.msg(r.msg,layer,2,function(){
+
+										});
+									}
+								}
+							});
+			          });
+			        }
+			      });
+			}
+
+
+    </script>
 {% endblock %}
 
 
