@@ -2,71 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/idc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cmdb/idc/idc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cmdb/idc/idc2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cmdb/idc/idc_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cmdb/idc/idc_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cmdb/net/idc_net_add_mini.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views/menu_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/menu_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/forms/net_forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/forms/net_forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/idc_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/idc_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/mongo_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/mongo_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/net_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/net_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/oracle_modles.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/oracle_modles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/redis_modles.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/redis_modles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/net/group_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/net/group_net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/net/idc_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/forms/idc_forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/net/netdevice.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/net/netdevice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/yewu_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/yewu_tree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/system/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/system/serialize.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system/serialize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/system/views/user_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system/views/user_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/system/views/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system/views/users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roeops/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roeops/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roeops/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/dist/css/sb-admin-2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/bootstrap/dist/css/sb-admin-2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/layui/css/public.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/layui/css/public.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/layui/js/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/layui/js/main.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/layui/json/navs.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/group_net.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/group_net.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/group_net_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/group_net_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/group_net_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/group_net_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/idc_net.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/idc_net.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/idc_net_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/idc_net_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/idc_net_add_mini.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/idc/idc_add_mini.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/idc_net_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/idc_net_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/netcmdb-header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/netcmdb-header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/netdevice_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/netdevice_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/netdvice_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/netdvice_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/net/netdvice_full_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/net/netdvice_full_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/yewutree/yewu_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/yewutree/yewu_base_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/yewutree/yewu_mongo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_mongo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/yewutree/yewu_mysql.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_mysql.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/yewutree/yewu_nginx.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_nginx.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/yewutree/yewu_oracle.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_oracle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/yewutree/yewu_server.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_server.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CMDB/yewutree/yewu_tomcat.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tomcat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bootstrap_children.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bootstrap_children.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/page/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/system/menuops.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/system/menuops.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/system/noperm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/system/noperm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/system/users/user_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/system/users/user_manage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/pages.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -111,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="82" column="34" lean-forward="true" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
+              <caret line="82" column="34" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -132,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/apps/CMDB/views/net/netdevice.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -165,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="23" column="22" lean-forward="true" selection-end-line="140" />
+              <caret line="23" column="22" selection-end-line="140" />
             </state>
           </provider>
         </entry>
@@ -174,7 +114,7 @@
         <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc2.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
-              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#fieldset#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -185,8 +125,8 @@
       <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="270">
+              <caret line="18" column="74" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -513,9 +453,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32996973" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36730576" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32996973" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49909583" visible="true" weight="0.1455814" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36730576" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32996973" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49909583" visible="true" weight="0.1455814" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -938,7 +878,7 @@
     <entry file="file://$PROJECT_DIR$/apps/CMDB/views/net/netdevice.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -977,14 +917,14 @@
     <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="23" column="22" lean-forward="true" selection-end-line="140" />
+          <caret line="23" column="22" selection-end-line="140" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
-          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#fieldset#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -994,14 +934,14 @@
     <entry file="file://$PROJECT_DIR$/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="82" column="34" lean-forward="true" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
+          <caret line="82" column="34" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="270">
+          <caret line="18" column="74" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
         </state>
       </provider>
     </entry>
