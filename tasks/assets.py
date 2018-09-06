@@ -2,8 +2,9 @@
 # _#_ coding:utf-8 _*_ 
 import time
 from celery import task
-from OpsManage.utils import base
-from OpsManage.models import Log_Assets,Global_Config,Assets,Email_Config
+from utils import base
+from CMDB.models import Log_Assets,Assets
+from system.models import Global_Config,Email_Config
 from django.contrib.auth.models import User
 
 

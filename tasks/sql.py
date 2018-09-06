@@ -2,10 +2,10 @@
 # _#_ coding:utf-8 _*_ 
 import json
 from celery import task
-from OpsManage.utils import base
-from OpsManage.models import (Global_Config,Email_Config,
-                              SQL_Execute_Histroy,SQL_Audit_Control)
-from orders.models import Order_System
+from utils import base
+from system.models import Global_Config,Email_Config
+from MysqlOps.models import SQL_Execute_Histroy,SQL_Audit_Control
+from Orders.models import Order_System
 from django.contrib.auth.models import User
 from channels import Group as CGroups
 

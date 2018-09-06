@@ -2,11 +2,12 @@
 # _#_ coding:utf-8 _*_ 
 import MySQLdb
 from celery import task
-from OpsManage.utils import base
-from OpsManage.models import Assets,Email_Config,Server_Assets, \
-                             DataBase_Server_Config,NetworkCard_Assets
+from utils import base
+from CMDB.models    import Assets,Server_Assets,NetworkCard_Assets
+from system.models import Email_Config
+from MysqlOps.models import DataBase_Server_Config
 from django.contrib.auth.models import User
-from OpsManage.utils.ansible_api_v2 import ANSRunner
+from utils.ansible_api_v2 import ANSRunner
 
 @task 
 def expireAssets(**kw):   

@@ -1,7 +1,8 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_ 
 from celery import task
-from OpsManage.models import Global_Config,Log_Cron_Config
+from system.models import Global_Config
+from CMDB.models import Log_Cron_Config
 
 
 @task  
