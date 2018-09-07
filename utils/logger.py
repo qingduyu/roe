@@ -2,7 +2,7 @@
 #coding:utf-8
 import logging.config
 logging.config.fileConfig("./conf/logger.ini")
-logger = logging.getLogger("opsmanage")
+logger = logging.getLogger("roeops")
 
 
 if __name__=='__main__':

@@ -18,7 +18,7 @@ import redis
 import threading
 
 def get_redis_instance():
-    from OpsManage.asgi import channel_layer
+    from roeops.asgi import channel_layer
     host,port = channel_layer.hosts[0].rsplit('redis://')[1].rsplit(':')
     return redis.StrictRedis(**{'host':host,'port':int(port.rsplit('/')[0]),'db':int(port.rsplit('/')[1])})
 
@@ -44,7 +44,7 @@ class CustomeFloatEncoder(json.JSONEncoder):
         return json.JSONEncoder.encode(self, obj)
 
 def posix_shell(chan,channel,width=90,height=40):
-    from OpsManage.asgi import channel_layer
+    from roeops.asgi import channel_layer
     stdout = list()
     begin_time = time.time()
     last_write_time = {'last_activity_time':begin_time}    

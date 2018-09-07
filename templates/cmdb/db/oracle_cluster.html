@@ -1,10 +1,230 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base_children.html' %}
+
+{% block self_head %}
+{##这里是 个性化的头部脚本呢#}
+{% endblock %}
+
+{% block content %}
+{#    #这里是真正的内容部分#}
+       <div class="layui-row">
+            <div class="layui-col-lg12">
+                <blockquote class="layui-elem-quote">
+
+                    <div class="layui-btn-group larryms-btn-group">
+                        <div class="layui-inline">
+                        	<div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
+                            <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="{% url 'idc_add' %}"><i class="layui-icon">&#xe61f;</i>
+                                <cite>添加集群</cite>
+                            </button>
+                            <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del" data-id="rolegroup"><i class="layui-icon">&#xe640;</i>
+                                <cite>删除集群</cite>
+                            </button>
+                        </div>
+                    </div>
+                </blockquote>
+
+                <table id="demo" lay-filter="demo" class="larryms-table-id" data-url="{% url 'api_idc_list' %}"></table>
+            </div>
+        </div>
+       <script type="text/html" id="toolbar">
+           <a class="layui-btn layui-btn-xs" data-url="oracle_instance.html" lay-event="show_instacne">查看实例</a>
+           <a class="layui-btn layui-btn-xs" data-url="oracle_user.html" lay-event="show_user">查看用户</a>
+           <a class="layui-btn layui-btn-xs" data-url="oracle_tablespace.html" lay-event="show_user">查看表空间</a>
+           <a class="layui-btn layui-btn-xs" data-url="roledit.html" lay-event="edit">编辑</a>
+           <a class="layui-btn layui-btn-xs layui-btn-danger" data-url="" lay-event="del">删除</a>
+    </script>
+
+{% endblock %}
+
+{% block self_foot %}
+{#    #这里是个性化的底足脚本#}
+    <script type="text/javascript">
+        layui.define(['jquery','table', 'form','layer'], function() {
+  var $ = layui.$,
+    larryms = layui.larryms,
+    form = layui.form;
+  table = layui.table
+  layer=layui.layer;
+  //按钮组监听
+  $('.larryms-btn-group .layui-btn').on('click', function() {
+      var type = $(this).data('type'),
+        url = $(this).data('url'),
+        tit = $(this).children('cite').text();
+      active[type] ? active[type].call(this, url, tit) : '';
+  });
+  var active = {
+      add: function(url, tit) {
+        var that = this;
+        if ($(that).attr('data-flag') == 'exist') {
+          var index = layui.cache.layerIndex,
+              $max = $max = $('#layui-layer' + index).find('.layui-layer-maxmin');
+          $max.click();
+          layui.cache.layerIndex = null;
+        } else {
+          $(that).attr('data-flag', 'exist');
+          var index = layer.open({
+            title: tit,
+            type: 2,
+            area: ['860px', '550px'],
+            content: url,
+            success: function(index, layero) {
+              form.render();
+            },
+            end: function() {
+              $(that).removeAttr("data-flag");
+              layui.cache.layerIndex = null;
+            }
+          });
+
+        }
+      },
+      del: function() {
+        //批量删除
+        var tableID = $(this).data('id'),
+            checkStatus = table.checkStatus(tableID),
+          data = checkStatus.data,
+          newsId = [];
+          console.log(tableID);
+        var url = $(this).data('url');
+        if (data.length > 0) {
+          for (var i in data) {
+            //排除默认管理员
+             if(data[i].id !== 1){
+                newsId.push(data[i].id);
+             }
+          }
+          if(newsId.length>0){
+              var ids = {"id":newsId};
+              larryms.confirm('你确定要执行批量删除吗？',{icon: 3, title:'批量删除提示！'},function(){
+                  $.post(url,ids,function(res){
+                    if(res.code==200){
+                      larryms.msg(res.msg);
+                      table.reload(tableID,{
+                         page:{
+                           curr:1
+                         }
+                      });
+                    }else{
+                      larryms.msg(res.msg);
+                    }
+                  });
+              });
+          }else{
+              larryms.msg('默认管理员不可删除,我是神一样的存在！');
+          }
+
+
+        } else {
+          larryms.msg('请至少选择一项，进行删除操作');
+        }
+      }
+    };
+
+
+
+    // 来自角色用户组
+        var tableDataUrl = $('#demo').data('url'),
+            roleIndex = table.render({
+                 elem:'#demo',
+                 id:'demo',
+                 cellMinWidth:80,
+                 url:tableDataUrl,
+                 method:'get',
+                 height:'full-130',
+                 page:true,
+                 cols:[
+                   [{
+                        type: "checkbox",
+                        fixed: 'left',
+                        width: 50
+                    },{
+                        field: 'name',
+                        title: '名称',
+                        minWidth: 80,
+                        align: 'center'
+                    },
+                       {
+                        field: 'arch',
+                        title: '架构',
+                        minWidth: 80,
+                        align: 'center'
+                    },{
+                        field: 'db_version',
+                        title: '版本',
+                        minWidth: 80,
+                        align: 'center',
+
+                    },{
+                        field: 'defaultdb',
+                        title: '主用DB',
+                        minWidth: 80,
+                        align: 'center'
+                    },
+                       {
+                        field: 'prod_line',
+                        title: '产品线',
+                        minWidth: 80,
+                        align: 'center'
+                    },
+                       {
+                        field: 'desc',
+                        title: '描述',
+                        minWidth: 80,
+                        align: 'center'
+                    },
+                       {
+                        field: 'operator',
+                        title: '可见人',
+                        minWidth: 80,
+                        align: 'center'
+                    },
+
+                       {
+                        title: '操作',
+                        minWidth: 115,
+                        templet: '#toolbar',
+                        fixed: "right",
+                        align: "center"
+                    }]
+                 ]
+            });
+
+// 监听工具条
+table.on('tool()', function(obj) {
+      var data = obj.data,
+
+          tit = '编辑 <em class="tit">'+data.title+ '</em> 信息';
+
+      if(obj.event == 'edit'){
+          var url =  $(this).data('url')+'?id='+data.id;
+
+          var editIndex =  larryms.open({
+              title: tit,
+              type: 2,
+              area: ['760px', '550px'],
+              content: url,
+              success: function(index, layero) {
+                form.render();
+              }
+          });
+      }else if(obj.event == 'del'){
+          var url = $(this).data('url');
+          larryms.confirm('你确定要删除该条数据吗？',{icon: 3, title:'删除提示'},function(){
+              var ids = {"id":data.id};
+              $.post(url,ids,function(res){
+                  if(res.code==200){
+                      larryms.msg(res.msg);
+                      table.reload(pageTableID,{});
+                  }else{
+                     larryms.msg(res.msg);
+                  }
+              });
+          });
+      }
+});
+
+});
+    </script>
+{% endblock %}
+
+

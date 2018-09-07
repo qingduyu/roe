@@ -2,15 +2,14 @@
 # _#_ coding:utf-8 _*_
 from rest_framework import viewsets,permissions
 from api import serializers
-from OpsManage.models import *
+
 from rest_framework import status
-from django.http import Http404
-from rest_framework.views import APIView
+
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth.decorators import permission_required
-from OpsManage.tasks.sql import sendOrderNotice
-from orders.models import Order_System
+from tasks.sql import sendOrderNotice
+from Orders.models import Order_System
 
 
 

@@ -2,7 +2,8 @@
 # _#_ coding:utf-8 _*_
 from rest_framework import viewsets,permissions
 from api import serializers
-from OpsManage.models import *
+from OpsControl.models import *
+from CMDB.models import *
 from rest_framework import status
 from django.http import Http404
 from rest_framework.views import APIView
@@ -10,7 +11,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth.decorators import permission_required
 from django.http import JsonResponse
-from OpsManage.utils.logger import logger
+from utils.logger import logger
 
 @api_view(['GET', 'POST' ])
 @permission_required('OpsManage.can_read_ansible_playbook',raise_exception=True)

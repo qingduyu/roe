@@ -3,26 +3,56 @@
 <head>
  <meta charset="utf-8">
 	<title>鱼仔技术2.0</title>
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="/static/layui/layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="/static/layui/css/public.css" media="all" />
+    <meta charset="UTF-8">
+    <meta name="Author" content="qingduyu" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <!-- load css -->
+    <link rel="stylesheet" type="text/css" href="/static/larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/larryms/css/animate.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/larryms/css/admin/scene.css" media="all">
 {#  引入自己的头部 #}
     {% block self_head %} {% endblock %}
 
 </head>
 
-<body class="childrenBody">
+<body class= "larryms-layout-bgA box-blank">
 
-{% block content %}
+<div class="layui-fluid">
+    <div class="larry-container">
+   {% block content %}
 
 {% endblock %}
 
-<script type="text/javascript" src="/static/layui/layui/layui.js"></script>
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/larryms/layui/layui.js"></script>
+<script type="text/javascript" src="/static/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+    //所有的模板中添加csrftoken 就不用为此召集了
+    function getCookie(name)
+{
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+
+    if(arr=document.cookie.match(reg))
+
+        return unescape(arr[2]);
+    else
+        return null;
+};
+    $(function () {
+    $.ajaxSetup({
+        headers: { "X-CSRFToken": getCookie("csrftoken") }
+    });
+});
+</script>
 {#引入自己的foot#}
 {% block self_foot %}
 
@@ -30,3 +60,7 @@
 </body>
 
 </html>
+
+
+
+

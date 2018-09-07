@@ -1,3 +1,36 @@
 django==1.11.14
 mysql-python==1.2.5
 djangorestframework=3.8.2
+djangorestframework-jwt==1.11
+coreapi (1.32.0+)
+Markdown (2.1.0+)
+django-filter (1.0.1+)
+django-crispy-forms
+django-guardian (1.1.1+)
+
+
+asgiref==1.1.2
+asgi-redis==1.4.3
+channels==1.1.7
+Celery==3.1.20
+django-celery==3.2.2
+celery-with-redis
+
+djangorestframework-jwt==1.11.0
+paramiko==2.4.1
+Pillow==5.1.0
+python-magic==0.4.15
+django-storages==1.6.5
+PyNaCl==1.2.1
+pycparser==2.18
+pyasn1==0.4.2
+ansible==2.3.3
+supervisor
+mysql-replication
+pymysql
+redis
+DBUtils
+xlrd
+chardet
+requests
+xlwt

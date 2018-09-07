@@ -3,13 +3,16 @@ from __future__ import unicode_literals
 from mptt.models import MPTTModel,TreeForeignKey
 from django.db import models
 
+
 class YewuTree(MPTTModel):
     name=models.CharField(max_length=32)
-    href=models.CharField(max_length=200,blank=True,null=True)
+    href=models.CharField(max_length=200,blank=True,null=True,help_text='moxingbiao')
     parent = TreeForeignKey('self', on_delete=models.CASCADE,null=True, blank=True, related_name='children',db_index=True)
 
     def __str__(self):
         return self.name
+
+
 
 
 
@@ -25,3 +28,5 @@ class Productline(models.Model):
 
     def __unicode__(self):
         return self.name
+
+

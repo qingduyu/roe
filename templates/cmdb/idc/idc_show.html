@@ -23,7 +23,7 @@
                     </div>
                 </blockquote>
 
-                <table id="idclist" lay-filter="idclist" class="larryms-table-id" data-url="{% url 'api_idc_list' %}"></table>
+                <table id="idclist" lay-filter="idclist" class="larryms-table-id" data-url="/cmdb/api/idcapi"></table>
             </div>
         </div>
        <script type="text/html" id="roleBtnBar">
@@ -62,7 +62,7 @@
           var index = layer.open({
             title: tit,
             type: 2,
-            area: ['760px', '550px'],
+            area: ['860px', '550px'],
             content: url,
             success: function(index, layero) {
               form.render();
@@ -119,8 +119,8 @@
 
 
 
-    // 来自角色用户组
-        var tableDataUrl = $('#rolegroup').data('url'),
+
+        var tableDataUrl = $('#idclist').data('url'),
             roleIndex = table.render({
                  elem:'#idclist',
                  id:'idclist',

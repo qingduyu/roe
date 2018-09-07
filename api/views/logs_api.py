@@ -1,7 +1,7 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_
 from api import serializers
-from OpsManage.models import *
+from OpsControl.models import *
 from rest_framework import status
 from django.http import Http404
 from django.contrib.auth.decorators import permission_required

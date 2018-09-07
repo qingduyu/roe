@@ -1,8 +1,8 @@
-{% extends 'index.html' %}
-{% block ace-content %}
-<script type="text/javascript" src="/static/dist/js/bootstrap-notify.js"></script>
+{% extends 'bootstrap_children.html' %}
+{% block self_head %}
+<script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap-notify.js"></script>
 {% endblock %}
-{% block page-content %}
+{% block content %}
 
 <div id="page-wrapper">
             <div class="row">
@@ -34,13 +34,7 @@
 												   <select class="form-control" name="asset_assets_type" id='assets_type_select' onchange="javascript:oBtAssetsType();" >
                                                        <option value="vmser" name="asset_assets_type">虚拟机</option>
                                                        <option value="server" name="asset_assets_type">物理机</option>
-{#														<option value="switch" name="asset_assets_type">交换机</option>	#}
-{#														<option value="route" name="asset_assets_type">路由器</option>	#}
-{#														<option value="printer" name="asset_assets_type">打印机</option>	#}
-{#														<option value="scanner" name="asset_assets_type">扫描仪</option>		#}
-{#														<option value="firewall" name="asset_assets_type">防火墙</option>	#}
-{#														<option value="storage" name="asset_assets_type">存储设备</option>	#}
-{#														<option value="wifi" name="asset_assets_type">无线设备</option>					#}
+
 													</select>	
 												</div>						
 											</div>					
@@ -114,15 +108,12 @@
                                             <div class="form-group">
 												 <label class="col-sm-2 control-label">资产编号</label>
 												 <div class="col-sm-6">
-{#												 	<input type="text" class="form-control" name="asset_name" placeholder="编号" value="" class="input-xlarge"  required/>#}
-{#                                                     <input type="text" class="form-control" name="asset_name" placeholder="编号" value="" class="input-xlarge" />#}
                                                      <input type="text" class="form-control" id="asset_name" name="asset_name" placeholder="编号" value="" class="input-xlarge"  />
 												 </div>
 											</div>
 											<div class="form-group">
 												 <label class="col-sm-2 control-label">设备序列号</label>
 												 <div class="col-sm-6">
-{#												 	<input type="text" class="form-control" name="asset_sn" placeholder="序列号" value="" class="input-xlarge"  required/>#}
                                                      <input type="text" class="form-control" name="asset_sn" placeholder="序列号" value="" class="input-xlarge" />
 												 </div>
 											</div>
@@ -460,13 +451,17 @@
 
 
 
-<script type="text/javascript"> 
+{% endblock %}
+
+{% block self_foot %}
+
+<script type="text/javascript">
 	$(function () { $("[data-toggle='tooltip']").tooltip(); });
-	
+
 	function oBtProjectSelect(){
 		   $('#asset_business option:selected').empty();
 		   var dbId = $('#asset_project option:selected').val();
-		   if ( dbId.length > 0){	 
+		   if ( dbId.length > 0){
 				$.ajax({
 					dataType: "JSON",
 					url:'/api/project/'+ dbId + '/', //请求地址
@@ -475,17 +470,17 @@
 						var binlogHtml = '<select class="form-control" name="asset_business" id="asset_business" >'
 						var selectHtml = '';
 						for (var i=0; i <response["service_assets"].length; i++){
-							 selectHtml += '<option name="asset_business" value="'+ response["service_assets"][i]["id"] +'">' + response["service_assets"][i]["service_name"] + '</option>' 
-						};                        
+							 selectHtml += '<option name="asset_business" value="'+ response["service_assets"][i]["id"] +'">' + response["service_assets"][i]["service_name"] + '</option>'
+						};
 						binlogHtml =  binlogHtml + selectHtml + '</select>';
-						document.getElementById("asset_business").innerHTML= binlogHtml;	
-							
+						document.getElementById("asset_business").innerHTML= binlogHtml;
+
 					},
-				});	
+				});
 		   };
-	
-	}	
-	
+
+	}
+
 	function getFormData (form, filler) {
 		var assets = {};
 		var server = {};
@@ -524,7 +519,7 @@
 				} catch (e) {
 					alert(e);
 				}
-			}			
+			}
 			else if(netStart==0){
 				var nsz = "net."+name.replace("net_","")+" = '" + value + "'";
 				try {
@@ -533,57 +528,57 @@
 					alert(e);
 				}
 			}
-			
+
 		}
 		if (assets.assets_type == "server" || assets.assets_type=="vmser"){
 			server.assets = assets;
-			return server;		
+			return server;
 		}
 		else {
 			net.assets = assets;
 			return net;
 		}
 	}
-	  {#var assets = ['asset_assets_type','asset_name','asset_sn','asset_expire_date','asset_buy_time','asset_buy_user','asset_management_ip','asset_manufacturer','asset_provider','asset_model','asset_status','asset_put_zone','asset_group','asset_business','asset_project'];#}
+
 	var  assets = ['asset_assets_type','asset_name','asset_status','asset_put_zone','asset_group','asset_business'];
     function oBtAssetsType() {
-		   var obj = document.getElementById("assets_type_select"); 
+		   var obj = document.getElementById("assets_type_select");
 		   var index = obj.selectedIndex;
-		   var value = obj.options[index].value; 
+		   var value = obj.options[index].value;
 		   if (value=="server"){
 			   document.getElementById("asset_net_chioce").style.display = "none";
-			   document.getElementById("asset_server_chioce").style.display = "";  
-			   document.getElementById("asset_vmserver_chioce").style.display = "";	
+			   document.getElementById("asset_server_chioce").style.display = "";
+			   document.getElementById("asset_vmserver_chioce").style.display = "";
 			   assets = ['asset_assets_type','asset_name','asset_sn','asset_expire_date','asset_buy_time','asset_buy_user','asset_management_ip','asset_manufacturer','asset_provider','asset_model','asset_status','asset_put_zone','asset_group','asset_business','asset_project'];
-               {#assets = ['asset_assets_type','asset_name','asset_sn','asset_buy_time','asset_buy_user','asset_management_ip','asset_manufacturer','asset_provider','asset_model','asset_status','asset_put_zone','asset_group','asset_business','asset_project'];#}
+
 		   }
 		   else if (value=="vmser"){
-			   document.getElementById("asset_server_chioce").style.display = "";  
-			   document.getElementById("asset_net_chioce").style.display = "none";		
-			   document.getElementById("asset_vmserver_chioce").style.display = "none";	
+			   document.getElementById("asset_server_chioce").style.display = "";
+			   document.getElementById("asset_net_chioce").style.display = "none";
+			   document.getElementById("asset_vmserver_chioce").style.display = "none";
 			   assets = ['asset_assets_type','asset_name','asset_status','asset_put_zone','asset_group','asset_business'];
-		   }		   
+		   }
  		   else {
 			   document.getElementById("asset_net_chioce").style.display = "";
-			   document.getElementById("asset_server_chioce").style.display = "none";	
-			   document.getElementById("asset_vmserver_chioce").style.display = "";	
+			   document.getElementById("asset_server_chioce").style.display = "none";
+			   document.getElementById("asset_vmserver_chioce").style.display = "";
 			   {#assets = ['asset_assets_type','asset_name','asset_sn','asset_buy_time','asset_buy_user','asset_management_ip','asset_manufacturer','asset_provider','asset_model','asset_status','asset_put_zone','asset_group','asset_business','asset_project'];#}
 		       assets = ['asset_assets_type','asset_name','asset_sn','asset_expire_date','asset_buy_time','asset_buy_user','asset_management_ip','asset_manufacturer','asset_provider','asset_model','asset_status','asset_put_zone','asset_group','asset_business','asset_project'];
 		    }
 	}
 
 	function oBtAuthType() {
-		   var obj = document.getElementById("auth_type_select"); 
+		   var obj = document.getElementById("auth_type_select");
 		   var index = obj.selectedIndex;
-		   var value = obj.options[index].value; 
+		   var value = obj.options[index].value;
 		   if (value=="0"){
-			   document.getElementById("auth_accout_select").style.display = "";  	   
+			   document.getElementById("auth_accout_select").style.display = "";
 		   }
 		   else {
-			   document.getElementById("auth_accout_select").style.display = "none";	
+			   document.getElementById("auth_accout_select").style.display = "none";
 		   }
-	}	
-	
+	}
+
 	function addAssetsData(obj) {
 		console.log(assets);
 		var form = document.getElementById('addAssets');
@@ -602,7 +597,7 @@
         {#    }#}
         {##}
         {# }; #}
-		var asset_data = getFormData(document.getElementById('addAssets'),''); 
+		var asset_data = getFormData(document.getElementById('addAssets'),'');
 		var btnObj = $(obj);
 		if (asset_data.assets.assets_type=="server" || asset_data.assets.assets_type=="vmser"){
 			var putUrl = '/api/server/';
@@ -629,11 +624,11 @@
 				{
 					type: 'danger',
 					delay: 3600000
-				});	
+				});
 	    	}
-		})	
-	}	
-	
+		})
+	}
+
     $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'})
 </script>
 {% endblock %}

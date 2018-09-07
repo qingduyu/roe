@@ -1,10 +1,241 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base_children.html' %}
+
+{% block self_head %}
+{##这里是 个性化的头部脚本呢#}
+{% endblock %}
+
+{% block content %}
+{#    #这里是真正的内容部分#}
+       <div class="layui-row">
+            <div class="layui-col-lg12">
+                <blockquote class="layui-elem-quote">
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <input type="text" class="layui-input searchVal" placeholder="请输入搜索的内容" onkeypress="if(event.keyCode==13) {searchBtn.click();return false;}" autocomplete="off">
+                        </div>
+                        <a class="layui-btn layui-btn-sm search_btn" id="searchBtn" data-type="reload">搜索</a>
+                    </div>
+                    <div class="layui-btn-group larryms-btn-group">
+                        <div class="layui-inline">
+                        	<div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
+                            <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="roleadd.html"><i class="layui-icon">&#xe61f;</i>
+                                <cite>添加角色组</cite>
+                            </button>
+                            <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del" data-id="rolegroup"><i class="layui-icon">&#xe640;</i>
+                                <cite>批量删除组</cite>
+                            </button>
+                        </div>
+                    </div>
+                </blockquote>
+                <table id="rolegroup" lay-filter="rolegroup" class="larryms-table-id" data-url="../../../larryms/data/admin/role.json"></table>
+            </div>
+        </div>
+       <script type="text/html" id="roleBtnBar">
+        <a class="layui-btn layui-btn-xs layui-btn-normal" data-url="admin/auth/grantauth.html?id={{d.id}}" lay-event="grantauth" data-group="0" data-id="18" data-group="0" data-icon="larry-quanxianguanli3">授权</a>
+        <a class="layui-btn layui-btn-xs" data-url="roledit.html" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" data-url="" lay-event="del">删除</a>
+    </script>
+
+{% endblock %}
+
+{% block self_foot %}
+{#    #这里是个性化的底足脚本#}
+    <script type="text/javascript">
+
+    layui.define(['jquery','table', 'form'], function(exports) {
+  var $ = layui.$,
+    larryms = layui.larryms,
+
+    form = layui.form;
+  table = layui.table;
+  //按钮组监听
+  $('.larryms-btn-group .layui-btn').on('click', function() {
+      var type = $(this).data('type'),
+        url = $(this).data('url'),
+        tit = $(this).children('cite').text();
+      active[type] ? active[type].call(this, url, tit) : '';
+  });
+  var active = {
+      add: function(url, tit) {
+        var that = this;
+        if ($(that).attr('data-flag') == 'exist') {
+          var index = layui.cache.layerIndex,
+              $max = $max = $('#layui-layer' + index).find('.layui-layer-maxmin');
+          $max.click();
+          layui.cache.layerIndex = null;
+        } else {
+          $(that).attr('data-flag', 'exist');
+          var index = larryms.open({
+            title: tit,
+            type: 2,
+            area: ['760px', '550px'],
+            content: url,
+            success: function(index, layero) {
+              form.render();
+            },
+            end: function() {
+              $(that).removeAttr("data-flag");
+              layui.cache.layerIndex = null;
+            }
+          });
+
+        }
+      },
+      del: function() {
+        //批量删除
+        var tableID = $(this).data('id'),
+            checkStatus = table.checkStatus(tableID),
+          data = checkStatus.data,
+          newsId = [];
+          console.log(tableID);
+        var url = $(this).data('url');
+        if (data.length > 0) {
+          for (var i in data) {
+            //排除默认管理员
+             if(data[i].id !== 1){
+                newsId.push(data[i].id);
+             }
+          }
+          if(newsId.length>0){
+              var ids = {"id":newsId};
+              larryms.confirm('你确定要执行批量删除吗？',{icon: 3, title:'批量删除提示！'},function(){
+                  $.post(url,ids,function(res){
+                    if(res.code==200){
+                      larryms.msg(res.msg);
+                      table.reload(tableID,{
+                         page:{
+                           curr:1
+                         }
+                      });
+                    }else{
+                      larryms.msg(res.msg);
+                    }
+                  });
+              });
+          }else{
+              larryms.msg('默认管理员不可删除,我是神一样的存在！');
+          }
+
+
+        } else {
+          larryms.msg('请至少选择一项，进行删除操作');
+        }
+      }
+    };
+
+
+//搜索用户
+    var pageTableID = $('.larryms-table-id').attr('id');
+    $('#searchBtn').on('click', function() {
+      var $searchVal = $('.searchVal').val();
+      if ($searchVal !== '') {
+
+        table.reload(pageTableID, {
+          page: {
+            curr: 1
+          },
+          where: {
+            key: $searchVal
+          }
+        })
+      } else {
+        larryms.message('请输入要您要搜索的用户名');
+      }
+    });
+
+
+    // 来自角色用户组
+        var tableDataUrl = $('#rolegroup').data('url'),
+            roleIndex = table.render({
+                 elem:'#rolegroup',
+                 id:'rolegroup',
+                 cellMinWidth:80,
+                 url:tableDataUrl,
+                 method:'post',
+                 height:'full-130',
+                 page:true,
+                 limits:[10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                 limit:10,
+                 cols:[
+                   [{
+                        type: "checkbox",
+                        fixed: 'left',
+                        width: 50
+                    },{
+                        field: 'title',
+                        title: '角色名称',
+                        minWidth: 80,
+                        align: 'center'
+                    }, {
+                        field: 'status',
+                        title: '角色状态',
+                        minWidth: 80,
+                        align: 'center',
+                        templet: function(d) {
+                            return d.status == "1" ? "正常" : "被限制";
+                        }
+                    },{
+                        field: 'description',
+                        title: '角色描述',
+                        minWidth: 80,
+                        align: 'center'
+                    },{
+                        field: 'create_time',
+                        title: '创建时间',
+                        minWidth: 80,
+                        align: 'center'
+                    },{
+                        title: '操作',
+                        minWidth: 115,
+                        templet: '#roleBtnBar',
+                        fixed: "right",
+                        align: "center"
+                    }]
+                 ]
+            });
+
+// 监听工具条
+table.on('tool('+pageTableID+')', function(obj) {
+      var data = obj.data,
+          tit='';
+      if(layui.cache.identified == 'userList'){
+          tit = '编辑 <em class="tit">'+data.username+ '</em> 的账号信息';
+      }else if(layui.cache.identified == 'role'){
+          tit = '编辑 <em class="tit">'+data.title+ '</em> 信息';
+      }
+
+
+      if(obj.event == 'edit'){
+          var url =  $(this).data('url')+'?id='+data.id;
+
+          var editIndex =  larryms.open({
+              title: tit,
+              type: 2,
+              area: ['760px', '550px'],
+              content: url,
+              success: function(index, layero) {
+                form.render();
+              }
+          });
+      }else if(obj.event == 'del'){
+          var url = $(this).data('url');
+          larryms.confirm('你确定要删除该条数据吗？',{icon: 3, title:'删除提示'},function(){
+              var ids = {"id":data.id};
+              $.post(url,ids,function(res){
+                  if(res.code==200){
+                      larryms.msg(res.msg);
+                      table.reload(pageTableID,{});
+                  }else{
+                     larryms.msg(res.msg);
+                  }
+              });
+          });
+      }
+});
+
+  exports('auth', {});
+});
+    </script>
+{% endblock %}
+
+

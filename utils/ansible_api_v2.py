@@ -11,9 +11,9 @@ from ansible.playbook.play import Play
 from ansible.executor.task_queue_manager import TaskQueueManager
 from ansible.plugins.callback import CallbackBase
 from ansible.executor.playbook_executor import PlaybookExecutor
-from OpsManage.data.DsRedisOps import DsRedis 
-from OpsManage.data.DsMySQL import AnsibleSaveResult
-from OpsManage.utils.logger import logger
+from utils.data.DsRedisOps import DsRedis
+from utils.data.DsMySQL import AnsibleSaveResult
+from utils.logger import logger
 
 
 class MyInventory(Inventory):  

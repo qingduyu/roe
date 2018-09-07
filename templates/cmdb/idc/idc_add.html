@@ -1,43 +1,160 @@
-{% extends 'bootstrap_children.html' %}
-{% block self_head_css_js %}
-    <script src="/static/layui/layer/layer.js"></script>
-{% endblock %}
+{% extends 'base_children.html' %}
+
 {% block content %}
 
 
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="alert alert-info alert-dismissible" style="display: {{ display_control }};">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4>{{ tips }}</h4>
-        </div>
-    </section>
+    <body class="auth-user">
+    <div class="layui-fluid">
+        <div class="layui-row larryms-panel auth-user-add">
+            <form action="" class="layui-form" method="post" id="userAddForm">
+{% csrf_token %}
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">机房名称</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="name" lay-verify="required" placeholder="请输入用户名"
+                                   type="text">
+                        </div>
+                    </div>
 
-    <!-- Main content -->
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">机房地址</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="address" placeholder="请输入地址" type="text">
+                    </div>
+                </div>
+                <div class="layui-form-item">
 
-    <section class="content">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">电话</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="tel" placeholder="请输入电话" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">客户经理</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="contact" placeholder="请输入地址" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">手机</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="contact" lay-verify="phone" placeholder="请输入手机"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">机柜</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="jigui" placeholder="机柜" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">IP范围</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="ip_range" placeholder="机柜" type="text">
+                        </div>
+                    </div>
 
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-        </div>
-        <div class="box-body">
-      <form action="{% url 'idc_add' %}" method="post">
-        {% csrf_token %}
-        {{ idc_form.as_p }}
-        <input type="submit" class="btn btn-primary" style="width: 60pt" value="提交">&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="{% url 'idc' %}"><li style="width: 60pt" class="btn btn-primary" value="">返回</li></a><br>
-          </form>
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          <i class="fa fa-info-circle"></i> 请勿重复添加条目
-        </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-    </section>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">接入带宽</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="bandwidth" placeholder="带宽" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">起租日</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="start_date" placeholder="" type="date">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">到期日</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="end_date" placeholder="点击选择" type="date">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">费用</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="cost" placeholder="金额" type="text">
+                        </div>
+                    </div>
+                </div>
 
-  </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">机房类型</label>
+                    <div class="layui-input-block">
+                        <select name="type">
+                            <option value=""></option>
+                            <option value="自建">自建</option>
+                            <option value="电信">电信</option>
+                            <option value="联通">联通</option>
+                            <option value="移动">移动</option>
+                            <option value="BGP" selected="">BGP</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="" lay-filter="addidc">提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- 加载js文件-->
+
+
+{% endblock %}
+{% block self_foot %}
+    <script type="text/javascript">
+
+        layui.use(['form', 'jquery', 'layer'], function () {
+            var form = layui.form,
+                $ = layui.jquery,
+                layer = layui.layer,
+                delFlage = false;
+
+            form.on("submit(addidc)", function (data) {
+                var loadIndex = layer.load(2, {
+                    shade: [0.3, '#333']
+                });
+
+                $.ajax({
+                    type: "POST",
+                    {#url: '/cmdb/api/idcapi/',#}
+                    {#url: '{% url 'api_idc_list' %}',#}
+                    url: '/cmdb/idc/api/idc_list',
+                    dataType: "json",
+                    contentType: "application/json",
+                    data: JSON.stringify(data.field),
+                    success: function (res) {
+                        layer.close(loadIndex);
+                        if (res.success) {
+                            parent.layer.msg("用户添加成功", {time: 1500}, function () {
+                                //刷新父级页面
+                                parent.location.reload();
+                            });
+                        } else {
+                            layer.msg(res.message);
+                        }
+                    }
+                });
+                return false;
+            });
+
+        });
+
+    </script>
 {% endblock %}

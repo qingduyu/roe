@@ -5,8 +5,6 @@ from CMDB.model.yewutree_model import YewuTree
 from django.contrib.auth.models import User
 
 
-
-
 #群，一定属于某一个产品线，可能属于多个组,一个节点也是群
 class OracleCluster(models.Model):
     arch = (
@@ -27,10 +25,21 @@ class OracleCluster(models.Model):
 
     class Meta:
         db_table = 'Oracle_Cluster'
-        verbose_name = 'Oracle 集群'
-        verbose_name_plural = 'Oracle集群'
+        verbose_name = 'Oracle_cluster'
+        verbose_name_plural = 'Oracle_cluster'
 
 
+#用于业务树节点有一个栏目是访问外部，或者被外部访问
+class YewuOracleCall(models.Model):
+     name=models.CharField(max_length=50)
+     chanpin=models.ForeignKey(YewuTree,related_name='chanpin')
+     OracleNotOwner=models.ManyToManyField(OracleCluster,related_name='OracleCluster')
+     def __str__(self):
+        return self.name
+     class Meta:
+        db_table='yewuoraclecall'
+        verbose_name = 'yewuoraclecall'
+        verbose_name_plural = 'yewuoraclecall'
 
 # 按照用户来划分产品线
 class OracleUser(models.Model):

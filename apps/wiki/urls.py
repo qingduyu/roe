@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from . import views
 # from .views import article_add,upload_image,article_edit,article_index
-from OpsManage.settings import MEDIA_ROOT
+from  roeops.settings import MEDIA_ROOT
 from django.views.static import serve
  
 urlpatterns = [

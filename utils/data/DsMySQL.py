@@ -1,8 +1,9 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_ 
-from OpsManage.models import (Log_Ansible_Model,Ansible_CallBack_Model_Result,
-                              Global_Config,Ansible_CallBack_PlayBook_Result,
+from OpsControl.models import (Log_Ansible_Model,Ansible_CallBack_Model_Result,
+                            Ansible_CallBack_PlayBook_Result,
                               Log_Ansible_Playbook)
+from system.models import Global_Config
 
 class AnsibleSaveResult(object): 
     class Model(object): 

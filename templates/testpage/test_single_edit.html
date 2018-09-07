@@ -4,24 +4,24 @@
 <body class="auth-user">
     <div class="layui-fluid">
         <div class="layui-row larryms-panel auth-user-add">
-            <form action="/test/publishers/" class="layui-form" method="post" id="userAddForm">
-                {% csrf_token %}
+            <form action="/test/publishers_detail/" class="layui-form" method="post" id="userAddForm">
+
+                <input name="id" value="{{ publisher.id }}" type="hidden">
                 <div class="layui-form-item">
                     <label class="layui-form-label">名称</label>
                     <div class="layui-input-inline">
-                        <input name="name" lay-verify="required" lay-vertype="tips" value="" autocomplete="off" class="layui-input" type="text">
+                        <input name="name" lay-verify="required"  value="{{ publisher.name }} "  class="layui-input" type="text">
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">类型</label>
+                    <label class="layui-form-label">地址</label>
                     <div class="layui-input-inline">
-                        <input name="address" lay-verify="required" lay-vertype="tips" value="" autocomplete="off" class="layui-input" type="text">
+                        <input name="address" lay-verify="required"  value="{{ publisher.address }}"  class="layui-input" type="text">
                     </div>
 
                 </div>
                 <div class="larryms-layer-btn">
-                    <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="useradd" id="submitAdd">确定</a>
-                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
+                    <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="useradd" id="submitAdd">提交</a>
                     <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
                 </div>
             </form>
@@ -41,7 +41,7 @@
         version: "2.0.8",
         base: '/static/larryms/',
          layertype: 2, //iframe内层弹窗类型不显示返回首页
-        rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+        rightMenu: custom // false关闭，设置为custom时使用自定义，不使用默认menu
     }).extend({
         larry: 'js/base'
     }).use(['larry','layer','form'], function() {
@@ -57,20 +57,36 @@
         $('#closeAdd').on('click', function() {
             parent.layer.close(curIfr);
         });
+        console.log({{ data.name }});
         form.on('submit(useradd)', function(data) {
-            $.post(data.form.action, data.field, function(res) {
-                if (res.code == 200) {
-                    larryms.msg(res.msg);
+
+            $.ajax({
+			    dataType: "JSON",
+			    url:data.form.action, //请求地址
+			    type:"PUT",  //提交类似
+			    contentType: "application/json",
+			    data: data.field,  //提交参数
+			    success:function(res){
+				larryms.msg(res.msg)
                     parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
                     parent.layer.close(curIfr);
-                    // $('#userAddForm')[0].reset();继续添加注销上一段
-
-                } else if (res.code == 911) {
-                    larryms.msg(res.msg);
-                } else if (res.code == 500) {
-                    larryms.msg(res.msg);
-                }
-            });
+			},
+	    	error:function(response){
+				larryms.msg( response.responseText);
+	    	}
+		});
+            {#$.post(data.form.action, data.field, function(res) {#}
+            {#    if (res.code == 200) {#}
+            {#        larryms.msg(res.msg);#}
+            {#        parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+            {#        parent.layer.close(curIfr);#}
+            {#        // $('#userAddForm')[0].reset();继续添加注销上一段#}
+            {##}
+            {#    } else if (res.code == 911) {#}
+            {#        larryms.msg(res.msg);#}
+            {#    } else if (res.code == 500) {#}
+            {#        larryms.msg(res.msg);#}
+            {#    }});#}
             return false;
         });
 
@@ -79,41 +95,6 @@
 
     </script>
 
-{#    <script type="text/javascript">#}
-{#    layui.use(['form','layer', 'table'], function() {#}
-{#        var $ = layui.$,#}
-{#            larry = layui.larry,#}
-{#            table = layui.talbe,#}
-{#            layer=layui.layer,#}
-{#            form = layui.form;#}
-{#        var curIfr = parent.layer.getFrameIndex(window.name);#}
-{#        $('#resetAdd').on('click', function() {#}
-{#            $('#userAddForm')[0].reset();#}
-{#        });#}
-{#        $('#closeAdd').on('click', function() {#}
-{#            parent.layer.close(curIfr);#}
-{#        });#}
-{#        form.on('submit(useradd)', function(data) {#}
-{#            $.post(data.form.action, data.field, function(res) {#}
-{#                console.log(res)#}
-{#                if (res.code == 200) {#}
-{#                    layer.msg(res.msg);#}
-{#                    parent.table.reload('adminuser', {});#}
-{#                    parent.layer.close(curIfr);#}
-{#                    // $('#userAddForm')[0].reset();继续添加注销上一段#}
-{##}
-{#                } else if (res.code == 911) {#}
-{#                    layer.msg(res.msg);#}
-{#                } else if (res.code == 500) {#}
-{#                    layer.msg(res.msg);#}
-{#                }#}
-{#            });#}
-{#            return false;#}
-{#        });#}
-{##}
-{#    });#}
-{#    </script>#}
-{# #}
 
 
 

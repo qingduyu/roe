@@ -1,7 +1,9 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_  
-from OpsManage.models import Assets,Server_Assets,Network_Assets,Ansible_Inventory,Project_Assets,Service_Assets
-from OpsManage.utils.logger import logger
+from CMDB.models import Assets,Server_Assets,Network_Assets
+from OpsControl.models import Ansible_Inventory
+from CodeOps.models import Project_Assets,Service_Assets
+from utils.logger import logger
 
 class AssetsSource(object):
     def __init__(self):

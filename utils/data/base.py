@@ -9,7 +9,7 @@ from django.conf import settings
 import MySQLdb  
 from MySQLdb.cursors import DictCursor  
 from DBUtils.PooledDB import PooledDB  
-from OpsManage.utils.logger import logger
+from utils.logger import logger
 
 class APBase(object):
     REDSI_POOL = 10000

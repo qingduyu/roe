@@ -2,10 +2,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
-from system.models import Menus
+from system.models import Menus,LarryMenus
 import json
 from django.contrib.auth.decorators import login_required
-
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url='/login')
 def index(request):
@@ -14,6 +14,82 @@ def index(request):
     except Exception as e:
         print(e)
     return render(request, 'index.html', locals())
+
+
+#新的菜单获取方式，一次性全部获取
+# @login_required(login_url='/login')
+@csrf_exempt
+def getmenu(request):
+    try:
+        menu_top = LarryMenus.objects.filter(pid__isnull=True)
+
+        d1 = []
+
+        for menu in menu_top:  # 顶级子菜单
+            temdic = dict()
+            temdic['title'] = menu.title
+            temdic['id']=menu.id
+            temdic['pid']=0
+            temdic['icon'] = menu.icon
+            temdic['url'] = menu.url
+            temdic['spread'] = menu.spread
+            temdic['param'] = menu.param
+            temdic['condition'] = menu.condition
+            smenus = LarryMenus.objects.filter(pid_id__exact=menu.id) #二级菜单
+
+            if smenus.exists():
+                d2 = []
+                for smenu in smenus:
+                    tempdic2 = dict()
+                    tempdic2['id']=smenu.id
+                    tempdic2['pid']=smenu.pid.id
+                    tempdic2['title'] = smenu.title
+                    tempdic2['icon'] = smenu.icon
+                    tempdic2['url'] = smenu.url
+                    tempdic2['spread'] = smenu.spread
+                    tempdic2['param'] = smenu.param
+                    tempdic2['condition'] = smenu.condition
+                    tmenus = LarryMenus.objects.filter(pid_id__exact=smenu.id)  # 三级菜单
+                    if tmenus.exists():
+                        d3=[]
+                        for tmenu in tmenus:
+                            tempdic3 = dict()
+                            tempdic3['id'] = tmenu.id
+                            tempdic3['pid'] = tmenu.pid.id
+                            tempdic3['title'] = tmenu.title
+                            tempdic3['icon'] = tmenu.icon
+                            tempdic3['url'] = tmenu.url
+                            tempdic3['spread'] = tmenu.spread
+                            tempdic3['param'] = tmenu.param
+                            tempdic3['condition'] = tmenu.condition
+                            fmenus = LarryMenus.objects.filter(pid_id__exact=tmenu.id)  # 四级菜单
+                            if fmenus.exists():
+                                d4=[]
+                                for fmenu in fmenus:
+                                    tempdic4 = dict()
+                                    tempdic4['id'] = fmenu.id
+                                    tempdic4['pid'] = fmenu.pid.id
+                                    tempdic4['title'] = fmenu.title
+                                    tempdic4['icon'] = fmenu.icon
+                                    tempdic4['url'] = fmenu.url
+                                    tempdic4['spread'] = fmenu.spread
+                                    tempdic4['param'] = fmenu.param
+                                    tempdic4['condition'] = fmenu.condition
+                                    d4.append(tempdic4)
+                                if d4:
+                                    tempdic3['children']=d4
+                            d3.append(tempdic3)
+                        if d3:
+                            tempdic2['children']=d3
+                    d2.append(tempdic2)
+                if d2:
+                    temdic['children'] = d2
+            d1.append(temdic)
+        data = {"data": d1, "code": 1, "msg": "返回成功", }
+        return HttpResponse(json.dumps(data), content_type="application/json")
+    except Exception as e:
+        print(e)
+
 
 
 # 获取子菜单
@@ -54,7 +130,7 @@ def submenu(request, id):
 
 @login_required
 def main(request):
-    return render(request, 'main.html')
+    return render(request, 'console.html')
 
 
 def codeing(request):

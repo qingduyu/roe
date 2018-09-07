@@ -14,7 +14,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from system.serialize import *
+from system.serializers import *
 # from OpsManage.models import (Server_Assets,Service_Assets,Assets,User_Server,Global_Config,Project_Assets)
 
 
@@ -203,13 +203,13 @@ def user(request,uid):
     
 
 @login_required()
-def role():
+def rolelist(request):
     """
     角色管理，用于菜单的展示
     比如设置 管理员角色，应用管理员角色，DBA角色，
     :return:
     """
-    return True
+    return render(request,'system/users/rolelist.html')
 
 @login_required()
 @permission_required('auth.change_group',login_url='/noperm/')           

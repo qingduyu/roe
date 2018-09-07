@@ -12,7 +12,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from system.serialize import *
+from system.serializers import *
 
 # !/usr/bin/env python
 # _#_ coding:utf-8 _*_
@@ -23,6 +23,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import permission_required
+
 
 
 @api_view(['GET', 'POST'])
@@ -132,3 +133,19 @@ def group_detail(request, id, format=None):
         # recordAssets.delay(user=str(request.user), content="删除用户组：{group_name}".format(group_name=snippet.name),
         #                    type="group", id=id)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def role_list(request,format=None):
+
+    if request.method == 'GET':
+        snippets = Role.objects.all()
+        serializer = RoleSerializer(snippets, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = RoleSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

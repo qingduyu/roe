@@ -41,9 +41,9 @@
                 treeColIndex: 1,
                 treeSpid: '-1',
                 treeIdName: 'id',
-                treePidName: 'parent_copy',
+                treePidName: 'pid',
                 elem: '#auth-table',
-                url: '/system/getmenulist',
+                url: '/system/getlarrymenu',
                 page: false,
                 cols: [[
                     {type: 'numbers'},
@@ -70,9 +70,10 @@
                         title: '展开'
                     },
 
-                    {field: 'href', minWidth: 200, title: '连接地址'},
+                    {field: 'url', minWidth: 200, title: '连接地址'},
                     {field: 'priority', width: 80, align: 'center', title: '优先级'},
-                    {field: 'target', width: 80, align: 'center', title: 'target'},
+                    {field: 'font', width: 80, align: 'center', title: 'font'},
+                     {field: 'icon', width: 80, align: 'center', title: 'icon'},
                     {templet: '#auth-state', width: 280, align: 'center', title: '操作'}
                 ]],
                 done: function () {

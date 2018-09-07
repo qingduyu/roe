@@ -16,7 +16,7 @@ class GroupSerializer(serializers.ModelSerializer):
 class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
-        fields = ('id', 'name')
+        fields = ('id', 'name','desc','status')
 
 #用户表
 class UserSerializer(serializers.ModelSerializer):

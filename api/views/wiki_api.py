@@ -1,7 +1,7 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_
 from rest_framework import viewsets,permissions
-from api.serializers import  TagSerializer,CategorySerializer,PostSerializer
+from api.serializers import   TagSerializer,CategorySerializer,PostSerializer
 from wiki.models import Category,Tag,Post
 from rest_framework import status
 from rest_framework.response import Response

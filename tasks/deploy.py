@@ -2,8 +2,9 @@
 # _#_ coding:utf-8 _*_ 
 import json
 from celery import task
-from OpsManage.utils import base
-from OpsManage.models import (Log_Project_Config,Global_Config,Email_Config,)
+from utils import base
+from CodeOps.models import Log_Project_Config
+from system.models import Global_Config,Email_Config
 from django.contrib.auth.models import User
 from channels import Group as CGroups
 

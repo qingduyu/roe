@@ -33,5 +33,42 @@ class Idc(models.Model):
 
     class Meta:
         db_table=u'IDC'
-        verbose_name = u'数据中心'
+        verbose_name = u'IDC'
         verbose_name_plural = verbose_name
+
+
+
+class Zone_Assets(models.Model):
+    zone_name = models.CharField(max_length=100, unique=True)
+    zone_contact = models.CharField(max_length=100, blank=True, null=True, verbose_name='机房联系人')
+    zone_number = models.CharField(max_length=100, blank=True, null=True, verbose_name='联系人号码')
+    zone_network = models.CharField(max_length=100, blank=True, null=True, verbose_name='机房网段')
+    '''自定义权限'''
+
+    class Meta:
+        db_table = 'opsmanage_zone_assets'
+        permissions = (
+            ("can_read_zone_assets", "读取机房资产权限"),
+            ("can_change_zone_assets", "更改机房资产权限"),
+            ("can_add_zone_assets", "添加机房资产权限"),
+            ("can_delete_zone_assets", "删除机房资产权限"),
+        )
+        verbose_name = '机房资产表'
+        verbose_name_plural = '机房资产表'
+
+
+class Line_Assets(models.Model):
+    line_name = models.CharField(max_length=100, unique=True)
+    '''自定义权限'''
+
+    class Meta:
+        db_table = 'opsmanage_line_assets'
+        permissions = (
+            ("can_read_line_assets", "读取出口线路资产权限"),
+            ("can_change_line_assetss", "更改出口线路资产权限"),
+            ("can_add_line_assets", "添加出口线路资产权限"),
+            ("can_delete_line_assets", "删除出口线路资产权限"),
+        )
+        verbose_name = '出口线路资产表'
+        verbose_name_plural = '出口线路资产表'
+

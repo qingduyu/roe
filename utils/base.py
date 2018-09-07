@@ -9,7 +9,7 @@ from datetime import datetime,timedelta,date
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication 
 from email.mime.multipart import MIMEMultipart
-from OpsManage.utils.logger import logger
+from utils.logger import logger
 
 def file_iterator(file_name, chunk_size=512):
     f = open(file_name, "rb")

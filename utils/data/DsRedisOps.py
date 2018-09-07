@@ -1,6 +1,6 @@
 # -*- coding=utf-8 -*-
-from OpsManage.data.base import APBase
-from OpsManage.utils.logger import logger
+from .base import APBase
+from utils.logger import logger
 
 class DsRedis(object):
     class OpsDeploy(object):

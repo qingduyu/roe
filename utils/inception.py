@@ -1,8 +1,8 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_ 
 import re, MySQLdb
-from OpsManage.models import Inception_Server_Config,Custom_High_Risk_SQL
-from OpsManage.utils.logger import logger
+from MysqlOps.models import Inception_Server_Config,Custom_High_Risk_SQL
+from utils.logger import logger
 
 class Inception():
     def __init__(self,host=None,name=None,user=None,passwd=None,port=None):
