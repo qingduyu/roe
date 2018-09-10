@@ -1,0 +1,153 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary { display: block; }
+audio,
+canvas,
+video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0; }
+[hidden] { display: none; }
+html { font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+a:focus { outline: thin dotted; }
+a:active,
+a:hover { outline: 0; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+abbr[title] { border-bottom: 1px dotted; }
+b,
+strong { font-weight: bold; }
+dfn { font-style: italic; }
+hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
+mark { background: #ff0; color: #000; }
+code,
+kbd,
+pre,
+samp { font-family: monospace, serif; font-size: 1em; }
+pre { white-space: pre-wrap; }
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+small { font-size: 80%; }
+sub,
+sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+img { border: 0; }
+svg:not(:root) { overflow: hidden; }
+figure { margin: 0; }
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+legend { border: 0; padding: 0; }
+button,
+input,
+select,
+textarea { font-family: inherit; font-size: 100%; margin: 0; }
+button,
+input { line-height: normal; }
+button,
+select { text-transform: none; }
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
+button[disabled],
+html input[disabled] { cursor: default; }
+input[type="checkbox"],
+input[type="radio"] { box-sizing: border-box; padding: 0; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+button::-moz-focus-inner,
+input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; }
+table { border-collapse: collapse; border-spacing: 0; }
+html { width: 100%; height: 100%; overflow-x: hidden; }
+body { width: 100%; height: 100%; padding: 0px; margin: 0px; position: relative; }
+.pageload-overlay { position: fixed; width: 100%; height: 100%; top: 0; left: 0; visibility: hidden; }
+.pageload-overlay.show { visibility: visible; }
+.pageload-overlay svg { position: absolute; top: 0; left: 0; pointer-events: none; }
+.pageload-overlay svg path { fill: #5FB878; }
+.pageload-overlay::after,
+.pageload-overlay::before { content: ''; position: fixed; width: 20px; height: 20px; top: 50%; left: 50%; margin: -10px 0 0 -10px; border-radius: 50%; visibility: hidden; opacity: 0; z-index: 1000; -webkit-transition: opacity 0.15s, visibility 0s 0.15s; transition: opacity 0.15s, visibility 0s 0.15s; }
+.pageload-overlay::after { background: #6cc88a; -webkit-transform: translateX(-20px); transform: translateX(-20px); -webkit-animation: moveRight 0.6s linear infinite alternate; animation: moveRight 0.6s linear infinite alternate; }
+.pageload-overlay::before { background: #4fc3f7; -webkit-transform: translateX(20px); transform: translateX(20px); -webkit-animation: moveLeft 0.6s linear infinite alternate; animation: moveLeft 0.6s linear infinite alternate; }
+@-webkit-keyframes moveRight {
+	to { -webkit-transform: translateX(20px); }
+}
+@keyframes moveRight {
+	to { transform: translateX(20px); }
+}
+@-webkit-keyframes moveLeft {
+	to { -webkit-transform: translateX(-20px); }
+}
+@keyframes moveLeft {
+	to { transform: translateX(-20px); }
+}
+.pageload-loading.pageload-overlay::after,
+.pageload-loading.pageload-overlay::before { opacity: 1; visibility: visible; -webkit-transition: opacity 0.3s; transition: opacity 0.3s; }
+body.library.larryms-fonts { background: #f8f8f8; }
+.larryms-fonts-box { display: none; }
+.larryms-fonts-box.show { display: block; display: block !important; }
+.larryms-fonts .layui-fluid>.top-info { background: #00BCD4;	/*background: #009688;*/ padding: 15px 20px 25px 20px; }
+.top-info h1 { font-size: 33px; display: block; width: 100%; height: 50px; text-align: center; line-height: 60px; color: #fff; font-weight: 500; margin-bottom: 35px; }
+.top-info h1>.h1-em { color: #F4805C; font-size: 36px; padding-left: 10px; padding-right: 8px; }
+.inline-block { display: inline-block; }
+.larryms-fonts-search { display: block; max-width: 415px; margin: 0 auto; text-align: center; margin-bottom: 15px; }
+.larryms-fonts-search .layui-input { max-width: 320px; float: left; border-radius: 3px; }
+.larryms-fonts-search .searchs { padding-left: 25px; padding-right: 25px; float: right; }
+.larryms-bg-rg { background: #5FB878 }
+.top-info>p { display: block; width: 70%; height: auto; margin: 0 auto; font-size: 14px; color: #fff; line-height: 40px; text-align: center; }
+.icon_lists { width: 100% !important; }
+.icon_lists li { float: left; width: 86px; height: 86px; text-align: center; list-style: none !important; cursor: pointer; margin-bottom: 5px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.icon_lists li:hover { width: 82px; height: 82px; border: 2px solid #009688 !important; background: #252245; color: #ffffff; opacity: 0.8; border-radius: 5px }
+.icon_lists li .code { font-size: 16px }
+.icon_lists li:hover .code { color: #FF5722 }
+.icon_lists li:hover i { color: #6FC13A }
+.icon_lists .icon { font-size: 26px; line-height: 50px; margin: 10px 0; color: #333; -webkit-transition: font-size 0.25s ease-out 0s; -moz-transition: font-size 0.25s ease-out 0s; transition: font-size 0.25s ease-out 0s }
+.icon_lists .icon:hover { font-size: 50px }
+.icon_lists .name { text-align: center; white-space: nowrap; text-overflow: ellipsis; }
+.icon_lists .fontclass { text-align: center; white-space: nowrap; text-overflow: ellipsis; display: none; }
+.markdown { color: #666; font-size: 14px; line-height: 1.8 }
+.main { padding-top: 30px !important; }
+.markdown > ul { width: 80% }
+.markdown ul > li { list-style: circle }
+.markdown > ul li,
+.markdown blockquote ul > li { margin-left: 15px; padding-left: 4px }
+.markdown > ul li p,
+.markdown > ol li p { margin: 0.6em 0 }
+.markdown ol > li { list-style: decimal }
+.markdown > ol li,
+.markdown blockquote ol > li { margin-left: 15px; padding-left: 4px }
+/*图标库结束*/
+
+
+
+
+
+/*移动端兼容*/
+@media screen and (max-width:768px) {
+	.top-info>h1 { font-size: 21px; display: block; width: 100%; height: 40px; text-align: center; line-height: 40px; color: #fff; font-weight: 500; margin-bottom: 25px; }
+	.top-info h1>.h1-em { color: #F4805C; font-size: 30px; padding-left: 8px; padding-right: 6px; }
+	.larryms-fonts-search { display: block; max-width: 325px; margin: 0 auto; height: 32px; text-align: center; margin-bottom: 15px; }
+	.larryms-fonts-search .layui-input { max-width: 220px; float: left; height: 32px; border-radius: 3px; }
+	.larryms-fonts-search .searchs { padding-left: 25px; padding-right: 25px; height: 33px; float: right; }
+	.top-info>p { display: block; width: 88%; height: auto; margin: 0 auto; font-size: 12px; color: #fff; line-height: 25px; text-align: center; }
+	.icon_lists li { float: left; width: 66px; height: 66px; text-align: center; list-style: none !important; cursor: pointer; margin-bottom: 5px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+	.icon_lists li:hover { width: 62px; height: 62px; border: 2px solid #009688 !important; background: #252245; color: #ffffff; opacity: 0.8; border-radius: 5px }
+	.icon_lists .icon { font-size: 20px; line-height: 30px; margin: 10px 0; color: #333; -webkit-transition: font-size 0.25s ease-out 0s; -moz-transition: font-size 0.25s ease-out 0s; transition: font-size 0.25s ease-out 0s }
+	.icon_lists .icon:hover { font-size: 30px }
+	.markdown > ul { width: 88% }
+	.markdown ul > li { list-style: circle }
+	.markdown > ul li,
+	.markdown blockquote ul > li { margin-left: 9px; padding-left: 4px }
+	.markdown > ul li p,
+	.markdown > ol li p { margin: 0.6em 0 }
+	.markdown ol > li { list-style: decimal }
+	.markdown > ol li,
+	.markdown blockquote ol > li { margin-left: 9px; padding-left: 4px }
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>管理员列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css" media="all">
+</head>
+
+<body class="larryms-system larryms-system-add-edit">
+    <div class="layui-fluid">
+        <div class="layui-row larryms-panel auth-user-add">
+            <form action="{:url('add')}" class="layui-form" method="post" id="userAddForm">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">配置标识</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" value="" lay-verify="required" placeholder="请输入配置标识名称" class="layui-input larry-input" autocomplete="off">
+                    </div>
+                    <span class="larry-conf-remark">（用于C函数调用，只能使用英文且不能重复）</span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">配置标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" value="" lay-verify="required" placeholder="请输入配置标题" class="layui-input larry-input" autocomplete="off">
+                    </div>
+                    <span class="larry-conf-remark">（用于后台显示的配置标题）</span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">配置类型</label>
+                    <div class="layui-input-block">
+                        <select name="data_type" lay-filter="aihao">
+                            <option value="1" selected="">输入框</option>
+                            <option value="2">单选框</option>
+                            <option value="3">复选框</option>
+                            <option value="4">下拉菜单</option>
+                            <option value="5">文本域</option>
+                            <option value="6">附件类型</option>
+                            <option value="7">HTML文本</option>
+                            <option value="8">分割提示</option>
+                        </select>
+                    </div>
+                    <span class="larry-conf-remark">（系统会根据不同类型解析配置值）</span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">配置分组</label>
+                    <div class="layui-input-block">
+                        <select name="conf_group" lay-filter="confgroup">
+                            <option value="10">站点设置</option>
+                            <option value="20">邮件配置</option>
+                            <option value="30">附件设置</option>
+                            <option value="40">第三方登录配置</option>
+                            <option value="50">短信接口设置</option>
+                            <option value="60">核心设置</option>
+                            <option value="70">水印设置</option>
+                            <option value="80">系统接口配置</option>
+                            <option value="90">社区基础设置</option>
+                            <option value="100">社区财富奖励规则</option>
+                        </select>
+                    </div>
+                    <span class="larry-conf-remark">（配置分组 用于批量设置,扩展分组用于单独设置）</span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">配置排序</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sort" lay-verify="title" autocomplete="off" placeholder="请输入排序号" class="layui-input" value="50">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">配置项默认值</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入内容" name="default_values" class="layui-textarea"></textarea>
+                    </div>
+                    <span class="larry-conf-remark">（配置值）</span>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">配置项可选值</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入内容" name="option_values" class="layui-textarea"></textarea>
+                    </div>
+                    <span class="larry-conf-remark">（配置项可选值）</span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">配置说明</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="remark" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                    </div>
+                    <span class="larry-conf-remark">（配置详细说明）</span>
+                </div>
+                <div class="larryms-layer-btn">
+                    <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="confAdd" id="confAdd">确定</a>
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    layui.cache.page = 'auth';
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/', //实际使用时，建议改成绝对路径
+        identified: 'userList',
+        layertype: 2, //iframe内层弹窗类型不显示返回首页
+        rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base'
+    }).use(['larry', 'table'], function() {
+        var $ = layui.$,
+            larry = layui.larry,
+            table = layui.talbe,
+            larryms = layui.larryms,
+            form = layui.form;
+        var curIfr = parent.layer.getFrameIndex(window.name);
+        $('#resetAdd').on('click', function() {
+            $('#userAddForm')[0].reset();
+        });
+        $('#closeAdd').on('click', function() {
+            parent.layer.close(curIfr);
+        });
+
+        form.on('submit(confAdd)', function(data) {
+
+            $.post(data.form.action, data.field, function(res) {
+                if (res.code == 200) {
+                    larryms.msg(res.msg);
+                    parent.table.reload('systemConf', {});
+                    parent.layer.close(curIfr);
+                    // $('#userAddForm')[0].reset();继续添加注销上一段
+
+                } else if (res.code == 911) {
+                    larryms.msg(res.msg);
+                } else if (res.code == 500) {
+                    larryms.msg(res.msg);
+                }
+            });
+            return false;
+        });
+
+    });
+    </script>
+</body>
+
+</html>

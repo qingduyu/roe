@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>管理员列表</title>
+  	<meta name="renderer" content="webkit">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+  	<meta name="Author" content="larry" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="apple-mobile-web-app-capable" content="yes">	
+	<meta name="format-detection" content="telephone=no">	
+	<link rel="Shortcut Icon" href="/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css" media="all">
+</head>
+<body class="auth-user">
+<div class="layui-fluid">
+	<div class="layui-row larryms-panel auth-user-add">
+		<form action="" class="layui-form" method="post" id="roleForm">
+          <div class="padding-30"></div>
+          <input type="hidden" name="id" value="">
+          <div class="layui-form-item">
+                <label class="layui-form-label">角色名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" value="超级管理员" required="" lay-verify="required" placeholder="请输入角色名称" class="layui-input larry-input" autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">角色描述</label>
+                <div class="layui-input-block larry-textarea">
+                     <textarea name="description" placeholder="请输入该角色组描述信息" class="layui-textarea"  value="" autocomplete="off"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">角色状态</label>
+                <div class="layui-input-block">
+                        <input type="checkbox" checked="checked" value="1" name="status" lay-skin="switch" lay-filter="switchTest" lay-text="启用|禁用">
+                 </div>
+            </div>
+           <div class="larryms-layer-btn">
+                 <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="roleadd" id="submitAdd">确定</a>
+                 <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
+                 <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+           </div>
+        
+		</form>
+	</div>
+</div>
+<!-- 加载js文件-->
+<script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+<script type="text/javascript">
+layui.cache.page = 'auth'; 
+layui.config({
+   version:"2.0.8",
+   base:'../../../larryms/',  //实际使用时，建议改成绝对路径
+   identified:'userList',
+   layertype: 2, //iframe内层弹窗类型不显示返回首页
+   rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+}).extend({
+    larry:'js/base'
+}).use(['larry','table'],function(){
+   var $ = layui.$,
+      larry = layui.larry,
+      table = layui.talbe,
+      larryms = layui.larryms,
+      form = layui.form;
+  var curIfr = parent.layer.getFrameIndex(window.name);
+  $('#resetAdd').on('click',function(){
+      $('#roleForm')[0].reset();
+  });
+  $('#closeAdd').on('click',function(){
+     parent.layer.close(curIfr);   
+  });
+  form.on('submit(roleadd)',function(data){
+      $.post(data.form.action,data.field,function(res){
+          if(res.code == 200){
+              larryms.msg(res.msg);
+              parent.table.reload('rolegroup',{});
+              parent.layer.close(curIfr);
+              // $('#roleForm')[0].reset();继续添加注释上一段
+              
+          }else if(res.code == 911){
+              larryms.msg(res.msg);
+          }else if(res.code == 500){
+              larryms.msg(res.msg);
+          }
+      });
+      return false;
+  });
+        
+});
+</script>
+</body>
+</html>

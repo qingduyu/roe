@@ -1,0 +1,64 @@
+*{margin: 0;padding: 0;list-style: none;}
+
+
+/** 设置默认字体 **/
+body,
+button, input, select, textarea /* for ie */ {
+  font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+}
+
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+
+
+
+/* 清除浮动 */
+.ks-clear:after, .clear:after {
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both;
+}
+.ks-clear, .clear {
+  *zoom: 1;
+}
+
+
+.icon_lists{
+  width: 100% !important;
+
+}
+
+.icon_lists li{
+  float:left;
+  width: 30px;
+  height:30px;
+  text-align: center;
+  list-style: none !important;
+}
+.icon_lists .icon{
+  font-size: 20px;
+  line-height: 20px;
+  margin: 10px 0;
+  color:#333;
+  -webkit-transition: font-size 0.25s ease-out 0s;
+  -moz-transition: font-size 0.25s ease-out 0s;
+  transition: font-size 0.25s ease-out 0s;
+  cursor: pointer;
+}
+.icon_lists .icon:hover{
+  font-size: 24px;
+}
+
+
+
+
+
+pre{
+  background: #fff;
+}
+
+
+
+
+

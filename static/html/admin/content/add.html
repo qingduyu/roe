@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>增加文章</title>
+  <meta name="renderer" content="webkit">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+  <meta name="Author" content="larry" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="apple-mobile-web-app-capable" content="yes">	
+	<meta name="format-detection" content="telephone=no">	
+	<link rel="Shortcut Icon" href="/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css">
+  <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/article.css" media="all">
+</head>
+<body class="larryms-system article">
+<div class="layui-fluid larryms-article">
+      <div class="larryms-panel-heading clearfix">
+           <span class="panel-tit">当前文档所属栏目：<em>资讯中心</em></span>
+      </div>
+      <div class="layui-tab-content larryms-panel-body">
+           <form action="/admin/archives/articleadd.html"  width800 class="layui-form" method="post" id="articleAddBox">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                          <label class="layui-form-label">文章标题：</label>
+                          <div class="layui-input-inline doc-title">
+                               <input type="text" lay-verify='required' name="title" class="layui-input larry-input" autocomplete="off" value="" placeholder="请输入文当标题">
+                          </div>
+                          <div class="layui-form-mid layui-word-aux">【*必填】</div>
+                    </div>
+                    <div class="layui-inline">
+                          <label class="layui-form-label">简略标题：</label>
+                          <div class="layui-input-inline">
+                                <input type="text" name="shorttitle" class="layui-input larry-input" value="" autocomplete="off" placeholder="请输入文档简略副标题">
+                          </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">自定义属性：</label>
+                    <div class="layui-input-block">
+                         <input type="checkbox" name="flag[]" lay-skin="primary" title="头条" value="h">
+                         <input type="checkbox" name="flag[]" lay-skin="primary" title="推荐" value="c">
+                         <input type="checkbox" name="flag[]" lay-skin="primary" title="图片" value="p">
+                         <input type="checkbox" name="flag[]" lay-skin="primary" title="幻灯片" value="f">
+                         <input type="checkbox" name="flag[]" lay-skin="primary" title="跳转" value="j">
+                         <input type="checkbox" name="flag[]" lay-skin="primary" title="特荐" value="a">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">【请根据需要选择文档属性】</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">缩略图：</label>
+                    <div class="layui-input-block doc-litpic">
+                        <input type="text" name="litpic" value="" id="litpicPath" class="layui-input">
+                        <button type="button" name="avatar" class="layui-btn layui-btn-sm" data-url="/admin/archives/upload.html" lay-data="{field:'litpic'}" id="larry-litpic"><i class="layui-icon"></i>本地上传</button>
+                        <div class="larryms-img-view">
+                            
+                         </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                          <label class="layui-form-label">文章来源：</label>
+                          <div class="layui-input-inline">
+                               <input type="text" name="source" autocomplete="off" class="layui-input larry-input">
+                          </div>
+                    </div>
+                    <div class="layui-inline">
+                          <label class="layui-form-label">文章作者：</label>
+                          <div class="layui-input-inline">
+                                <input type="text" name="writer" autocomplete="off" class="layui-input larry-input">
+                          </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">所属栏目：</label>
+                    <div class="layui-input-inline">
+                        <select name="cid" lay-verify="required" lay-search="" lay-filter="cate">
+                              <option value="">直接选择或搜索选择</option>
+                                                             <option value="1" >服务</option>
+                                                             <option value="2" >更新日志</option>
+                                                             <option value="3" >&nbsp;├─LarryMS更新日志</option>
+                                                             <option value="4" >&nbsp;└─LarryCMS更新日志</option>
+                                                             <option value="5" >商业授权</option>
+                                                             <option value="6"  selected="selected" >资讯中心</option>
+                                                      </select>
+                        <input type="hidden" name="mid" id="model_id" value="1">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux"> 【必填】</div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">关键词：</label>
+                    <div class="layui-input-inline doc-keywords">
+                        <input type="text" name="keywords" autocomplete="off" class="layui-input larry-input" placeholder="请输入文章关键词设置">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">摘要描述：</label>
+                    <div class="layui-input-inline">
+                         <textarea placeholder="请输入文章内容摘要描述" autocomplete="off" name="description" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+           	                 <!-- 系统模型  -->
+                <input type="hidden" name="model_type" value="1">
+           	                <div class="layui-form-item html-body">
+                    <label class="layui-form-label">文章正文：</label>
+                      <div class="layui-input-block body">
+                              <textarea name="body"   class="htmlBody" id="htmlBody0"></textarea>
+                      </div>
+                </div>
+                                <input type="hidden" name="userip" value="::1">
+
+                <div class="layui-form-item">
+                      <div class="layui-inline">
+                          <label class="layui-form-label">发布日期：</label>
+                          <div class="layui-input-inline">
+                            <input type="text" name="pubdate" id="larrymsdate" placeholder="yyyy-MM-dd HH:mm:ss" autocomplete="off" class="layui-input">
+                          </div>
+                      </div>
+                      <div class="layui-inline">
+                           <label class="layui-form-label">点击次数：</label>
+                           <div class="layui-input-inline">
+                               <input type="text" name="click" class="layui-input larry-input" value="0">
+                           </div>
+                      </div>
+                </div>
+                <div class="layui-form-item submit">
+                     <div class="layui-btn" lay-submit lay-filter="articleAdd">保存文章</div>
+                     <div class="layui-btn" id="resetAll">重置</div>
+                </div>
+           </form>
+      </div>
+</div>
+
+<!-- 加载js文件-->
+<script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+<script type="text/javascript">
+var table;
+layui.cache.page = 'content'; 
+layui.config({
+   version:"2.0.8",
+   base:'../../../larryms/',  //实际使用时，建议改成绝对路径
+   identified:'add',
+   rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+}).extend({
+    larry:'js/base'
+}).use(['larry','form','neditor','upload','laydate'],function(){
+    var $ = layui.$,
+        larry = layui.larry,
+        form = layui.form,
+        larryms = layui.larryms,
+        upload = layui.upload,
+        laydate = layui.laydate,
+        neditor = layui.neditor;
+    
+   var $html = $('.htmlBody');
+   if($html.length>1){
+      $html.each(function(){
+           var curId = $(this).attr('id'),
+               $container = 'ue'+curId;
+          $container = UE.getEditor(curId,{initialFrameWidth:null});
+      });
+   }else if($html.length==1){
+      var id = $html.attr('id');
+      var ue = UE.getEditor(id,{initialFrameWidth:null});
+        ue.ready(function(){
+            ue.setHeight(350);
+        });
+   }
+   
+   var litpicPost = $('#larry-litpic').data('url');
+   var uploadInst = upload.render({
+        elem:'#larry-litpic',
+        url:litpicPost,
+        data:{thumb:true},
+        done:function(res){
+           //上传成功
+                if(res.code>0){
+                    $('#litpicPath').val(res.url);
+                    $('#litpicPath').siblings('.larryms-img-view').append("<img src='"+res.url+"'>");
+                }else{
+                    //如果上传失败
+                    return layer.msg('上传失败');
+                }
+        },
+        error:function(){
+
+        }
+   });
+   
+
+   var ids='',upImgUrl='',id='';
+   $('.larryms-imgpath-upload').on('click',function(){
+        upImgUrl = $(this).data('url');
+        ids=$(this);
+        id=$(this).siblings('input').data('name');
+   });
+   if($('.larryms-imgpath-upload').length>0){
+       $('.larryms-imgpath-upload').trigger('click');
+   }
+   var upindex = upload.render({
+              elem:ids,
+              url:upImgUrl,
+              method:'post',
+              accept:'file',
+              done:function(res){
+                  //上传成功
+                  if(res.code>0){
+                      $('input[name='+id+']').val(res.url);
+                      $('input[name='+id+']').siblings('.larryms-img-view').append("<img src='"+res.url+"'>");
+                  }else{
+                      //如果上传失败
+                       return layer.msg(res.msg);
+                  }
+              },
+              error:function(){
+                
+              }
+        });
+   form.on('select(cate)',function(data){
+         $.ajax({
+           type:"post",
+           dataType:'json',
+           data:{cate_id:data.value},
+           url:"{:url('getModelId')}",
+           success:function(res){
+            // $('#model_id').val(res.mid);
+            location.href = "{:url('add')}?cate_id="+data.value+"&mid="+res.mid;
+           }
+         })
+    });
+  
+   laydate.render({
+       elem:'#larrymsdate',
+       value: new Date(),
+       isInitValue: true,
+       type: 'datetime'
+   });
+   form.on('submit(articleAdd)',function(data){
+       $.post(data.form.action,data.field,function(res){
+           if(res.code ==911){
+               larryms.msg(res.msg);
+           }else if(res.code==200){
+               larryms.alert(res.msg,function(){
+                   //跳转到我发布的文档 或 继续添加文档
+                   // $('#articleAddBox')[0].reset();
+                   // $('#articleAddBox .larryms-img-view').empty();
+                   location.reload();
+               });
+           }else{
+               larryms.msg(res.msg);
+           }
+       });
+
+       return false;
+   });
+});
+</script>
+</body>
+</html>
+
+        
+      

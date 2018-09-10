@@ -1,0 +1,87 @@
+{
+	"code": 0,
+	"msg": "获取成功！",
+	"data": [{
+		"id": 1,
+		"group_name": "站点设置",
+		"is_extend": 0,
+		"remark": "系统基本设置组",
+		"sort": 1,
+		"create_time": "2018-06-11 02:00:58",
+		"update_time": "2018-07-01 13:24:42"
+	}, {
+		"id": 8,
+		"group_name": "水印设置",
+		"is_extend": 0,
+		"remark": "图片水印基本参数设置",
+		"sort": 2,
+		"create_time": "2018-07-01 13:03:37",
+		"update_time": "2018-07-01 13:25:03"
+	}, {
+		"id": 2,
+		"group_name": "邮件配置",
+		"is_extend": 0,
+		"remark": "系统邮件收发管理",
+		"sort": 3,
+		"create_time": "2018-06-11 02:06:14",
+		"update_time": "2018-07-01 13:25:15"
+	}, {
+		"id": 3,
+		"group_name": "附件设置",
+		"is_extend": 0,
+		"remark": "系统附件相关参数设置",
+		"sort": 4,
+		"create_time": "2018-06-11 02:08:43",
+		"update_time": "2018-07-01 16:37:24"
+	}, {
+		"id": 4,
+		"group_name": "第三方登录配置",
+		"is_extend": 1,
+		"remark": "用于QQ、微信、支付宝、微博等第三方登录支持接口配置",
+		"sort": 50,
+		"create_time": "2018-06-11 02:26:55",
+		"update_time": "2018-06-11 02:26:55"
+	}, {
+		"id": 5,
+		"group_name": "支付接口配置",
+		"is_extend": 1,
+		"remark": "用于支付宝、微信以及第四方接口参数配置",
+		"sort": 50,
+		"create_time": "2018-06-11 02:27:55",
+		"update_time": "2018-06-11 23:36:57"
+	}, {
+		"id": 6,
+		"group_name": "短信接口设置",
+		"is_extend": 1,
+		"remark": "阿里云短信接口设置",
+		"sort": 50,
+		"create_time": "2018-06-11 02:30:07",
+		"update_time": "2018-06-11 23:38:56"
+	}, {
+		"id": 7,
+		"group_name": "核心设置",
+		"is_extend": 0,
+		"remark": "系统主题风格，安全选项等设置",
+		"sort": 50,
+		"create_time": "2018-06-14 01:44:24",
+		"update_time": "2018-06-14 01:44:24"
+	}, {
+		"id": 9,
+		"group_name": "系统接口配置",
+		"is_extend": 0,
+		"remark": "如极验，QQ互联等系统常用接口配置",
+		"sort": 50,
+		"create_time": "2018-07-12 11:00:09",
+		"update_time": "2018-07-12 11:00:09"
+	}, {
+		"id": 10,
+		"group_name": "社区基础设置",
+		"is_extend": 0,
+		"remark": "配置社区相关参数设置",
+		"sort": 50,
+		"create_time": "2018-07-15 21:21:16",
+		"update_time": "2018-07-15 21:21:16"
+	}],
+	"count": 11,
+	"rel": 1
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>消息中心</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css">
+</head>
+
+<body class="larry-bg-gray">
+    <div class="layui-fluid">
+        <div class="larry-container">
+            <div class="layui-row layui-col-space15 larryms-data-top">
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-col-lg12">
+                    <section class="layui-card">
+                        <div class="layui-card-header">系统消息中心</div>
+                        <div class="layui-card-body">
+                            <div class="layui-btn-container">
+                                <button class="layui-btn layui-btn-sm layui-btn-normal"  data-type="reading" data-url="" data-id="message" ><i class="larry-icon larry-biaoji1"></i>标记已读</button>
+                                <button class="layui-btn layui-btn-sm  layui-btn-danger"  data-type="del" data-url="" data-id="message"><i class="larry-icon larry-shanchu"></i>清空消息</button>
+                            </div>
+                            <table id="message" data-url="../../../larryms/data/admin/message.json"></table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    layui.cache.page = 'panel';
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/',
+        identified: 'message'
+    }).extend({
+        larry: 'js/base'
+    }).use('larry');
+    </script>
+</body>
+
+</html>

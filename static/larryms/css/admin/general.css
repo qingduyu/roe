@@ -1,0 +1,51 @@
+.general-widgets { background: #ECF0F5; }
+.widgets-body { padding: 15px 20px 20px; }
+.widgets-body p { line-height: 24px; }
+.widgets-img-photo { width: 64px; height: 64px; border-radius: 50%; vertical-align: middle; border: 0px; }
+.widgets-body span.widgets-follow { margin-top: 10px; margin-bottom: 15px; }
+.widgets-body span.widgets-follow i { display: inline-block; vertical-align: middle; font-size: 12px; margin-right: 5px; color: #fff; }
+.autograph { font-size: 12px; color: #686868; line-height: 18px !important; }
+.widgets-list { border-top: 1px solid #e9e9e9; padding-top: 13px; }
+.widgets-info { display: inline-block; vertical-align: top; padding-left: 13px; padding-top: 5px; }
+.widgets-info.moon .text-main { color: #fff; }
+.widgets-info.moon .text-muted { color: #fff; }
+.link-a { display: inline-block; vertical-align: top; font-size: 24px !important; color: #fff; }
+.list-unstyled { border-top: none; }
+.warning { padding-top: 10px; margin-bottom: 25px; }
+.warning .text-main { color: #2b425b; font-weight: 500; }
+.warning .text-muted { color: #fff; }
+.widgets-body-box { background: #fff; padding-bottom: 25px; }
+.widgets-img-up { margin-top: -32px; box-shadow: 0 0 0 4px #fff; }
+.list-group .link-a { color: #8BC34A; }
+.img-responsive { display: block; max-width: 100%; height: auto; }
+.img-border { box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1); }
+.white-p { color: #fff; line-height: 18px !important; }
+.white-li li span,
+.white-li li cite { color: #fff; }
+.list-item-sm { padding: 5px 15px; color: #758697; font-size: 14px; margin-bottom: 10px; cursor: pointer; }
+.list-item-sm:hover { background: #F2F2F2; }
+.widgets-info-box { padding-left: 15px; padding-right: 15px; }
+.offen-use { border-top: 1px solid #E9E9E9; padding-top: 20px; margin-top: 20px; }
+.offen-use .title { color: #fff; font-size: 1.4em; margin-bottom: 13px; }
+.offen-use .text-md { color: #fff; font-size: 2em; }
+.pd-0 .card-left { padding: 10px 10px 10px 15px; padding-left: 0px !important; }
+.pd-0 .card-right { float: right; background: #fff; padding: 10px 10px 10px 15px; }
+.pd-0 .card-right p.nums { margin-top: 0px; }
+.info2 p { color: #fff !important; }
+.widgets-slider { padding-bottom: 0px; }
+.widgets-slider i { font-size: 3em; color: #fff; line-height: 2em; padding-right: 15px; }
+.widgets-progress { height: 2px; background: #c2c2c2; }
+.widgets-progress .layui-progress-bar { height: 2px; }
+p.description { box-sizing: border-box; font-size: 14px; color: #fff; line-height: 30px; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; }
+.widgets-slider p { color: #fff; }
+.widgets-slider p.nums { font-size: 2em; font-weight: 600; padding-top: 13px; }
+.widgets-panel { padding-top: 30px; padding-bottom: 20px; }
+.widgets-panel i { display: block; width: 60px; height: 60px; line-height: 60px; margin: 0 auto; font-size: 50px; color: #fff; }
+.widgets-panel-body { background: #fff; padding-bottom: 25px; }
+.widgets-panel-body p.text-tit { font-size: 16px; line-height: 30px; margin-bottom: 8px; }
+.widgets-panel-body p.autograph { font-size: 13px; line-height: 20px; color: #666; }
+.pad-all { padding: 15px; }
+.text-semibold { color: #fff; margin-bottom: 15px; }
+.h2 { font-size: 28px; }
+.pad-top { padding-top: 15px; }
+.text-overflow { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; }

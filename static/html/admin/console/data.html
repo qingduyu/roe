@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>后台首页2</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/console.css">
+</head>
+
+<body class="larry-bg-gray">
+    <div class="layui-fluid larryms-console-data">
+        <div class="larryms-container">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-col-lg12 layui-hide-xs">
+                    <div class="pan">
+                        <div class="count-datas" id="larryCount"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-row layui-col-space15">
+                <!-- 网站数据统计 -->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md7 layui-col-lg7">
+                    <section class="layui-card" lay-tips="此处图表使用了swiper组件实现自动切换与动态滑动">
+                        <div class="layui-card-header larryms-count">流量统计
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="layui-card-body">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="data-list" id="mounths"></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="data-list" id="weath"></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="data-list" id="day"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="layui-col-xs12 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg">
+                    <section class="layui-card">
+                        <div class="layui-card-header larryms-count layui-show-xs">浏览器统计</div>
+                        <div class="layui-card-body  layui-show-xs">
+                            <table class="layui-table larryms-count-table">
+                                <colgroup>
+                                    <col width="55%">
+                                    <col>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>浏览器</th>
+                                        <th>访问量</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="imgs">
+                                            <div class="img"><img src="../../../larryms/images/explorer/chrome.png" alt=""></div>Chrome</td>
+                                        <td>6,036</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="imgs">
+                                            <div class="img"><img src="../../../larryms/images/explorer/firefox.png" alt=""></div>Firefox</td>
+                                        <td>3,566</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="imgs">
+                                            <div class="img"><img src="../../../larryms/images/explorer/ie.png" alt=""></div>IE</td>
+                                        <td>3,001</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="imgs">
+                                            <div class="img"><img src="../../../larryms/images/explorer/360.png" alt=""></div>360</td>
+                                        <td>1,560</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="imgs">
+                                            <div class="img"><img src="../../../larryms/images/explorer/baidu.png" alt=""></div>百度</td>
+                                        <td>1,236</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="imgs">
+                                            <div class="img"><img src="../../../larryms/images/explorer/qq.png" alt=""></div>QQ</td>
+                                        <td>900</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md5 layui-col-lg5">
+                    <section class="layui-card">
+                        <div class="layui-card-header larryms-count layui-hide-xs">浏览器统计</div>
+                        <div class="layui-card-header larryms-count layui-hide-sm layui-hide-md layui-hide-lg layui-show-xs">用户访问来源</div>
+                        <div class="layui-card-body">
+                            <div class="layui-row layui-col-space15">
+                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md12 layui-col-lg6 layui-hide-xs">
+                                    <table class="layui-table larryms-count-table">
+                                        <colgroup>
+                                            <col width="55%">
+                                            <col>
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>浏览器</th>
+                                                <th>访问量</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="imgs">
+                                                    <div class="img"><img src="../../../larryms/images/explorer/chrome.png" alt=""></div>Chrome</td>
+                                                <td>6,036</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="imgs">
+                                                    <div class="img"><img src="../../../larryms/images/explorer/firefox.png" alt=""></div>Firefox</td>
+                                                <td>3,566</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="imgs">
+                                                    <div class="img"><img src="../../../larryms/images/explorer/ie.png" alt=""></div>IE</td>
+                                                <td>3,001</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="imgs">
+                                                    <div class="img"><img src="../../../larryms/images/explorer/360.png" alt=""></div>360</td>
+                                                <td>1,560</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="imgs">
+                                                    <div class="img"><img src="../../../larryms/images/explorer/baidu.png" alt=""></div>百度</td>
+                                                <td>1,236</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="imgs">
+                                                    <div class="img"><img src="../../../larryms/images/explorer/qq.png" alt=""></div>QQ</td>
+                                                <td>900</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md12 layui-col-lg6">
+                                    <div class="explorer" id="counts"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-col-lg12">
+                    <section class="layui-card">
+                        <div class="layui-card-header">访问地区</div>
+                        <div class="layui-card-body">
+                            <table class="layui-table larryms-count-table" lay-skin="line">
+                                <colgroup>
+                                    <col width="20%">
+                                    <col  width="20%">
+                                    <col  width="20%">
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>地区</th>
+                                        <th>IP</th>
+                                        <th>PV</th>
+                                        <th class="layui-hide-xs">UV</th>
+                                        <th>占比</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>湖北</td>
+                                        <td>6,036</td>
+                                        <td>4,834,129</td>
+                                        <td class="layui-hide-xs">7,420</td>
+                                        <td>
+                                            <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                                                <div class="layui-progress-bar layui-bg-red" lay-percent="90%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>广东</td>
+                                        <td>3,566</td>
+                                        <td>12,924</td>
+                                        <td class="layui-hide-xs">4,689</td>
+                                        <td>
+                                            <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                                                <div class="layui-progress-bar layui-bg-blue" lay-percent="70%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>浙江</td>
+                                        <td>3,001</td>
+                                        <td>11,246</td>
+                                        <td class="layui-hide-xs">4,666</td>
+                                        <td>
+                                            <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                                                <div class="layui-progress-bar" lay-percent="50%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>上海</td>
+                                        <td>1,560</td>
+                                        <td>6,468</td>
+                                        <td class="layui-hide-xs">1,568</td>
+                                        <td>
+                                            <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                                                <div class="layui-progress-bar" lay-percent="40%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>北京</td>
+                                        <td>1,236</td>
+                                        <td>3,675</td>
+                                        <td class="layui-hide-xs">1,456</td>
+                                        <td>
+                                            <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                                                <div class="layui-progress-bar" lay-percent="30%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>西安</td>
+                                        <td>300</td>
+                                        <td>888</td>
+                                        <td class="layui-hide-xs">420</td>
+                                        <td>
+                                            <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                                                <div class="layui-progress-bar layui-bg-orange" lay-percent="10%"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <div class="margin-15"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    layui.cache.page = 'console';
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/',
+        identified: 'data'
+    }).extend({
+        larry: 'js/base'
+    }).use(['larry', 'swiper', 'element'], function() {
+        var swiper = layui.swiper,
+            element = layui.element;
+        var mySwiper = new swiper('.swiper-container', {
+            speed: 1000,
+            autoplay: {
+                delay: 5000,
+            }, //可选选项，自动滑动
+            pagination: {
+                el: '.swiper-pagination',
+                bulletElement: 'li',
+                clickable: true,
+                effect: 'cube',
+                cubeEffect: {
+                    slideShadows: true,
+                    shadow: true,
+                    shadowOffset: 100,
+                    shadowScale: 0.6
+                }
+            },
+        });
+    });
+    </script>
+</body>
+
+</html>

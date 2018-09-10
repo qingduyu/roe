@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>角色权限控制</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css" media="all">
+</head>
+
+<body class="larryms-auth grant-auth">
+    <div class="layui-row larryms-panel">
+        <form action="/admin/authgroup/grantauth.html" class="layui-form">
+            <div class="larryms-panel-heading layui-col-lg12 layui-col-md12 layui-col-sm12 layui-col-xs12">
+                <span class="panel-tit">当前授权角色名称：</span>
+                <div class="layui-form-item larry-inline-block">
+                    <select name="id" lay-verify="required" lay-filter="groupChange" lay-search="" class="larry-select">
+                        <option value="">直接选择或搜索选择</option>
+                        <option value="1" selected="selected">超级管理员</option>
+                        <option value="12">社区维护管理员</option>
+                        <option value="13">文档系统维护员</option>
+                        <option value="14">网站编辑</option>
+                    </select>
+                    <div class="layui-form-select">
+                        <div class="layui-select-title">
+                            <input type="text" placeholder="直接选择或搜索选择" value="超级管理员" class="layui-input"><i class="layui-edge"></i></div>
+                        <dl class="layui-anim layui-anim-upbit">
+                            <dd lay-value="" class="layui-select-tips">直接选择或搜索选择</dd>
+                            <dd lay-value="1" class="layui-this">超级管理员</dd>
+                            <dd lay-value="12" class="">社区维护管理员</dd>
+                            <dd lay-value="13" class="">文档系统维护员</dd>
+                            <dd lay-value="14" class="">网站编辑</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="larryms-panel-body layui-col-lg12 layui-col-md12 layui-col-sm12 layui-col-xs12">
+                <div class="larryms-tools">
+                    <ul id="authTree" class="ztree"></ul>
+                    <div class="layui-form-item larryms-grantauth-btn">
+                        <a class="layui-btn layui-btn left" lay-submit="" lay-filter="submitGrant" id="submitGrant">授权并保存</a>
+                        <a class="layui-btn layui-btn  layui-btn-danger" id="resetAdd">返回角色管理</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    var table;
+    layui.cache.page = 'auth';
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/', //实际使用时，建议改成绝对路径
+        identified: 'grantauth',
+        rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base',
+    }).use(['larry', 'ztreeCheck', 'form', 'layer'], function() {
+        var $ = layui.$,
+            larry = layui.larry,
+            ztree = layui.ztree,
+            ztreeCheck = layui.ztreeCheck,
+            form = layui.form,
+            layer = layui.layer;
+        var setting = {
+            check: { enable: true },
+            view: { showLine: false, showIcon: false, dblClickExpand: false },
+            data: {
+                simpleData: { enable: true, pIdKey: 'pid', idKey: 'id' },
+                key: { name: 'title' }
+            }
+        };
+        var authNodes = [{ "id": 26, "pid": 0, "title": "\u7cfb\u7edf\u7ba1\u7406", "checked": true, "open": true }, { "id": 27, "pid": 26, "title": "\u540e\u53f0\u9996\u9875", "checked": true, "open": true }, { "id": 28, "pid": 26, "title": "\u6211\u7684\u9762\u677f", "checked": true, "open": true }, { "id": 39, "pid": 28, "title": "\u6211\u7684\u8d26\u6237", "checked": true, "open": true }, { "id": 40, "pid": 28, "title": "\u6d88\u606f\u4e2d\u5fc3", "checked": true, "open": true }, { "id": 41, "pid": 28, "title": "\u64cd\u4f5c\u65e5\u5fd7", "checked": true, "open": true }, { "id": 30, "pid": 26, "title": "\u6743\u9650\u7ba1\u7406", "checked": true, "open": true }, { "id": 31, "pid": 30, "title": "\u7528\u6237\u7ba1\u7406", "checked": true, "open": true }, { "id": 32, "pid": 30, "title": "\u89d2\u8272\u7ba1\u7406", "checked": true, "open": true }, { "id": 33, "pid": 30, "title": "\u89d2\u8272\u6743\u9650\u63a7\u5236", "checked": true, "open": true }, { "id": 58, "pid": 30, "title": "\u7cfb\u7edf\u65e5\u5fd7\u7ba1\u7406", "checked": true, "open": true }, { "id": 34, "pid": 26, "title": "\u7cfb\u7edf\u8bbe\u7f6e", "checked": true, "open": true }, { "id": 49, "pid": 34, "title": "\u7cfb\u7edf\u53c2\u6570\u8bbe\u7f6e", "checked": true, "open": true }, { "id": 50, "pid": 34, "title": "\u7cfb\u7edf\u914d\u7f6e\u7ba1\u7406", "checked": true, "open": true }, { "id": 70, "pid": 34, "title": "\u914d\u7f6e\u5206\u7ec4\u7ba1\u7406", "checked": true, "open": true }, { "id": 51, "pid": 34, "title": "\u77ed\u4fe1\u63a5\u53e3\u8bbe\u7f6e", "checked": true, "open": true }, { "id": 52, "pid": 34, "title": "\u652f\u4ed8\u63a5\u53e3\u914d\u7f6e", "checked": true, "open": true }, { "id": 66, "pid": 26, "title": "\u63d2\u4ef6\u7ba1\u7406", "checked": true, "open": true }, { "id": 67, "pid": 26, "title": "\u6570\u636e\u7edf\u8ba1", "checked": true, "open": true }, { "id": 68, "pid": 26, "title": "\u5e7f\u544a\u7ba1\u7406", "checked": true, "open": true }, { "id": 69, "pid": 26, "title": "\u53cb\u94fe\u7ba1\u7406", "checked": true, "open": true }, { "id": 61, "pid": 26, "title": "\u7f51\u7ad9\u7ef4\u62a4", "checked": true, "open": true }, { "id": 63, "pid": 61, "title": "\u66f4\u65b0\u7cfb\u7edf\u7f13\u5b58", "checked": true, "open": true }, { "id": 62, "pid": 61, "title": "\u7f51\u7ad9\u4e3b\u9898\u7ba1\u7406", "checked": true, "open": true }, { "id": 65, "pid": 61, "title": "\u6570\u636e\u5e93\u8fd8\u539f", "checked": true, "open": true }, { "id": 64, "pid": 61, "title": "\u6570\u636e\u5e93\u5907\u4efd", "checked": true, "open": true }, { "id": 29, "pid": 26, "title": "\u83dc\u5355\u7ba1\u7406", "checked": true, "open": true }, { "id": 46, "pid": 29, "title": "\u6dfb\u52a0\u83dc\u5355", "checked": true, "open": true }, { "id": 47, "pid": 29, "title": "\u7f16\u8f91\u83dc\u5355", "checked": true, "open": true }, { "id": 48, "pid": 29, "title": "\u83dc\u5355\u5220\u9664", "checked": true, "open": true }, { "id": 35, "pid": 0, "title": "\u5185\u5bb9\u7ba1\u7406", "checked": true, "open": true }, { "id": 44, "pid": 35, "title": "\u680f\u76ee\u7ba1\u7406", "checked": true, "open": true }, { "id": 82, "pid": 44, "title": "\u680f\u76ee\u5217\u8868", "checked": true, "open": true }, { "id": 83, "pid": 44, "title": "\u680f\u76ee\u6dfb\u52a0", "checked": true, "open": true }, { "id": 76, "pid": 35, "title": "\u6587\u6863\u7ba1\u7406", "checked": true, "open": true }, { "id": 79, "pid": 76, "title": "\u6240\u6709\u6863\u6848\u5217\u8868", "checked": true, "open": true }, { "id": 89, "pid": 76, "title": "\u6587\u7ae0\u53d1\u5e03", "checked": true, "open": true }, { "id": 81, "pid": 76, "title": "\u6211\u53d1\u5e03\u7684\u6587\u6863", "checked": true, "open": true }, { "id": 80, "pid": 76, "title": "\u5f85\u5ba1\u6838\u7684\u6863\u6848", "checked": true, "open": true }, { "id": 77, "pid": 76, "title": "\u5185\u5bb9\u56de\u6536\u7ad9", "checked": true, "open": true }, { "id": 90, "pid": 76, "title": "\u6587\u7ae0\u7f16\u8f91", "checked": true, "open": true }, { "id": 45, "pid": 35, "title": "\u4ea7\u54c1\u7ba1\u7406", "checked": true, "open": true }, { "id": 101, "pid": 35, "title": "\u4ea7\u54c1\u4fc3\u9500\u4f18\u60e0", "checked": false, "open": true }, { "id": 92, "pid": 35, "title": "\u589e\u503c\u670d\u52a1", "checked": true, "open": true }, { "id": 91, "pid": 35, "title": "\u4ea7\u54c1\u65e5\u5fd7", "checked": true, "open": true }, { "id": 74, "pid": 35, "title": "\u6a21\u578b\u7ba1\u7406", "checked": true, "open": true }, { "id": 75, "pid": 74, "title": "\u5185\u5bb9\u6a21\u578b\u7ba1\u7406", "checked": true, "open": true }, { "id": 84, "pid": 75, "title": "\u6a21\u578b\u6dfb\u52a0", "checked": true, "open": true }, { "id": 85, "pid": 75, "title": "\u6a21\u578b\u7f16\u8f91", "checked": true, "open": true }, { "id": 86, "pid": 75, "title": "\u6a21\u578b\u5220\u9664", "checked": true, "open": true }, { "id": 88, "pid": 75, "title": "\u5f53\u524d\u6a21\u578b\u5b57\u6bb5\u7ba1\u7406", "checked": true, "open": true }, { "id": 87, "pid": 74, "title": "\u6a21\u578b\u5b57\u6bb5\u7ba1\u7406", "checked": true, "open": true }, { "id": 78, "pid": 35, "title": "\u91c7\u96c6\u7ba1\u7406", "checked": true, "open": true }, { "id": 36, "pid": 0, "title": "\u793e\u533a\u7ba1\u7406", "checked": true, "open": true }, { "id": 95, "pid": 36, "title": "\u793e\u533a\u5185\u5bb9\u7ba1\u7406", "checked": true, "open": true }, { "id": 43, "pid": 95, "title": "\u793e\u533a\u677f\u5757\u7ba1\u7406", "checked": true, "open": true }, { "id": 96, "pid": 43, "title": "\u793e\u533a\u677f\u5757\u6dfb\u52a0", "checked": true, "open": true }, { "id": 97, "pid": 43, "title": "\u793e\u533a\u677f\u5757\u7f16\u8f91", "checked": true, "open": true }, { "id": 98, "pid": 43, "title": "\u793e\u533a\u677f\u5757\u5220\u9664", "checked": true, "open": true }, { "id": 71, "pid": 95, "title": "\u793e\u533a\u5e16\u5b50\u7ba1\u7406", "checked": true, "open": true }, { "id": 72, "pid": 95, "title": "\u793e\u533a\u8bc4\u8bba\u7ba1\u7406", "checked": true, "open": true }, { "id": 73, "pid": 95, "title": "\u793e\u533a\u6d88\u606f\u7ba1\u7406", "checked": true, "open": true }, { "id": 53, "pid": 36, "title": "\u4f1a\u5458\u7ba1\u7406", "checked": true, "open": true }, { "id": 54, "pid": 53, "title": "\u4f1a\u5458\u7ba1\u7406", "checked": true, "open": true }, { "id": 56, "pid": 53, "title": "\u4f1a\u5458\u7b49\u7ea7", "checked": true, "open": true }, { "id": 57, "pid": 53, "title": "\u9ed1\u540d\u5355\u7528\u6237", "checked": true, "open": true }, { "id": 55, "pid": 53, "title": "\u4f1a\u5458\u6743\u9650\u7ec4", "checked": true, "open": true }, { "id": 59, "pid": 36, "title": "\u8ba2\u5355\u7ba1\u7406", "checked": true, "open": true }, { "id": 60, "pid": 59, "title": "\u8ba2\u5355\u5217\u8868", "checked": true, "open": true }, { "id": 37, "pid": 0, "title": "\u6587\u6863\u7cfb\u7edf", "checked": true, "open": true }, { "id": 38, "pid": 0, "title": "\u5fae\u4fe1\u516c\u4f17", "checked": true, "open": true }, { "id": 0, "pid": 0, "title": "\u5168\u90e8", "open": true }];
+
+        function setCheck() {
+            var zTree = ztree.getZTreeObj('authTree');
+            zTree.setting.check.chkboxType = { "Y": "ps", "N": "ps" };
+        }
+        ztree.init($('#authTree'), setting, authNodes);
+
+        setCheck();
+
+
+
+        form.on('submit(submitGrant)', function(data) {
+            var treeObj = ztree.getZTreeObj("authTree"),
+                nodes = treeObj.getCheckedNodes(true),
+                v = "";
+            for (var i = 0; i < nodes.length; i++) {
+                v += nodes[i].id + ",";
+            }
+            data.field.rules = v;
+            $.post(data.form.action, data.field, function(res) {
+                if (res.code == 1) {
+                    layer.msg(res.msg);
+                } else if (res.code == 911) {
+                    layer.msg(res.msg);
+                } else {
+                    layer.msg(res.msg);
+                }
+            });
+            return false;
+        });
+
+        form.on('select(groupChange)', function(data) {
+            var id = data.value;
+                //实际项目url可根据需要进行设置
+            location.reload(true);
+        });
+    });
+    </script>
+</body>
+
+</html>

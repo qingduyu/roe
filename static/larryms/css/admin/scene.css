@@ -1,0 +1,69 @@
+body.box-404 { background: #ffffff; overflow-x: hidden; }
+body.box-404 .larry-grid { background: #ffffff; padding-top: 200px; }
+body.box-404 .larry-box { padding-left: 50px; padding-right: 50px; margin: 0 auto; text-align: center; }
+body.box-404 .left { padding-right: 80px; padding-bottom: 20px; margin: 0 auto; }
+body.box-404 .left h1 { padding-top: 135px; font-size: 60px; font-weight: 700; color: #555555; margin-bottom: 20px; text-align: center; }
+body.box-404  .left h2 { display: block; font-size: 1.5em; -webkit-margin-before: 0.83em; -webkit-margin-after: 0.83em; -webkit-margin-start: 0px; -webkit-margin-end: 0px; font-weight: bold; color: #777777; text-align: center; }
+@media screen and (max-width:768px) {
+    body.box-404 .larry-grid { padding-top: 30px; }
+    body.box-404 .left { padding-right: 0px; }
+    body.box-404 .left h1 { padding-top: 30px; }
+}
+.box-blank p{
+	display: block;
+	width: 80%;
+	height: 150px;
+	margin: 0 auto;
+	margin-top: 13%;
+	text-align: center;
+	font-size: 36px;
+	line-height: 60px;
+	color: #ababab;
+}
+.box-blank p cite{
+	display: block;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	text-align: center;
+	padding-top: 20px;
+}
+.margin15{
+	margin: 15px;
+}
+body.library-box{
+	font-family: "Microsoft YaHei";
+}
+body.library-box .header-title{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+body.library-box .layui-card-header h1{
+	font-size: 18px;
+	/*line-height: 1.8em;*/
+	text-align: left;
+	color: #666;
+}
+body.library-box .layui-card-header h1 cite{
+	color: #ff5722;
+	padding-left: 3px;
+}
+body.library-box p.library-tips{
+	padding: 8px 0px;
+	margin: 0px;
+	display: block;
+	width: 100%;
+	height: auto;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: left;
+	color: #333;
+}
+body.library-box .layui-card-header h2{
+	font-size: 16px;
+	color: #666;
+}
+.blue{
+	color: 
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>鱼仔技术</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/static/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/static/larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/larryms/css/global.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/larryms/css/admin/larryms.css" media="all">
+    <!-- load css -->
+</head>
+<body id="larrymsBody">
+<div class="layui-layout layui-layout-admin layui-fluid larryms-layout" id="larry_layout">
+	<!-- 顶部导航 -->
+	<div class="layui-header larryms-header" id="larry_head">
+        <div class="larryms-topbar-left" id="topbarL">
+        	<span class="mini-logo"><img src="/static/larryms/images/logo_mini.png" alt=""></span>
+         	<a class="layui-logo larryms-logo">鱼仔技术2.0</a>
+         	<span class="larryms-switch larryms-icon-fold" id="menufold"><i class="larry-icon larry-fold7"></i></span>
+         	<div class="larryms-mobile-menu" id="larrymsMobileMenu"><i class="larry-icon larry-caidan1"></i></div>
+            <div class="larryms-mobile-tab layui-hide-sm layui-hide-md layui-hide-lg layui-show-xs layui-form pt-page-moveFromLeft" id="larrymsMobileTab">
+                <input type="checkbox" id="mTabswitch" lay-filter="mTabswitch" lay-skin="switch"  value="1">
+            </div>
+        </div>
+        <div class="larryms-extend" id="larrymsTopExtend">
+         	<div class="larryms-topbar-menu larryms-hide-xs clearfix">
+         	    <ul class="larryms-nav clearfix fl" id="larryms_top_menu" lay-filter='TopMenu'>
+         	    	 <!-- 若开启顶部菜单，此处动态生成 -->
+                     
+         	    </ul>
+         	    <div class="dropdown extend-show" id="larryms_topSubMenu">
+         	    	 <i class="submenubtn larry-icon larry-sandianshu" id="subMenuButton"></i>
+         	    	 <ul class="dropdown-menu larryms-nav" id="dropdown">
+         	    	 	
+         	    	 </ul>
+         	    </div>
+                <!-- 移动端支持 -->
+                <div class="larryms-mobile-shade" id="larrymsMobileShade"></div>
+
+            </div>
+            <!-- 右侧常用菜单 -->
+            <div class="larryms-topbar-right" id="topbarR">
+            	<ul class="layui-nav clearfix" id="topbarRMenu">
+                    <li class="layui-nav-item" lay-unselect>
+                        <a larry-tab="page" class="message" data-group='0' data-url='admin/panel/message.html' data-id='12' >
+                            <i class="larry-icon larry-xiaoxi2" data-icon="larry-xiaoxi2" data-font="larry-icon"></i>
+                            <cite>消息</cite>
+                            <span class="layui-badge-dot"></span>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item" lay-unselect>
+                        <a id="lock"><i class="larry-icon larry-diannao1"></i><cite>锁屏</cite></a>
+                    </li>
+                    <li class="layui-nav-item" lay-unselect>
+                        <a id="clearCached"><i class="larry-icon larry-qingchuhuancun1"></i><cite>清除缓存</cite></a>
+                    </li>
+                    <li class="layui-nav-item" lay-unselect>
+                        <a id="larryTheme"><i class="larry-icon larry-zhutishezhi-"></i><cite>主题设置</cite></a>
+                    </li>   
+            		<li class="layui-nav-item exit" lay-unselect>
+                        <a id="logout" data-url='login.html'><i class="larry-icon larry-exit"></i><cite>退出</cite></a>
+                    </li>
+            	</ul>
+                <div class="mobile-select"  id="rightMenuButton">
+                    <i class="submenubtn larry-icon larry-sandianshu"></i>
+                </div>
+
+            </div>
+            <div class="larryms-mobile-shade-rmenu" id="larrymsMobileShadeRmenu"></div>
+        </div>
+	</div>
+	<!-- 内容主体 -->
+	<div class="larryms-body" id="larryms_body">
+		<!-- 左侧导航区域 -->
+		<div class="layui-side pos-a larryms-left layui-bg-black" id="larry_left">
+			<div class="layui-side-scroll">
+                <!-- 管理员信息      -->
+                <div class="user-info">
+                    <div class="photo">
+                        <img src="/static/images/face.jpg" id="user_photo" alt="">
+                    </div>
+                    <p><span id="uname">{{ request.user.username }}</span> 您好！欢迎登录</p>
+                </div>
+                <!-- 系统菜单 -->
+                <div class="sys-menu-box" >
+                    <ul class="larryms-nav larryms-nav-tree" id="larryms_left_menu" lay-filter="LarrySide" data-group='0'>
+                        <!-- 此次动态生成 -->
+                        
+                    </ul>
+                </div>    
+			</div> 
+		</div>
+		<!-- 右侧框架内容区域 -->
+		<div class="layui-body pos-a larryms-right" id="larry_right">
+			<div class="layui-tab larryms-tab" id="larry_tab" lay-filter="larryTab">
+                <div class="larryms-title-box clearfix" id="larryms_title">
+                    <div class="larryms-btn-default larryms-press larryms-pull-left hide" id="goLeft"><i class="larry-icon larry-top-left-jt"></i></div> 
+                    <ul class="layui-tab-title larryms-tab-title" lay-allowclose='false' id="larry_tab_title" lay-filter='larrymsTabTitle'>
+                        <li lay-id="0" data-flag='nav' data-group="0" data-id="larry-2" fresh="1" data-url="console.html" class="layui-this" id="larryms_home" >
+                            <i class="larry-icon larry-shouye2" data-icon="larry-shouye2" data-font="larry-icon"></i><cite>后台首页</cite>
+                        </li>
+                    </ul>
+                    <div class="larryms-btn-group clearfix">
+                        <div class="larryms-btn-default larryms-press larryms-pull-right hide" id="goRight"><i class="larry-icon larry-gongyongshuangjiantouyou"></i></div>
+                        <div class="refresh larryms-press refreshThen" id="larryms_refresh">
+                            <i class="larry-icon larry-shuaxin"></i>
+                            <cite>刷新</cite>
+                        </div>
+                        <div class="larryms-press often" lay-filter="larryOperate" id="buttonRCtrl">
+                            <ul class="larryms-nav">
+                                <li class="larryms-nav-item">
+                                    <a class="top"><i class="larry-icon larry-caozuo"></i><cite>常用操作</cite><span class="larryms-nav-more"></span></a>
+                                    <dl class="larryms-nav-child layui-anim layui-anim-upbit">
+                                        <dd id="tabCtrD">
+                                            <a data-ename="positionCurrent"><i class="larry-icon larry-qianjin1"></i><cite>定位当前选项卡</cite></a>
+                                        </dd>
+                                        <dd id="tabCtrA">
+                                            <a data-ename="closeCurrent"><i class="larry-icon larry-guanbidangqianye"></i><cite>关闭当前选项卡</cite></a>
+                                        </dd>
+                                        <dd id="tabCtrB">
+                                            <a data-ename="closeOther"><i class="larry-icon larry-guanbiqita"></i><cite>关闭其他选项卡</cite></a>
+                                        </dd>
+                                        <dd id="tabCtrC">
+                                            <a data-ename="closeAll"><i class="larry-icon larry-close-all"></i><cite>关闭全部选项卡</cite></a>
+                                        </dd>
+                                        <dd>
+                                            <a data-ename="refreshAdmin"><i class="larry-icon larry-kuangjia_daohang_shuaxin"></i><cite>刷新最外层框架</cite></a>
+                                        </dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+                <!-- tab title end -->
+                <div class="layui-tab-content larryms-tab-content" id="larry_tab_content">
+                    <div class="layui-tab-item layui-show pt-page-scaleUp" id="homePage"></div>
+                </div>
+                <!-- tab content end -->
+            </div>
+		</div>
+		
+	</div>
+	<!-- 底部固定区域 -->
+	<div class="layui-footer larryms-footer" data-show='on' id="larry_footer">
+{#		 <div class="copyright inline-block pos-al">Author larry © <a href="http://www.larryms.com/" target="_blank">larryms.com</a></div>#}
+{#         <p class="block">商业使用购买授权(保留对源码盗卖转售法律追诉权利)</p>#}
+{#		 <div class="larryms-info inline-block pos-ar">当前版本：<span id="larryms_version"></span><a href="http://www.larryms.com/" target="_blank"><i class="layui-icon">&#xe67c;</i></a></div>#}
+        <p class="block"><span>copyright @2018 鱼仔技术</span>　　<a onclick="donation()" class="layui-btn layui-btn-danger ">捐赠作者</a></p>
+	</div>
+</div>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon"></i>
+</div>
+<div class="site-mobile-shade"></div>
+<!-- 加载js文件-->
+<script type="text/javascript" src="/static/larryms/layui/layui.js"></script>
+<script type="text/javascript">
+layui.cache.homeUrl = 'console.html';
+layui.cache.menusUrl = '/getmenu';//这里设置 菜单数据项接口地址 或data参数
+layui.cache.page = 'index'; 
+//说明：并非一个页面只能加载一个模块 可以这样定义：'index,common';也并非每个页面都要定义一个模块，事实上模块根据功能需要可以公用
+layui.cache.rightMenu = 'false'; //默认开启页面右键菜单，设置为 custom 时需要自定义右键菜单，设置为false 关闭右键菜单
+
+layui.config({
+   version:"2.0.8",
+   base:'/static/larryms/',  //实际使用时，建议改成绝对路径
+   //entry:'test/', //自定义项目js入口，CDN资源引用或自定义js存放路径请设置该值，如默认请不要设置该参数
+   //mods:'index',
+   rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+}).extend({
+    larry:'js/base'
+}).use('larry');
+
+//捐赠弹窗
+function donation(){
+	layer.tab({
+		area : ['360px', '460px'],
+		tab : [{
+			title : "微信",
+			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='/static/images/wechat.jpg'></div>"
+		},{
+			title : "支付宝",
+			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='/static/images/alipay.jpg'></div>"
+		}]
+	})
+}
+</script>
+
+</body>
+</html>

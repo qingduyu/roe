@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>管理员列表</title>
+  	<meta name="renderer" content="webkit">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+  	<meta name="Author" content="larry" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="apple-mobile-web-app-capable" content="yes">	
+	<meta name="format-detection" content="telephone=no">	
+	<link rel="Shortcut Icon" href="/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css" media="all">
+</head>
+<body class="larryms-auth">
+    <div class="layui-row larryms-panel">
+		<div class="larryms-panel-heading layui-col-lg12 layui-col-md12 layui-col-sm12 layui-col-xs12">
+			<span class="panel-tit">系统管理员列表</span>
+		</div>
+		<div class="larryms-panel-body layui-col-lg12 layui-col-md12 layui-col-sm12 layui-col-xs12">
+			<div class="larryms-tools">
+            	<div class="layui-btn-group  larryms-btn-group">
+                	<button class="layui-btn layui-btn-sm"  data-type="add" data-url="useradd.html"><i class="layui-icon">&#xe61f;</i><cite>增加用户</cite></button>
+                	<button class="layui-btn layui-btn-sm layui-btn-danger" data-id="adminuser"  data-type="del" data-url=""><i class="layui-icon">&#xe640;</i><cite>删除用户</cite></button>
+            	</div>
+            	<form class="layui-form layui-inline fr layui-hide-xs">
+            		<div class="larryms-search-box">
+						<div class="layui-input-inline">
+							<input type="text" name="keywords" id="keywords"  class="layui-input searchVal layui-inline" placeholder="请输入搜索的内容" onkeypress="if(event.keyCode==13) {searchBtn.click();return false;}" autocomplete="off">
+						</div>
+						<a class="layui-btn larryms-search" id="searchBtn" data-type="reload">搜索</a>
+					</div>
+				</form>	
+        	</div>
+            <div class="user-list layui-col-lg12 layui-col-md12 layui-col-sm12 layui-col-xs12">
+            	<table id="adminuser" lay-filter="adminuser" class="larryms-table-id" data-url="../../../larryms/data/admin/user.json"></table>
+            </div>
+		</div>
+	</div>
+	
+	<!--操作-->
+	<script type="text/html" id="userListBar">
+		<a class="layui-btn layui-btn-xs" lay-event="edit" data-url="useredit.html">编辑</a>
+		<a class="layui-btn layui-btn-xs layui-btn-danger" data-url="del.html" lay-event="del">删除</a>
+	</script>
+
+<!-- 加载js文件-->
+<script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+<script type="text/javascript">
+var table;
+layui.cache.page = 'auth'; 
+layui.config({
+   version:"2.0.8",
+   base:'../../../larryms/',  //实际使用时，建议改成绝对路径
+   identified:'userList',
+   rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+}).extend({
+    larry:'js/base'
+}).use('larry');
+</script>
+</body>
+</html>

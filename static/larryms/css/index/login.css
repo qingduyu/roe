@@ -1,0 +1,136 @@
+/**
+
+ @Name：layuiAdmin 登入注册页
+ @Author：贤心
+ @Site：http://www.layui.com/admin/
+ @License：GPL-2
+ 
+ */
+html,
+body,
+#LAY_app { height: 100%; }
+body.reg { margin-top: 0px; }
+.layui-layout-body { overflow: auto; }
+.larryms-user-login { padding-bottom: 0px; }
+.code{display:block;background:#ffffff;width:136px;height:40px;padding:0px;border-radius:4px;position:absolute;top:-1px;right:0px;box-shadow:0 1px 1px 1px rgba(0,0,0,0.25);}
+.code-img{width:100%;height:38px;position:absolute;top:0px;left:0px;cursor:pointer;}
+.code-img img{display:block;width:100%;height:100%;}
+.larryms-user-login-other{
+	color: #c6c6c6;
+}
+.larryms-user-login-other label{
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	line-height: 25px;
+	font-size: 14px;
+	padding-right: 6px;
+}
+.login-qq-a{
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 1px;
+	width: 23px;
+	height: 23px;
+	background: url(../../images/qq.png)center center no-repeat;
+	background-size: 100%;
+}
+
+.layui-icon-login-qq::before{
+	display: none;
+}
+.layui-trans .reg-a{
+	float: right;
+	color: #c6c6c6;
+	line-height: 25px;
+	font-size: 12px;
+}
+.layui-trans .reg-a:hover{
+	color:  #01AAED;
+	text-decoration: underline;
+}
+.layui-trans .reg-a.forget{
+	color:  #1E9FFF;
+}
+.layui-trans .reg-a.forget:hover{
+	color:  #ff5722;
+	text-decoration: none;
+}
+/* 有背景图时 */
+.larryms-user-login-main[bgimg] { background-color: #fff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); }
+
+/* 主题背景 */
+.layui-icon-login-qq { color: #3F8EE8; }
+.layui-icon-login-wechat { color: #42AF3C; }
+@media screen and (max-width:768px) {
+	.larryms-user-login { padding-top: 60px; }
+	.larryms-user-login-main { width: 300px; }
+	.larryms-user-login-box { padding: 10px; }
+}
+
+/**
+ * login.css
+ */
+.login-body { -webkit-perspective: 800px; perspective: 800px; width: 100%; height: 100vh; margin: 0; overflow: hidden; font-family: 'Gudea', sans-serif; background: #009688;  /* Old browsers */	/* FF3.6+ */
+
+	/* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EA5C54 ', endColorstr='#bb6dec', GradientType=1);  /* IE6-9 fallback on horizontal gradient */ }
+.login-body  .dip { box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55); pointer-events: none; top: -100px !important; -webkit-transform: rotateX(70deg) scale(0.8) !important; transform: rotateX(70deg) scale(0.8) !important; opacity: .6 !important; -webkit-filter: blur(1px); filter: blur(1px); }
+.login-body  .dip-tran { left: -320px !important; }
+.login-body::-webkit-input-placeholder { color: #4E546D; }
+.login-body .login { box-shadow: -10px 15px 25px rgba(8, 20, 47, 0.7); opacity: 1; top: 20px; -webkit-transition-timing-function: cubic-bezier(0.68, -0.25, 0.265, 0.85); -webkit-transition-property: -webkit-transform, opacity, box-shadow, top, left; transition-property: transform, opacity, box-shadow, top, left; -webkit-transition-duration: .5s; transition-duration: .5s; -webkit-transform-origin: 161px 100%; -ms-transform-origin: 161px 100%; transform-origin: 161px 100%; -webkit-transform: rotateX(0deg); transform: rotateX(0deg); position: relative; width: 260px;  /*border-top: 2px solid #D8312A;*/ height: 320px; position: absolute; left: 0; right: 0; margin: auto; top: 0; bottom: 0; padding: 40px; background: #35394a;  /* Old browsers */ border-radius: 8px;	/* FF3.6+ */ background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #35394a), color-stop(100%, rgb(0, 0, 0)));  /* Chrome,Safari4+ */ background: -webkit-linear-gradient(230deg, rgba(53, 57, 74, 0) 0%, rgb(0, 0, 0) 100%);  /* Chrome10+,Safari5.1+ */	/* Opera 11.10+ */
+
+	/* IE10+ */
+background: linear-gradient(230deg, rgba(53, 57, 74, 0) 0%, rgb(0, 0, 0) 100%);  /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(53, 57, 74, 0)', endColorstr='rgb(0, 0, 0)', GradientType=1);  /* IE6-9 fallback on horizontal gradient */ }
+.login-body .login-title { color: #D3D7F7; text-shadow: 2px 8px 16px #000; height: 60px; text-align: center; font-size: 24px; }
+.larryms-form {	/*border: 1px solid red;*/
+
+	/*height: 250px;*/
+width: 100%; position: absolute; left: 0; box-sizing: border-box; padding: 10px 30px 30px 30px; }
+.login-body .larryms-form .layui-form-item { position: relative; display: block; height: 38px; margin-bottom: 20px; }
+.login-body .larryms-form .larryms-label { display: block; width: 20px; height: 20px; text-align: center; line-height: 20px; position: absolute; z-index: 1; left: 6px; top: 10px; opacity: .5; }
+.login-body .larryms-form .larryms-label i.larry-icon { color: #fff; line-height: 20px; vertical-align: top; }
+.login-body .larryms-form  input[type='text'],
+.login-body .larryms-form input[type='password'] { color: #f2f2f2;  /*width: 190px;*/ margin-top: -2px; background: rgba(57, 61, 82, 0.8); left: 0;  /*padding: 10px 65px;*/ padding-left: 32px; border-top: none; border-bottom: none; border-right: none; border-left: none; outline: none; font-family: 'Gudea', sans-serif; box-shadow: none; }
+.login-body .larryms-form input[type='password'],
+.login-body .larryms-form input[type='text'] { color: #61BFFF !important; }
+.login-body .larryms-form  span.validation { display: block; position: absolute; z-index: 1; right: 10px; top: 8px; color: #fff; opacity: 0; }
+.login-body .larryms-form .larryms-code { margin-bottom: 30px; }
+.login-body .larryms-form .larryms-code input { width: 52%; }
+.login-body .larryms-form .larryms-code span.validation { display: block; width: 20px; position: absolute; z-index: 1; left: 50%; margin-left: -25px; }
+.login-body .larryms-form .larryms-code .code { display: inline-block; width: 46%; height: 100%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; background: rgba(255, 255, 230, 0.5); }
+.login-body .larryms-form  input::-webkit-input-placeholder {	/* WebKit browsers */
+font-size: 12px; color: #c2c2c2; }
+.login-body .larryms-form  input:-moz-placeholder {	/* Mozilla Firefox 4 to 18 */
+font-size: 12px; color: #c2c2c2; }
+.login-body .larryms-form  input::-moz-placeholder {	/* Mozilla Firefox 19+ */
+font-size: 12px; color: #c2c2c2; }
+.login-body .larryms-form  input:-ms-input-placeholder {	/* Internet Explorer 10+ */
+font-size: 12px; color: #c2c2c2; }
+.login-body .larryms-form .larry-btn-submit { display: block; width: 75%; height: 42px; line-height: 42px; margin: 0 auto; font-size: 16px; border-radius: 20px; background: rgba(0, 150, 136, 0.8); color: #f2f2f2; }
+.login-body .authent { box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55); display: none; background: #35394a;  /* Old browsers */  /* FF3.6+ */
+
+	/* Chrome10+,Safari5.1+ */
+
+	/* Opera 11.10+ */
+
+	/* IE10+ */
+background: linear-gradient(230deg, rgba(53, 57, 74, 0) 0%, rgb(0, 0, 0) 100%);  /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(53, 57, 74, 0)', endColorstr='rgb(0, 0, 0)', GradientType=1);  /* IE6-9 fallback on horizontal gradient */ position: absolute; left: 0; right: 90px; margin: auto; width: 130px; color: white; text-transform: uppercase; letter-spacing: 1px; text-align: center; padding: 20px 70px; top: 200px; bottom: 0; height: 70px; opacity: 0; }
+.login-body  .authent p { display: block; width: 180px; text-align: left; color: white; margin-left: -25px; text-transform: capitalize; }
+.ball-clip-rotate-multiple { position: relative; }
+.ball-clip-rotate-multiple > div { -webkit-animation-fill-mode: both; animation-fill-mode: both; position: absolute; left: 0px; top: 0px; border: 2px solid #fff; border-bottom-color: transparent; border-top-color: transparent; border-radius: 100%; height: 35px; width: 35px; -webkit-animation: rotate 1s 0s ease-in-out infinite; animation: rotate 1s 0s ease-in-out infinite; }
+.ball-clip-rotate-multiple > div:last-child { display: inline-block; top: 10px; left: 10px; width: 15px; height: 15px; -webkit-animation-duration: 0.5s; animation-duration: 0.5s; border-color: #fff transparent #fff transparent; -webkit-animation-direction: reverse; animation-direction: reverse; }
+@-webkit-keyframes rotate {
+	0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+	50% { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
+	100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes rotate {
+	0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+	50% { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
+	100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+.loader { height: 44px; width: 44px; margin-left: 28px; }
+.larry_menu_box { background: rgba(0, 150, 136, 0.25) !important; }
+.larry_menu_box .larry_menu_body { background: rgba(0, 150, 136, 0.25) !important; border: 1px solid rgba(0, 150, 136, 0.25) !important; box-shadow: 1px 2px 5px #5FB878; }
+.larry_menu_a { color: #fff; }

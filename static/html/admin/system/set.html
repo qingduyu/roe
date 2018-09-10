@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>系统参数设置</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css" media="all">
+</head>
+
+<body class="larryms-system system-set">
+    <section class="layui-card margin15">
+        <div class="layui-card-header system-set-title">
+            <h2>系统参数设置</h2>
+        </div>
+        <div class="layui-card-body">
+            <div class="layui-tab" lay-filter="larrymsConf" id="larrymsConfTab">
+                <div class="system-title-box clearfix">
+                    <ul class="layui-tab-title ">
+                        <li class="layui-this" id="systemLi">站点设置</li>
+                        <li>邮件配置</li>
+                        <li>附件设置</li>
+                        <li>核心设置</li>
+                        <li>水印设置</li>
+                    </ul>
+                </div>
+                <div class="layui-tab-content">
+                    <div class='layui-tab-item layui-show'>
+                        <form action="" class="layui-form">
+                            <table class="layui-table">
+                                <colgroup>
+                                    <col width="20%">
+                                    <col width="60%">
+                                    <col width="20%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>参数说明</th>
+                                        <th>参数值</th>
+                                        <th>变量名</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>网站名称</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="xxx[xxx_webname]" class="layui-input" value="LarryMS经典的前后台管理系统框架_LarryCMS全功能新媒体内容管理系统微信公众平台开发_基于Layui_thinkphp5的larryms敏捷开发框架" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ xxx_webname }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>网站前台默认风格</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="xxx[xxx_df_style]" class="layui-input" value="larryms" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ xxx_df_style }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>网站备案号</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="xxx[xxx_beian]" class="layui-input" value="鄂ICP备18000110号-1" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ xxx_beian }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>网站默认关键词</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="xxx[xxx_keywords]" class="layui-input" value="layui后台,Larryms,larryms后台框架,larryms模板,后台模板,layui后台模板,微信公众平台开发,larrycms,tp5cms,内容管理系统,thinkphp后台系统,企业网站定制开发," autocomplete="off">
+                                        </td>
+                                        <td class="left">{ xxx_keywords }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>站点描述</td>
+                                        <!-- 文本域 -->
+                                        <td>
+                                            <textarea placeholder="请输入内容" name="xxx[xxx_description]" class="layui-textarea" autocomplete="off">Larryms是泰拉科技旗下一款专注于前后端敏捷开发的全端框架系统，larryms前端基于layui后端基于thinkphp5.x匠心打造，跨平台多终端设备完美适配的全端极速开发框架，可快速应用于企业一站式开发解决方案，larryms框架提供pc、手机端企业网站、小程序、微信公众号多场景下系统解决方案，提供丰富的javascript组件库 方便程序开发人员快速完成web前后端开发【官网地址：www.larryms.com】</textarea>
+                                        </td>
+                                        <td class="left">{ xxx_description }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>网站版权信息</td>
+                                        <!-- 文本域 -->
+                                        <td>
+                                            <textarea placeholder="请输入内容" name="xxx[xxx_powerby]" class="layui-textarea" autocomplete="off">泰拉科技（武汉）有限公司 larryms.com版权所有. QQ 313492783</textarea>
+                                        </td>
+                                        <td class="left">{ xxx_powerby }</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="larryms-form-submit">
+                                <a class="layui-btn layui-btn left larryms-submit-btn" lay-submit="" lay-filter="conf_1" id="conf_1">确定</a>
+                                <a class="layui-btn layui-btn  layui-btn-danger" id="resetAdd">重置</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class='layui-tab-item'>
+                        <form action="" class="layui-form">
+                            <table class="layui-table" style="">
+                                <colgroup>
+                                    <col width="20%">
+                                    <col width="60%">
+                                    <col width="20%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>参数说明</th>
+                                        <th>参数值</th>
+                                        <th>变量名</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="">
+                                    <tr>
+                                        <td>邮件发送方式</td>
+                                        <!-- 下拉 -->
+                                        <td>
+                                            <select name="xxx[xxx_mail_type]" id="xxx_mail_type">
+                                                <option value="smtp">smtp</option>
+                                                <option value="mail">mail</option>
+                                            </select>
+                                            <div class="layui-unselect layui-form-select">
+                                                <div class="layui-select-title">
+                                                    <input type="text" placeholder="请选择" value="smtp" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div>
+                                                <dl class="layui-anim layui-anim-upbit">
+                                                    <dd lay-value="smtp" class="layui-this">smtp</dd>
+                                                    <dd lay-value="mail" class="">mail</dd>
+                                                </dl>
+                                            </div>
+                                        </td>
+                                        <td class="left">{ xxx_mail_type }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SMTP服务器</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="xxx[xxx_smtp_host]" class="layui-input" value="smtp.qq.com" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ xxx_smtp_host }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SMTP服务器端口</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="xxx[xxx_smtp_port]" class="layui-input" value="465" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ xxx_smtp_port }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SMTP用户名</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="xxx[xxx_smtp_user]" class="layui-input" value="larryms@larryms.com" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ xxx_smtp_user }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SMTP授权码</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="xxx[xxx_smtp_pass]" class="layui-input" value="xxxxx" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ xxx_smtp_pass }</td>
+                                    </tr>
+                                    <tr style="">
+                                        <td>邮件激活模板</td>
+                                        <!-- HTML文本 -->
+                                        <td>
+                                            <script id="mail_tpl_active" name="name[mail_tpl_active]" class="larryms-html" type="text/plain">
+                                                <p>Hi，{username}:</p>
+                                                <p>&nbsp; &nbsp; &nbsp;欢迎加入{title}！请点击下方链接认证您的邮箱，完成账号激活（本次验证链接30分钟内有效）。</p>
+                                                <p>{url}
+                                                    <br/>
+                                                </p>
+                                                <p>这是系统消息无须回复，{title}真诚欢迎您的加入！</p>
+                                            </script>
+                                        </td>
+                                        <td class="left">{ mail_tpl_active }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>测试邮箱账号</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="xxx[mail_test]" class="layui-input" value="test@qq.com" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ mail_test }</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="larryms-form-submit">
+                                <a class="layui-btn layui-btn left larryms-submit-btn" lay-submit="" lay-filter="conf_2" id="conf_2">确定</a>
+                                <a class="layui-btn layui-btn  layui-btn-danger" id="resetAdd">重置</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class='layui-tab-item'>
+                        <form action="" class="layui-form">
+                            <table class="layui-table">
+                                <colgroup>
+                                    <col width="20%">
+                                    <col width="60%">
+                                    <col width="20%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>参数说明</th>
+                                        <th>参数值</th>
+                                        <th>变量名</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>是否开启缩略图上传</td>
+                                        <!-- 单选框 -->
+                                        <td>
+                                            <input type="radio" name="is_thumb" title="是" value="是" checked="checked">
+                                            <div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i>
+                                                <div>是</div>
+                                            </div>
+                                            <input type="radio" name="is_thumb" title="否" value="否">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>否</div>
+                                            </div>
+                                        </td>
+                                        <td class="left">{ is_thumb }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>缩略图宽度</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="name[thumb_width]" class="layui-input" value="300" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ thumb_width }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>缩略图高度</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="name[thumb_height]" class="layui-input" value="300" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ thumb_height }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>缩略图裁剪方式</td>
+                                        <!-- 单选框 -->
+                                        <td>
+                                            <input type="radio" name="thumb_way" title="等比例缩放" value="等比例缩放">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>等比例缩放</div>
+                                            </div>
+                                            <input type="radio" name="thumb_way" title="缩放后填充" value="缩放后填充">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>缩放后填充</div>
+                                            </div>
+                                            <input type="radio" name="thumb_way" title="居中裁剪" value="居中裁剪" checked="checked">
+                                            <div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i>
+                                                <div>居中裁剪</div>
+                                            </div>
+                                            <input type="radio" name="thumb_way" title="左上角裁剪" value="左上角裁剪">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>左上角裁剪</div>
+                                            </div>
+                                            <input type="radio" name="thumb_way" title="右下角裁剪" value="右下角裁剪">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>右下角裁剪</div>
+                                            </div>
+                                            <input type="radio" name="thumb_way" title="固定尺寸缩放" value="固定尺寸缩放">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>固定尺寸缩放</div>
+                                            </div>
+                                        </td>
+                                        <td class="left">{ thumb_way }</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="larryms-form-submit">
+                                <a class="layui-btn layui-btn left larryms-submit-btn" lay-submit="" lay-filter="conf_3" id="conf_3">确定</a>
+                                <a class="layui-btn layui-btn  layui-btn-danger" id="resetAdd">重置</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class='layui-tab-item'>
+                        <form action="" class="layui-form">
+                            <table class="layui-table">
+                                <colgroup>
+                                    <col width="20%">
+                                    <col width="60%">
+                                    <col width="20%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>参数说明</th>
+                                        <th>参数值</th>
+                                        <th>变量名</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>是否开启会员</td>
+                                        <!-- 单选框 -->
+                                        <td>
+                                            <input type="radio" name="is_user_reg" title="是" value="是" checked="checked">
+                                            <div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i>
+                                                <div>是</div>
+                                            </div>
+                                            <input type="radio" name="is_user_reg" title="否" value="否">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>否</div>
+                                            </div>
+                                        </td>
+                                        <td class="left">{ is_user_reg }</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="larryms-form-submit">
+                                <a class="layui-btn layui-btn left larryms-submit-btn" lay-submit="" lay-filter="conf_7" id="conf_7">确定</a>
+                                <a class="layui-btn layui-btn  layui-btn-danger" id="resetAdd">重置</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class='layui-tab-item'>
+                        <form action="" class="layui-form">
+                            <table class="layui-table">
+                                <colgroup>
+                                    <col width="20%">
+                                    <col width="60%">
+                                    <col width="20%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>参数说明</th>
+                                        <th>参数值</th>
+                                        <th>变量名</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>是否开启水印功能</td>
+                                        <!-- 单选框 -->
+                                        <td>
+                                            <input type="radio" name="is_markup" title="开启" value="开启" checked="checked">
+                                            <div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i>
+                                                <div>开启</div>
+                                            </div>
+                                            <input type="radio" name="is_markup" title="关闭" value="关闭">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>关闭</div>
+                                            </div>
+                                        </td>
+                                        <td class="left">{ is_markup }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>水印文件类型</td>
+                                        <!-- 单选框 -->
+                                        <td>
+                                            <input type="radio" name="mark_type" title="gif" value="gif">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>gif</div>
+                                            </div>
+                                            <input type="radio" name="mark_type" title="png" value="png">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>png</div>
+                                            </div>
+                                            <input type="radio" name="mark_type" title="文字" value="文字" checked="checked">
+                                            <div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i>
+                                                <div>文字</div>
+                                            </div>
+                                        </td>
+                                        <td class="left">{ mark_type }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>水印图片文字</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="name[water_text]" class="layui-input" value="larryms.com" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ water_text }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>水印图片文件</td>
+                                        <!-- 附件类型 -->
+                                        <td>
+                                            <div class="layui-inline larryms-uploads">
+                                                <input type="text" name="water_img" value="../../../larryms/images/water.jpg" id="litpicPath" class="layui-input larry-input">
+                                                <!-- <button type="button" name="avatar" class="layui-btn layui-btn-sm" data-url="upload.html" lay-data="{field:'litpic'}" id="larry-litpic"><i class="layui-icon"></i>本地上传</button> -->
+                                                <img src="../../../larryms/images/water.jpg" class="larryms-img">
+                                            </div>
+                                        </td>
+                                        <td class="left">{ water_img }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>水印文字颜色</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="name[water_text_color]" class="layui-input" value="#FF5722" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ water_text_color }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>水印文字大小</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="name[water_font_size]" class="layui-input" value="16" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ water_font_size }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>水印透明度</td>
+                                        <!-- 输入框 -->
+                                        <td>
+                                            <input type="text" name="name[water_tmd]" class="layui-input" value="60" autocomplete="off">
+                                        </td>
+                                        <td class="left">{ water_tmd }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>水印位置</td>
+                                        <!-- 单选框 -->
+                                        <td>
+                                            <input type="radio" name="water_pos" title="左上角" value="左上角">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>左上角</div>
+                                            </div>
+                                            <input type="radio" name="water_pos" title="上居中" value="上居中">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>上居中</div>
+                                            </div>
+                                            <input type="radio" name="water_pos" title="右上角" value="右上角">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>右上角</div>
+                                            </div>
+                                            <input type="radio" name="water_pos" title="左居中" value="左居中">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>左居中</div>
+                                            </div>
+                                            <input type="radio" name="water_pos" title="居中" value="居中">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>居中</div>
+                                            </div>
+                                            <input type="radio" name="water_pos" title="右居中" value="右居中">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>右居中</div>
+                                            </div>
+                                            <input type="radio" name="water_pos" title="左下角" value="左下角">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>左下角</div>
+                                            </div>
+                                            <input type="radio" name="water_pos" title="下居中" value="下居中">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>下居中</div>
+                                            </div>
+                                            <input type="radio" name="water_pos" title="右下角" value="右下角" checked="checked">
+                                            <div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i>
+                                                <div>右下角</div>
+                                            </div>
+                                            <input type="radio" name="water_pos" title="随机位置" value="随机位置">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>随机位置</div>
+                                            </div>
+                                        </td>
+                                        <td class="left">{ water_pos }</td>
+                                    </tr>
+                                    <tr>
+                                        <td>水印字体</td>
+                                        <!-- 单选框 -->
+                                        <td>
+                                            <input type="radio" name="font_path" title="larrymsA.ttf" value="larrymsA.ttf" checked="checked">
+                                            <div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i>
+                                                <div>larrymsA.ttf</div>
+                                            </div>
+                                            <input type="radio" name="font_path" title="larrymsB.ttf" value="larrymsB.ttf">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>larrymsB.ttf</div>
+                                            </div>
+                                            <input type="radio" name="font_path" title="larrymsC.ttf" value="larrymsC.ttf">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>larrymsC.ttf</div>
+                                            </div>
+                                            <input type="radio" name="font_path" title="行书.ttf" value="行书.ttf">
+                                            <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                                                <div>行书.ttf</div>
+                                            </div>
+                                        </td>
+                                        <td class="left">{ font_path }</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="larryms-form-submit">
+                                <a class="layui-btn layui-btn left larryms-submit-btn" lay-submit="" lay-filter="conf_8" id="conf_8">确定</a>
+                                <a class="layui-btn layui-btn  layui-btn-danger" id="resetAdd">重置</a>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    var table;
+    layui.cache.page = 'system';
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/', //实际使用时，建议改成绝对路径
+        identified: 'conf',
+        rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base'
+    }).use(['larry', 'ueditor', 'form', 'element'], function() {
+        var larry = layui.larry,
+            $ = layui.$,
+            ueditor = layui.ueditor,
+            larryms = layui.larryms,
+            element = layui.element,
+            form = layui.form;
+        //获取所有html容器
+        var $larrymsHtml = $('.larryms-html');
+        $larrymsHtml.each(function() {
+            var currId = $(this).attr('id'),
+                name = currId + 'ue',
+                name = UE.getEditor(currId,{initialFrameWidth:null});
+        });
+
+        larryms.msg('这里应vip成员要求，使用了多表单选项卡场景应用，技巧使用自动识别仅提交当前form，可在源码中查看',{time:8000});
+        function submitForm(formFilter) {
+            form.on(formFilter, function(data) {
+                $.post(data.form.action, data.field, function(res) {
+                    // if (res.code == 911) {
+                    //     larryms.msg(res.msg);
+                    // } else if (res.code == 200) {
+                    //     larryms.alert(res.msg);
+                    // } else {
+                    //     larryms.msg(res.msg);
+                    // }
+                    larryms.alert('您当前表单:'+formFilter+'已提交成功，实际开发中填写正确的后台处理url即可');
+                });
+                return false;
+            });
+        }
+        var curIndex = 1;
+        var formFilter = 'submit(conf_' + curIndex + ')';
+        element.on('tab(larrymsConf)', function(data) {
+            curIndex = data.index;
+            var $item = $(this).parents('#larrymsConfTab').find('.layui-show'),
+                filter = $item.children().find('.larryms-submit-btn').attr('lay-filter');
+            formFilter = 'submit(' + filter + ')';
+            submitForm(formFilter);
+        });
+        submitForm(formFilter);
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{
+	"code": 0,
+	"msg": "获取成功!",
+	"data": [{
+		"id": 1,
+		"title": "超级管理员",
+		"description": "系统全局管理员，拥有本系统所有权限",
+		"status": 1,
+		"create_time": "2018-05-27 23:31:47"
+	}, {
+		"id": 12,
+		"title": "社区维护管理员",
+		"description": "拥有网站基本管理权限和社区管理权限",
+		"status": 1,
+		"create_time": "2018-06-09 00:35:10"
+	}, {
+		"id": 13,
+		"title": "文档系统维护员",
+		"description": "拥有文档系统管理权限",
+		"status": 1,
+		"create_time": "2018-06-09 00:35:34"
+	}, {
+		"id": 14,
+		"title": "网站编辑",
+		"description": "拥有网站栏目文章发布权限",
+		"status": 1,
+		"create_time": "2018-06-09 00:36:12"
+	}],
+	"count": 4,
+	"rel": 1
+}

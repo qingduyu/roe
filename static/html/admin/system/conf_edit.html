@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>系统参数分组编辑</title>
+  	<meta name="renderer" content="webkit">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+  	<meta name="Author" content="larry" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="apple-mobile-web-app-capable" content="yes">	
+	<meta name="format-detection" content="telephone=no">	
+	<link rel="Shortcut Icon" href="/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css" media="all">
+</head>
+<body class="larryms-system larryms-system-add">
+<div class="layui-fluid">
+	<div class="layui-row larryms-panel auth-user-add">
+		<form action="{:url('conf_edit')}" class="layui-form" method="post" id="userAddForm">	
+      <input type="hidden" name="id" value="{$group.id}">
+			<div class="layui-form-item">
+            	    <label class="layui-form-label">系统配置项组名</label>
+            	    <div class="layui-input-block">
+             	       <input type="text" name="group_name" value="xxx" lay-verify="required" placeholder="请输入组名称" class="layui-input larry-input" autocomplete="off">
+            	    </div>
+            	</div>
+            	<div class="layui-form-item">
+            	    <label class="layui-form-label">是否为扩展配置</label>
+            	    <div class="layui-input-block ">
+                          <input type="checkbox" name="is_extend" lay-skin="switch"  lay-filter="switchTest" lay-text="扩展|常规">
+            	    </div>
+            	</div>
+            	<div class="layui-form-item">
+            	    <label class="layui-form-label">配置分组说明</label>
+            	    <div class="layui-input-block larry-textarea">
+            	         <textarea name="remark" placeholder="系统配置项分组说明" class="layui-textarea" value='xxx'  autocomplete="off">xxx</textarea>
+            	    </div>
+            	</div>
+              <div class="layui-form-item">
+                  <label class="layui-form-label">系统分组排序</label>
+                  <div class="layui-input-block">
+                     <input type="text" name="sort" value="xxx" lay-verify="required" placeholder="请输入参数分组序号" class="layui-input larry-input" autocomplete="off">
+                  </div>
+              </div>
+           		<div class="larryms-layer-btn">
+           		      <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="confgroupEdit" id="confgroupAdd">确定</a>
+           		      <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
+           		      <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+           		</div>
+
+		</form>
+	</div>
+</div>
+<!-- 加载js文件-->
+<script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+<script type="text/javascript">
+layui.cache.page = 'auth'; 
+layui.config({
+   version:"2.0.8",
+   base:'../../../larryms/',  //实际使用时，建议改成绝对路径
+   identified:'userList',
+   layertype: 2, //iframe内层弹窗类型不显示返回首页
+   rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+}).extend({
+    larry:'js/base'
+}).use(['larry','table'],function(){
+   var $ = layui.$,
+      larry = layui.larry,
+      table = layui.talbe,
+      larryms = layui.larryms,
+      form = layui.form;
+  var curIfr = parent.layer.getFrameIndex(window.name);
+  $('#resetAdd').on('click',function(){
+      $('#userAddForm')[0].reset();
+  });
+  $('#closeAdd').on('click',function(){
+     parent.layer.close(curIfr);   
+  });
+
+form.on('switch(switchTest)',function(data){
+    // if(data.elem.checked){
+    //     $("input[name='is_extend']").val('1');
+    // }else{
+    //     $("input[name='is_extend']").val('0');
+    // }
+    console.log(data.value);
+});
+  form.on('submit(confgroupEdit)',function(data){
+      if(data.field.is_extend !== undefined){
+          data.field.is_extend = 1;
+      }else{
+          data.field.is_extend = 0;
+      }
+      $.post(data.form.action,data.field,function(res){
+          if(res.code == 200){
+              larryms.msg(res.msg);
+              parent.table.reload('systemConfGroup',{});
+              parent.layer.close(curIfr);
+              // $('#userAddForm')[0].reset();继续添加注销上一段
+              
+          }else if(res.code == 911){
+              larryms.msg(res.msg);
+          }else if(res.code == 500){
+              larryms.msg(res.msg);
+          }
+      });
+      return false;
+  });
+        
+});
+</script>
+</body>
+</html>

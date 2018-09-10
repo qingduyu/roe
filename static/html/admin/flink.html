@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>友情链接管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css">
+</head>
+
+<body class="">
+    <div class="layui-fluid">
+        <div class="larry-container">
+            <div class="layui-row layui-col-space15 larryms-data-top">
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-col-lg12">
+                    <blockquote class="layui-elem-quote quoteBox" id="flinkBtn">
+                        <form action="" method="post" class="layui-form  layui-inline">
+                            <div class="larryms-search-box">
+                                <div class="layui-input-inline">
+                                    <input type="text" name="keywords" id="keywords" class="layui-input searchVal layui-inline larry-input" placeholder="请输入搜索的内容" onkeypress="if(event.keyCode==13) {searchBtn.click();return false;}" autocomplete="off">
+                                </div>
+                                <a class="layui-btn larryms-search" id="searchBtn" data-type="reload">搜索</a>
+                            </div>
+                        </form>
+                        <div class="layui-inline">
+                            <a class="layui-btn layui-btn-normal addNews_btn" data-type="add" data-url="">
+                                <cite>添加友链</cite>
+                            </a>
+                        </div>
+                        <div class="layui-inline">
+                            <a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn" data-type="del" data-id="flink">批量删除</a>
+                        </div>
+                    </blockquote>
+                    <table id="flink" lay-filter="flink" class="larryms-table-id" data-url="../../../larryms/data/admin/flink.json"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--操作-->
+    <script type="text/html" id="listBar">
+        <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="look">访问</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+    </script>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/',
+    }).extend({
+        larry: 'js/base'
+    }).use(['larry', 'form', 'table'], function() {
+        var $ = layui.$,
+            larryms = layui.larryms,
+            form = layui.form,
+            table = layui.table;
+        //按钮组监听
+        $('#flinkBtn .layui-btn').on('click', function() {
+            var type = $(this).data('type'),
+                url = $(this).data('url'),
+                tit = $(this).children('cite').text();
+            active[type] ? active[type].call(this, url, tit) : '';
+        });
+        $("#searchBtn").on("click", function() {
+            if ($(".searchVal").val() != '') {
+                table.reload("flink", {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    },
+                    where: {
+                        key: $(".searchVal").val() //搜索的关键字
+                    }
+                })
+            } else {
+                larryms.msg("请输入搜索的内容");
+            }
+        });
+        var mUrl = $('#flink').data('url'),
+            mIns = table.render({
+                elem: '#flink',
+                id: "flink",
+                cellMinWidth: 95,
+                url: mUrl,
+                method: 'post',
+                height: "full-155",
+                page: true,
+                limits: [15, 30, 45, 60, 75, 90, 105, 120],
+                limit: 10,
+                size: 'lg',
+                cols: [
+                    [{
+                        type: "checkbox",
+                        fixed: 'left',
+                        width: 40
+                    }, {
+                        field: 'siteName',
+                        title: '网站名称',
+                        minWidth: 360,
+                        align: 'left',
+                        sort: true
+                    }, {
+                        field: 'logo',
+                        title: '网站Logo',
+                        width: 180,
+                        align: 'center',
+                        templet: function(d) {
+                            return '<img src="' + d.logo + '" alt="" class="flink-logo">';
+                        }
+                    }, {
+                        field: 'url',
+                        title: '链接地址',
+                        mWidth: 200,
+                        align: 'left',
+                        templet: function(d) {
+                            return '<a href="' + d.url + '" target="_blank" class="flink-a">' + d.url + '</a>';
+                        }
+                    }, {
+                        field: 'email',
+                        title: '站长邮箱',
+                        width: 200,
+                        align: 'center'
+                    }, {
+                        field: 'status',
+                        title: '状态位置',
+                        width: 150,
+                        align: 'center',
+                        templet: function(d) {
+                            if (d.status == 1) {
+                                return '首页';
+                            } else if (d.status == 2) {
+                                return '频道页';
+                            } else {
+                                return '文章页';
+                            }
+                        }
+                    }, {
+                        field: 'addTime',
+                        title: '添加时间',
+                        width: 150,
+                        align: 'center'
+                    }, {
+                        title: '操作',
+                        width: 200,
+                        templet: '#listBar',
+                        fixed: "right",
+                        align: "center"
+                    }]
+                ]
+            });
+        var active = {
+            add: function(data) {
+                larryms.alert('已执行到友链添加，请参考源码注释或同类型功能实现');
+            },
+            del: function() {
+                //批量删除
+                var tableID = $(this).data('id'),
+                    checkStatus = table.checkStatus(tableID),
+                    data = checkStatus.data,
+                    newsId = [];
+
+                var url = $(this).data('url');
+                if (data.length > 0) {
+                    for (var i in data) {
+                        newsId.push(data[i].id);
+                    }
+                    if (newsId.length > 0) {
+                        var ids = {
+                            "id": newsId
+                        };
+                        larryms.confirm('你确定要执行批量删除吗？', {
+                            icon: 3,
+                            title: '批量删除提示！'
+                        }, function() {
+                            $.post(url, ids, function(res) {
+                                // if (res.code == 200) {
+                                //  larryms.msg(res.msg);
+                                //  table.reload(tableID, {
+                                //      page: {
+                                //          curr: 1
+                                //      }
+                                //  });
+                                // } else {
+                                //  larryms.msg(res.msg);
+                                // }
+                                larryms.msg('已执行到删除，实际项目中请填写后端处理url即可');
+                            });
+                        });
+                    }
+                } else {
+                    larryms.msg('请至少选择一项，进行删除操作');
+                }
+            }
+        };
+        var pageTableID = $('.larryms-table-id').attr('id');
+        // 监听工具条
+        table.on('tool(' + pageTableID + ')', function(obj) {
+            var data = obj.data;
+            if (obj.event == 'edit') {
+                larryms.alert('编辑功能已写于源码注释中，可新窗口编辑，可当前窗口编辑，可弹窗编辑，可新选项卡方式编辑多种方式任选');
+            } else if (obj.event == 'del') {
+                var url = $(this).data('url');
+                larryms.confirm('你确定要删除该条数据吗？', {
+                    icon: 3,
+                    title: '删除提示'
+                }, function() {
+                    var ids = {
+                        "id": data.id
+                    };
+                    $.post(url, ids, function(res) {
+                        // if (res.code == 200) {
+                        //  larryms.msg(res.msg);
+                        //  table.reload(pageTableID, {});
+                        // } else {
+                        //  larryms.msg(res.msg);
+                        // }
+                        larryms.msg('已执行到删除，实际项目中请填写后端处理url即可');
+                    });
+                });
+            } else if (obj.event == 'look') {
+                 window.open(data.url);
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

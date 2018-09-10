@@ -1,0 +1,288 @@
+<form class="layui-form" id="larrymsThemes">
+<div class="larryms-themeset-tit">系统主题设置</div>
+<div class="larryms-themeset-body">
+	<!-- 主题配色 -->
+	<ul class="theme-scheme">
+		<li class="larryms-this default" data-alias="default" title="系统默认主题">
+			<div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>默认主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="deepBlue" data-alias="deepBlue" title="深蓝主题">
+            <div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>深蓝主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="navy" data-alias="navy" title="藏青主题">
+			<div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>藏青主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="green" data-alias="green" title="墨绿主题">
+            <div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>墨绿主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="orange" data-alias="orange" title="橙色主题">
+			<div class="larryms-header-theme"></div>
+			<div class="larryms-left-theme"></div>
+			<div class="larryms-right-theme">
+				<span>橙色主题</span>
+				<div class="larryms-footer-theme"></div>
+			</div>
+		</li>
+		<li class="custom" data-alias="custom" title="自定义主题">
+			<div class="custom-themeset">自定义系统主题配色</div>
+		</li>
+	</ul>
+	<div class="custom-box">
+		<input type="text" placeholder="顶部颜色" class="layui-input" name="topColor">
+		<input type="text" placeholder="顶部选中色" class="layui-input" name="topThis">
+		<input type="text" placeholder="顶部下边框" class="layui-input" name="topBottom">
+		<input type="text" placeholder="左侧颜色" class="layui-input" name="leftColor">
+		<input type="text" placeholder="左侧有边框" class="layui-input" name="leftRight">
+		<input type="text" placeholder="菜单选中颜色" class="layui-input" name="navThis">
+		<input type="text" placeholder="Tab标题栏下边框" class="layui-input" name="titBottom">
+		<input type="text" placeholder="页脚颜色" class="layui-input" name="footColor">
+		<input type="text" placeholder="页脚文字颜色" class="layui-input" name="footFont">
+	</div>
+</div>
+<div class="larryms-themeset-sys">
+	<div class="larryms-themeset-tit">Tab选项卡相关设置</div>
+    <div class="layui-form-item tab-session">
+    	<label class="layui-form-label">开启Tab缓存</label>
+    	<div class="layui-input-block">
+    		<input type="checkbox" id="tabCache" lay-filter="tabSession" lay-skin="switch"  value="1">
+    		<div class="layui-word-aux">将记录并保持当前状态</div>
+    	</div>
+    </div>
+    <div class="layui-form-item">
+    	<label class="layui-form-label">Tab切换刷新</label>
+    	<div class="layui-input-block">
+            <input type="checkbox" id="tabAutoRefresh" lay-filter="tabAutoRefresh" lay-skin="switch"  value="1">
+            <div class="layui-word-aux">切换选项卡将自动刷新</div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否隐藏Tab</label>
+        <div class="layui-input-block">
+            <input type="checkbox" id="mobileTabSwitch" lay-filter="mobileTabSwitch" lay-skin="switch"  value="1">
+            <div class="layui-word-aux">移动端有效(默认隐藏)</div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">Tab动画加载</label>
+        <div class="layui-input-block">
+            <input type="checkbox" id="pageAnim" lay-filter="pageAnim" lay-skin="switch"  value="1">
+            <div class="layui-word-aux">Tab打开动画(默认开启)</div>
+        </div>
+    </div>
+    <div class="larryms-themeset-tit">其他系统设置（布局）</div>
+    <div class="layui-form-item tab-session">
+        <label class="layui-form-label">菜单模式</label>
+        <div class="layui-input-block">
+            <input type="checkbox" id="topMenuSet" lay-filter="topMenuSet" lay-skin="switch"  value="1">
+            <div class="layui-word-aux">顶部导航菜单默认开启</div>
+        </div>
+    </div>
+    <div class="layui-form-item tab-session">
+    	<label class="layui-form-label">开启页脚</label>
+    	<div class="layui-input-block">
+    		<input type="checkbox" id="footSet" lay-filter="footSet" lay-skin="switch"  value="1">
+    	</div>
+    </div>
+    <div class="layui-form-item tab-session">
+    	<label class="layui-form-label">开启全屏</label>
+    	<div class="layui-input-block">
+    		<input type="checkbox" id="fullScreen" lay-filter="fullScreen" lay-skin="switch"  value="1">
+    		<div class="layui-word-aux">客户端将自动全屏</div>
+    	</div>
+    </div>
+
+</div>
+<div class="layui-btn larryms-setTheme" lay-submit lay-filter="larrymsThemeSet">保存主题并立即生效</div>
+</form>
+<script>
+layui.use(['jquery','form','index','layer'],function(){
+    var $= layui.jquery,
+        form = layui.form,
+        layer = layui.layer,
+        index = layui.index,
+        larryms = layui.larryms;
+    
+    // 读取缓存配置
+    var tName = layui.data('larryms').theme !== undefined ? layui.data('larryms').theme.name :'undefined' ,
+        systemSet = layui.data('larryms').systemSet,
+        topMenuSet =layui.data('larryms').topMenuSet,
+        mobileTabSwitch = layui.data('larryms').mobileTabSwitch;  
+    if(tName !== 'undefined'){
+    	$('.theme-scheme li[data-alias='+tName+']').addClass('larryms-this').siblings().removeClass('larryms-this');
+        if($('.theme-scheme li[data-alias="custom"]').hasClass('larryms-this')){
+            $('.custom-box').show();
+            var curThemes = layui.data('larryms').theme;
+            for(attrN  in curThemes ){
+                $('.custom-box input[name='+attrN+']').val(curThemes[attrN]);
+            }
+        }  
+    }
+
+    if(systemSet.tabCache){
+          $('#tabCache').attr('checked', 'checked');
+    }else{
+    	 $('#tabCache').removeAttr("checked");
+    }
+    if(systemSet.tabRefresh){
+         $('#tabAutoRefresh').attr('checked', 'checked');
+    }else{
+    	 $('#tabAutoRefresh').removeAttr("checked");
+    }
+    if(systemSet.footSet == 'on'){
+    	$('#footSet').attr('checked', 'checked');
+    }else{
+    	$('#footSet').removeAttr("checked");
+    }
+    if(systemSet.fullScreen){
+        $('#fullScreen').attr('checked', 'checked');
+    }else{
+    	$('#fullScreen').removeAttr("checked");
+    }
+    if(systemSet.pageAnim){
+        $('#pageAnim').attr('checked', 'checked');
+    }else{
+        $('#pageAnim').removeAttr("checked");
+    }
+    //移动端tab选项卡显示控制
+    if(mobileTabSwitch){
+        $('#mobileTabSwitch').attr('checked', 'checked');
+    }else{
+        $('#mobileTabSwitch').removeAttr("checked");
+    }
+    //顶级菜单导航控制
+    if(topMenuSet){
+        $('#topMenuSet').attr('checked', 'checked');
+    }else{
+        $('#topMenuSet').removeAttr("checked");
+    }
+    form.render();
+    //设置主题配色
+    $('.theme-scheme li').on('click',function(){
+        $(this).addClass('larryms-this').siblings().removeClass('larryms-this');
+        var themeName = $(this).data('alias');
+        if(themeName!=='custom'){
+        	$('.custom-box').hide();
+        	if(themeName !=='default'){
+                index.theme(index.themeColor[themeName]);
+        	}else{
+                index.theme({
+                	name:'default',
+                });
+        	}
+        }else{
+        	$('.custom-box').show();
+        }
+        
+    });
+    //自定义主题配色
+    $('.custom-box input').blur(function(){
+          var colorStr = $(this).val();
+          if(larryms.CheckIsColor(colorStr)){
+               setCustomTheme($(this).attr('name'),colorStr);
+          }else{
+                layer.tips('颜色值格式不正确', $(this), {
+                    tips: [1, '#FF5722']
+                });                
+          }
+    });
+    $('.custom-box input').focus(function(){
+         $(this).val('');
+    });
+    function setCustomTheme(attrName,curValue){
+        var localValue = layui.data('larryms').theme;
+        if(localValue !== undefined){
+            localValue.name = 'custom';
+            localValue[attrName] = curValue;
+            index.theme(localValue);
+        }else{
+            var options = {name:'custom'};
+            options[attrName] = curValue;
+            index.theme(options);
+        }
+    }
+    // 系统其他功能项设置
+    form.on('switch(tabSession)', function(data) {
+         setCurData('tabCache',data.elem.checked);
+         return false;
+	});
+    
+    form.on('switch(tabAutoRefresh)', function(data) {
+         setCurData('tabRefresh',data.elem.checked);
+         return false;
+	});
+    form.on('switch(footSet)', function(data) {
+         var val = data.elem.checked === true ? 'on' : 'off';
+         setCurData('footSet',val);
+         index.footInit(val);
+         return false;
+	});
+    form.on('switch(fullScreen)',function(data){
+         var val = data.elem.checked === true ? true : false;
+         setCurData('fullScreen',val);
+         index.fScreen(val);
+         return false;
+    });
+    form.on('switch(pageAnim)', function(data) {
+         var val = data.elem.checked === true ? true : false;
+         setCurData('pageAnim',val);
+         index.pageAnimInit();
+         return false;
+    });
+    //移动端tab选项卡配置
+    form.on('switch(mobileTabSwitch)',function(data){
+         var val = data.elem.checked === true ? true : false;
+         layui.data('larryms',{
+            key:'mobileTabSwitch',
+            value: val
+         });
+         index.mobileTab();
+         return false;
+    });
+    //顶部顶级导航开启配置
+    form.on('switch(topMenuSet)',function(data){
+         var val = data.elem.checked === true ? true : false;
+         layui.data('larryms',{
+            key:'topMenuSet',
+            value: val
+         });
+         index.menuInit();
+         return false;
+    });
+    function setCurData(name,data){
+         var curData = layui.data('larryms').systemSet;
+             curData[name] = data;
+         layui.data('larryms',{
+         	key:'systemSet',
+         	value: curData
+         });
+    }
+    form.on('submit(larrymsThemeSet)',function(){
+        index.init();
+        top.larryTab.render();
+        layer.close(layer.index);
+        return false;
+    });
+   
+    
+});
+</script>

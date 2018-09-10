@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>500PC</title>
+    <meta name="keywords" content="404" />
+    <meta name="description" content="404" />
+    <meta name="Author" content="larry" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <!-- load css -->
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/temperror.css" media="all">
+</head>
+
+<body class="box-500" ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false">
+    <div id="container">
+        <div>
+            <h1 id="h1">您访问的服务器开小差了</h1>
+            <h2 id="h2">请您稍后再试，因为这里是500状态页</h2>
+            <span id="h3"></span>
+            </h1>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/plus/temp.js"></script>
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/'
+    }).extend({
+        larry: 'js/base'
+    }).use('larry');
+    </script>
+</body>
+
+</html>

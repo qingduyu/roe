@@ -1,0 +1,2 @@
+2018-09-07 16:49:48 [ERROR] Invalid HTTP_HOST header: '172.16.50.216:'. The domain name provided is not valid according to RFC 1034/1035.
+2018-09-07 16:51:10 [ERROR] Invalid HTTP_HOST header: '172.16.50.216:'. The domain name provided is not valid according to RFC 1034/1035.

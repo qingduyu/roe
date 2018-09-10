@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>管理员列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css" media="all">
+</head>
+
+<body class="auth-user">
+    <div class="layui-fluid">
+        <div class="layui-row larryms-panel auth-user-add">
+            <form action="" class="layui-form" method="post" id="userAddForm">
+                <input type="hidden" name="id" value="{$admin_info.id}">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户所属组</label>
+                    <div class="layui-input-block">
+                        <select name="group_id" lay-verify="required" lay-search="" class="larry-select">
+                            <option value="">直接选择或搜索选择</option>
+                            <option value="1" selected="selected">超级管理员</option>
+                            <option value="12">社区维护管理员</option>
+                            <option value="13">文档系统维护员</option>
+                            <option value="14">网站编辑</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" value="admin" lay-verify="required" placeholder="请输入用户名" class="layui-input larry-input" autocomplete="off">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">设置密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="password" value="" placeholder="（选填）如不修改则留空" class="layui-input larry-input" autocomplete="off">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">确认密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="confirm_password" value="" placeholder="（选填）如不修改则留空" class="layui-input larry-input" autocomplete="off">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户状态</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" checked="checked" value="1" name="status" lay-skin="switch" lay-filter="switchTest" lay-text="启用|禁用">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">手机号码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="phone" value="13888888888" placeholder="手机号码选填" class="layui-input larry-input" autocomplete="off">
+                    </div>
+                </div>
+                <div class="larryms-layer-btn">
+                    <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="useradd" id="submitAdd">确定</a>
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    layui.cache.page = 'auth';
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/', //实际使用时，建议改成绝对路径
+        identified: 'userList',
+        layertype: 2, //iframe内层弹窗类型不显示返回首页
+        rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base'
+    }).use(['larry', 'table'], function() {
+        var $ = layui.$,
+            larry = layui.larry,
+            table = layui.talbe,
+            larryms = layui.larryms,
+            form = layui.form;
+        var curIfr = parent.layer.getFrameIndex(window.name);
+        $('#resetAdd').on('click', function() {
+            $('#userAddForm')[0].reset();
+        });
+        $('#closeAdd').on('click', function() {
+            parent.layer.close(curIfr);
+        });
+        form.on('submit(useradd)', function(data) {
+            $.post(data.form.action, data.field, function(res) {
+                if (res.code == 200) {
+                    larryms.msg(res.msg);
+                    parent.table.reload('adminuser', {});
+                    parent.layer.close(curIfr);
+                } else if (res.code == 911) {
+                    larryms.msg(res.msg);
+                } else if (res.code == 500) {
+                    larryms.msg(res.msg);
+                }
+            });
+            return false;
+        });
+
+    });
+    </script>
+</body>
+
+</html>

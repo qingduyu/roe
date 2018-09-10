@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Larryms登录</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/global.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/index/login.css" media="all">
+    <!-- load css -->
+</head>
+
+<body class="login-body">
+    <div class="login pt-page-scaleUp">
+        <div class='login-title'>
+            <span>Larryms会员登录</span>
+        </div>
+        <form action="" class="layui-form larryms-form">
+            <dvi class="layui-form-item">
+                <label class="larryms-label"><i class="larry-icon larry-guanliyuan"></i></label>
+                <input type="text" name="uname" lay-verify="require" autocomplete="off" placeholder="请输入您的用户名" class="layui-input larry-input">
+                <span class="validation"><i class="larry-icon larry-gou4"></i></span>
+            </dvi>
+            <dvi class="layui-form-item">
+                <label class="larryms-label"><i class="larry-icon larry-zhanghaomima"></i></label>
+                <input type="password" name="passwd" lay-verify="require" autocomplete="off" placeholder="请输入您的密码" class="layui-input larry-input">
+                <span class="validation"><i class="larry-icon larry-gou4"></i></span>
+            </dvi>
+            <dvi class="layui-form-item larryms-code">
+                <label class="larryms-label"><i class="larry-icon larry-yanzhengma"></i></label>
+                <input type="text" name="code" lay-verify="require" autocomplete="off" placeholder="输入验证码" class="layui-input larry-input">
+                <span class="validation"><i class="larry-icon larry-gou4"></i></span>
+                <div class="code">
+                    <div class="code-img"><img src="http://www.larryms.com/forum/comment/verify.html" alt="" id="captchaImg"></div>
+                </div>
+            </dvi>
+            <div class="layui-form-item">
+                <button class="layui-btn larry-btn-submit" lay-filter="larryforum" lay-submit>立即登录</button>
+            </div>
+            <div class="layui-form-item layui-trans larryms-user-login-other">
+                <label>社交账号登录：</label>
+                <a href="#" class="login-qq-a"></a>
+                <a href="#" class="reg-a">注册新账号</a>
+                <a href="#" class="reg-a forget">忘记密码</a>
+            </div>
+        </form>
+    </div>
+    <div class="authent">
+        <div class="loader">
+            <div class="loader-inner ball-clip-rotate-multiple">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <p>正在登录Larryms社区...</p>
+    </div>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    layui.cache.page = 'login';
+    layui.cache.video = '../../../larryms/video/login.mp4';
+    layui.cache.captcha = 'http://www.larryms.com/forum/comment/verify.html';
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/',
+        modscore: false,
+        mods: 'index/',
+        rightMenu: true
+    }).extend({
+        larry: 'js/base'
+    }).use(['larry']);
+    </script>
+</body>
+
+</html>

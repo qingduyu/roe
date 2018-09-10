@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>系统菜单管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css" media="all">
+</head>
+
+<body class="larryms-auth larryms-menu larryms-menu-edit">
+    <form class="layui-form layui-form-pane larry-menu-form" id="larrymsAdd" lay-filter="larryMenuAdd" action="{:url('edit')}">
+        <input type="hidden" value="{$current_menu.id}" name="id">
+        <div class="layui-form-item">
+            <label class="layui-form-label">父级菜单</label>
+            <div class="layui-input-block">
+                <select name="pid" multiple="" lay-verify="required" lay-search="" class="larry-select">
+                        <option value="0" selected="selected">顶级菜单</option>
+                        <option value="26">系统管理</option>
+                        <option value="27">&nbsp;├─后台首页</option>
+                        <option value="28">&nbsp;├─我的面板</option>
+                        <option value="39">&nbsp;│&nbsp;├─我的账户</option>
+                        <option value="40">&nbsp;│&nbsp;├─消息中心</option>
+                        <option value="41">&nbsp;│&nbsp;└─操作日志</option>
+                        <option value="29">&nbsp;├─菜单管理</option>
+                        <option value="30">&nbsp;├─权限管理</option>
+                        <option value="31">&nbsp;│&nbsp;├─用户管理</option>
+                        <option value="32">&nbsp;│&nbsp;├─角色管理</option>
+                        <option value="33">&nbsp;│&nbsp;├─角色权限控制</option>
+                        <option value="58">&nbsp;│&nbsp;└─系统日志管理</option>
+                        <option value="34">&nbsp;├─系统设置</option>
+                        <option value="49">&nbsp;│&nbsp;├─系统参数设置</option>
+                        <option value="50">&nbsp;│&nbsp;├─系统配置管理</option>
+                        <option value="70">&nbsp;│&nbsp;├─配置分组管理</option>
+                        <option value="51">&nbsp;│&nbsp;├─短信接口设置</option>
+                        <option value="52">&nbsp;│&nbsp;└─支付接口配置</option>
+                        <option value="61">&nbsp;├─网站维护</option>
+                        <option value="62">&nbsp;│&nbsp;├─网站主题管理</option>
+                        <option value="63">&nbsp;│&nbsp;├─更新系统缓存</option>
+                        <option value="64">&nbsp;│&nbsp;├─数据库备份</option>
+                        <option value="65">&nbsp;│&nbsp;└─数据库还原</option>
+                        <option value="66">&nbsp;├─插件管理</option>
+                        <option value="67">&nbsp;├─数据统计</option>
+                        <option value="68">&nbsp;├─广告管理</option>
+                        <option value="69">&nbsp;└─友链管理</option>
+                        <option value="35">内容管理</option>
+                        <option value="44">&nbsp;├─栏目管理</option>
+                        <option value="82">&nbsp;│&nbsp;├─栏目列表</option>
+                        <option value="83">&nbsp;│&nbsp;└─栏目添加</option>
+                        <option value="76">&nbsp;├─文档管理</option>
+                        <option value="79">&nbsp;│&nbsp;├─所有档案列表</option>
+                        <option value="89">&nbsp;│&nbsp;├─文章发布</option>
+                        <option value="81">&nbsp;│&nbsp;├─我发布的文档</option>
+                        <option value="80">&nbsp;│&nbsp;├─待审核的档案</option>
+                        <option value="77">&nbsp;│&nbsp;├─内容回收站</option>
+                        <option value="45">&nbsp;├─产品管理</option>
+                        <option value="101">&nbsp;├─产品促销优惠</option>
+                        <option value="91">&nbsp;├─产品日志</option>
+                        <option value="92">&nbsp;├─增值服务</option>
+                        <option value="74">&nbsp;├─模型管理</option>
+                        <option value="75">&nbsp;│&nbsp;├─内容模型管理</option>
+                        <option value="87">&nbsp;│&nbsp;└─模型字段管理</option>
+                        <option value="78">&nbsp;└─采集管理</option>
+                        <option value="36">社区管理</option>
+                        <option value="95">&nbsp;├─社区内容管理</option>
+                        <option value="43">&nbsp;│&nbsp;├─社区板块管理</option>
+                        <option value="71">&nbsp;│&nbsp;├─社区帖子管理</option>
+                        <option value="72">&nbsp;│&nbsp;├─社区评论管理</option>
+                        <option value="73">&nbsp;│&nbsp;└─社区消息管理</option>
+                        <option value="53">&nbsp;├─会员管理</option>
+                        <option value="54">&nbsp;│&nbsp;├─会员管理</option>
+                        <option value="56">&nbsp;│&nbsp;├─会员等级</option>
+                        <option value="55">&nbsp;│&nbsp;├─会员权限组</option>
+                        <option value="57">&nbsp;│&nbsp;└─黑名单用户</option>
+                        <option value="59">&nbsp;├─订单管理</option>
+                        <option value="60">&nbsp;│&nbsp;└─订单列表</option>
+                        <option value="93">&nbsp;└─社区QQ用户管理</option>
+                        <option value="37">文档系统</option>
+                        <option value="38">微信公众</option>
+                    </select>
+            </div>
+        </div>
+        <div class="layui-form-item larryms-menu-type">
+            <div class="layui-inline layui-inline-left">
+                <label class="layui-form-label">菜单类型</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="authtype" lay-filter='menutype' value="1" title="导航" checked>
+                    <input type="radio" name="authtype" lay-filter='menutype' value="0" title="页面按钮">
+                </div>
+            </div>
+            <div class="layui-inline layui-inline-right">
+                <label class="layui-form-label">是否有子菜单</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="ismenu" id="ismenua" lay-filter='menu' value="1" title="是" checked>
+                        <input type="radio" name="ismenu" id="ismenub" lay-filter='menu' value="0" title="否">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">菜单名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" placeholder="请输入菜单名称" class="layui-input" lay-verify="required" value="需要编辑菜单的名称" autocomplete="off">
+            </div>
+        </div>
+        <div class="layui-form-item  larryms-menus-icon">
+            <label class="layui-form-label" id="larryICONEdit"><i id="larryIconFont" class="larry-icon larry-tubiao"></i></label>
+            <div class="layui-input-block">
+                <input type="text" name="icon" placeholder="请输入选择或输入图标名称" autocomplete="off" class="layui-input" id="larryIconInput" lay-verify="required" value="larry-tubiao">
+            </div>
+            <div class="larry-icon-box">
+                <div class="layui-tab">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">larry-icon图标</li>
+                    </ul>
+                    <div class="larryms-search">
+                        <input type="text" placeholder="请输入要查找的图标名" class="layui-input search_text" autocomplete="off">
+                        <input type="button" class="inline-block layui-btn layui-btn-sm search_icon" value="搜索">
+                    </div>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show" id="larry_icon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">字体名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="font" placeholder="请输入字体名称,默认使用larry-icon / fa" class="layui-input" id="larryFont" lay-verify="required" value="" autocomplete="off">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">控制器方法</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" id="name" placeholder="请输入控制器方法 如：config/add；若有子级菜单可以无需控制器方法" class="layui-input" value="需要修改的控制器方法" autocomplete="off">
+            </div>
+        </div>
+        <div class="layui-form-item param" id="param">
+            <label class="layui-form-label">附加参数</label>
+            <div class="layui-input-block">
+                <input type="text" name="param" placeholder="附加参数" class="layui-input" value="{$current_menu.param}" autocomplete="off">
+            </div>
+        </div>
+        <div class="layui-form-item condition" id="condition">
+            <label class="layui-form-label">附加规则</label>
+            <div class="layui-input-block">
+                <input type="text" name="condition" placeholder="附加规则" class="layui-input" value="这里是附加规则" autocomplete="off">
+            </div>
+        </div>
+        <!-- <div class="layui-form-item">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <textarea name="remark" placeholder="请输入该角色组描述信息" class="layui-textarea" autocomplete="off">这里是备注</textarea>
+            </div>
+        </div> -->
+        <div class="layui-form-item">
+            <div class="layui-inline" id="spread" {if condition="$current_menu.ismenu==0" }style="display:none" {/if}>
+                <label class="layui-form-label layui-inline">是否展开</label>
+                <div class="layui-inline">
+                    <input type="checkbox" name="spread" checked="checked" value="1" lay-skin="switch" lay-filter="switchSpread" lay-text="启用|禁用">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label layui-inline">状态</label>
+                <div class="layui-inline">
+                    <input type="checkbox" checked="checked" value="1" name="status" lay-skin="switch" lay-filter="switchTest" lay-text="启用|禁用">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-block">
+                <input type="text" name="sort" placeholder="请输入字体名称,默认使用larry-icon / fa" class="layui-input" lay-verify="required" value="" autocomplete="off">
+            </div>
+        </div>
+        <div class="larryms-layer-btn">
+            <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="menuadd" id="submitAdd">确定</a>
+            <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetadd">重置</a>
+            <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+        </div>
+    </form>
+    <div class="larry-menu-add" id="menuAddTpl" style="display: none;"></div>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    var table;
+    layui.cache.page = 'menus';
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/', //实际使用时，建议改成绝对路径
+        identified: 'menuedit',
+        layertype: 2,
+        rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base'
+    }).use('larry');
+    </script>
+</body>
+
+</html>

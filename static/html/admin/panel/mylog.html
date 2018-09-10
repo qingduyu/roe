@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>我的操作日志</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="Author" content="larry" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../../larryms/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../../larryms/css/admin/admin.css" media="all">
+</head>
+
+<body class="larryms-auth larryms-log">
+    <div class="layui-row larryms-panel">
+        <div class="larryms-panel-heading layui-col-lg12 layui-col-md12 layui-col-sm12 layui-col-xs12">
+            <span class="panel-tit">操作日志</span>
+            <p>
+                记录您当前登录账号所有操作记录，查看其他用户账号请根据相关权限在系统日志中查看
+            </p>
+        </div>
+        <div class="larryms-panel-body layui-col-lg12 layui-col-md12 layui-col-sm12 layui-col-xs12">
+            <div class="larryms-tools">
+                <div class="layui-btn-group larryms-btn-group ">
+                    <button class="layui-btn layui-btn layui-btn-sm" data-type="refresh"  data-id="log"><i class="larry-icon larry-refresh"></i>
+                        <cite>刷新</cite>
+                    </button>
+                    <button class="layui-btn layui-btn layui-btn-sm layui-btn-danger" data-id="log" data-type="del" ><i class="layui-icon">&#xe640;</i>
+                        <cite>删除</cite>
+                    </button>
+                </div>
+            </div>
+            <table class="larryms-table-id" id="log" lay-filter="log" data-url="../../../larryms/data/admin/log.json"></table>
+        </div>
+    </div>
+    <!--操作-->
+    <script type="text/html" id="menuBar">
+        <a class="layui-btn layui-btn-xs" lay-event="edit" data-url="{:url('edit')}">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" data-url="{:url('del')}" lay-event="del">删除</a>
+    </script>
+    <script type="text/html" id="statusBar">
+        {{# if(d.status == '1'){ }}
+        <input type="checkbox" checked="" name="status" lay-skin="switch" lay-filter="switchTest" lay-text="正常|禁用" value="1"> {{# } else { }}
+        <input type="checkbox" name="status" lay-skin="switch" lay-filter="switchTest" lay-text="正常|禁用" value="0"> {{# }}}
+    </script>
+    <!-- 加载js文件-->
+    <script type="text/javascript" src="../../../larryms/layui/layui.js"></script>
+    <script type="text/javascript">
+    var table;
+    layui.cache.page = 'log'; 
+    layui.config({
+        version: "2.0.8",
+        base: '../../../larryms/', //实际使用时，建议改成绝对路径
+        identified: 'mylog',
+        rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base'
+    }).use('larry');
+    </script>
+</body>
+
+</html>
