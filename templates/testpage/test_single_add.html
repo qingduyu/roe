@@ -4,7 +4,7 @@
 <body class="auth-user">
     <div class="layui-fluid">
         <div class="layui-row larryms-panel auth-user-add">
-            <form action="/test/publishers/" class="layui-form" method="post" id="userAddForm">
+            <form action="/test/publishers/" class="layui-form" method="post" id="demoAddForm">
                 {% csrf_token %}
                 <div class="layui-form-item">
                     <label class="layui-form-label">名称</label>
@@ -20,7 +20,7 @@
 
                 </div>
                 <div class="larryms-layer-btn">
-                    <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="useradd" id="submitAdd">确定</a>
+                    <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="demoadd" id="submitAdd">确定</a>
                     <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
                     <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
                 </div>
@@ -52,19 +52,22 @@
             form = layui.form;
         var curIfr = parent.layer.getFrameIndex(window.name);
         $('#resetAdd').on('click', function() {
-            $('#userAddForm')[0].reset();
+            $('#demoAddForm')[0].reset();
         });
         $('#closeAdd').on('click', function() {
             parent.layer.close(curIfr);
         });
-        form.on('submit(useradd)', function(data) {
+        form.on('submit(demoadd)', function(data) {
             $.post(data.form.action, data.field, function(res) {
                 if (res.code == 200) {
-                    larryms.msg(res.msg);
-                    parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
+                    {#larryms.msg(res.msg);#}
+                    {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                    {#parent.layer.close(curIfr);#}
+                    {#// $('#demoAddForm')[0].reset();继续添加注销上一段#}
+				larryms.msg(res.msg,{time:350},function () {
+                   parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
                     parent.layer.close(curIfr);
-                    // $('#userAddForm')[0].reset();继续添加注销上一段
-
+                })
                 } else if (res.code == 911) {
                     larryms.msg(res.msg);
                 } else if (res.code == 500) {
@@ -78,44 +81,6 @@
 
 
     </script>
-
-{#    <script type="text/javascript">#}
-{#    layui.use(['form','layer', 'table'], function() {#}
-{#        var $ = layui.$,#}
-{#            larry = layui.larry,#}
-{#            table = layui.talbe,#}
-{#            layer=layui.layer,#}
-{#            form = layui.form;#}
-{#        var curIfr = parent.layer.getFrameIndex(window.name);#}
-{#        $('#resetAdd').on('click', function() {#}
-{#            $('#userAddForm')[0].reset();#}
-{#        });#}
-{#        $('#closeAdd').on('click', function() {#}
-{#            parent.layer.close(curIfr);#}
-{#        });#}
-{#        form.on('submit(useradd)', function(data) {#}
-{#            $.post(data.form.action, data.field, function(res) {#}
-{#                console.log(res)#}
-{#                if (res.code == 200) {#}
-{#                    layer.msg(res.msg);#}
-{#                    parent.table.reload('adminuser', {});#}
-{#                    parent.layer.close(curIfr);#}
-{#                    // $('#userAddForm')[0].reset();继续添加注销上一段#}
-{##}
-{#                } else if (res.code == 911) {#}
-{#                    layer.msg(res.msg);#}
-{#                } else if (res.code == 500) {#}
-{#                    layer.msg(res.msg);#}
-{#                }#}
-{#            });#}
-{#            return false;#}
-{#        });#}
-{##}
-{#    });#}
-{#    </script>#}
-{# #}
-
-
 
 {% endblock %}
 

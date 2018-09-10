@@ -16,18 +16,18 @@
                             <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="{% url 'idc_add' %}"><i class="layui-icon">&#xe61f;</i>
                                 <cite>添加机房</cite>
                             </button>
-                            <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del" data-id="rolegroup"><i class="layui-icon">&#xe640;</i>
+                            <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"  data-url="{% url 'api_idc' %}">><i class="layui-icon">&#xe640;</i>
                                 <cite>批量机房</cite>
                             </button>
                         </div>
                     </div>
                 </blockquote>
 
-                <table id="idclist" lay-filter="idclist" class="larryms-table-id" data-url="/cmdb/api/idcapi"></table>
+                <table id="demo" lay-filter="demo" class="larryms-table-id" data-url="{%  url 'api_idc' %}"></table>
             </div>
         </div>
        <script type="text/html" id="roleBtnBar">
-        <a class="layui-btn layui-btn-xs" data-url="roledit.html" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-xs" data-url="/cmdb/idc/edit/" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-xs layui-btn-danger" data-url="" lay-event="del">删除</a>
     </script>
 
@@ -36,14 +36,21 @@
 {% block self_foot %}
 {#    #这里是个性化的底足脚本#}
     <script type="text/javascript">
-        layui.define(['jquery','table', 'form','layer'], function() {
-  var $ = layui.$,
+      layui.config({
+        version: "2.0.8",
+        base: '/static/larryms/',
+         layertype: 2, //iframe内层弹窗类型不显示返回首页
+        rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base'
+    }).use(['jquery','table', 'form','layer','larry'], function() {
+    var $ = layui.$,
     larryms = layui.larryms,
     form = layui.form;
-  table = layui.table
+  table = layui.table;
   layer=layui.layer;
-  //按钮组监听
-  $('.larryms-btn-group .layui-btn').on('click', function() {
+  //按钮监听
+  $(' .layui-btn').on('click', function() {
       var type = $(this).data('type'),
         url = $(this).data('url'),
         tit = $(this).children('cite').text();
@@ -77,40 +84,39 @@
       },
       del: function() {
         //批量删除
-        var tableID = $(this).data('id'),
-            checkStatus = table.checkStatus(tableID),
+          checkStatus = table.checkStatus('demo'),
           data = checkStatus.data,
           newsId = [];
-          console.log(tableID);
-        var url = $(this).data('url');
+          console.log(data);
+         var url = $(this).data('url');
+        console.log(url);
         if (data.length > 0) {
           for (var i in data) {
             //排除默认管理员
-             if(data[i].id !== 1){
                 newsId.push(data[i].id);
-             }
           }
           if(newsId.length>0){
-              var ids = {"id":newsId};
+               var ids = {"id":newsId };
+              console.log(newsId);
               larryms.confirm('你确定要执行批量删除吗？',{icon: 3, title:'批量删除提示！'},function(){
-                  $.post(url,ids,function(res){
-                    if(res.code==200){
-                      larryms.msg(res.msg);
-                      table.reload(tableID,{
-                         page:{
-                           curr:1
-                         }
-                      });
-                    }else{
-                      larryms.msg(res.msg);
-                    }
-                  });
+                  $.ajax({
+			    dataType: "JSON",
+			    url:url, //请求地址
+			    type:"DELETE",  //提交类似
+			    contentType: "application/json",
+			    data: JSON.stringify({"id":newsId }),  //提交参数
+			    success:function(res){
+				larryms.msg(res.msg)
+                    table.reload('demo', {})
+			},
+	    	error:function(response){
+				larryms.msg( response.responseText);
+	    	}
+		});
               });
           }else{
               larryms.msg('默认管理员不可删除,我是神一样的存在！');
           }
-
-
         } else {
           larryms.msg('请至少选择一项，进行删除操作');
         }
@@ -118,12 +124,10 @@
     };
 
 
-
-
-        var tableDataUrl = $('#idclist').data('url'),
+        var tableDataUrl = $('#demo').data('url'),
             roleIndex = table.render({
-                 elem:'#idclist',
-                 id:'idclist',
+                 elem:'#demo',
+                 id:'demo',
                  cellMinWidth:80,
                  url:tableDataUrl,
                  method:'get',
@@ -213,15 +217,14 @@
                  ]
             });
 
-// 监听工具条
-table.on('tool()', function(obj) {
-      var data = obj.data,
 
-          tit = '编辑 <em class="tit">'+data.title+ '</em> 信息';
-
+          // 监听工具条
+var pageTableID = $('.larryms-table-id').attr('id');
+table.on('tool('+pageTableID+')', function(obj) {
+      var data = obj.data, tit = '编辑 <em class="tit">'+data.name+ '</em> 信息';
+      console.log(data)
       if(obj.event == 'edit'){
-          var url =  $(this).data('url')+'?id='+data.id;
-
+          var url =  $(this).data('url')+data.id;
           var editIndex =  larryms.open({
               title: tit,
               type: 2,
@@ -231,9 +234,9 @@ table.on('tool()', function(obj) {
                 form.render();
               }
           });
-      }else if(obj.event == 'del'){
+      }else if(obj.event == 'detail'){
           var url = $(this).data('url');
-          larryms.confirm('你确定要删除该条数据吗？',{icon: 3, title:'删除提示'},function(){
+          larryms.confirm('查看详情还没开始作？',{icon: 3, title:'删除提示'},function(){
               var ids = {"id":data.id};
               $.post(url,ids,function(res){
                   if(res.code==200){
@@ -244,8 +247,20 @@ table.on('tool()', function(obj) {
                   }
               });
           });
-      }
-});
+      }else if(obj.event == 'del'){
+          var url = $(this).data('url');
+           larryms.confirm('查看详情还没开始作？',{icon: 3, title:'删除提示'},function(){
+              var ids = {"id":[data.id]};
+              $.post(url,ids,function(res){
+                  if(res.code==200){
+                      larryms.msg(res.msg);
+                      table.reload(pageTableID,{});
+                  }else{
+                     larryms.msg(res.msg);
+                  }
+              });
+      });
+}})
 
 });
     </script>

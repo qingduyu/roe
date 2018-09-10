@@ -2,8 +2,8 @@ from django.conf.urls import url,include
 from django.contrib import admin
 # from yewu_tree import yewu_tree,yewu_mysql,yewu_oracle,yewu_server
 # from views.net import  netdevice,group_net,idc_net
-from CMDB.views.idc import idc_show,idc_add
-from CMDB.views.idc_api import idc_list
+from CMDB.views.idc import idc_show,idc_add,idc_edit
+from CMDB.views.idc_api import IDCAPI
 from CMDB.views.db.oracle import *
 from CMDB.views.db.oracle_api import OracleClusterViewset
 from CMDB.views import assets
@@ -19,10 +19,14 @@ urlpatterns = [
 
     url('^idc_show',idc_show,name='idc_show'),
     url(r'^idc/add/$', idc_add, name='idc_add'),
+    url(r'^idc/edit/(?P<id>[0-9]+)$', idc_edit, name='idc_edit'),
+    url(r'^idc/api/idc/$',IDCAPI.as_view(),name='api_idc'),
 
-    # url(r'^idc/edit/(?P<id>[0-9]+)/$', idc_edit, name='idc_edit'),
 
-    url(r'^idc/api/idc_list',idc_list,name='api_idc_list'),
+
+
+
+
 
     # url('^yewutree',yewu_tree,name='yewu_tree'),
     # url('^yewu_mysql', yewu_mysql, name='yewu_mysql'),

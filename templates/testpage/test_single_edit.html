@@ -4,7 +4,7 @@
 <body class="auth-user">
     <div class="layui-fluid">
         <div class="layui-row larryms-panel auth-user-add">
-            <form action="/test/publishers_detail/" class="layui-form" method="post" id="userAddForm">
+            <form action="/test/publishers_page/" class="layui-form" method="PUT" id="userAddForm">
 
                 <input name="id" value="{{ publisher.id }}" type="hidden">
                 <div class="layui-form-item">
@@ -40,55 +40,39 @@
     layui.config({
         version: "2.0.8",
         base: '/static/larryms/',
-         layertype: 2, //iframe内层弹窗类型不显示返回首页
-        rightMenu: custom // false关闭，设置为custom时使用自定义，不使用默认menu
+        layertype:2
     }).extend({
         larry: 'js/base'
-    }).use(['larry','layer','form'], function() {
-        var $ = layui.$,
+    }).use(['jquery','larry','layer','larryms','form'], function() {
+           var $ = layui.$,
             larry = layui.larry,
             table = layui.talbe,
             larryms = layui.larryms,
             form = layui.form;
         var curIfr = parent.layer.getFrameIndex(window.name);
-        $('#resetAdd').on('click', function() {
-            $('#userAddForm')[0].reset();
-        });
+
         $('#closeAdd').on('click', function() {
             parent.layer.close(curIfr);
         });
-        console.log({{ data.name }});
-        form.on('submit(useradd)', function(data) {
 
+        form.on('submit(useradd)', function(data) {
             $.ajax({
 			    dataType: "JSON",
 			    url:data.form.action, //请求地址
 			    type:"PUT",  //提交类似
 			    contentType: "application/json",
-			    data: data.field,  //提交参数
+			    data: JSON.stringify(data.field),  //提交参数
 			    success:function(res){
-				larryms.msg(res.msg)
-                    parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
+				larryms.msg(res.msg,{time:350},function () {
+                   parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
                     parent.layer.close(curIfr);
-			},
-	    	error:function(response){
-				larryms.msg( response.responseText);
-	    	}
-		});
-            {#$.post(data.form.action, data.field, function(res) {#}
-            {#    if (res.code == 200) {#}
-            {#        larryms.msg(res.msg);#}
-            {#        parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
-            {#        parent.layer.close(curIfr);#}
-            {#        // $('#userAddForm')[0].reset();继续添加注销上一段#}
-            {##}
-            {#    } else if (res.code == 911) {#}
-            {#        larryms.msg(res.msg);#}
-            {#    } else if (res.code == 500) {#}
-            {#        larryms.msg(res.msg);#}
-            {#    }});#}
-            return false;
-        });
+                })
+			    },
+	    	    error:function(response){
+				    larryms.msg( response.responseText);
+	    	 }});
+
+            return false;});
 
     });
 

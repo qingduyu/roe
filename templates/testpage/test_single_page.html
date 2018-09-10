@@ -18,7 +18,7 @@
                             <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="/test/test_single_add"><i class="layui-icon">&#xe61f;</i>
                                 <cite>添加</cite>
                             </button>
-                            <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"  data-url="172.16.50.216/test/del_publisher/"><i class="layui-icon">&#xe640;</i>
+                            <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"  data-url="/test/publishers_page"><i class="layui-icon">&#xe640;</i>
                                 <cite>删除</cite>
                             </button>
                         </div>
@@ -106,7 +106,7 @@
                   $.ajax({
 			    dataType: "JSON",
 			    url:url, //请求地址
-			    type:"POST",  //提交类似
+			    type:"DELETE",  //提交类似
 			    contentType: "application/json",
 			    data: JSON.stringify({"id":newsId }),  //提交参数
 			    success:function(res){
@@ -178,8 +178,20 @@ table.on('tool('+pageTableID+')', function(obj) {
                   }
               });
           });
-      }
-});
+      }else if(obj.event == 'del'){
+          var url = $(this).data('url');
+           larryms.confirm('查看详情还没开始作？',{icon: 3, title:'删除提示'},function(){
+              var ids = {"id":[data.id]};
+              $.post(url,ids,function(res){
+                  if(res.code==200){
+                      larryms.msg(res.msg);
+                      table.reload(pageTableID,{});
+                  }else{
+                     larryms.msg(res.msg);
+                  }
+              });
+      });
+}})
 
 });
     </script>

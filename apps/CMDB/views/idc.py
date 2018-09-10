@@ -21,24 +21,13 @@ def idc_add(request):
    return render(request, "cmdb/idc/idc_add.html",locals())
 
 
-# @login_required()
-# def idc_del(request):
-#
-#     if request.method == 'POST':
-#         idc_items = request.POST.getlist('idc_check', [])
-#         if idc_items:
-#             for n in idc_items:
-#                 Idc.objects.filter(id=n).delete()
-#     idc_info = Idc.objects.all()
-#     return render(request, "cmdb/idc/idc.html", locals())
 
 
-# @login_required()
-# def idc_edit(request, ids):
-#     obj = Idc.objects.get(id=ids)
-#     allidc = Idc.objects.all()
-#     return render(request, "cmdb/idc/idc_edit.html", locals())
-#
+@login_required()
+def idc_edit(request, id):
+    data = Idc.objects.get(id=id)
+    return render(request, "cmdb/idc/idc_edit.html", locals())
+
 #
 # @login_required()
 # def idc_save(request):

@@ -30,3 +30,7 @@ class Book(models.Model):
         verbose_name = u"书"
         verbose_name_plural = verbose_name
 
+
+class Auth(models.Model):
+    name=  models.CharField(max_length=32, verbose_name="作者名")
+    book= models.ManyToManyField(Book,related_name='books',related_query_name='authors',help_text='书籍和作者多对多的关系')
