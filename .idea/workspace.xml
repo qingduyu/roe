@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/apps/CMDB/views/idc_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/idc_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/test/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/test/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/test/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/test/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base_children.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_children.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cmdb/idc/idc_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/idc/idc_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cmdb/idc/idc_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/idc/idc_show.html" afterDir="false" />
@@ -37,15 +38,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base_children.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base_children.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="26" column="31" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/test/views.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -109,11 +101,20 @@
       <file leaf-file-name="idc_api.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc_api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="72" column="58" selection-start-line="72" selection-start-column="58" selection-end-line="72" selection-end-column="58" />
+            <state relative-caret-position="165">
+              <caret line="68" selection-start-line="68" selection-end-line="68" />
               <folding>
                 <element signature="e#46#95#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -134,11 +135,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="idc_add.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="idc_add.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="147" column="44" selection-start-line="147" selection-start-column="44" selection-end-line="147" selection-end-column="44" />
+            <state relative-caret-position="225">
+              <caret line="138" column="51" lean-forward="true" selection-start-line="138" selection-start-column="51" selection-end-line="138" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -187,7 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/system/models.py" />
         <option value="$PROJECT_DIR$/apps/system/urls.py" />
         <option value="$PROJECT_DIR$/apps/system/views/filemanage.py" />
         <option value="$PROJECT_DIR$/apps/dao/assets.py" />
@@ -238,6 +238,7 @@
         <option value="$PROJECT_DIR$/apps/CMDB/views/idc_api.py" />
         <option value="$PROJECT_DIR$/templates/testpage/test_single_add.html" />
         <option value="$PROJECT_DIR$/templates/cmdb/idc/idc_add.html" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -677,13 +678,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/assets/assets_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1307">
-          <caret line="610" column="29" selection-start-line="610" selection-start-column="29" selection-end-line="610" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/yewu_tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -983,16 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="72" column="58" selection-start-line="72" selection-start-column="58" selection-end-line="72" selection-end-column="58" />
-          <folding>
-            <element signature="e#46#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1049,8 +1033,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="147" column="44" selection-start-line="147" selection-start-column="44" selection-end-line="147" selection-end-column="44" />
+        <state relative-caret-position="225">
+          <caret line="138" column="51" lean-forward="true" selection-start-line="138" selection-start-column="51" selection-end-line="138" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="e#46#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
