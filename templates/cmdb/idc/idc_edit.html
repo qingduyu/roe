@@ -1,107 +1,172 @@
+{% extends 'base_children.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    {% include 'link_css.html' %}
-    {% include 'head_script.html' %}
-</head>
-<body>
-<div class="content-wrapper">
+{% block content %}
+    <div class="layui-row larryms-panel auth-user-add">
+     <form action="{% url 'api_idc' %}" class="layui-form" method="PUT" id="demoAddForm">
+{#            {% csrf_token %}#}
+        <input name="id" value="{{ data.id }}" type="hidden">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">机房名称</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="name" value="{{ data.name }}" lay-verify="required" placeholder="请输入用户名"
+                                   type="text">
+                        </div>
+                    </div>
 
-
-    <section class="content">
-
-<div id="dialog">
-        <div class="box box-info">
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal" action="{% url 'idc_save' %}" method="POST">
-                      {% csrf_token %}
-                <div class="box-body">
-                <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">机房名称:</label>
-
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="name" value="{{ obj.name }}">
-                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="address" class="col-sm-2 control-label">机房地址:</label>
-
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="address" value="{{ obj.address }}">
-                  </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">机房地址</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="address" value="{{ data.address |default_if_none:''}}" placeholder="请输入地址" type="text">
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="tel" class="col-sm-2 control-label">机房电话:</label>
+                <div class="layui-form-item">
 
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="tel" value="{{ obj.tel }}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="contact" class="col-sm-2 control-label">客户经理:</label>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">电话</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="tel" value="{{ data.tel |default_if_none:''}}" placeholder="请输入电话" type="text">
 
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="contact" value="{{ obj.contact }}">
-                  </div>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">客户经理</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="contact" value="{{ data.contact |default_if_none:''}}" placeholder="经理名字" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">手机</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="contact_phone" value="{{ data.contact_phone |default_if_none:'' }}" lay-verify="phone" placeholder="请输入手机"
+                                   type="text">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="contact_phone" class="col-sm-2 control-label">移动电话:</label>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">机柜</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="jigui" value="{{ data.jigui |default_if_none:''}}" placeholder="机柜" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">IP范围</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="ip_range" value="{{ data.ip_range|default_if_none:'' }}" placeholder="IP范围" type="text">
+                        </div>
+                    </div>
 
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="contact_phone" value="{{ obj.contact_phone }}">
-                  </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">接入带宽</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="bandwidth" value="{{ data.bandwidth |default_if_none:''}}" placeholder="带宽" type="text">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="jigui" class="col-sm-2 control-label">机柜信息:</label>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">起租日</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="start_date"  id="start_date"  lay-verify="required" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">到期日</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="end_date" lay-verify="required" id="end_date" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">费用</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="cost" value="{{ data.cost|default_if_none:'' }}" placeholder="金额" type="text">
+                        </div>
+                    </div>
+                </div>
 
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="jigui" value="{{ obj.jigui }}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="ip_range" class="col-sm-2 control-label">IP范围:</label>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                       <label class="layui-form-label">机房类型</label>
+                    <div class="layui-input-block">
+                        <select name="type">
+                            <option value="{{ data.type }}"> {{ data.get_type_display }}</option>
+                            <option value="自建">自建</option>
+                            <option value="电信">电信</option>
+                            <option value="联通">联通</option>
+                            <option value="移动">移动</option>
+                            <option value="BGP" >BGP</option>
+                        </select>
 
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="ip_range" value="{{ obj.ip_range }}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="bandwidth" class="col-sm-2 control-label">接入带宽:</label>
+                    </div>
+                    </div>
 
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="bandwidth" value="{{ obj.bandwidth }}">
-                  </div>
                 </div>
-                <input type="hidden" name="id" value="{{ obj.id }}">
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" class="btn btn-info pull-right">保存</button>
-              </div>
-              <!-- /.box-footer -->
+                <div class="larryms-layer-btn " >
+                    <a class="layui-btn layui-btn layui-btn-sm " lay-submit="" lay-filter="demoadd" id="submitAdd">提交</a>
+
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+                </div>
+
+
             </form>
-</div>
-    </div>
+        </div>
 
-
-    </section>
-
-  </div>
-{#回传参数至父层#}
+{% endblock %}
+{% block self_foot %}
 <script type="text/javascript">
-        var index = parent.layer.getFrameIndex(window.name);
-        var success = {{ status }};
-        if ( success == '1' ) {
-            parent.$("#handle_status").val('1');
-              parent.layer.close(index);
-        } else if( success == '2' ) {
-            parent.$("#handle_status").val('2');
-            parent.layer.close(index);
-        }
-</script>
-</body>
-</html>
+    layui.config({
+        version: "2.0.8",
+        base: '/static/larryms/',
+        layertype:2
+    }).extend({
+        larry: 'js/base'
+    }).use(['jquery','larry','layer','larryms','form','laydate'], function() {
+           var $ = layui.$,
+            larry = layui.larry,
+            table = layui.talbe,
+            larryms = layui.larryms,
+            form = layui.form,
+            laydate = layui.laydate;
+        var curIfr = parent.layer.getFrameIndex(window.name);
+
+        $('#closeAdd').on('click', function() {
+            parent.layer.close(curIfr);
+        });
+        laydate.render({
+        elem: '#start_date'
+        ,value: '{{ data.start_date|date:'Y-n-d' }}', format:'yyyy-MM-dd', isInitValue:true
+        });
+        laydate.render({
+        elem: '#end_date'
+        ,value: '{{ data.end_date|date:'Y-n-d' }}', format:'yyyy-MM-dd', isInitValue:true
+        });
+
+        form.on('submit(demoadd)', function(data) {
+            $.ajax({
+			    dataType: "JSON",
+			    url:data.form.action, //请求地址
+			    type:"PUT",  //提交类似
+			    contentType: "application/json",
+			    data: JSON.stringify(data.field),  //提交参数
+			    success:function(res){
+				larryms.msg(res.msg,{time:350},function () {
+                   parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
+                    parent.layer.close(curIfr);
+                })
+			    },
+	    	    error:function(response){
+				    larryms.msg( response.responseText);
+	    	 }});
+
+            return false;});
+
+    });
+
+
+    </script>
+
+
+
+{% endblock %}

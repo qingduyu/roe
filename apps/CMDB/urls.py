@@ -5,34 +5,28 @@ from django.contrib import admin
 from CMDB.views.idc import idc_show,idc_add,idc_edit
 from CMDB.views.idc_api import IDCAPI
 from CMDB.views.db.oracle import *
-from CMDB.views.db.oracle_api import OracleClusterViewset
+from CMDB.views.db.oracle_api import OracleClusterAPI
 from CMDB.views import assets
 
-from rest_framework import routers, serializers, viewsets
-router = routers.DefaultRouter()
-router.register(r'oraclecluster', OracleClusterViewset,base_name='api_oraclecluster')
-# router.register(r'idcapi', IdcViewset,base_name='api_idc')
 
 
 urlpatterns = [
-    url(r'^api/', include(router.urls,namespace='cmdbapi')),
 
     url('^idc_show',idc_show,name='idc_show'),
     url(r'^idc/add/$', idc_add, name='idc_add'),
     url(r'^idc/edit/(?P<id>[0-9]+)$', idc_edit, name='idc_edit'),
     url(r'^idc/api/idc/$',IDCAPI.as_view(),name='api_idc'),
 
+    url(r'^db/oracle_cluster/$', oracle_cluster, name='oracle_cluster'),
+    url(r'^db/oracle_user/$', oracle_cluster_user, name='oracle_cluster_user'),
 
-
-
-
-
+    url(r'^oracle_cluster_api/$',OracleClusterAPI.as_view(),name='api_oracle_cluster'),
 
     # url('^yewutree',yewu_tree,name='yewu_tree'),
     # url('^yewu_mysql', yewu_mysql, name='yewu_mysql'),
     # url('^yewu_oracle', yewu_oracle, name='yewu_oracle'),
     # url('^yewu_server', yewu_server, name='yewu_server'),
-    url(r'oracle_cluster',oracle_cluster_show,name='oracle_cluster_show'),
+
 
     url(r'^assets_config',assets.assets_config),
     url(r'^assets_add',assets.assets_add,name='cmdb_assets_add'),

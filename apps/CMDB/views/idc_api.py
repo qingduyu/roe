@@ -80,24 +80,25 @@ class IDCAPI(APIView):
         except Exception as e:
             print(e)
             json_data = {'code': 500, 'msg': '数据有错误获取不到id'}
-            return Response(json_data)
+            return Response(json_data,status=500)
         else:
             IDC = self.get_object(data_id)
             s = IdcSerializer(IDC, data=request.data)
-            if s.is_valid():
+
+            if s.is_valid(raise_exception=True):
                 s.save()
                 json_data = {'code': 200, 'msg': '更新成功'}
                 return Response(json_data)
-            json_data = {'code': 200, 'msg': '更新失败'}
-            return Response(json_data, status=status.HTTP_200_OK)
+            json_data = {'code': 500, 'msg': '更新失败'}
+            return Response(json_data, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
     def delete(self, request, format=None):
         try:
             data_id = request.data['id']
         except KeyError as e:
-
-            return Response(status=500)
+            json_data = {'code': 500, 'msg': '数据有错误获取不到id'}
+            return Response(json_data,status=500)
         else:
             try:
                 for i in data_id:

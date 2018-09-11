@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="layui-row larryms-panel auth-user-add">
-     <form action="{% url 'api_idc' %}" class="layui-form" method="post" id="userAddForm">
+     <form action="{% url 'api_idc' %}" class="layui-form" method="post" id="demoAddForm">
             {% csrf_token %}
                 <div class="layui-form-item">
                     <div class="layui-inline">
@@ -31,13 +31,13 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">客户经理</label>
                         <div class="layui-input-block">
-                            <input class="layui-input" name="contact" placeholder="请输入地址" type="text">
+                            <input class="layui-input" name="contact" placeholder="经理名字" type="text">
                         </div>
                     </div>
                     <div class="layui-inline">
                         <label class="layui-form-label">手机</label>
                         <div class="layui-input-block">
-                            <input class="layui-input" name="contact" lay-verify="phone" placeholder="请输入手机"
+                            <input class="layui-input" name="contact_phone" lay-verify="phone" placeholder="请输入手机"
                                    type="text">
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">IP范围</label>
                         <div class="layui-input-block">
-                            <input class="layui-input" name="ip_range" placeholder="机柜" type="text">
+                            <input class="layui-input" name="ip_range" placeholder="IP范围" type="text">
                         </div>
                     </div>
 
@@ -157,5 +157,4 @@
 
     </script>
 
-    </script>
 {% endblock %}
