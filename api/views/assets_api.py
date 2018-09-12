@@ -17,10 +17,8 @@ from utils.logger import logger
 from django.http import JsonResponse
 
 
-
 @api_view(['GET', 'POST' ])
-@permission_required('OpsManage.can_add_project_assets',raise_exception=True)
-def project_list(request,format=None):  
+def project_list(request,format=None):
     if request.method == 'GET':     
         snippets = Project_Assets.objects.all()
         serializer = serializers.ProjectSerializer(snippets, many=True)
@@ -467,78 +465,8 @@ def asset_server_detail(request, id,format=None):
         return Response(status=status.HTTP_204_NO_CONTENT)         
    
     
-@api_view(['GET', 'POST' ])
-@permission_required('OpsManage.can_add_net_assets',raise_exception=True)
-def asset_net_list(request,format=None):
-    """
-    List all order, or create a new net assets.
-    """
-    if request.method == 'GET':      
-        snippets = Network_Assets.objects.all()
-        serializer = serializers.NetworkSerializer(snippets, many=True)
-        return Response(serializer.data)     
-    elif request.method == 'POST':
-        if(request.data.get('data')):
-            data =  request.data.get('data')
-        else:
-            data = request.data     
-        serializer = serializers.NetworkSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            recordAssets.delay(user=str(request.user),content="添加网络设备资产：{ip}".format(ip=data.get("ip")),type="net",id=serializer.data.get('id')) 
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
-    
-    
-@api_view(['GET', 'PUT', 'DELETE'])
-@permission_required('OpsManage.can_change_net_assets',raise_exception=True)
-def asset_net_detail(request, id,format=None):
-    """
-    Retrieve, update or delete a net assets instance.
-    """
-    try:
-        snippet = Network_Assets.objects.get(id=id)
-    except Network_Assets.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'GET':
-        serializer = serializers.NetworkSerializer(snippet)
-        return Response(serializer.data)
-    
-    elif request.method == 'PUT':
-        '''如果更新字段包含assets则先更新总资产表'''
-        if(request.data.get('data')):
-            data =  request.data.get('data')
-        else:
-            data = request.data         
-        if(data.get('assets')):
-            assets_data = data.pop('assets')
-            try:
-                assets_snippet = Assets.objects.get(id=snippet.assets.id)
-                assets = serializers.AssetsSerializer(assets_snippet,data=assets_data)
-            except Assets.DoesNotExist:
-                return Response(status=status.HTTP_404_NOT_FOUND)
-            if assets.is_valid():
-                assets.save()            
-        serializer = serializers.NetworkSerializer(snippet, data=data)
-        if serializer.is_valid():
-            serializer.save()
-            recordAssets.delay(user=str(request.user),content="更新网络设备资产：{ip}".format(ip=snippet.ip),type="net",id=id)
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-     
-    elif request.method == 'DELETE':
-        if not request.user.has_perm('OpsManage.delete_net_assets'):
-            return Response(status=status.HTTP_403_FORBIDDEN)
-        snippet.delete()
-        try:
-            assets_snippet = Assets.objects.get(id=snippet.assets.id)
-            assets_snippet.delete()
-            recordAssets.delay(user=str(request.user),content="删除网络设备资产：{ip}".format(ip=snippet.ip),type="net",id=id)
-        except Assets.DoesNotExist:
-            pass       
-        return Response(status=status.HTTP_204_NO_CONTENT) 
-    
+
+
 
 @api_view(['GET', 'POST'])
 @permission_required('OpsManage.can_change_assets',raise_exception=True)

@@ -165,24 +165,7 @@ class ServerSerializer(serializers.ModelSerializer):
         return server
 
 
-class NetworkSerializer(serializers.ModelSerializer):
-    assets = AssetsSerializer(required=False)
 
-    class Meta:
-        model = Network_Assets
-        fields = ('id', 'ip', 'bandwidth', 'port_number', 'firmware',
-                  'cpu', 'stone', 'configure_detail', 'assets',
-                  'port', 'passwd', 'sudo_passwd', 'username')
-
-    def create(self, data):
-        if (data.get('assets')):
-            assets_data = data.pop('assets')
-            assets = Assets.objects.create(**assets_data)
-        else:
-            assets = Assets()
-        data['assets'] = assets;
-        server = Network_Assets.objects.create(**data)
-        return server
 
 
 class DeployOrderSerializer(serializers.ModelSerializer):

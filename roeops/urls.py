@@ -69,6 +69,7 @@ urlpatterns = [
     url(r'^system/', include('system.urls')),
 
     url(r'^test/',include('test.urls')),
-    url(r'^api-auth',include('rest_framework.urls',namespace='rest_framework'))
+    url(r'^api-auth/',include('rest_framework.urls',namespace='rest_framework')),
+    url(r'^wiki/',include('wiki.urls')),
 ]
 # urlpatterns = format_suffix_patterns(urlpatterns)

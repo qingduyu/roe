@@ -171,7 +171,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
         'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly', #适用于添加身份认证之后
 
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (

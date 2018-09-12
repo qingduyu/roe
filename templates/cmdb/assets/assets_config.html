@@ -577,6 +577,7 @@
 				return false;
 			}
 		};
+		//增加应用
 		$.ajax({
 			url:'/api/service/', //请求地址
 			type:"POST",  //提交类似
@@ -602,16 +603,17 @@
 		})
 	}
 
+	//增加基础资产数据
 	function addAssetsData(obj,op) {
 		var btnObj = $(obj);
 		btnObj.attr('disabled',true);
 		var post_data = {};
 		if (op=="project"){
-			var putUrl = '/api/project/';
-			var form = document.getElementById('project_assets');
+			var putUrl = '{% url 'api_project' %}';
+			var form = document.getElementById('project_assets');  //产品线
 		}
 		else if (op=="group"){
-			var putUrl = '/api/group/';
+			var putUrl = '{% url 'api_asset_group' %}';
 			var form = document.getElementById('group_assets');
 		}
 		else if (op=="zone"){
@@ -656,7 +658,7 @@
 			},
 	    	error:function(response){
 	    		btnObj.removeAttr('disabled');
-	    		window.wxc.xcConfirm("资产添加失败", window.wxc.xcConfirm.typeEnum.error);
+	    		window.wxc.xcConfirm("资产添加失败"+response.responseText, window.wxc.xcConfirm.typeEnum.info);
 /* 	    		location.reload(); */
 	    	}
 		})

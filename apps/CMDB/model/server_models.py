@@ -62,8 +62,7 @@ class Server_Assets(models.Model):
     username = models.CharField(max_length=100, blank=True, null=True)
     passwd = models.CharField(max_length=100, blank=True, null=True)
     sudo_passwd = models.CharField(max_length=100, blank=True, null=True)
-    keyfile = models.SmallIntegerField(blank=True,
-                                       null=True)  # FileField(upload_to = './upload/key/',blank=True,null=True,verbose_name='密钥文件')
+    keyfile = models.SmallIntegerField(blank=True,null=True)  # FileField(upload_to = './upload/key/',blank=True,null=True,verbose_name='密钥文件')
     port = models.DecimalField(max_digits=6, decimal_places=0, blank=True, null=True)
     line = models.SmallIntegerField(blank=True, null=True)
     cpu = models.CharField(max_length=100, blank=True, null=True)

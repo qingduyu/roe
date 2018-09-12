@@ -13,7 +13,7 @@ from CMDB.model.idc_models import Idc,Zone_Assets,Line_Assets
 from CMDB.model.oracle_modles import OracleCluster,Oracletablespace,Oracle_Instance,OracleUser
 
 #导入mysql表
-from CMDB.model.mysql_modles import MySQLCluster,Mysql_db,MySQL_Instance,Mysql_User
+from CMDB.model.mysql_modles import MySQLCluster, Mysql_db,MySQL_Instance,Mysql_User
 
 #导入服务器表
 

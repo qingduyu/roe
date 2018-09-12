@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required
 from wiki.models import  Tag,Post,Category
 from django.contrib.auth.models import User
-from OpsManage.utils.logger import logger
-from OpsManage.utils import base 
+from utils.logger import logger
+from utils import base
 # Create your views here.
 from django.http import HttpResponse,JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -120,7 +120,6 @@ def article_edit(request,pid):
         return  JsonResponse({'msg':"文章添加成功","code":200,'data':[]})        
 
 @login_required()
-@permission_required('wiki.can_read_wiki_post',login_url='/noperm/')
 def article_index(request):
     tagList = Tag.objects.all()
     categoryList = []

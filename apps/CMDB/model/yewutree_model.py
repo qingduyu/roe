@@ -8,6 +8,7 @@ class YewuTree(MPTTModel):
     name=models.CharField(max_length=32)
     href=models.CharField(max_length=200,blank=True,null=True,help_text='moxingbiao')
     parent = TreeForeignKey('self', on_delete=models.CASCADE,null=True, blank=True, related_name='children',db_index=True)
+    root=models.ForeignKey('self',on_delete=models.CASCADE,null=True,blank=True,related_name='sunzi',help_text='指定根结点为产品线节点，为了展示根结点的名字，防止树的高度过高')
 
     def __str__(self):
         return self.name
