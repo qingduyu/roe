@@ -98,6 +98,7 @@ INSTALLED_APPS = [
     'test',
 
 
+
 ]
 
 
@@ -277,3 +278,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'upload/')
 MEDIA_URL = '/upload/'
 
 
+
+#这个是代码发布用的本地存放目录
+WORKSPACES = '/data/roeops/workspaces/'

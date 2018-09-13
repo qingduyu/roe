@@ -4,21 +4,21 @@ import uuid,os
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from OpsManage.models import (Project_Assets,Server_Assets,Project_Config,
-                            Project_Number,Log_Project_Config,Service_Assets,Assets)
-from OpsManage.utils.git import GitTools
-from OpsManage.utils.svn import SvnTools
-from OpsManage.utils import base
-from OpsManage.data.DsRedisOps import DsRedis
-from OpsManage.utils.ansible_api_v2 import ANSRunner
+from CodeOps.models import (Project_Assets,Project_Config,Project_Number,Log_Project_Config,Service_Assets)
+from CMDB.models import Server_Assets,Assets
+from utils.git import GitTools
+from utils.svn import SvnTools
+from utils import base
+from utils.data.DsRedisOps import DsRedis
+from utils.ansible_api_v2 import ANSRunner
 from django.contrib.auth.models import User,Group
-from OpsManage.views.assets import getBaseAssets
-from orders.models import Order_System
-from OpsManage.tasks.deploy import recordProject
+from CMDB.views.assets import getBaseAssets
+from Orders.models import Order_System
+from tasks.deploy import recordProject
 from django.contrib.auth.decorators import permission_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from OpsManage.utils.logger import logger
-from OpsManage import settings
+from utils.logger import logger
+from roeops import settings
 from dao.assets import AssetsSource
 
 
@@ -29,7 +29,7 @@ def deploy_add(request):
     if request.method == "GET":
 #         serverList = Server_Assets.objects.all()
         groupList = Group.objects.all()
-        return render(request,'deploy/deploy_add.html',{"user":request.user,"groupList":groupList,
+        return render(request,'codeops/deploy_add.html',{"user":request.user,"groupList":groupList,
                                                         'baseAssets':getBaseAssets(),
                                                         "project_dir":settings.WORKSPACES})
     elif  request.method == "POST":
@@ -85,7 +85,7 @@ def deploy_modf(request,pid):
         tagret_server = Project_Number.objects.filter(project=project)
     except Exception, ex:
         logger.error(msg="修改项目失败: {ex}".format(ex=ex))
-        return render(request,'deploy/deploy_modf.html',{"user":request.user,
+        return render(request,'codeops/deploy_modf.html',{"user":request.user,
                                                          "errorInfo":"修改项目失败: {ex}".format(ex=ex)},
                                 )  
     if request.method == "GET": 
@@ -96,7 +96,7 @@ def deploy_modf(request,pid):
         for ds in serverList:
             if ds.get('ip') in server:ds['count'] = 1
             else:ds['count'] = 0        
-        return render(request,'deploy/deploy_modf.html',{"user":request.user,"project":project,"server":tagret_server,
+        return render(request,'codeops/deploy_modf.html',{"user":request.user,"project":project,"server":tagret_server,
                                                          "serverList":serverList,"groupList":groupList,"serviceList":serviceList},)         
     elif  request.method == "POST":
         ipList = request.POST.get('server',None)
@@ -157,7 +157,7 @@ def deploy_list(request):
     uatProject = Project_Config.objects.filter(project_env="uat").count()
     qaProject = Project_Config.objects.filter(project_env="qa").count()
     sitProject = Project_Config.objects.filter(project_env="sit").count()
-    return render(request,'deploy/deploy_list.html',{"user":request.user,"totalProject":deployList.count(),
+    return render(request,'codeops/deploy_list.html',{"user":request.user,"totalProject":deployList.count(),
                                                          "deployList":deployList,"uatProject":uatProject,
                                                          "qaProject":qaProject,"sitProject":sitProject},
                               )  
@@ -191,7 +191,7 @@ def deploy_version(request,pid):
         project = Project_Config.objects.select_related().get(id=pid)
         if project.project_repertory == 'git':version = GitTools()
     except:
-        return render(request,'deploy/deploy_version.html',{"user":request.user,
+        return render(request,'codeops/deploy_version.html',{"user":request.user,
                                                          "errorInfo":"项目不存在，可能已经被删除."}, 
                                   )      
     if request.method == "POST":
@@ -230,7 +230,7 @@ def deploy_run(request,pid):
         elif project.project_repertory == 'svn':version = SvnTools()
     except Exception ,ex:
         logger.error(msg="项目部署失败: {ex}".format(ex=ex))
-        return render(request,'deploy/deploy_run.html',{"user":request.user,
+        return render(request,'codeops/deploy_run.html',{"user":request.user,
                                                          "errorInfo":"项目部署失败: {ex}".format(ex=ex)}, 
                                   )     
     if request.method == "GET":
@@ -238,14 +238,14 @@ def deploy_run(request,pid):
         elif project.project_model == 'tag':bList = version.tag(path=project.project_repo_dir)
         else: bList = version.trunk(path=project.project_repo_dir)
         if project.project_env == 'uat':
-            return render(request,'deploy/deploy_run.html',{"user":request.user,
+            return render(request,'codeops/deploy_run.html',{"user":request.user,
                                                              "project":project,"serverList":serverList,
                                                              "errorInfo":"正式环境代码部署，请走工单审批流程"}, 
                                       )                    
         #获取最新版本
         version.pull(path=project.project_repo_dir)        
         vList = version.log(path=project.project_repo_dir, number=50) 
-        return render(request,'deploy/deploy_run.html',{"user":request.user,
+        return render(request,'codeops/deploy_run.html',{"user":request.user,
                                                          "project":project,"serverList":serverList,
                                                          "bList":bList,"vList":vList,}, 
                                   ) 
@@ -424,7 +424,7 @@ def deploy_order_status(request,pid):
             return render(request,'orders/deploy_apply.html',{"user":request.user,
                                                 "errorInfo":"获取代码部署工单失败: {ex}".format(ex=ex)}, 
                                               )             
-        return render(request,'deploy/deploy_order_status.html',{"user":request.user,"order":order,"serverList":serverList},) 
+        return render(request,'codeops/deploy_order_status.html',{"user":request.user,"order":order,"serverList":serverList},)
     
     
 @login_required()
@@ -433,7 +433,7 @@ def deploy_order_rollback(request,pid):
     if request.method == "GET":
         order= Order_System.objects.get(id=pid)
         order.order_user = User.objects.get(id=order.order_user).username
-        return render(request,'deploy/deploy_order_rollback.html',{"user":request.user,"order":order},) 
+        return render(request,'codeops/deploy_order_rollback.html',{"user":request.user,"order":order},)
     
     
 @login_required()
@@ -443,7 +443,7 @@ def deploy_manage(request,pid):
         if project.project_repertory == 'git':version = GitTools()
         elif project.project_repertory == 'svn':version = SvnTools()
     except:
-        return render(request,'deploy/deploy_manage.html',{"user":request.user,
+        return render(request,'codeops/deploy_manage.html',{"user":request.user,
                                                          "errorInfo":"项目不存在，可能已经被删除."}, 
                                   ) 
     if request.method == "GET":
@@ -452,7 +452,7 @@ def deploy_manage(request,pid):
         if project.project_model == 'branch':bList = version.branch(path=project.project_repo_dir) 
         elif project.project_model == 'tag':bList = version.tag(path=project.project_repo_dir) 
         vList = version.log(path=project.project_repo_dir, number=50)
-        return render(request,'deploy/deploy_manage.html',{"user":request.user,
+        return render(request,'codeops/deploy_manage.html',{"user":request.user,
                                                          "project":project,
                                                          "bList":bList,"vList":vList}, 
                                   )
@@ -473,5 +473,5 @@ def deploy_log(request,page):
             projectList = paginator.page(1)
         except EmptyPage:
             projectList = paginator.page(paginator.num_pages)        
-        return render(request,'deploy/deploy_log.html',{"user":request.user,"projectList":projectList},
+        return render(request,'codeops/deploy_log.html',{"user":request.user,"projectList":projectList},
                                   )    

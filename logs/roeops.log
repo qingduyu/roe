@@ -4,3 +4,20 @@
 2018-09-12 16:09:47 [ERROR] eyJ1c2VybmFtZSI6IndlbGxpYW0iLCJ1c2VyX2lkIjoyLCJlbWFpbCI6IjMwMzM1MDAxOUBxcS5jb20iLCJleHAiOjE1MTk2NTUzNTB9
 2018-09-12 17:49:07 [WARNING] 写入服务器网卡信息失败: (1062, "Duplicate entry '1-00:0c:29:97:90:ef' for key 'opsmanage_networkcard_assets_assets_id_macaddress_1dfdb30c_uniq'")
 2018-09-12 17:49:07 [WARNING] 写入服务器网卡信息失败: (1062, "Duplicate entry '1-00:0c:29:97:90:f9' for key 'opsmanage_networkcard_assets_assets_id_macaddress_1dfdb30c_uniq'")
+2018-09-13 13:02:07 [INFO] Connected (version 2.0, client OpenSSH_7.4)
+2018-09-13 13:02:07 [INFO] Authentication (publickey) failed.
+2018-09-13 13:02:07 [INFO] Authentication (publickey) failed.
+2018-09-13 13:02:10 [INFO] Authentication (password) failed.
+2018-09-13 13:05:17 [INFO] Connected (version 2.0, client OpenSSH_7.4)
+2018-09-13 13:05:17 [INFO] Authentication (publickey) failed.
+2018-09-13 13:05:17 [INFO] Authentication (publickey) failed.
+2018-09-13 13:05:19 [INFO] Authentication (password) failed.
+2018-09-13 13:06:24 [INFO] Connected (version 2.0, client OpenSSH_7.4)
+2018-09-13 13:06:24 [INFO] Authentication (publickey) failed.
+2018-09-13 13:06:24 [INFO] Authentication (publickey) failed.
+2018-09-13 13:06:26 [INFO] Authentication (password) failed.
+2018-09-13 13:07:10 [INFO] Connected (version 2.0, client OpenSSH_7.4)
+2018-09-13 13:07:10 [INFO] Authentication (publickey) failed.
+2018-09-13 13:07:10 [INFO] Authentication (publickey) failed.
+2018-09-13 13:07:10 [INFO] Authentication (password) successful!
+2018-09-13 13:07:10 [INFO] [chan 0] Opened sftp connection (server version 3)

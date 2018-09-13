@@ -10,7 +10,7 @@ from celery import registry
 from celery.task.control import revoke
 from celery.five import keys, items
 from django.contrib.auth.decorators import permission_required
-from OpsManage.utils.logger import logger
+from utils.logger import logger
 
 @login_required()
 @permission_required('djcelery.change_periodictask',login_url='/noperm/')
@@ -29,7 +29,7 @@ def task_model(request):
             crontabList = []
             intervalList = []
             taskList = []
-        return render(request,'task/task_model.html',{"user":request.user,"crontabList":crontabList,
+        return render(request,'opscontrol/task/task_model.html',{"user":request.user,"crontabList":crontabList,
                                               "intervalList":intervalList,"taskList":taskList,
                                               "regTaskList":regTaskList})  
     elif request.method == "POST":
@@ -100,7 +100,7 @@ def task_view(request):
         except Exception, ex:
             logger.warn(msg="获取Celery Task失败: {ex}".format(ex=str(ex)))
             taskLog = []
-        return render(request,'task/task_view.html',
+        return render(request,'opscontrol/task/task_view.html',
                       {"user":request.user,"regTaskList":regTaskList,"workList":workList},
                      )    
     elif request.method == "POST":

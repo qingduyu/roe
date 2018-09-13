@@ -4,13 +4,13 @@ import os
 from django.http import HttpResponseRedirect,JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from OpsManage.models import Cron_Config,Server_Assets
-from OpsManage.utils.ssh_tools import SSHManage
-from OpsManage.utils import base
-from OpsManage.tasks.cron import recordCron
-from OpsManage.models import Log_Cron_Config
+
+from CMDB.models import Cron_Config,Server_Assets,Log_Cron_Config
+from utils.ssh_tools import SSHManage
+from utils import base
+from tasks.cron import recordCron
 from django.contrib.auth.decorators import permission_required
-from OpsManage.utils.ansible_api_v2 import ANSRunner
+from utils.ansible_api_v2 import ANSRunner
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from dao.assets import AssetsSource
 
@@ -20,14 +20,14 @@ def cron_add(request):
     # serverList = Server_Assets.objects.all()
     serverList= AssetsSource().serverList()
     if request.method == "GET": 
-        return render(request,'cron/cron_add.html',{"user":request.user,"serverList":serverList},
+        return render(request,'opscontrol/cron/cron_add.html',{"user":request.user,"serverList":serverList},
                                   )
     elif request.method == "POST":
         cron_status = request.POST.get('cron_status',0)
         try:
             server = Server_Assets.objects.get(id=request.POST.get('cron_server'))
         except:
-            return render(request,'cron/cron_add.html',{"user":request.user,
+            return render(request,'opscontrol/cron/cron_add.html',{"user":request.user,
                                                                "serverList":serverList,
                                                                "errorInfo":"主机不存在，请检查是否被删除。"},
                                   ) 
@@ -49,7 +49,7 @@ def cron_add(request):
                                        )
             recordCron.delay(cron_user=str(request.user),cron_id=cron.id,cron_name=cron.cron_name,cron_content="添加计划任务",cron_server=server.ip)
         except Exception,e:
-            return render(request,'cron/cron_add.html',{"user":request.user,
+            return render(request,'opscontrol/cron/cron_add.html',{"user":request.user,
                                                                "serverList":serverList,
                                                                "errorInfo":"提交失败，错误信息："+str(e)},
                                   )    
@@ -67,7 +67,7 @@ def cron_add(request):
                     result = ANS.handle_model_data(ANS.get_model_result(), 'copy',file_args) 
                     if result[0].get('status') == 'failed':
                         cron.delete()
-                        return render(request,'cron/cron_add.html',{"user":request.user,
+                        return render(request,'opscontrol/cron/cron_add.html',{"user":request.user,
                                                                    "serverList":serverList,
                                                                    "errorInfo":"错误信息:"+result[0].get('msg')}, 
                                       ) 
@@ -81,13 +81,13 @@ def cron_add(request):
                 ANS.run_model(host_list=sList,module_name="cron",module_args=cron_args)   
                 result = ANS.handle_model_data(ANS.get_model_result(), 'cron',cron_args) 
             except Exception,e:
-                return render(request,'cron/cron_add.html',{"user":request.user,
+                return render(request,'opscontrol/cron/cron_add.html',{"user":request.user,
                                                                    "serverList":serverList,
                                                                    "errorInfo":"错误信息:"+str(e)}, 
                                       )     
             if result[0].get('status') == 'failed':
                 cron.delete()
-                return render(request,'cron/cron_add.html',{"user":request.user,
+                return render(request,'opscontrol/cron/cron_add.html',{"user":request.user,
                                                                    "serverList":serverList,
                                                                    "errorInfo":"错误信息:"+result[0].get('msg').replace('\n','')}) 
         return HttpResponseRedirect('/cron_add')
@@ -103,7 +103,7 @@ def cron_list(request,page):
         cronList = paginator.page(1)
     except EmptyPage:
         cronList = paginator.page(paginator.num_pages)     
-    return render(request,'cron/cron_list.html',{"user":request.user,
+    return render(request,'opscontrol/cron/cron_list.html',{"user":request.user,
                                                     "cronList":cronList},
                               ) 
     
@@ -113,11 +113,11 @@ def cron_mod(request,cid):
     try:
         cron = Cron_Config.objects.select_related().get(id=cid)
     except:
-        return render(request,'cron/cron_modf.html',{"user":request.user,
+        return render(request,'opscontrol/cron/cron_modf.html',{"user":request.user,
                                                          "errorInfo":"任务不存在，可能已经被删除."},
                                 )    
     if request.method == "GET": 
-        return render(request,'cron/cron_modf.html',
+        return render(request,'opscontrol/cron/cron_modf.html',
                                   {"user":request.user,"cron":cron},
                                 ) 
     elif request.method == "POST":    
@@ -136,7 +136,7 @@ def cron_mod(request,cid):
                                        )
             recordCron.delay(cron_user=str(request.user),cron_id=cid,cron_name=cron.cron_name,cron_content="修改计划任务",cron_server=cron.cron_server.ip)
         except Exception,e:
-            return render(request,'cron/cron_modf.html',
+            return render(request,'opscontrol/cron/cron_modf.html',
                                       {"user":request.user,"errorInfo":"更新失败，错误信息："+str(e)},
                                   )  
         try:
@@ -163,7 +163,7 @@ def cron_mod(request,cid):
                                                                                                      )                              
                 ANS.run_model(host_list=sList,module_name="cron",module_args=cron_args)    
         except Exception,e:
-            return render(request,'cron/cron_modf.html',{"user":request.user,"errorInfo":"错误信息:"+str(e)}, 
+            return render(request,'opscontrol/cron/cron_modf.html',{"user":request.user,"errorInfo":"错误信息:"+str(e)},
                                   )                     
         return HttpResponseRedirect('/cron_mod/{id}/'.format(id=cid))
     
@@ -186,7 +186,7 @@ def cron_mod(request,cid):
 def cron_config(request):
     serverList = Server_Assets.objects.all()
     if request.method == "GET": 
-        return render(request,'cron/cron_config.html',{"user":request.user,"serverList":serverList},
+        return render(request,'opscontrol/cron/cron_config.html',{"user":request.user,"serverList":serverList},
                                   )    
     elif request.method == "POST": 
         try:
@@ -246,4 +246,4 @@ def cron_log(request,page):
             cronList = paginator.page(1)
         except EmptyPage:
             cronList = paginator.page(paginator.num_pages)          
-        return render(request,'cron/cron_log.html',{"user":request.user,"cronList":cronList},)
+        return render(request,'opscontrol/cron/cron_log.html',{"user":request.user,"cronList":cronList},)

@@ -20,6 +20,7 @@ from CMDB.models import Assets
 from utils.data.DsMySQL import AnsibleRecord
 from django.contrib.auth.decorators import permission_required
 from utils.logger import logger
+from utils.ansible_api_v2 import ANSRunner
 from dao.assets import AssetsSource
 
 @login_required()
@@ -31,7 +32,7 @@ def apps_model(request):
         groupList = Group.objects.all()
         serviceList = Service_Assets.objects.all()
         inventoryList = Ansible_Inventory.objects.all()
-        return render(request,'apps/apps_model.html',{"user":request.user,"ans_uuid":uuid.uuid4(),
+        return render(request,'opscontrol/apps/apps_model.html',{"user":request.user,"ans_uuid":uuid.uuid4(),
                                                             "serverList":serverList,"groupList":groupList,
                                                             "serviceList":serviceList,"projectList":projectList,
                                                             "inventoryList":inventoryList})
@@ -85,7 +86,7 @@ def apps_upload(request):
         userList = User.objects.all()
         inventoryList = Ansible_Inventory.objects.all()
         serviceList = Service_Assets.objects.all()
-        return render(request,'apps/apps_playbook_upload.html',{"user":request.user,"userList":userList,
+        return render(request,'opscontrol/apps/apps_playbook_upload.html',{"user":request.user,"userList":userList,
                                                             "serverList":serverList,"groupList":groupList,
                                                             "serviceList":serviceList,"projectList":projectList,
                                                             "inventoryList":inventoryList},
@@ -120,7 +121,7 @@ def apps_upload(request):
                                             )
         except Exception, ex:
             logger.error(msg="添加playboo失败: {ex}".format(ex=str(ex)))
-            return render(request,'apps/apps_playbook_upload.html',{"user":request.user,"errorInfo":"剧本添加错误：%s" % str(ex)},
+            return render(request,'opscontrol/apps/apps_playbook_upload.html',{"user":request.user,"errorInfo":"剧本添加错误：%s" % str(ex)},
                                     ) 
         for sip in sList:
             try:
@@ -128,7 +129,7 @@ def apps_upload(request):
             except Exception,ex:
                 logger.error(msg="添加playboo目标主机失败: {ex}".format(ex=str(ex)))
                 playbook.delete()                    
-                return render(request,'apps/apps_playbook_upload.html',{"user":request.user,"errorInfo":"目标服务器信息添加错误：%s" % str(ex)},
+                return render(request,'opscontrol/apps/apps_playbook_upload.html',{"user":request.user,"errorInfo":"目标服务器信息添加错误：%s" % str(ex)},
                                     )             
         #操作日志异步记录
         AnsibleRecord.PlayBook.insert(user=str(request.user),ans_id=playbook.id,ans_name=playbook.playbook_name,ans_content="添加Ansible剧本",ans_server=','.join(sList))
@@ -144,7 +145,7 @@ def apps_online(request):
         serviceList = Service_Assets.objects.all()
         projectList = Project_Assets.objects.all()
         inventoryList = Ansible_Inventory.objects.all()
-        return render(request,'apps/apps_playbook_online.html',{"user":request.user,"userList":userList,
+        return render(request,'opscontrol/apps/apps_playbook_online.html',{"user":request.user,"userList":userList,
                                                             "serverList":serverList,"groupList":groupList,
                                                             "serviceList":serviceList,"projectList":projectList,
                                                             "inventoryList":inventoryList},
@@ -216,7 +217,7 @@ def apps_list(request):
             if ds.playbook_auth_group in gList or ds.playbook_auth_user == uid:ds.runid = ds.id
             #如果剧本没有授权默认所有用户都可以使用
             elif ds.playbook_auth_group == 0 and ds.playbook_auth_user == 0:ds.runid = ds.id
-        return render(request,'apps/apps_list.html',{"user":request.user,"playbookList":playbookList,})      
+        return render(request,'opscontrol/apps/apps_list.html',{"user":request.user,"playbookList":playbookList,})
 
 @login_required()
 @permission_required('OpsManage.can_add_ansible_playbook',login_url='/noperm/')
@@ -244,12 +245,12 @@ def apps_playbook_run(request,pid):
         if numberList:serverList = []
         else:serverList = AssetsSource().serverList()           
     except:
-        return render(request,'apps/apps_playbook.html',{"user":request.user,"ans_uuid":playbook.playbook_uuid,
+        return render(request,'opscontrol/apps/apps_playbook.html',{"user":request.user,"ans_uuid":playbook.playbook_uuid,
                                                          "errorInfo":"剧本不存在，可能已经被删除."}, 
                                   )     
       
     if request.method == "GET":
-        return render(request,'apps/apps_playbook.html',{"user":request.user,"playbook":playbook,
+        return render(request,'opscontrol/apps/apps_playbook.html',{"user":request.user,"playbook":playbook,
                                                         "serverList":serverList,"numberList":numberList},
                                   ) 
     elif request.method == "POST" and request.user.has_perm('OpsManage.can_exec_ansible_playbook'):
@@ -315,7 +316,7 @@ def apps_playbook_modf(request,pid):
         playbook = Ansible_Playbook.objects.get(id=pid)
         numberList = Ansible_Playbook_Number.objects.filter(playbook=playbook)
     except:
-        return render(request,'apps/apps_playbook_modf.html',{"user":request.user,
+        return render(request,'opscontrol/apps/apps_playbook_modf.html',{"user":request.user,
                                                          "errorInfo":"剧本不存在，可能已经被删除."}, 
                                   )    
     if request.method == "GET":
@@ -342,7 +343,7 @@ def apps_playbook_modf(request,pid):
             serviceList = Service_Assets.objects.filter(project=project)
         except:
             project = None                
-        return render(request,'apps/apps_playbook_modf.html',{"user":request.user,"userList":userList,"projectList":projectList,
+        return render(request,'opscontrol/apps/apps_playbook_modf.html',{"user":request.user,"userList":userList,"projectList":projectList,
                                                                   "playbook":playbook,"serverList":serverList,"project":project,
                                                                   "groupList":groupList,"serviceList":serviceList,
                                                                   "inventoryList":inventoryList},
@@ -380,7 +381,7 @@ def apps_playbook_modf(request,pid):
                                     )
         except Exception,ex:
             logger.error(msg="修改playbook失败: {ex}".format(ex=str(ex)))
-            return render(request,'apps/apps_playbook_modf.html',{"user":request.user,"errorInfo":"剧本添加错误：%s" % str(ex)},
+            return render(request,'opscontrol/apps/apps_playbook_modf.html',{"user":request.user,"errorInfo":"剧本添加错误：%s" % str(ex)},
                                     ) 
         if sList:
             tagret_server_list = [ s.playbook_server for s in numberList ]
@@ -392,7 +393,7 @@ def apps_playbook_modf(request,pid):
                         Ansible_Playbook_Number.objects.create(playbook=playbook,playbook_server=sip)                        
                 except Exception,ex:
                     logger.error(msg="修改playbook目标服务器失败: {ex}".format(ex=str(ex)))
-                    return render(request,'apps/apps_playbook_modf.html',{"user":request.user,
+                    return render(request,'opscontrol/apps/apps_playbook_modf.html',{"user":request.user,
                                                                         "errorInfo":"目标服务器信息修改错误：%s" % str(ex)},
                                               ) 
             #清除目标主机 - 
@@ -413,7 +414,7 @@ def apps_playbook_online_modf(request,pid):
         playbook = Ansible_Playbook.objects.get(id=pid)
         numberList = Ansible_Playbook_Number.objects.filter(playbook=playbook)
     except:
-        return render(request,'apps/apps_playbook_modf.html',{"user":request.user,
+        return render(request,'opscontrol/apps/apps_playbook_modf.html',{"user":request.user,
                                                          "errorInfo":"剧本不存在，可能已经被删除."}, 
                                   )    
     if request.method == "POST":
@@ -460,7 +461,7 @@ def apps_playbook_online_modf(request,pid):
                     if sip not in tagret_server_list:   
                         Ansible_Playbook_Number.objects.create(playbook=playbook,playbook_server=sip)                        
                 except Exception,e:
-                    return render(request,'apps/apps_playbook_modf.html',{"user":request.user,
+                    return render(request,'opscontrol/apps/apps_playbook_modf.html',{"user":request.user,
                                                                         "errorInfo":"目标服务器信息修改错误：%s" % str(e)},
                                               ) 
             #清除目标主机 - 
@@ -478,7 +479,7 @@ def ansible_log(request):
     if request.method == "GET":
         modelList = Log_Ansible_Model.objects.all().order_by('-id')[0:500]
         playbookList = Log_Ansible_Playbook.objects.all().order_by('-id')[0:500]
-        return render(request,'apps/apps_log.html',{"user":request.user,"modelList":modelList,
+        return render(request,'opscontrol/apps/apps_log.html',{"user":request.user,"modelList":modelList,
                                                             "playbookList":playbookList},
                                   )
         
@@ -514,7 +515,7 @@ def apps_script_online(request):
         groupList = Group.objects.all()
         serviceList = Service_Assets.objects.all()
         projectList = Project_Assets.objects.all()
-        return render(request,'apps/apps_script_online.html',{"user":request.user,"ans_uuid":uuid.uuid4(),
+        return render(request,'opscontrol/apps/apps_script_online.html',{"user":request.user,"ans_uuid":uuid.uuid4(),
                                                             "serverList":serverList,"groupList":groupList,
                                                             "serviceList":serviceList,"projectList":projectList})
     elif  request.method == "POST" and request.user.has_perm('OpsManage.can_exec_ansible_script'):
@@ -595,7 +596,7 @@ def apps_script_list(request):
             #如果剧本没有授权默认所有用户都可以使用
             elif ds.script_group == 0:ds.runid = ds.id
             ds.script_server = json.loads(ds.script_server)
-        return render(request,'apps/apps_script_list.html',{"user":request.user,"scriptList":scriptList})
+        return render(request,'opscontrol/apps/apps_script_list.html',{"user":request.user,"scriptList":scriptList})
     
 @login_required()
 @permission_required('OpsManage.can_read_ansible_script',login_url='/noperm/')
@@ -627,7 +628,7 @@ def apps_script_online_run(request,pid):
         script = Ansible_Script.objects.get(id=pid)
         numberList = json.loads(script.script_server)
     except:
-        return render(request,'apps/apps_script_modf.html',{"user":request.user,"errorInfo":"剧本不存在，可能已经被删除."},) 
+        return render(request,'opscontrol/apps/apps_script_modf.html',{"user":request.user,"errorInfo":"剧本不存在，可能已经被删除."},)
     def saveScript(content,filePath):
         if os.path.isdir(os.path.dirname(filePath)) is not True:os.makedirs(os.path.dirname(filePath))#判断文件存放的目录是否存在，不存在就创建
         with open(filePath, 'w') as f:
@@ -654,7 +655,7 @@ def apps_script_online_run(request,pid):
             serviceList = Service_Assets.objects.filter(project=project)
         except:
             project = None    
-        return render(request,'apps/apps_script_modf.html',{"user":request.user,"userList":userList,
+        return render(request,'opscontrol/apps/apps_script_modf.html',{"user":request.user,"userList":userList,
                                                                   "script":script,"serverList":serverList,
                                                                   "groupList":groupList,"serviceList":serviceList,
                                                                   "project":project,"projectList":projectList,
@@ -717,7 +718,7 @@ def ansible_inventory(request):
                 logger.warn(msg="查询用户信息失败: {ex}".format(ex=str(ex)))
             inventoryList.append(ds)
         serverList = AssetsSource().serverList()
-        return  render(request,'apps/apps_inventory.html',{"user":request.user,"serverList":serverList,
+        return  render(request,'opscontrol/apps/apps_inventory.html',{"user":request.user,"serverList":serverList,
                                                            "inventoryList":inventoryList},
                                   )
     elif request.method == "POST"  and request.user.has_perm('OpsManage.can_add_ansible_inventory'):
