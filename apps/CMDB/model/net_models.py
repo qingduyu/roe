@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from mptt.models import MPTTModel,TreeForeignKey
+
 
 from CMDB.model.idc_models import Idc
 from CMDB.model.server_models import Assets

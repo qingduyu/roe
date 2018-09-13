@@ -11,14 +11,7 @@ from django.db import models
 class Assets(models.Model):
     assets_type_choices = (
         ('server', u'物理机'),
-        ('vmser', u'虚拟机'),
-        ('switch', u'交换机'),
-        ('route', u'路由器'),
-        ('printer', u'打印机'),
-        ('scanner', u'扫描仪'),
-        ('firewall', u'防火墙'),
-        ('storage', u'存储设备'),
-        ('wifi', u'无线设备'),
+        ('vmser', u'虚拟机')
     )
     assets_type = models.CharField(choices=assets_type_choices, max_length=100, default='server', verbose_name='资产类型')
     name = models.CharField(max_length=100, verbose_name='资产编号', blank=True, null=True)

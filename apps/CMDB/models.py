@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from mptt.models import MPTTModel,TreeForeignKey
 
 from CMDB.model.yewutree_model import YewuTree,Productline
 

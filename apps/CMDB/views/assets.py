@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# _#_ coding:utf-8 _*_
+# -*- coding: utf-8 -*-
 import os, xlrd, time
 from django.http import JsonResponse, StreamingHttpResponse
 from django.shortcuts import render, HttpResponseRedirect
@@ -7,15 +6,14 @@ from django.contrib.auth.decorators import login_required
 from CMDB.models import *
 from CodeOps.models import *
 from django.db.models import Count
-from utils.ansible_api_v2 import ANSRunner
 from django.contrib.auth.models import Group, User
 from utils import base
-# from OpsManage.tasks.assets import recordAssets
+from tasks.assets import recordAssets
 from django.contrib.auth.decorators import permission_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from utils.logger import logger
 from utils.execl import CellWriter
-
+from utils.ansible_api_v2 import ANSRunner
 
 def getBaseAssets():
     try:
@@ -188,7 +186,13 @@ def assets_facts(request, args=None):
                 return JsonResponse({'msg': "数据更新失败-查询不到该主机资料~", "code": 502})
             ANS = ANSRunner(resource)
             ANS.run_model(host_list=[server_assets.ip], module_name='setup', module_args="")
-            data = ANS.handle_cmdb_data(ANS.get_model_result())
+            try:
+                modelresult=ANS.get_model_result()
+                data=ANS.handle_cmdb_data(modelresult)
+            except Exception , ex:
+                logger.error(msg="更新服务器信息失败: {ex}".format(ex=str(ex)))
+                return JsonResponse({'msg': "数据更新失败-写入数据失败"+ex, "code": 400})
+            # data = ANS.handle_cmdb_data(ANS.get_model_result())
             if data:
                 for ds in data:
                     status = ds.get('status')
@@ -257,8 +261,8 @@ def assets_facts(request, args=None):
                 else:
                     resource = [{"ip": server_assets.ip, "port": server_assets.port, "username": server_assets.username,
                                  "password": server_assets.passwd}]
-            except Exception, e:
-                logger.error(msg="更新硬件信息失败: {ex}".format(ex=ex))
+            except Exception as e:
+                logger.error(msg="更新硬件信息失败: {ex}".format(ex=e))
                 return JsonResponse({'msg': "数据更新失败-查询不到该主机资料~", "code": 502})
             ANS = ANSRunner(resource)
             ANS.run_model(host_list=[server_assets.ip], module_name='crawHw', module_args="")
@@ -276,6 +280,7 @@ def assets_facts(request, args=None):
                                     )
 
                                 except Exception, ex:
+                                    logger.error(msg="更新硬件信息失败: {ex}".format(ex=ex))
                                     return JsonResponse({'msg': "数据更新失败-写入数据失败", "code": 400})
                             else:
                                 try:

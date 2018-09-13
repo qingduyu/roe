@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from mptt.models import MPTTModel,TreeForeignKey
+# from mptt.models import MPTTModel,TreeForeignKey
 from django.db import models
 
 
-class YewuTree(MPTTModel):
+class YewuTree(models.Model):
     name=models.CharField(max_length=32)
     href=models.CharField(max_length=200,blank=True,null=True,help_text='moxingbiao')
-    parent = TreeForeignKey('self', on_delete=models.CASCADE,null=True, blank=True, related_name='children',db_index=True)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE,null=True, blank=True, related_name='children',db_index=True)
     root=models.ForeignKey('self',on_delete=models.CASCADE,null=True,blank=True,related_name='sunzi',help_text='指定根结点为产品线节点，为了展示根结点的名字，防止树的高度过高')
 
     def __str__(self):

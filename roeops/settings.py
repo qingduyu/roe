@@ -84,7 +84,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken', #s使用token认证
     'crispy_forms',
     'corsheaders',
-    'mptt', #树
+    # 'mptt', #树
     'djcelery',#定时任务
     'api',
     'Orders',
@@ -275,3 +275,5 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'upload/')
 MEDIA_URL = '/upload/'
+
+

@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^assets_list',assets.assets_list),
     url(r'^assets_mod/(?P<aid>[0-9]+)/$',assets.assets_modf),
     url(r'^assets_view/(?P<aid>[0-9]+)/$',assets.assets_view),
-    url(r'^assets_facts',assets.assets_facts),
+    url(r'^assets_facts',assets.assets_facts,name='cmdb_assets_facts'),
     url(r'^assets_log/(?P<page>[0-9]+)/$',assets.assets_log),
     url(r'^assets_import/',assets.assets_import),
     url(r'^assets_search/',assets.assets_search),

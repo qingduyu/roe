@@ -2,8 +2,7 @@
 # -*- coding=utf-8 -*-
 import json,re,os
 from collections import namedtuple
-from ansible import constants
-from ansible.errors import AnsibleError, AnsibleOptionsError, AnsibleParserError
+from ansible.errors import AnsibleParserError
 from ansible.parsing.dataloader import DataLoader
 from ansible.vars import VariableManager
 from ansible.inventory import Inventory,Host,Group
@@ -14,6 +13,7 @@ from ansible.executor.playbook_executor import PlaybookExecutor
 from utils.data.DsRedisOps import DsRedis
 from utils.data.DsMySQL import AnsibleSaveResult
 from utils.logger import logger
+from ansible import constants
 
 
 class MyInventory(Inventory):  
@@ -444,12 +444,17 @@ class ANSRunner(object):
             play = Play().load(play_source, variable_manager=self.variable_manager, loader=self.loader)  
         except AnsibleParserError, err:
             logger.error(msg="run model failed: {err}".format(err=str(err)))
-            if self.redisKey:DsRedis.OpsAnsibleModel.lpush(self.redisKey,data="run model failed: {err}".format(err=str(err)))
-            if self.logId:AnsibleSaveResult.Model.insert(self.logId, "run model failed: {err}".format(err=str(err)))   
+            if self.redisKey:
+                DsRedis.OpsAnsibleModel.lpush(self.redisKey,
+                                              data="run model failed: {err}".format(err=str(err)))
+            if self.logId:
+                AnsibleSaveResult.Model.insert(self.logId, "run model failed: {err}".format(err=str(err)))
             return False               
         tqm = None  
-        if self.redisKey or self.logId:self.callback = ModelResultsCollectorToSave(self.redisKey,self.logId)  
-        else:self.callback = ModelResultsCollector()  
+        if self.redisKey or self.logId:
+            self.callback = ModelResultsCollectorToSave(self.redisKey,self.logId)
+        else:
+            self.callback = ModelResultsCollector()
         try:  
             tqm = TaskQueueManager(  
                     inventory=inventory,  

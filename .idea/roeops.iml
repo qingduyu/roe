@@ -26,7 +26,7 @@
       <sourceFolder url="file://$MODULE_DIR$/conf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/docs" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 2.7 (roeops)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7 (roeops) (1)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

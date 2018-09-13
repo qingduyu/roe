@@ -9,6 +9,21 @@
 
 
 
+安装部署：
+1. 依赖软件
+yum install sshpass
+
+2. 部署python:
+
+3. 部署mysql
+
+4. 部署 redis
+
+5. 部署 celery
+
+
+
+
 
 # 部分截图
 

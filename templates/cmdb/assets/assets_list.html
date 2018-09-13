@@ -881,7 +881,7 @@
 					onOk: function(){
 						$.ajax({
 							  type: 'POST',
-							  url: '/assets_facts/',
+							  url: '{% url 'cmdb_assets_facts' %}',
 							  data:{
 									"ip":ip,
 									"server_id":id,
@@ -897,7 +897,7 @@
 						        	}
 							},
 				            error:function(response){
-				            	window.wxc.xcConfirm("请求数据错误！", window.wxc.xcConfirm.typeEnum.error);
+				            	window.wxc.xcConfirm(response.responseText, window.wxc.xcConfirm.typeEnum.error);
 				            },
 							});
 					},

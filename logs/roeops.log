@@ -1,2 +1,6 @@
 2018-09-07 16:49:48 [ERROR] Invalid HTTP_HOST header: '172.16.50.216:'. The domain name provided is not valid according to RFC 1034/1035.
 2018-09-07 16:51:10 [ERROR] Invalid HTTP_HOST header: '172.16.50.216:'. The domain name provided is not valid according to RFC 1034/1035.
+2018-09-12 16:09:47 [INFO] eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2018-09-12 16:09:47 [ERROR] eyJ1c2VybmFtZSI6IndlbGxpYW0iLCJ1c2VyX2lkIjoyLCJlbWFpbCI6IjMwMzM1MDAxOUBxcS5jb20iLCJleHAiOjE1MTk2NTUzNTB9
+2018-09-12 17:49:07 [WARNING] 写入服务器网卡信息失败: (1062, "Duplicate entry '1-00:0c:29:97:90:ef' for key 'opsmanage_networkcard_assets_assets_id_macaddress_1dfdb30c_uniq'")
+2018-09-12 17:49:07 [WARNING] 写入服务器网卡信息失败: (1062, "Duplicate entry '1-00:0c:29:97:90:f9' for key 'opsmanage_networkcard_assets_assets_id_macaddress_1dfdb30c_uniq'")
