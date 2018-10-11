@@ -21,8 +21,8 @@ urlpatterns = [
     url(r'^test_single_edit/(?P<id>[0-9]+)/$', test_single_edit, name='test_single_edit'),
     url(r'^test_single_page/$', test_single_page, name='test_single'),
 
-      url(r'^publishers/$', PublisherList.as_view()),
-    url(r'^publishers_page/$', PublisherListPage.as_view()),#分页功能
+    url(r'^publishers/$', PublisherList.as_view()),
+    url(r'^publishers_page/$', PublisherListPage.as_view(),name='api_test_publisersh_page'),#分页功能
 
     url(r'^publishers_detail/(?P<id>[0-9]+)/$', PublisherDetail.as_view()),
     url(r'del_publisher/$',Del_Publisher.as_view()),

@@ -2,118 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/CodeOps/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/OpsControl/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap-social/bootstrap-social.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap-social/bootstrap-social.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap-social/bootstrap-social.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot-tooltip/jquery.flot.tooltip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot-tooltip/jquery.flot.tooltip.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot-tooltip/jquery.flot.tooltip.source.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/excanvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/excanvas.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.colorhelpers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.canvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.categories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.crosshair.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.errorbars.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.fillbetween.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.image.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.navigate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.pie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.resize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.selection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.stack.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.symbol.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.threshold.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.flot.time.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/HELP-US-OUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/css/font-awesome.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/animated.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/bordered-pulled.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/extras.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/fixed-width.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/font-awesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/icons.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/larger.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/list.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/mixins.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/path.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/rotated-flipped.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/screen-reader.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/spinning.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/stacked.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/less/variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_animated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_bordered-pulled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_extras.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_fixed-width.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_larger.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_path.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_rotated-flipped.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_spinning.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_stacked.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/font-awesome/scss/font-awesome.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/images/Sorting icons.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/images/sort_asc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/images/sort_asc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/images/sort_both.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/images/sort_desc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/images/sort_desc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/jquery/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/metisMenu/metisMenu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/metisMenu/metisMenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/metisMenu/metisMenu.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/metisMenu/metisMenu.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/morrisjs/morris.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/morrisjs/morris.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/morrisjs/morris.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/raphael/raphael.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/vendor/raphael/raphael.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/opscontrol/cron/cron_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/opscontrol/cron/cron_config.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/opscontrol/cron/cron_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/opscontrol/cron/cron_log.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/opscontrol/cron/cron_modf.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0011_mysql_db_memo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0012_mysql_user_db_host.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0013_scan_conf_cmd_scan_conf_ip_scan_conf_keyfile_scan_conf_port_scan_conf_sshpass.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0014_auto_20181010_1809.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/tasks/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_ip.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_ip_add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_ip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/suzhu_servers_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/virtual_host_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CodeOps/deploy.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CodeOps/deploy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/cron.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/cron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/elfinder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/roeops.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/roeops.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roeops/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roeops/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/mongo_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/mongo_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/suzhu_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/serialize/mongo_serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/serialize/mongo_serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/serialize/mysql_serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/serialize/mysql_serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/serialize/oracle_serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/serialize/oracle_serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/serialize/redis_serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/serialize/redis_serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/db/mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/db/mysql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CodeOps/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CodeOps/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/test/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/test/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/test/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/test/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/test/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/test/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_children.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_children.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_cluster.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_cluster.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_cluster_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_cluster_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_cluster_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_cluster_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_db.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_db.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_db_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_db_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_db_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_db_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_instance.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_instance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_instance_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_instance_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_instance_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_instance_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_user_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_user_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mongo_user_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mongo_user_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_db.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_db.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_db_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_db_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_db_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_db_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_instance.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_instance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_instance_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_instance_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_user_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_user_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/db/mysql_user_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/db/mysql_user_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/testpage/test_single_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/testpage/test_single_add.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -136,74 +86,90 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="apps_playbook.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook.html">
+      <file leaf-file-name="scan_conf_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+            <state relative-caret-position="15">
+              <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apps_script_modf.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_script_modf.html">
+      <file leaf-file-name="oracle_cluster_add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/db/oracle_cluster_add.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="idc_add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+            <state relative-caret-position="270">
+              <caret line="18" column="49" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/OpsControl/urls.py">
+      <file leaf-file-name="scan_conf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="44" selection-end-column="1" />
+            <state relative-caret-position="555">
+              <caret line="37" column="30" lean-forward="true" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
               <folding>
-                <element signature="e#1#41#0" expanded="true" />
+                <element signature="e#53#101#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CodeOps/urls.py">
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="30" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="34" />
+            <state relative-caret-position="495">
+              <caret line="33" column="8" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="184" selection-start-line="184" selection-end-line="184" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scan_conf_ip_add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_ip_add.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="72" column="25" lean-forward="true" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/test/serializers.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/test/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1249">
+              <caret line="137" column="31" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="31" />
               <folding>
-                <element signature="e#1#41#0" expanded="true" />
+                <element signature="e#24#69#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/CodeOps/deploy.py">
+      <file leaf-file-name="idc_api.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc_api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-              <folding>
-                <element signature="e#49#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roeops/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roeops/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="23" />
+            <state relative-caret-position="630">
+              <caret line="73" column="33" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -213,8 +179,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -233,7 +199,11 @@
       <find>edit</find>
       <find>userAddForm</find>
       <find>产品线</find>
+      <find>tablespace</find>
     </findStrings>
+    <replaceStrings>
+      <replace>db</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -241,57 +211,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/cmdb/assets/assets_list.html" />
-        <option value="$PROJECT_DIR$/conf/logger.ini" />
-        <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mongo_db_edit.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mongo_instance_add.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mongo_instance_edit.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mongo_user_add.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mongo_user_edit.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mongo_cluster.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_add.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster.html" />
+        <option value="$PROJECT_DIR$/templates/base_children.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_instance.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_instance_add.html" />
+        <option value="$PROJECT_DIR$/templates/testpage/test_single_add.html" />
+        <option value="$PROJECT_DIR$/apps/test/serializers.py" />
+        <option value="$PROJECT_DIR$/apps/test/views.py" />
+        <option value="$PROJECT_DIR$/apps/test/urls.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/serialize/oracle_serializers.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/serialize/mongo_serializer.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/serialize/mongo_serializers.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/serialize/redis_serializers.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/serializers.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_db_add.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_db.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mongo_user.html" />
+        <option value="$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/serialize/mysql_serializers.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_user.html" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/db/mysql.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_user_add.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/suzhu_servers_list.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/virtual_host_list.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_ip.html" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmap_all_server.py" />
+        <option value="$PROJECT_DIR$/utils/encrpt.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmapdev.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_ip.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_conf.html" />
         <option value="$PROJECT_DIR$/apps/CMDB/model/server_models.py" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/ansible.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/models.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/model/yewutree_model.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/model/net_models.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/migrations/0001_initial.py" />
-        <option value="$PROJECT_DIR$/libs/ansible/__init__.py" />
-        <option value="$PROJECT_DIR$/libs/ansible/parsing/dataloader.py" />
-        <option value="$PROJECT_DIR$/utils/logger.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list.html" />
+        <option value="$PROJECT_DIR$/apps/CMDB/urls.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_ip_add.html" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/utils/ansible_api_v2.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/assets.py" />
-        <option value="$PROJECT_DIR$/templates/system/webssh/webssh.html" />
-        <option value="$PROJECT_DIR$/templates/codeops/deploy_add.html" />
-        <option value="$PROJECT_DIR$/templates/codeops/deploy_ask.html" />
-        <option value="$PROJECT_DIR$/templates/codeops/deploy_list.html" />
-        <option value="$PROJECT_DIR$/templates/orders/filemanage/file_upload_run.html" />
-        <option value="$PROJECT_DIR$/templates/orders/db_sqlorder_audit.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/cron/cron_modf.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/cron/cron_config.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/cron/cron_add.html" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/cron.py" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/cron/cron_list.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/cron/cron_log.html" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/task.py" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/task/task_model.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/task/task_view.html" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_inventory.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_inventory_modf.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_list.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_log.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_model.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook_modf.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook_online.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook_upload.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_script_list.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_script_modf.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_script_online.html" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/elfinder.py" />
-        <option value="$PROJECT_DIR$/apps/elfinder/views.py" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/elfinder/finder.html" />
-        <option value="$PROJECT_DIR$/roeops/settings.py" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/urls.py" />
-        <option value="$PROJECT_DIR$/roeops/urls.py" />
-        <option value="$PROJECT_DIR$/apps/CodeOps/urls.py" />
-        <option value="$PROJECT_DIR$/apps/CodeOps/deploy.py" />
       </list>
     </option>
   </component>
@@ -310,10 +280,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="804" />
-    <option name="y" value="88" />
-    <option name="width" value="1487" />
-    <option name="height" value="1218" />
+    <option name="y" value="94" />
+    <option name="width" value="1497" />
+    <option name="height" value="860" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -321,6 +290,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -344,24 +314,28 @@
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="CMDB" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="CodeOps" type="462c0819:PsiDirectoryNode" />
+              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="OpsControl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -371,7 +345,7 @@
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -382,36 +356,74 @@
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="codeops" type="462c0819:PsiDirectoryNode" />
+              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
+              <item name="idc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
+              <item name="servers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="testpage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../qw_cmdb" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/libs" />
-      <recent name="$PROJECT_DIR$/static/bootstrap" />
-      <recent name="$PROJECT_DIR$/templates/opscontrol" />
-      <recent name="$PROJECT_DIR$/templates/system" />
-      <recent name="$PROJECT_DIR$/templates/orders" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib" />
+      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/apps" />
       <recent name="$PROJECT_DIR$/templates/opscontrol" />
       <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/apps/OpsControl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apps/CMDB" />
+      <recent name="$PROJECT_DIR$/templates/cmdb/db" />
+      <recent name="$PROJECT_DIR$/libs" />
+      <recent name="$PROJECT_DIR$/static/bootstrap" />
+      <recent name="$PROJECT_DIR$/templates/opscontrol" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -568,24 +580,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="2700" height="1378" extended-state="6" />
+    <frame x="0" y="28" width="2600" height="1338" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32996973" />
-      <window_info anchor="bottom" id="manage.py@roeops" order="13" visible="true" weight="0.28513405" />
+      <window_info anchor="bottom" id="manage.py@roeops" order="13" weight="0.32913518" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.667319" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32996973" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32996973" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34172964" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.42270058" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.15056604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.16980392" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="2" sideWeight="0.37573385" side_tool="true" weight="0.25365853" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.34118602" />
       <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.32241812" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -596,27 +608,27 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.15056604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32996973" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.24171779" />
       <window_info id="Structure" order="2" sideWeight="0.37573385" side_tool="true" weight="0.25365853" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32996973" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.667319" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295583" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32996973" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.34118602" />
-      <window_info anchor="bottom" id="manage.py@roeops" order="13" weight="0.28557014" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.19632606" />
+      <window_info anchor="bottom" id="manage.py@roeops" order="13" weight="0.28513405" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.42270058" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32996973" />
+      <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32996973" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,20 +650,11 @@
           <line>13</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/test/views.py</url>
-          <line>192</line>
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/test/views.py</url>
-          <line>191</line>
-          <option name="timeStamp" value="115" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/test/views.py</url>
-          <line>190</line>
-          <option name="timeStamp" value="117" />
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_ip_add.html</url>
+          <line>69</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="214" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/api/views/assets_api.py</url>
@@ -673,6 +676,36 @@
           <line>266</line>
           <option name="timeStamp" value="144" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py</url>
+          <line>152</line>
+          <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/test/views.py</url>
+          <line>217</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/test/views.py</url>
+          <line>77</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/test/views.py</url>
+          <line>128</line>
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/test/views.py</url>
+          <line>156</line>
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="213" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -681,417 +714,347 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="158" />
+      <option name="time" value="215" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>ANS.get_model_result()</expression-string>
+        <expression-string>data['nets']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>tqm.run(play)</expression-string>
+        <expression-string>data</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Play().load(play_source, variable_manager=self.variable_manager, loader=self.loader)</expression-string>
+        <expression-string>data[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>s.data.serializer.data</expression-string>
+        <expression-string>data.nets</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>s.data</expression-string>
+        <expression-string>request.POST</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ddd=s.is_valid(raise_exception=True)</expression-string>
+        <expression-string>request.data</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ddd=s.is_valid()</expression-string>
+        <expression-string>request</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>s.is_valid(raise_exception=True)</expression-string>
+        <expression-string>MysqlInstance_read_Serializer(queryset,many=True)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ssss.is_valid(raise_exception=True)</expression-string>
+        <expression-string>MysqlInstance_read_Serializer(instance=queryset,many=True)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utils/ansible_api_v2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2415">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-          <folding>
-            <element signature="e#4653#7039#0" />
-            <element signature="e#7101#18988#0" />
-            <element signature="e#19042#20469#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roeops/wsgi.py">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/nmap_all_server.py.0">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/yewutree_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding>
-            <element signature="e#36#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/codeops/deploy_ask.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/codeops/deploy_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/codeops/deploy_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/orders/filemanage/file_upload_run.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/system/webssh/webssh.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/orders/db_sqlorder_audit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/assets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/404.html">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/encrpt.py.0">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/demo.html">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/nmapdev.py.0">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/cron/cron_modf.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1680">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/cron/cron_config.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-615">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/cron/cron_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1200">
-          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="51" selection-end-line="62" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/roeops.log">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/ssh_do.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/roeops/permissions.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/cron/cron_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/cron.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="248" column="49" lean-forward="true" selection-start-line="248" selection-start-column="49" selection-end-line="248" selection-end-column="49" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/cron/cron_log.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-900">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/task/task_model.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2280">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/task/task_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="150" column="4" lean-forward="true" selection-start-line="150" selection-start-column="4" selection-end-line="150" selection-end-column="4" />
-          <folding>
-            <element signature="e#48#84#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/ansible_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_inventory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_inventory_modf.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_log.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_model.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook_modf.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook_online.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook_upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_script_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap/vendor/flot/jquery.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/bootstrap/elfinder/js/pages/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_script_online.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/elfinder/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="122" column="45" lean-forward="true" selection-start-line="122" selection-start-column="45" selection-end-line="122" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/elfinder/conf/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1080">
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/elfinder/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/elfinder/conf/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/elfinder/finder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roeops/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/elfinder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#48#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_script_modf.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="44" selection-end-column="1" />
-          <folding>
-            <element signature="e#1#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roeops/urls.py">
+    <entry file="file://$PROJECT_DIR$/roeops/index.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CodeOps/urls.py">
+    <entry file="file://$PROJECT_DIR$/utils/encrpt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="195">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/deploy.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/assets.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/ansible.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/sched.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1287" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/base.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/cron.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="23" />
           <folding>
-            <element signature="e#1#41#0" expanded="true" />
+            <element signature="e#48#71#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CodeOps/deploy.py">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmap_all_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="57" column="46" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="57" column="67" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmapdev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="18" />
+          <folding>
+            <element signature="e#45#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bootstrap_children.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base_children.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2295" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/assets/assets_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/assets/assets_config.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/demo.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/oracle_instance_edit.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/oracle_cluster_edit.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_instance_edit.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/testpage/test_single_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="19" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="26" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_add.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="34" column="14" lean-forward="true" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#0;n#blockquote#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db_edit.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_edit.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/postdata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#161#176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_ip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="22" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/db/mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="337" column="26" lean-forward="true" selection-start-line="337" selection-start-column="26" selection-end-line="337" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/console.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="29" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/testpage/test_single_add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="79" column="75" selection-start-line="79" selection-start-column="75" selection-end-line="79" selection-end-column="75" />
           <folding>
-            <element signature="e#49#63#0" expanded="true" />
+            <element signature="e#46#86#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="49" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/test/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1249">
+          <caret line="137" column="31" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="31" />
+          <folding>
+            <element signature="e#24#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_ip_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="72" column="25" lean-forward="true" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/test/serializers.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/oracle_cluster_add.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="73" column="33" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="30" lean-forward="true" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+          <folding>
+            <element signature="e#53#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="8" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
         </state>
       </provider>
     </entry>

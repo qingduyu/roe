@@ -4,7 +4,7 @@
 <body class="auth-user">
     <div class="layui-fluid">
         <div class="layui-row larryms-panel auth-user-add">
-            <form action="/test/publishers/" class="layui-form" method="post" id="demoAddForm">
+            <form action="{% url 'api_test_publisersh_page' %}" class="layui-form" method="post" id="demoAddForm">
                 {% csrf_token %}
                 <div class="layui-form-item">
                     <label class="layui-form-label">名称</label>
@@ -19,6 +19,18 @@
                     </div>
 
                 </div>
+
+                <div class="layui-inline">
+                        <label class="layui-form-label">操作人</label>
+                        <div class="layui-input-block">
+                            <select name="operator"  lay-verify="required" lay-search="" >
+                                 <option value="">选择或搜索用户</option>
+                                    {% for s in user %}
+                                        <option value="{{ s.id }}"> {{ s.username }}</option>
+                                    {% endfor %}
+                            </select>
+                        </div>
+                    </div>
                 <div class="larryms-layer-btn">
                     <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="demoadd" id="submitAdd">确定</a>
                     <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>

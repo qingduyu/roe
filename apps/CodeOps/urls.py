@@ -7,7 +7,6 @@ deploy_result,deploy_run,deploy_version )
 
 
 urlpatterns = [
-
     url(r'^deploy_add', deploy_add),
     url(r'^deploy_list', deploy_list),
     url(r'^deploy_log/(?P<page>[0-9]+)/$', deploy_log),

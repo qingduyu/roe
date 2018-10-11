@@ -166,14 +166,6 @@ class Raid_Assets(models.Model):
         verbose_name = 'Raid资产表'
         verbose_name_plural = 'Raid资产表'
 
-
-
-
-
-
-
-
-
 class Log_Assets(models.Model):
     assets_id = models.IntegerField(verbose_name='资产类型id', blank=True, null=True, default=None)
     assets_user = models.CharField(max_length=50, verbose_name='操作用户', default=None)
@@ -187,11 +179,6 @@ class Log_Assets(models.Model):
         verbose_name_plural = '项目配置操作记录表'
 
     # 项目部署
-
-
-
-
-
 
 class Cron_Config(models.Model):
     cron_server = models.ForeignKey('Server_Assets')
@@ -233,9 +220,6 @@ class Log_Cron_Config(models.Model):
         db_table = 'opsmanage_log_cron_config'
         verbose_name = '任务配置操作记录表'
         verbose_name_plural = '任务配置操作记录表'
-
-
-
 
 
 
@@ -353,3 +337,56 @@ class Host_fail(models.Model):
 
     def __unicode__(self):
         return self.ip
+
+
+
+#扫描主机设置
+
+class scan_conf_ip(models.Model):
+    nets = models.CharField(verbose_name=u"IP网段,如192.168.2", max_length=30,unique=True)
+    nets_pass=models.CharField(verbose_name=u'本地址内不去扫描的地址，如 1，2，4，逗号隔开',max_length=100)
+    class Meta:
+        db_table = 'scan_conf_ip'
+
+    def __unicode__(self):
+        return self.nets
+
+
+class scan_conf_port(models.Model):
+    port = models.CharField(verbose_name=u"端口,如6666", max_length=300)
+    class Meta:
+        db_table = 'scan_conf_port'
+    def __unicode__(self):
+        return self.port
+
+
+class scan_conf_sshpass(models.Model):
+    ssh_pass = models.CharField(verbose_name=u'ssh 密码', max_length=300)
+
+    class Meta:
+        db_table = 'scan_conf_sshpass'
+
+    def __unicode__(self):
+        return self.ssh_pass
+
+class scan_conf_keyfile(models.Model):
+    '''
+代码中第一个是rsa，第二个是dsa，第三个是非root用户，因此目前只用第一个就可以
+    '''
+    keys = models.CharField(verbose_name=u"keyfile ", max_length=300)
+
+    class Meta:
+        db_table = 'scan_conf_keyfile'
+
+    def __unicode__(self):
+        return self.keys
+
+
+class scan_conf_cmd(models.Model):
+    syscmd = models.CharField(verbose_name=u"执行的命令", max_length=300)
+
+    class Meta:
+        db_table = 'scan_conf_cmd'
+
+    def __unicode__(self):
+        return self.syscmd

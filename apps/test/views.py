@@ -11,7 +11,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from django.contrib.auth.decorators import login_required
 from libs import api_response
-
+from django.contrib.auth.models import User
 
 # Create your views here.
 @login_required()
@@ -26,7 +26,8 @@ def test_single_page(request):
 
 @login_required()
 def test_single_add(request):
-    return render(request, 'testpage/test_single_add.html')
+    user= User.objects.all()
+    return render(request, 'testpage/test_single_add.html',locals())
 
 
 from django.forms.models import model_to_dict
@@ -48,7 +49,7 @@ class BookViewSet(viewsets.ModelViewSet):
 # 这种方式不适合自己的程序，我们必须自定义返回格式
 class PublisherViewSet(viewsets.ModelViewSet):
     queryset = Publisher.objects.all()
-    serializer_class = serializers.PublisherSerializer
+    serializer_class = serializers.Publisher_read_serializer
     # permission_classes = (permissions.IsAuthenticated, AuthOrReadOnly)
     permission_classes = ()
 
@@ -66,18 +67,21 @@ class PublisherList(APIView):
     def get(self, request, format=None):
         queryset = Publisher.objects.all()
 
-        s = serializers.PublisherSerializer(queryset, many=True)
+        s = serializers.Publisher_read_serializer(queryset, many=True)
         json_data = {'code': 0, 'msg': 'success'}
         json_data['data'] = s.data
         return Response(json_data)
 
     def post(self, request, format=None):
-        s = serializers.PublisherSerializer(data=request.data)
-        if s.is_valid():  # 验证
-            s.save()
-            json_data = {'code': 200, 'msg': 'success'}
-            json_data['data'] = s.data
-            return Response(json_data, content_type="application/json")
+        s = serializers.Publisher_write_Serializer(data=request.data)
+        try:
+            if s.is_valid(raise_exception=True):  # 验证
+                s.save()
+                json_data = {'code': 200, 'msg': 'success'}
+                json_data['data'] = s.data
+                return Response(json_data, content_type="application/json")
+        except Exception as e:
+            print(e)
             # return api_response.JsonResponse(s.data,code=status.HTTP_200_OK,msg='success')
         return Response(s.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -96,7 +100,7 @@ class PublisherDetail(APIView):
     #
     def get(self, request, id, format=None):
         publisher = self.get_object(id)
-        s = serializers.PublisherSerializer(publisher)
+        s = serializers.Publisher_read_serializer(publisher)
         return Response(s.data)
 
     # 更新条目
@@ -108,7 +112,7 @@ class PublisherDetail(APIView):
             return HttpResponse(status=500)
         else:
             publisher = self.get_object(data_id)
-            s = serializers.PublisherSerializer(publisher, data=request.data)
+            s = serializers.Publisher_read_serializer(publisher, data=request.data)
             if s.is_valid():
                 s.save()
                 json_data = {'code': 200, 'msg': '更新成功'}
@@ -200,7 +204,7 @@ class PublisherListPage(APIView):
             ##########以下内容在数据展示列表中不需要修改
             pg = MyPageNumberPagination()  # 实例化分页类
             page_data = pg.paginate_queryset(queryset=queryset, request=request, view=self)  # 根据请求的页码数，对数据进行分页
-            s = serializers.PublisherSerializer(instance=page_data, many=True)  # 序列花这个分页数据
+            s = serializers.Publisher_read_serializer(instance=page_data, many=True)  # 序列花这个分页数据
             next = pg.get_next_link()  # 获取下一页
             prev = pg.get_previous_link()  # 获取上页
             count = queryset.count()  # 获取数据总数
@@ -211,7 +215,7 @@ class PublisherListPage(APIView):
 
     # 增加行条目
     def post(self, request, format=None):
-        s = serializers.PublisherSerializer(data=request.data)
+        s = serializers.Publisher_write_Serializer(data=request.data)
         if s.is_valid():  # 验证
             s.save()
             json_data = {'code': 200, 'msg': '数据添加成功'}
@@ -231,7 +235,7 @@ class PublisherListPage(APIView):
             return HttpResponse(status=500)
         else:
             publisher = self.get_object(data_id)
-            s = serializers.PublisherSerializer(publisher, data=request.data)
+            s = serializers.Publisher_write_Serializer(publisher, data=request.data)
             if s.is_valid():
                 s.save()
                 json_data = {'code': 200, 'msg': '更新成功'}

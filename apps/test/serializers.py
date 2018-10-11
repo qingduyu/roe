@@ -6,6 +6,7 @@
 
 from rest_framework import serializers
 from test.models import *
+from system.serializers import UserSerializer
 
 
 # class PublisherSerializer(serializers.Serializer):
@@ -22,18 +23,25 @@ from test.models import *
 #         instance.save()
 #         return instance
 
-
-class PublisherSerializer(serializers.ModelSerializer):
+class Publisher_read_serializer(serializers.ModelSerializer):
+    #实验证明，在有外见的子段情况下，不能把子段设置为"__all__",必须要写全子段，并且显示的子段要设置
     operator = serializers.ReadOnlyField(source="operator.username")
-
     class Meta:
         model = Publisher
-        fields = (
-            "id",
-            "name",
-            "address",
-            "operator"
-        )
+        fields=("id",'name','address','operator')
+
+class Publisher_write_Serializer(serializers.ModelSerializer):
+    # operator = serializers.CharField(source="operator.username",read_only=True)
+    # operator=UserSerializer(read_only=True,many=True)
+    class Meta:
+        model = Publisher
+        # fields = (
+        #     "id",
+        #     "name",
+        #     "address",
+        #     "operator"
+        # )
+        fields="__all__"
 
 
 class BookSerializer(serializers.HyperlinkedModelSerializer):

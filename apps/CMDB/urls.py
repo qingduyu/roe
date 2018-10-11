@@ -1,3 +1,5 @@
+# !/usr/bin/env python
+# _#_ coding:utf-8 _*_
 from django.conf.urls import url,include
 from django.contrib import admin
 # from yewu_tree import yewu_tree,yewu_mysql,yewu_oracle,yewu_server
@@ -7,7 +9,13 @@ from CMDB.views.idc_api import IDCAPI
 from CMDB.views.db.oracle import *
 from CMDB.views.db.oracle_api import OracleClusterAPI
 from CMDB.views import assets
+from CMDB.views.db.mysql import (mysql_cluster,mysql_cluster_instance, mysql_cluster_db,mysql_cluster_user,
+                                 mysql_cluster_add,mysql_cluster_edit,mysql_cluster_db_add,mysql_cluster_db_edit,
+                                 mysql_cluster_instance_add,mysql_cluster_instance_edit,mysql_cluster_user_add,mysql_cluster_user_edit,
+                                 )
+from CMDB.views.db.msyql_api import MysqlClusterAPI,MysqlDBAPI,MysqlInstanceAPI,MySQLUserAPI
 
+from CMDB.views.server.scan_conf import scan_host_conf,scan_host_ip_add,scan_host_ip_del,scan_host_conf_upate
 
 
 urlpatterns = [
@@ -22,6 +30,28 @@ urlpatterns = [
 
     url(r'^oracle_cluster_api/$',OracleClusterAPI.as_view(),name='api_oracle_cluster'),
 
+############################以下是mysql 资产相关url
+    url(r'^db/mysql_cluster/$',mysql_cluster,name='cmdb_mysql_cluster'),
+    url(r'^db/mysql_cluster/add/$', mysql_cluster_add, name='cmdb_mysql_cluster_add'),
+    url(r'^db/mysql_cluster/edit/(?P<id>[0-9]+)$', mysql_cluster, name='cmdb_mysql_cluster_edit'),
+    url(r'^db/api/mysql_cluster/$',MysqlClusterAPI.as_view(),name='api_mysql_cluster'),
+
+    url(r'^db/mysql_instance/$', mysql_cluster_instance, name='cmdb_mysql_instance'),
+    url(r'^db/mysql_instance/add/$', mysql_cluster_instance_add, name='cmdb_mysql_instance_add'),
+    url(r'^db/mysql_instance/edit/(?P<id>[0-9]+)$', mysql_cluster_instance_edit, name='cmdb_mysql_instance_edit'),
+    url(r'^db/api/mysql_instance/$', MysqlInstanceAPI.as_view(), name='api_mysql_instance'),
+
+    url(r'^db/mysql_user$', mysql_cluster_user, name='cmdb_mysql_user'),
+    url(r'^db/mysql_user/add$', mysql_cluster_user_add, name='cmdb_mysql_user_add'),
+    url(r'^db/mysql_user/edit/(?P<id>[0-9]+)$', mysql_cluster_user_edit, name='cmdb_mysql_user_edit'),
+    url(r'^db/api/mysql_user/$', MySQLUserAPI.as_view(), name='api_mysql_user'),
+
+    url(r'^db/mysql_db$', mysql_cluster_db, name='cmdb_mysql_db'),
+    url(r'^db/mysql_db/add$', mysql_cluster_db_add, name='cmdb_mysql_db_add'),
+    url(r'^db/mysql_db/edit/(?P<id>[0-9]+)$', mysql_cluster_db_edit, name='cmdb_mysql_db_edit'),
+    url(r'^db/api/mysql_db/$', MysqlDBAPI.as_view(), name='api_mysql_db'),
+
+##############################################
     # url('^yewutree',yewu_tree,name='yewu_tree'),
     # url('^yewu_mysql', yewu_mysql, name='yewu_mysql'),
     # url('^yewu_oracle', yewu_oracle, name='yewu_oracle'),
@@ -43,6 +73,13 @@ urlpatterns = [
     url(r'^assets/batch/dumps/',assets.assets_dumps),
     url(r'^assets/groups/(?P<id>[0-9]+)/$',assets.assets_groups),
 
+
+##############自动扫描相关#######
+    url(r'^scan/host/conf$',scan_host_conf,name='scan_host_conf'),
+    url(r'^scan/host/conf_upate/$',scan_host_conf_upate,name='scan_host_conf_update'),
+    url(r'^scan/host/ip_del/(?P<id>[0-9]+)$', scan_host_ip_del, name='scan_conf_ip_del'),
+    url(r'^scan/host/ip_add/$', scan_host_ip_add, name='scan_conf_ip_add'),
+##################
     # url(r'^netasset/full$', netdevice.netasset, name='netasset_full'),
     # url(r'^netasset/add/$', netdevice.asset_add, name='netasset_add'),
     # url(r'^netasset/del/$', netdevice.asset_del, name='netasset_del'),

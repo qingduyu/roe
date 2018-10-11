@@ -1,44 +1,43 @@
 {% extends 'base_children.html' %}
-{% load mytags %}
+
 {% block content %}
-    <div class="layui-row larryms-panel auth-user-add">
-     <form action="{% url 'api_mysql_db' %}" class="layui-form" method="post" id="demoAddForm">
+<body class="auth-user">
+    <div class="layui-fluid">
+        <div class="layui-row larryms-panel auth-user-add">
+            <form action="{% url 'scan_conf_ip_add' %}" class="layui-form" method="post" id="demoAddForm">
+                {% csrf_token %}
                 <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">db名称</label>
-                        <div class="layui-input-block">
-                            <input class="layui-input" name="dbname" lay-verify="required" placeholder="请输入db名字" type="text">
-                        </div>
+                    <label class="layui-form-label">IP 地址段</label>
+                    <div class="layui-input-inline">
+                        <input name="nets" lay-verify="required" lay-vertype="tips" value="" autocomplete="off" class="layui-input" type="text">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">不扫描的地址</label>
+                    <div class="layui-input-inline">
+                        <input name="nets_pass" lay-vertype="tips" value="1,2,3,4,5,6,7,8,9,253,254" autocomplete="off" class="layui-input" type="text">
                     </div>
 
                 </div>
 
-                <div class="layui-form-item">
 
-                    <div class="layui-inline">
-                        <label class="layui-form-label">所属集群</label>
-                        <div class="layui-input-block">
-                            <select name="dbcluster"  lay-verify="required" lay-search="" >
-                                 <option value="">选择或搜索集群</option>
-                                    {% for s in mycluster %}
-                                        <option value="{{ s.id }}"> {{ s.name }}</option>
-                                    {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-
-                </div>
                 <div class="larryms-layer-btn">
                     <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="demoadd" id="submitAdd">确定</a>
                     <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
                     <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
                 </div>
-
             </form>
         </div>
+    </div>
+    <!-- 加载js文件-->
+
+
+</body>
 
 {% endblock %}
+
 {% block self_foot %}
+{#    以下这种方式为什么不幸呢#}
 <script type="text/javascript">
     layui.config({
         version: "2.0.8",
@@ -47,13 +46,12 @@
         rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
     }).extend({
         larry: 'js/base'
-    }).use(['larry','layer','form','laydate'], function() {
+    }).use(['larry','layer','form'], function() {
         var $ = layui.$,
             larry = layui.larry,
             table = layui.talbe,
             larryms = layui.larryms,
             form = layui.form;
-
         var curIfr = parent.layer.getFrameIndex(window.name);
         $('#resetAdd').on('click', function() {
             $('#demoAddForm')[0].reset();
@@ -61,23 +59,14 @@
         $('#closeAdd').on('click', function() {
             parent.layer.close(curIfr);
         });
-
-
         form.on('submit(demoadd)', function(data) {
             $.post(data.form.action, data.field, function(res) {
                 if (res.code == 200) {
-                    {#larryms.msg(res.msg);#}
-                    {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
-                    {#parent.layer.close(curIfr);#}
-                    {#// $('#demoAddForm')[0].reset();继续添加注销上一段#}
                     larryms.msg(res.msg,{time:350},function () {
-                        parent.table.reload('demo',{});
-                        parent.layer.close(curIfr);
-                    })
-
-                } else if (res.code == 911) {
-                    larryms.msg(res.msg);
-                } else if (res.code == 500) {
+                   parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
+                    parent.layer.close(curIfr);
+                })
+                }else if (res.code == 500) {
                     larryms.msg(res.msg);
                 }
             });
@@ -90,3 +79,21 @@
     </script>
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
