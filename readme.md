@@ -11,7 +11,7 @@
 
 安装部署：
 1. 依赖软件
-yum install sshpass
+yum install sshpass,nmap
 
 2. 部署python:
 

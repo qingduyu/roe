@@ -22,9 +22,15 @@ def scan_host_conf(request):
 
 def scan_host_conf_upate(request):
     if request.method == 'POST':
-        data=request.data
+        data=request.POST
+        Ports=scan_conf_port.objects.first()
+        SSH_pass=scan_conf_sshpass.objects.first()
+        Ports.port = data['ports']
+        SSH_pass.ssh_pass = data['ssh_pass']
+        Ports.save()
+        SSH_pass.save()
 
-    json_data = {'code': 500, 'msg': '数据添加失败，请检查数据格式'}
+    json_data = {'code': 200, 'msg': '配置完毕'}
     return JsonResponse(json_data)
 
 
@@ -34,7 +40,7 @@ def scan_host_ip_add(request):
         try:
              scan_conf_ip.objects.create(nets=data['nets'],nets_pass=data['nets_pass'])
              json_data = {'code': 200, 'msg': 'IP地址段添加成功'}
-             return JsonResponse(json_data)
+             return Response(json_data,content_type="application/json")
         except Exception as e:
             print(e)
             json_data = {'code': 500, 'msg': 'IP地址段添加失败'+e}

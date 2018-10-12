@@ -50,7 +50,7 @@
                                 <td>{{ i.nets }}</td>
                                 <td>{{ i.nets_pass }}</td>
                                 <td>
-                                    <a href="{% url 'scan_conf_ip_del'  i.id  %}"><span class="btn btn-sm btn-info">删除</span></a>
+                                    <a href="{% url 'scan_conf_ip_del'  i.id  %}"><span class="btn btn-sm btn-info">删除(待开发)</span></a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -75,7 +75,7 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">密码</label>
                             <div class="layui-input-block">
-                                <input name="ssh_pass" lay-verify="required" value="{{ ssh_pass }}"
+                                <input name="ssh_pass" lay-verify="required" value="{{ sshpass.ssh_pass }}"
                                        class="layui-input" type="text">
                             </div>
 
@@ -84,9 +84,9 @@
 {#                            <a class="layui-btn layui-btn layui-btn-sm right" lay-submit="" lay-filter="useradd" id="submitAdd">提交</a>#}
 {# #}
 {#                        </div>#}
-                                    <div class="layui-form-item">
-    <div class="layui-input-block">
-      <button class="layui-btn" lay-submit="" lay-filter="demo1"  id="submitAdd">提交</button>
+                                           <div class="layui-form-item">
+                             <div class="layui-input-block">
+                   <button class="layui-btn" lay-submit="" lay-filter="demoadd"  id="submitAdd">提交</button>
 
     </div>
   </div>
@@ -154,114 +154,24 @@
 
                     }
                 },
-                del: function () {
-                    //批量删除
-                    checkStatus = table.checkStatus('demo'),
-                        data = checkStatus.data,
-                        newsId = [];
-                    console.log(data);
-                    var url = $(this).data('url');
-                    console.log(url);
-                    if (data.length > 0) {
-                        for (var i in data) {
-                            //排除默认管理员
-                            newsId.push(data[i].id);
-                        }
-                        if (newsId.length > 0) {
-                            var ids = {"id": newsId};
-                            console.log(newsId);
-                            larryms.confirm('你确定要执行批量删除吗？', {icon: 3, title: '批量删除提示！'}, function () {
-                                $.ajax({
-                                    dataType: "JSON",
-                                    url: url, //请求地址
-                                    type: "DELETE",  //提交类似
-                                    contentType: "application/json",
-                                    data: JSON.stringify({"id": newsId}),  //提交参数
-                                    success: function (res) {
-                                        larryms.msg(res.msg)
-                                        table.reload('demo', {})
-                                    },
-                                    error: function (response) {
-                                        larryms.msg(response.responseText);
-                                    }
-                                });
-                            });
-                        } else {
-                            larryms.msg('默认管理员不可删除,我是神一样的存在！');
-                        }
-                    } else {
-                        larryms.msg('请至少选择一项，进行删除操作');
-                    }
-                }
+
             };
+                form.on('submit(demoadd)', function(data) {
+            $.post(data.form.action, data.field, function(res) {
+                if (res.code == 200) {
+                    larryms.msg(res.msg,{time:350},function () {
+                   {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                         window.location.reload(); //
 
-
-            // 来自角色用户组
-            var tableDataUrl = $('#demo').data('url'),
-                roleIndex = table.render({
-                    elem: '#demo',
-                    id: 'demo',
-                    cellMinWidth: 80,
-                    url: tableDataUrl,
-                    method: 'get',
-                    height: 'full-130',
-                    page: true,
-                    cols: [
-                        [
-                            {type: "checkbox", fixed: 'left', width: 50},
-                            {field: 'dbname', title: '名称', minWidth: 80, align: 'center'},
-                            {field: 'dbcluster', title: '集群', minWidth: 80, align: 'center'},
-                            {field: 'db_size', title: '大小', minWidth: 80, align: 'center'},
-                            {field: 'memo', title: '备注', minWidth: 80, align: 'center'},
-                            {title: '操作', minWidth: 80, templet: '#demoBtnBar', fixed: "right", align: "center"}
-                        ]
-                    ]
-                });
-
-            // 监听工具条
-            var pageTableID = $('.larryms-table-id').attr('id');
-            table.on('tool(' + pageTableID + ')', function (obj) {
-                var data = obj.data, tit = '编辑 <em class="tit">' + data.name + '</em> 信息';
-                console.log(data)
-                if (obj.event == 'edit') {
-                    var url = $(this).data('url') + data.id;
-                    var editIndex = larryms.open({
-                        title: tit,
-                        type: 2,
-                        area: ['860px', '450px'],
-                        content: url,
-                        success: function (index, layero) {
-                            form.render();
-                        }
-                    });
-                } else if (obj.event == 'detail') {
-                    var url = $(this).data('url');
-                    larryms.confirm('查看详情还没开始作？', {icon: 3, title: '删除提示'}, function () {
-                        var ids = {"id": data.id};
-                        $.post(url, ids, function (res) {
-                            if (res.code == 200) {
-                                larryms.msg(res.msg);
-                                table.reload(pageTableID, {});
-                            } else {
-                                larryms.msg(res.msg);
-                            }
-                        });
-                    });
-                } else if (obj.event == 'del') {
-                    var url = $(this).data('url');
-                    larryms.confirm('查看详情还没开始作？', {icon: 3, title: '删除提示'}, function () {
-                        var ids = {"id": [data.id]};
-                        $.post(url, ids, function (res) {
-                            if (res.code == 200) {
-                                larryms.msg(res.msg);
-                                table.reload(pageTableID, {});
-                            } else {
-                                larryms.msg(res.msg);
-                            }
-                        });
-                    });
+                })
+                }else if (res.code == 500) {
+                    larryms.msg(res.msg);
                 }
-            })
+            });
+            return false;
+        });
+
+
 
         });
     </script>

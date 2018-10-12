@@ -63,7 +63,10 @@
             $.post(data.form.action, data.field, function(res) {
                 if (res.code == 200) {
                     larryms.msg(res.msg,{time:350},function () {
-                   parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
+                   {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                         parent.location.reload(); // ¸¸Ò³ÃæË¢ÐÂ
+            var index = parent.layer.getFrameIndex(window.name); //»ñÈ¡´°¿ÚË÷Òý
+parent.layer.close(index);
                     parent.layer.close(curIfr);
                 })
                 }else if (res.code == 500) {
