@@ -34,85 +34,85 @@ def  scan_host(request):
         for ip_duan in ip_duans:
             nets_pass = ip_duan.nets_pass.split(',')
             asset_info=do_scan_host(list(ports),ip_duan.nets,list(nets_pass),list(ssh_pass))
-            for item in asset_info:
-                print item
-                ip = item
-                ssh_port = asset_info[item]['ssh_port']
-                ssh_user = asset_info[item]['ssh_user']
-                ssh_passwd = asset_info[item]['ssh_passwd']
-                sn = asset_info[item]['sn']
-                system_ver = asset_info[item]['system_ver']
-                hostname = asset_info[item]['hostname']
-                ssh_status = asset_info[item]['ssh_status'][0]
-                ssh_rsa = asset_info[item]['ssh_rsa']
-                rsa_pass = asset_info[item]['rsa_pass']
-                vendor = asset_info[item]['machine_type']
-                cpu_model = asset_info[item]['cpu_model']
-                cpu_num = asset_info[item]['cpu_num']
-                memory = asset_info[item]['mem_total']
-                disk = asset_info[item]['disk']
-                status = '1'
-
-                try:  # 如果主机存在，并且，扫描的IP 在IP 资源表中，则主机的IP_others 增加IP
-                    # ipsource=IpSource.objects.get(ip=ip)
-                    host = Host.objects.get(hostname=hostname)
-                    host.hostname = hostname
-                    host.system_type = system_ver
-                    host.ssh_port = ssh_port
-                    host.ssh_user = ssh_user
-                    host.ssh_passwd = ssh_passwd
-                    host.ssh_rsa = ssh_rsa
-                    host.rsa_pass = rsa_pass
-                    host.sn = sn
-                    host.cpu_model = cpu_model
-                    host.cpu_num = cpu_num
-                    host.memory = memory
-                    # host.disk=disk
-                    host.status = '1'
-                    host.ssh_status = ssh_status
-                    host.vendor = vendor
-                    if ip[0:3] == '172':
-                        host.idc_id = '1'
-                    elif ip[0:3] == '10.':
-                        host.idc_id = '2'
-                    if vendor[0:6] == 'XenHVM':
-                        host.asset_type = '2'
-                    ip_temp = host.ip_other.split(',')
-                    tem = 0  # 如果 ip other 有这个ip 就是已经保存了这个IP，忽略，增加，如过没有则保存
-                    for i in ip_temp:
-                        if i == ip:
-                            tem = 1
-                    if tem == 0:
-                        host.ip_other = ip + ',' + host.ip_other
-                    host.save()
-                except Exception as msg:  # 如果找不到这个主机就认为是新的，就去部署ansible
-                    print(msg)
-                    host = Host()
-                    ssh_pwd = ssh_passwd
-                    data = deploy_key(ip, int(ssh_port), ssh_pwd)
-                    host.hostname = hostname
-                    host.system_type = system_ver
-                    host.ssh_port = ssh_port
-                    host.ssh_user = ssh_user
-                    host.ssh_passwd = ssh_passwd
-                    host.ssh_rsa = ssh_rsa
-                    host.rsa_pass = rsa_pass
-                    host.sn = sn
-                    host.cpu_model = cpu_model
-                    host.cpu_num = cpu_num
-                    host.memory = memory
-                    host.status = '1'
-                    host.ssh_status = ssh_status
-                    host.vendor = vendor
-                    host.ip = ip
-                    host.ip_other = ip
-                    if ip[0:3] == '172':
-                        host.idc_id = '1'
-                    elif ip[0:3] == '10.':
-                        host.idc_id = '2'
-                    if vendor[0:5] == 'XenHVM':
-                        host.asset_type = '2'
-                    host.save()
+        #     for item in asset_info:
+        #         print item
+        #         ip = item
+        #         ssh_port = asset_info[item]['ssh_port']
+        #         ssh_user = asset_info[item]['ssh_user']
+        #         ssh_passwd = asset_info[item]['ssh_passwd']
+        #         sn = asset_info[item]['sn']
+        #         system_ver = asset_info[item]['system_ver']
+        #         hostname = asset_info[item]['hostname']
+        #         ssh_status = asset_info[item]['ssh_status'][0]
+        #         ssh_rsa = asset_info[item]['ssh_rsa']
+        #         rsa_pass = asset_info[item]['rsa_pass']
+        #         vendor = asset_info[item]['machine_type']
+        #         cpu_model = asset_info[item]['cpu_model']
+        #         cpu_num = asset_info[item]['cpu_num']
+        #         memory = asset_info[item]['mem_total']
+        #         disk = asset_info[item]['disk']
+        #         status = '1'
+        #
+        #         try:  # 如果主机存在，并且，扫描的IP 在IP 资源表中，则主机的IP_others 增加IP
+        #             # ipsource=IpSource.objects.get(ip=ip)
+        #             host = Host.objects.get(hostname=hostname)
+        #             host.hostname = hostname
+        #             host.system_type = system_ver
+        #             host.ssh_port = ssh_port
+        #             host.ssh_user = ssh_user
+        #             host.ssh_passwd = ssh_passwd
+        #             host.ssh_rsa = ssh_rsa
+        #             host.rsa_pass = rsa_pass
+        #             host.sn = sn
+        #             host.cpu_model = cpu_model
+        #             host.cpu_num = cpu_num
+        #             host.memory = memory
+        #             # host.disk=disk
+        #             host.status = '1'
+        #             host.ssh_status = ssh_status
+        #             host.vendor = vendor
+        #             if ip[0:3] == '172':
+        #                 host.idc_id = '1'
+        #             elif ip[0:3] == '10.':
+        #                 host.idc_id = '2'
+        #             if vendor[0:6] == 'XenHVM':
+        #                 host.asset_type = '2'
+        #             ip_temp = host.ip_other.split(',')
+        #             tem = 0  # 如果 ip other 有这个ip 就是已经保存了这个IP，忽略，增加，如过没有则保存
+        #             for i in ip_temp:
+        #                 if i == ip:
+        #                     tem = 1
+        #             if tem == 0:
+        #                 host.ip_other = ip + ',' + host.ip_other
+        #             host.save()
+        #         except Exception as msg:  # 如果找不到这个主机就认为是新的，就去部署ansible
+        #             print(msg)
+        #             host = Host()
+        #             ssh_pwd = ssh_passwd
+        #             data = deploy_key(ip, int(ssh_port), ssh_pwd)
+        #             host.hostname = hostname
+        #             host.system_type = system_ver
+        #             host.ssh_port = ssh_port
+        #             host.ssh_user = ssh_user
+        #             host.ssh_passwd = ssh_passwd
+        #             host.ssh_rsa = ssh_rsa
+        #             host.rsa_pass = rsa_pass
+        #             host.sn = sn
+        #             host.cpu_model = cpu_model
+        #             host.cpu_num = cpu_num
+        #             host.memory = memory
+        #             host.status = '1'
+        #             host.ssh_status = ssh_status
+        #             host.vendor = vendor
+        #             host.ip = ip
+        #             host.ip_other = ip
+        #             if ip[0:3] == '172':
+        #                 host.idc_id = '1'
+        #             elif ip[0:3] == '10.':
+        #                 host.idc_id = '2'
+        #             if vendor[0:5] == 'XenHVM':
+        #                 host.asset_type = '2'
+        #             host.save()
 
         json_data = {'code': 200, 'msg': '主机扫描完成'}
         return Response(json_data,content_type="application/json",status=200)
