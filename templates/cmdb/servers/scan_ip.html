@@ -83,11 +83,13 @@
                             dataType: "JSON",
                             data:{'id':'1,2,4,5'},
                             success: function (res) {
-                                table.reload('demo', {})
                                 larryms.msg(res.msg)
+                                table.reload('demo', {})
+                                console.log(res)
+                                {#larryms.confirm(res.responseText)#}
                                 {#table.reload('demo', {})#}
                             },error:function (res) {
-                                larryms.msg(res.responseText);
+                                larryms.confirm(res.responseText);
                             }
                         });
                     });

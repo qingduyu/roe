@@ -342,14 +342,34 @@ class Host_fail(models.Model):
 
 #扫描主机设置
 
+
+class scan_host_conf(models.Model):
+    nets = models.CharField(verbose_name=u"IP网段,如192.168.2", max_length=30,unique=True)
+    nets_pass=models.CharField(verbose_name=u'本地址内不去扫描的地址，如 1，2，4，逗号隔开',max_length=200)
+    port = models.CharField(verbose_name=u"端口,如6666,22", max_length=300,null=True,blank=True)
+    ssh_pass = models.CharField(verbose_name=u'ssh 密码', max_length=300,null=True,blank=True)
+    keys = models.CharField(verbose_name=u"keyfile", max_length=300,null=True,blank=True)
+    beizhu = models.CharField(verbose_name=u"beizhu", max_length=40,null=True,blank=True)
+    class Meta:
+        db_table = 'scan_host_conf'
+
+    def __unicode__(self):
+        return self.nets
+
+
 class scan_conf_ip(models.Model):
     nets = models.CharField(verbose_name=u"IP网段,如192.168.2", max_length=30,unique=True)
     nets_pass=models.CharField(verbose_name=u'本地址内不去扫描的地址，如 1，2，4，逗号隔开',max_length=100)
+    port = models.CharField(verbose_name=u"端口,如6666,22", max_length=300,null=True,blank=True)
+    ssh_pass = models.CharField(verbose_name=u'ssh 密码', max_length=300,null=True,blank=True)
+    keys = models.CharField(verbose_name=u"keyfile", max_length=300,null=True,blank=True)
     class Meta:
         db_table = 'scan_conf_ip'
 
     def __unicode__(self):
         return self.nets
+
+
 
 
 class scan_conf_port(models.Model):

@@ -7,6 +7,7 @@ from CMDB.model.server_models import scan_conf_ip
 from CMDB.views.server.scan_lib.nmapdev import NmapDev
 from CMDB.model.server_models import Host, Host_fail
 from utils.encrpt import prpcrypt
+import  math
 def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
     '''
 
@@ -20,15 +21,13 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
     syscmd_list = ["cat /etc/issue",
                    "cat /etc/redhat-release",
                    "hostname",
-                   #                          "cat /sys/class/net/[^vtlsb]*/address",
                    "cat /sys/class/net/[^vtlsb]*/address||esxcfg-vmknic -l|awk '{print $8}'|grep ':'",
                    "dmidecode -s system-serial-number",
                    "dmidecode -s system-manufacturer",
                    "dmidecode -s system-product-name",
                    "grep 'model name' /proc/cpuinfo |uniq |awk -F : '{print $2}' |sed 's/^[ \t]*//g'",  # cpuÐÍºÅ
                    "grep 'processor' /proc/cpuinfo |sort |uniq |wc -l",  # cpu ºËÊý
-                   "cat /proc/meminfo |grep 'MemTotal' |awk -F : '{print $2/1048576}' |sed 's/^[ \t]*//g'",  # ÄÚ´æ´óÐ¡
-                   "fdisk -l|grep 'Disk'|awk -F , '{print $1}' | sed 's/Disk identifier.*//g'|sed '/^$/d'"  # ´ÅÅÌÐÅÏ¢
+                   "cat /proc/meminfo |grep 'MemTotal' |awk -F : '{print $2/1048576}' |sed 's/^[ \t]*//g'"
                    ]
 
     canlogin_list,notlogin_list = nmap_item.try_pass_login(sship_list,sshpass_list,syscmd_list)
@@ -50,17 +49,17 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
             tempdict['sn'] = canlogin_list[item][6]
             tempdict['cpu_model'] = canlogin_list[item][8]
             tempdict['cpu_num'] = canlogin_list[item][9]
-            tempdict['mem_total'] = canlogin_list[item][10]
-            tempdict['disk'] = canlogin_list[item][11]
+            tempdict['mem_total'] = int(math.ceil(float(canlogin_list[item][10])))
+
 
             try:  # 如果主机存在，并且，扫描的IP 在IP 资源表中，则主机的IP_others 增加IP
                 # ipsource=IpSource.objects.get(ip=ip)
                 host = Host.objects.get(hostname=tempdict['hostname'])
                 host.hostname = tempdict['hostname']
                 host.system_type = tempdict['system_ver']
-                host.ssh_port = tempdict['ssh_port']
-                host.ssh_user = tempdict['ssh_user']
-                host.ssh_passwd = tempdict['ssh_passwd']
+                host.port = tempdict['ssh_port']
+                host.username = tempdict['ssh_user']
+                host.passwd = tempdict['ssh_passwd']
                 host.sn = tempdict['sn']
                 host.cpu_model = tempdict['cpu_model']
                 host.cpu_num = tempdict['cpu_num']
@@ -92,9 +91,9 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
 
                 host.hostname = tempdict['hostname']
                 host.system_type = tempdict['system_ver']
-                host.ssh_port = tempdict['ssh_port']
-                host.ssh_user = tempdict['ssh_user']
-                host.ssh_passwd = tempdict['ssh_passwd']
+                host.port = tempdict['ssh_port']
+                host.username = tempdict['ssh_user']
+                host.passwd = tempdict['ssh_passwd']
                 host.sn = tempdict['sn']
                 host.cpu_model = tempdict['cpu_model']
                 host.cpu_num = tempdict['cpu_num']

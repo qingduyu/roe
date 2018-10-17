@@ -10,7 +10,7 @@
     <div class="layui-fluid">
         <div class="layui-row  layui-col-space15 larryms-count-demo">
 
-            <div class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-col-lg12">
+            <div class="layui-col-xs12 layui-col-sm12 layui-col-md8 layui-col-lg8">
                 <section class="layui-card">
 
 
@@ -31,6 +31,29 @@
                             </div>
                         </blockquote>
                           <table id="demo" lay-filter="demo" class="larryms-table-id" data-url="{%  url 'cmdb_host_api' %}"></table>
+                    </div>
+                </section>
+            </div>
+
+
+                        <div class="layui-col-xs12 layui-col-sm12 layui-col-md4 layui-col-lg4">
+                <section class="layui-card">
+
+
+                    <div class="layui-card-body">
+                        <blockquote class="layui-elem-quote">
+
+                            <div class="layui-btn-group larryms-btn-group">
+                                <div class="layui-inline">
+                                    <div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
+                                    <button class="layui-btn layui-btn-sm layui-btn-danger"  ><i class="layui-icon">&#xe640;</i>
+                                <cite>登陆失败主机</cite>
+                            </button>
+
+                                </div>
+                            </div>
+                        </blockquote>
+                          <table id="demo2" lay-filter="demo2" class="larryms-table-id" data-url="{%  url 'cmdb_hostfail_api' %}"></table>
                     </div>
                 </section>
             </div>
@@ -148,18 +171,36 @@
                  cols:[
                    [
                        {type: "checkbox", fixed: 'left', width: 50},
-                       {field: 'ip', title: 'IP', minWidth: 180, align: 'center'},
+                       {field: 'ip', title: 'IP', minWidth: 130, align: 'center'},
                        {field: 'ip_other', title: '其他', minWidth:180, align: 'center'},
-                        {field: 'vendor', title: '品牌', minWidth: 180, align: 'center'},
-                            {field: 'username', title: '用户名', minWidth: 180, align: 'center'},
-                            {field: 'password', title: '密码', minWidth: 180, align: 'center'},
-                        {field: 'ssh_status', title: 'ssh 登陆状态', minWidth: 180, align: 'center'},
+                        {field: 'vendor', title: '品牌', minWidth: 80, align: 'center'},
+                       {field: 'username', title: '用户名', minWidth: 30, align: 'center'},
+                        {field: 'ssh_status', title: 'is_ssh', minWidth: 10, align: 'center'},
 
-                       {title: '操作', minWidth: 35, templet: '#demoBtnBar', fixed: "right", align: "center"}
+                       {title: '操作', minWidth: 15, templet: '#demoBtnBar', fixed: "right", align: "center"}
                        ]
                  ]
             });
 
+    var tableDataUrl2 = $('#demo2').data('url'),
+            roleIndex = table.render({
+                 elem:'#demo2',
+                 id:'demo2',
+                 cellMinWidth:80,
+                 url:tableDataUrl2,
+                 method:'get',
+                 height:'full-130',
+                 page:true,
+                 cols:[
+                   [
+                       {type: "checkbox", fixed: 'left', width: 50},
+                       {field: 'ip', title: 'IP', minWidth: 130, align: 'center'},
+                       {field: 'is_ssh', title: 'ssh', minWidth:20, align: 'center'},
+                        {field: 'port', title: '端口', minWidth: 20, align: 'center'},
+                       {#{title: '操作', minWidth: 15, templet: '#demoBtnBar', fixed: "right", align: "center"}#}
+                       ]
+                 ]
+            });
                   // 监听工具条
 var pageTableID = $('.larryms-table-id').attr('id');
 table.on('tool('+pageTableID+')', function(obj) {

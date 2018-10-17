@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_host_api.py" afterDir="false" />
+    <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="扫描主机">
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0015_auto_20181016_1642.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0016_scan_host_conf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0017_auto_20181016_1714.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/serialize/scan_host_conf_serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/host_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/scan_host_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/serialize/host_serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/roeops.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/roeops.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list_传统.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/scan_ip.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_ip.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,24 +50,31 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="1" />
-          <entry key="py" value="8" />
+          <entry key="html" value="12" />
+          <entry key="py" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="1" />
-          <entry key="Python" value="8" />
+          <entry key="HTML" value="12" />
+          <entry key="Python" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="94" />
+          <entry key="dummy" value="5" />
+          <entry key="html" value="633" />
+          <entry key="py" value="1079" />
+          <entry key="py@roeops" value="14" />
+          <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="94" />
+          <entry key="CommandLine" value="13" />
+          <entry key="HTML" value="633" />
+          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="Python" value="1079" />
         </counts>
       </usages-collector>
     </session>
@@ -60,12 +85,88 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="562">
+              <caret line="328" column="13" selection-start-line="328" selection-start-column="4" selection-end-line="328" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
+              <folding>
+                <element signature="e#46#86#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="138" selection-start-line="138" selection-end-line="138" />
+              <folding>
+                <element signature="e#46#94#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/rest_framework/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="210">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#53#101#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="184" selection-start-line="184" selection-end-line="184" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="43" column="61" lean-forward="true" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
+                <element signature="e#5056#6107#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmapdev.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="136" selection-start-line="136" selection-end-line="136" />
+              <folding>
+                <element signature="e#45#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,88 +175,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+            <state relative-caret-position="205">
+              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="e#46#69#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-              <folding>
-                <element signature="e#53#101#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1974">
-              <caret line="138" column="12" selection-start-line="138" selection-start-column="12" selection-end-line="138" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_host_api.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmapdev.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="169" column="27" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="30" />
-              <folding>
-                <element signature="e#45#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/ssh_do.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
-              <folding>
-                <element signature="e#310#319#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/nmap/nmap.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/re.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="240" selection-start-line="240" selection-end-line="240" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/encodings/utf_8.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -165,8 +189,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -186,6 +210,7 @@
       <find>userAddForm</find>
       <find>产品线</find>
       <find>tablespace</find>
+      <find>roleIndex</find>
     </findStrings>
     <replaceStrings>
       <replace>db</replace>
@@ -197,14 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_add.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster.html" />
-        <option value="$PROJECT_DIR$/templates/base_children.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_instance.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_instance_add.html" />
-        <option value="$PROJECT_DIR$/templates/testpage/test_single_add.html" />
-        <option value="$PROJECT_DIR$/apps/test/serializers.py" />
-        <option value="$PROJECT_DIR$/apps/test/views.py" />
         <option value="$PROJECT_DIR$/apps/test/urls.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/serialize/oracle_serializers.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/serialize/mongo_serializer.py" />
@@ -222,7 +239,6 @@
         <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_user_add.html" />
         <option value="$PROJECT_DIR$/templates/cmdb/servers/suzhu_servers_list.html" />
         <option value="$PROJECT_DIR$/templates/cmdb/servers/virtual_host_list.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py" />
@@ -231,23 +247,32 @@
         <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_conf.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_ip_add.html" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py" />
         <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list.html" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_ip.py" />
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/apps/CMDB/serialize/ip_serializers.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_ip_api.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py" />
-        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_ip.html" />
-        <option value="$PROJECT_DIR$/apps/CMDB/model/server_models.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/urls.py" />
-        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/tasks/deploy_key.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_host_api.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/ssh_do.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/serialize/host_serializers.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/serialize/scan_conf_serializers.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/serialize/scan_host_conf_serializers.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf_api.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/model/server_models.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_add.html" />
+        <option value="$PROJECT_DIR$/apps/CMDB/urls.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf.html" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_edit.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_ip.html" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmapdev.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/ssh_do.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/server/host_api.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" />
       </list>
     </option>
   </component>
@@ -626,6 +651,14 @@
       <option name="presentableId" value="Default" />
       <updated>1530522250596</updated>
     </task>
+    <task id="LOCAL-00001" summary="扫描主机">
+      <created>1539677002802</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1539677002802</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -647,16 +680,16 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295583" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34115675" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39731768" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.31936294" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32996973" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32996973" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32942164" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.22586063" />
-      <window_info anchor="bottom" id="manage.py@roeops" order="12" weight="0.32913518" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.48952222" />
+      <window_info anchor="bottom" id="manage.py@roeops" order="12" weight="0.32774517" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32942164" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -694,6 +727,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="扫描主机" />
+    <option name="LAST_COMMIT_MESSAGE" value="扫描主机" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -758,16 +796,6 @@
           <line>92</line>
           <option name="timeStamp" value="243" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="253" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py</url>
-          <line>117</line>
-          <option name="timeStamp" value="254" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -781,110 +809,53 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>for i in port_list:print(i)</expression-string>
+        <expression-string>Host_fail.objects.filter(is_inhost__exact='False')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>for i in port_list:print(i[0])</expression-string>
+        <expression-string>Host_fail.objects.filter(is_inhost__exact='false')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>for i in port_list:print port</expression-string>
+        <expression-string>int(math.ceil(float(canlogin_list[item][10])))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>for i in ports:print port</expression-string>
+        <expression-string>math.ceil(float(canlogin_list[item][10]))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>for port in ports:print port</expression-string>
+        <expression-string>nmap_item.try_pass_login(sship_list,sshpass_list,syscmd_list)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>for port in portsprint port</expression-string>
+        <expression-string>Host_fail.objects.create(ip=ip,is_ssh=tempdict['is_ssh'],port=tempdict['port'],is_active=is_active,is_inhost=False)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>for port in ports.split(','):print port</expression-string>
+        <expression-string>host.idc_id</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>for port in ports</expression-string>
+        <expression-string>item[0:3]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>list(ports['port'].split(','))</expression-string>
+        <expression-string>scan_host_conf.objects.get(id=id)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db_edit.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_edit.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/postdata.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/console.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/testpage/test_single_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/oracle_cluster_add.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/y.pub">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/y">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/test/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="137" column="31" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="31" />
-          <folding>
-            <element signature="e#24#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc_api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -900,13 +871,6 @@
         <state relative-caret-position="-765" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/db/mysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -916,13 +880,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/layui/lib/larryms/demo.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_ip_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/assets/assets_add.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -962,16 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/serialize/ip_serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <element signature="e#47#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -986,40 +933,6 @@
     <entry file="file://$PROJECT_DIR$/apps/CMDB/serializers.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#53#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="154" column="21" lean-forward="true" selection-end-line="183" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_ip.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="190" column="41" lean-forward="true" selection-end-line="239" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="156" selection-start-line="156" selection-end-line="199" />
-          <folding>
-            <element signature="e#5942#7378#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/db/oracle_cluster.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1215">
@@ -1029,33 +942,6 @@
             <element signature="e#3335#4448#0#HTML" />
             <element signature="e#4561#5678#0#HTML" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_ip_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="e#46#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_ip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="25" />
-          <folding>
-            <element signature="e#46#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4425">
-          <caret line="300" column="15" selection-start-line="300" selection-start-column="4" selection-end-line="300" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -1073,16 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#46#86#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmap_all_server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1065">
@@ -1094,23 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="186" selection-start-line="186" selection-end-line="186" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="e#53#101#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1135,52 +994,269 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_host_api.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1974">
-          <caret line="138" column="12" selection-start-line="138" selection-start-column="12" selection-end-line="138" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-          <folding>
-            <element signature="e#53#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
-          <folding>
-            <element signature="e#46#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmapdev.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="169" column="27" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="30" />
-          <folding>
-            <element signature="e#45#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/ssh_do.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
           <folding>
             <element signature="e#310#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/serialize/ip_serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="e#47#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/serialize/host_serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="16" selection-end-column="24" />
+          <folding>
+            <element signature="e#47#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/serialize/scan_host_conf_serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#47#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_ip_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="52" column="46" selection-end-line="110" />
+          <folding>
+            <element signature="e#46#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/db/mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list_传统.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1460">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="52" lean-forward="true" selection-end-line="128" />
+          <folding>
+            <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#body#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1680">
+          <caret line="8" column="12" selection-end-line="205" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_ip_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="26" lean-forward="true" selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#body#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/idc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="27" selection-start-line="27" selection-end-line="27" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-235">
+          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding>
+            <element signature="e#46#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="141" column="25" lean-forward="true" selection-end-line="171" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding>
+            <element signature="e#53#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_ip.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="90" column="49" lean-forward="true" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_ip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#53#101#0" expanded="true" />
+            <marker date="1539684537556" expanded="true" signature="745:1600" ph="..." />
+            <marker date="1539684537556" expanded="true" signature="842:1067" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="8" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="45" column="129" selection-start-line="45" selection-start-column="129" selection-end-line="45" selection-end-column="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/db/models/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="201" selection-start-line="201" selection-end-line="201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#53#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmapdev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="136" selection-start-line="136" selection-end-line="136" />
+          <folding>
+            <element signature="e#45#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="328" column="13" selection-start-line="328" selection-start-column="4" selection-end-line="328" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
+          <folding>
+            <element signature="e#46#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
+          <folding>
+            <element signature="e#46#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="43" column="61" lean-forward="true" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="e#5056#6107#0#HTML" />
           </folding>
         </state>
       </provider>

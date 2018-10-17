@@ -15,10 +15,13 @@ from CMDB.views.db.mysql import (mysql_cluster,mysql_cluster_instance, mysql_clu
                                  )
 from CMDB.views.db.msyql_api import MysqlClusterAPI,MysqlDBAPI,MysqlInstanceAPI,MySQLUserAPI
 
-from CMDB.views.server.scan_conf import scan_host_conf,scan_host_ip_add,scan_host_ip_del,scan_host_conf_upate
+from CMDB.views.server.scan_conf import scan_host_conf_list,scan_host_conf_add,scan_host_conf_edit,scan_host_ip_add,scan_host_ip_del,scan_host_conf_upate
+from CMDB.views.server.scan_conf_api import ScanHostConfAPI
+
 from CMDB.views.server.scan_ip import scan_ip,scan_ip_edit
 from CMDB.views.server.scan_ip_api import IPAPI
 from CMDB.views.server.scan_host import scan_host,scan_host_edit
+from CMDB.views.server.host_api import HOST_API,HOSTFail_API
 
 
 urlpatterns = [
@@ -78,10 +81,14 @@ urlpatterns = [
 
 
 ##############自动扫描相关#######
-    url(r'^scan/host/conf$',scan_host_conf,name='scan_host_conf'),
+    url(r'^scan/host/conf$',scan_host_conf_list,name='scan_host_conf'),
+    url(r'^scan/host/conf/add$', scan_host_conf_add, name='scan_host_conf_add'),
+    url(r'^scan/host/conf/edit/(?P<id>[0-9]+)', scan_host_conf_edit, name='scan_host_conf_edit'),
     url(r'^scan/host/conf_upate/$',scan_host_conf_upate,name='scan_host_conf_update'),
     url(r'^scan/host/conf/ip_del/(?P<id>[0-9]+)$', scan_host_ip_del, name='scan_conf_ip_del'),
     url(r'^scan/host/conf/ip_add/$', scan_host_ip_add, name='scan_conf_ip_add'),
+    url(r'^scan/host/conf/ip_del/(?P<id>[0-9]+)$', scan_host_ip_del, name='scan_conf_ip_del'),
+    url(r'^scan/host/conf/api/$', ScanHostConfAPI.as_view(), name='scan_host_conf_api'),
 
     url(r'^scan/ip/scan/$', scan_ip, name='cmdb_scan_ip'),
     url(r'^scan/ip/edit/$', scan_ip_edit, name='cmdb_scan_ip_edit'),
@@ -89,7 +96,8 @@ urlpatterns = [
 
     url(r'^scan/host/scan/$', scan_host, name='cmdb_scan_host'),
     url(r'^scan/host/edit/$', scan_host_edit, name='cmdb_scan_host_edit'),
-    url(r'host/api/$', IPAPI.as_view(), name='cmdb_host_api'),
+    url(r'host/api/$', HOST_API.as_view(), name='cmdb_host_api'),
+    url(r'hostfail/api/$', HOSTFail_API.as_view(), name='cmdb_hostfail_api'),
 
 ##################
     # url(r'^netasset/full$', netdevice.netasset, name='netasset_full'),
