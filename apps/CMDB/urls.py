@@ -13,7 +13,7 @@ from CMDB.views.db.mysql import (mysql_cluster,mysql_cluster_instance, mysql_clu
                                  mysql_cluster_add,mysql_cluster_edit,mysql_cluster_db_add,mysql_cluster_db_edit,
                                  mysql_cluster_instance_add,mysql_cluster_instance_edit,mysql_cluster_user_add,mysql_cluster_user_edit,
                                  )
-from CMDB.views.db.msyql_api import MysqlClusterAPI,MysqlDBAPI,MysqlInstanceAPI,MySQLUserAPI
+from CMDB.views.db.msyql_api import MysqlClusterAPI,MysqlDBAPI,MysqlInstanceAPI,MySQLUserAPI,Mysql_DO_API
 
 from CMDB.views.server.scan_conf import scan_host_conf_list,scan_host_conf_add,scan_host_conf_edit,scan_host_ip_add,scan_host_ip_del,scan_host_conf_upate
 from CMDB.views.server.scan_conf_api import ScanHostConfAPI
@@ -41,6 +41,8 @@ urlpatterns = [
     url(r'^db/mysql_cluster/add/$', mysql_cluster_add, name='cmdb_mysql_cluster_add'),
     url(r'^db/mysql_cluster/edit/(?P<id>[0-9]+)$', mysql_cluster, name='cmdb_mysql_cluster_edit'),
     url(r'^db/api/mysql_cluster/$',MysqlClusterAPI.as_view(),name='api_mysql_cluster'),
+    url(r'^db/api/mysql_do_update/$',Mysql_DO_API.as_view(),name='api_mysql_do_update'),
+
 
     url(r'^db/mysql_instance/$', mysql_cluster_instance, name='cmdb_mysql_instance'),
     url(r'^db/mysql_instance/add/$', mysql_cluster_instance_add, name='cmdb_mysql_instance_add'),

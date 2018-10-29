@@ -16,6 +16,9 @@
                             <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="{% url 'cmdb_mysql_cluster_add' %}"><i class="layui-icon">&#xe61f;</i>
                                 <cite>添加mysql集群</cite>
                             </button>
+                            <button class="layui-btn layui-btn-sm layui-btn-warm" data-type="update"  data-url="{% url 'api_mysql_do_update' %}"><i class="layui-icon"></i>
+                                <cite>更新集群信息</cite>
+                            </button>
                             <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"  data-url="{% url 'api_mysql_cluster' %}"><i class="layui-icon">&#xe640;</i>
                                 <cite>删除集群</cite>
                             </button>
@@ -86,6 +89,45 @@
 
         }
       },
+      update: function() {
+        //批量更新集群信息
+          checkStatus = table.checkStatus('demo'),
+          data = checkStatus.data,
+          newsId = [];
+          console.log(data);
+         var url = $(this).data('url');
+        console.log(url);
+        if (data.length > 0) {
+          for (var i in data) {
+            //排除默认管理员
+                newsId.push(data[i].id);
+          }
+          if(newsId.length>0){
+               var ids = {"id":newsId };
+              console.log(newsId);
+              larryms.confirm('接下来将会更新集群的统计信息？',{icon: 3, title:'集群更新提示提示！'},function(){
+                  $.ajax({
+			    dataType: "JSON",
+			    url:url, //请求地址
+			    type:"POST",  //提交类似
+			    contentType: "application/json",
+			    data: JSON.stringify({"id":newsId }),  //提交参数
+			    success:function(res){
+				larryms.msg(res.msg)
+                    table.reload('demo', {})
+			},
+	    	error:function(response){
+				larryms.msg( response.responseText);
+	    	}
+		});
+              });
+          }else{
+              larryms.msg('默认管理员不可删除,我是神一样的存在！');
+          }
+        } else {
+          larryms.msg('请至少选择一项，进行删除操作');
+        }
+      },
       del: function() {
         //批量删除
           checkStatus = table.checkStatus('demo'),
@@ -125,6 +167,7 @@
           larryms.msg('请至少选择一项，进行删除操作');
         }
       }
+
     };
 
 
@@ -148,7 +191,6 @@
                        {field: 'foreign_port', title: '端口', minWidth: 30, align: 'center'},
                        {field: 'domain', title: '域名', minWidth: 80, align: 'center'},
                        {field: 'prod_line', title: '产品线', minWidth: 80, align: 'center'},
-
                        {field: 'desc', title: '描述', minWidth: 80, align: 'center'},
                        {field: 'operator', title: '可见人', minWidth: 80, align: 'center'},
                        {title: '操作', minWidth: 185, templet: '#demoBtnBar', fixed: "right", align: "center"}

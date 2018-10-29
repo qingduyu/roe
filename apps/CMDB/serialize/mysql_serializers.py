@@ -30,7 +30,7 @@ class MysqlUser_read_Serializer(serializers.ModelSerializer):
     #这样就不会显示为id号而是名字
     class Meta:
         model = Mysql_User
-        fields=("db_user",'db_host','dbcluster','db_password','privlige')
+        fields=('id',"db_user",'db_host','dbcluster','db_password','privlige','memo')
 
 
 class MysqlUser_write_Serializer(serializers.ModelSerializer):
@@ -47,7 +47,7 @@ class MysqlDB_read_Serializer(serializers.ModelSerializer):
     # 这样就不会显示为id号而是名字
     class Meta:
         model = Mysql_db
-        fields = ("dbname",'dbcluster','db_size','memo')
+        fields = ('id',"dbname",'dbcluster','db_size','db_rows','index_size','memo')
 
 class MysqlDB_write_Serializer(serializers.ModelSerializer):
     # 这样就不会显示为id号而是名字

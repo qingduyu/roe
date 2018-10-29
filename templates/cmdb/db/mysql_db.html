@@ -13,9 +13,9 @@
                     <div class="layui-btn-group larryms-btn-group">
                         <div class="layui-inline">
                         	<div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
-                            <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="{% url 'cmdb_mysql_db_add' %}"><i class="layui-icon">&#xe61f;</i>
-                                <cite>添加集群内DB</cite>
-                            </button>
+{#                            <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="{% url 'cmdb_mysql_db_add' %}"><i class="layui-icon">&#xe61f;</i>#}
+{#                                <cite>添加集群内DB</cite>#}
+{#                            </button>#}
                             <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"  data-url="{% url 'api_mysql_db' %}"><i class="layui-icon">&#xe640;</i>
                                 <cite>删除DB</cite>
                             </button>
@@ -139,9 +139,11 @@
                  cols:[
                    [
                        {type: "checkbox", fixed: 'left', width: 50},
-                       {field: 'dbname', title: '名称', minWidth: 80, align: 'center'},
+                       {field: 'dbname', title: 'db名称', minWidth: 80, align: 'center'},
                        {field: 'dbcluster', title: '集群', minWidth: 80, align: 'center'},
-                       {field: 'db_size', title: '大小', minWidth: 80, align: 'center'},
+                       {field: 'db_size', title: '表大小(Mb)', minWidth: 80, align: 'center'},
+                       {field: 'index_size', title: '索引大小(Mb)', minWidth: 80, align: 'center'},
+                       {field: 'db_rows', title: '总行数', minWidth: 80, align: 'center'},
                         {field: 'memo', title: '备注', minWidth: 80, align: 'center'},
                        {title: '操作', minWidth: 80, templet: '#demoBtnBar', fixed: "right", align: "center"}
                        ]

@@ -12,7 +12,7 @@ from CMDB.serializers import *
 from rest_framework.views import APIView
 from django.http.response import JsonResponse,Http404
 from rest_framework.parsers import JSONParser
-
+from utils.mysql import MySQL
 
 from rest_framework.pagination import PageNumberPagination
 
@@ -56,9 +56,27 @@ class MysqlClusterAPI(APIView):
     # 增加行条目
     def post(self, request, format=None):
         s = MysqlClusterSerializer(data=request.data)
+        foreign_ip= request.data['foreign_ip']
+        foreign_port = request.data['foreign_port']
+        plat_user = request.data['plat_user']
+        plat_user_passwd=request.data['plat_user_pass']
+
+
+        msg=""
+
         if s.is_valid():  # 验证
-            s.save()
-            json_data = {'code': 200, 'msg': '数据添加成功'}
+            try:
+                testconn = MySQL(ip=foreign_ip,port=foreign_port, user=plat_user, passwd=plat_user_passwd)
+                testconn.close()
+                msg = '数据库连接成功'
+
+            except Exception as e:
+                print(e)
+                json_data = {'code': 500, 'msg': '数据添加失败，测试连接失败'}
+                return Response(json_data, content_type="application/json")
+
+            s.save() #连接成功后保存数据
+            json_data = {'code': 200, 'msg': '数据保存成功,'+msg}
             json_data['data'] = s.data
             return Response(json_data, content_type="application/json")
             # return api_response.JsonResponse(s.data,code=status.HTTP_200_OK,msg='success')
@@ -105,6 +123,67 @@ class MysqlClusterAPI(APIView):
             except Exception as e:
                 json_data = {'code': 500, 'msg': '删除失败'+e }
                 return Response(json_data)
+
+
+
+from mysql_update import MySQL_update
+# 分页功能的
+class Mysql_DO_API(APIView):
+    """
+     列出所有出版社或者创建一个 新的出版社
+      """
+    # permission_classes = (AuthOrReadOnly)
+    permission_classes = ()
+
+    def get_object(self, id):
+        try:
+            return MySQLCluster.objects.get(id=id)
+        except MySQLCluster.DoesNotExist:
+            raise Http404
+#更新数据库的信息，可以使用
+
+    # 增加行条目
+    def post(self, request, format=None):
+
+        try:
+            data_id = request.data['id']
+        except KeyError as e:
+            json_data = {'code': 500, 'msg': '数据有错误获取不到id'}
+            return Response(json_data, status=500)
+        else:
+            try:
+                for i in data_id:
+                    cluster_update=MySQL_update(clusterid=i)
+                    cluster_update.mysql_update_db()
+                    cluster_update.mysql_update_user()
+                    cluster_update.mysql_update_instance()
+                json_data = {'code': 200, 'msg': '集群更新完成'}
+                return Response(json_data,content_type="application/json")
+            except Exception as e:
+                print(e)
+                json_data = {'code': 500, 'msg': '集群更新失败' + e}
+                return Response(json_data,content_type="application/json")
+
+
+    def put(self, request, format=None):
+        try:
+            data_id = request.data['id']
+        except Exception as e:
+            print(e)
+            json_data = {'code': 500, 'msg': '数据有错误获取不到id'}
+            return Response(json_data,status=500)
+        else:
+            DATA_MODEL = self.get_object(data_id)
+            s = MysqlClusterSerializer(DATA_MODEL, data=request.data)
+
+            if s.is_valid(raise_exception=True):
+                s.save()
+                json_data = {'code': 200, 'msg': '更新成功'}
+                return Response(json_data)
+            json_data = {'code': 500, 'msg': '更新失败'}
+            return Response(json_data, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
 
 
 

@@ -38,6 +38,25 @@
                             <input class="layui-input" name="foreign_ip" lay-verify="ip" placeholder="IP" type="text">
                         </div>
                     </div>
+                         <div class="layui-inline">
+                        <label class="layui-form-label">对外端口</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="foreign_port"  placeholder="port" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">本平台用用户</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="plat_user"  placeholder="user" type="text">
+                        </div>
+                    </div>
+                          <div class="layui-inline">
+                        <label class="layui-form-label">用户密码</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="plat_user_pass"  placeholder="password" type="text">
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="layui-form-item">
@@ -105,6 +124,7 @@
                 </div>
 
                 <div class="larryms-layer-btn">
+{#                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-normal" id="testconn">测试连接</a>#}
                     <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="demoadd" id="submitAdd">确定</a>
                     <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
                     <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
