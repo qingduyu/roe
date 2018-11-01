@@ -247,31 +247,30 @@ class IpSource(models.Model):
     def __unicode__(self):
         return self.ip
 
-#主机资源
-class Host(models.Model):
-    ASSET_STATUS = (
+ASSET_STATUS = (
         (str(1), u"使用中"),
         (str(2), u"未使用"),
         (str(3), u"故障"),
         (str(4), u"其它"),
     )
 
-    OEM = (
-        (str(1), u"DELL"),
-        (str(2), u"IBM"),
-        (str(3), u"华为"),
-        (str(4), u"vmware"),
-        (str(5), u"KVM"),
-        (str(6), u"XEN")
+OEM = (
+        (u"DELL", u"DELL"),
+        (u"IBM", u"IBM"),
+        (u"华为", u"华为"),
+        (u"vmware", u"vmware"),
+        (u"KVM", u"KVM"),
+        (u"XEN", u"XEN")
     )
 
-    ASSET_TYPE = (
-        (str(1), u"物理机"),
-        (str(2), u"虚拟机"),
-        (str(4), u'虚拟机宿主机'),
-        (str(3), u"存储服务器"),
-        (str(6), u"加密机"),
+ASSET_TYPE = (
+        (u"虚拟机", u"虚拟机"),
+        (u"物理机", u"物理机"),
+        (u'虚拟机宿主机', u'虚拟机宿主机'),
+        (u"存储服务器", u"存储服务器"),
     )
+#主机资源
+class Host(models.Model):
     hostname = models.CharField(max_length=50, verbose_name=u"主机名")
     ip = models.GenericIPAddressField(u"访问IP", max_length=15,unique=True)
     ip_public = models.GenericIPAddressField(u"公网IP", max_length=15,null=True,blank=True)
@@ -282,7 +281,7 @@ class Host(models.Model):
     asset_type = models.CharField(u"设备类型", choices=ASSET_TYPE, max_length=30, null=True, blank=True)
     hostserver = models.CharField(verbose_name=u'宿主服务器', max_length=50, blank=True, null=True)
     status = models.CharField(u"使用状态", choices=ASSET_STATUS, max_length=30, null=True, blank=True)
-    vendor = models.CharField(u"品牌型号", choices=OEM,max_length=250, null=True, blank=True)
+    vendor = models.CharField(u"品牌型号", max_length=250, null=True, blank=True)
     cpu_model = models.CharField(u"CPU型号", max_length=100, null=True, blank=True)
     cpu_num = models.CharField(u"CPU核数", max_length=3, null=True, blank=True)
     memory = models.CharField(u"内存大小", max_length=30, null=True, blank=True)

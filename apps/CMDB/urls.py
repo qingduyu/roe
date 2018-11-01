@@ -21,9 +21,11 @@ from CMDB.views.server.scan_conf_api import ScanHostConfAPI
 from CMDB.views.server.scan_ip import scan_ip,scan_ip_edit
 from CMDB.views.server.scan_ip_api import IPAPI
 from CMDB.views.server.scan_host import scan_host,scan_host_edit
-from CMDB.views.server.host_api import HOST_API,HOSTFail_API
+from CMDB.views.server.host_api import HOST_API,HOSTFail_API,WuLiHOST_API,XuNiHOST_API,SuZhuHOST_API
 
-
+from CMDB.views.server.virtual_host import xunihost_show
+from CMDB.views.server.physical_host import wulihost_show
+from CMDB.views.server.suzhu_host import suzhuhost_show
 urlpatterns = [
 
     url('^idc_show',idc_show,name='idc_show'),
@@ -82,7 +84,7 @@ urlpatterns = [
     url(r'^assets/groups/(?P<id>[0-9]+)/$',assets.assets_groups),
 
 
-##############自动扫描相关#######
+##############自动扫描相关,新主机资产#######
     url(r'^scan/host/conf$',scan_host_conf_list,name='scan_host_conf'),
     url(r'^scan/host/conf/add$', scan_host_conf_add, name='scan_host_conf_add'),
     url(r'^scan/host/conf/edit/(?P<id>[0-9]+)', scan_host_conf_edit, name='scan_host_conf_edit'),
@@ -94,12 +96,22 @@ urlpatterns = [
 
     url(r'^scan/ip/scan/$', scan_ip, name='cmdb_scan_ip'),
     url(r'^scan/ip/edit/$', scan_ip_edit, name='cmdb_scan_ip_edit'),
-    url(r'ipresource/api/$',IPAPI.as_view(),name='cmdb_ip_api'),
+    url(r'^ipresource/api/$',IPAPI.as_view(),name='cmdb_ip_api'),
 
     url(r'^scan/host/scan/$', scan_host, name='cmdb_scan_host'),
-    url(r'^scan/host/edit/$', scan_host_edit, name='cmdb_scan_host_edit'),
-    url(r'host/api/$', HOST_API.as_view(), name='cmdb_host_api'),
-    url(r'hostfail/api/$', HOSTFail_API.as_view(), name='cmdb_hostfail_api'),
+    url(r'^scan/host/edit/(?P<id>[0-9]+)$', scan_host_edit, name='cmdb_scan_host_edit'),
+    url(r'^host/api/$', HOST_API.as_view(), name='cmdb_host_api'),
+    url(r'^hostfail/api/$', HOSTFail_API.as_view(), name='cmdb_hostfail_api'),
+
+    url(r'^suzhuhost/list/$', suzhuhost_show, name='cmdb_suzhuhost_show'),
+    url(r'^suzhuhost/api/$', SuZhuHOST_API.as_view(), name='cmdb_suzhuhost_api'),
+
+    url(r'^wulihost/list/$', wulihost_show, name='cmdb_wulihost_show'),
+    url(r'^wulihost/api/$', WuLiHOST_API.as_view(), name='cmdb_wulihost_api'),
+
+    url(r'^xunihost/list/$',xunihost_show,name='cmdb_xunihost_show'),
+    url(r'^xunihost/api/$', XuNiHOST_API.as_view(), name='cmdb_xunihost_api'),
+
 
 ##################
     # url(r'^netasset/full$', netdevice.netasset, name='netasset_full'),

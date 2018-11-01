@@ -24,7 +24,6 @@ from utils.ansible_api_v2 import ANSRunner
 from dao.assets import AssetsSource
 
 @login_required()
-@permission_required('OpsManage.can_read_ansible_model',login_url='/noperm/')
 def apps_model(request):
     if request.method == "GET":
         projectList = Project_Assets.objects.all()
@@ -77,7 +76,6 @@ def ansible_run(request):
         
         
 @login_required()
-@permission_required('OpsManage.can_add_ansible_playbook',login_url='/noperm/')
 def apps_upload(request):
     if request.method == "GET":
         serverList = AssetsSource().serverList()
@@ -136,7 +134,6 @@ def apps_upload(request):
         return HttpResponseRedirect('/apps/playbook/upload/') 
     
 @login_required()
-@permission_required('OpsManage.can_add_ansible_playbook',login_url='/noperm/')
 def apps_online(request):
     if request.method == "GET":
         serverList = AssetsSource().serverList()
@@ -201,7 +198,6 @@ def apps_online(request):
         return JsonResponse({'msg':None,"code":200,'data':[]})      
     
 @login_required()
-@permission_required('OpsManage.can_read_ansible_playbook',login_url='/noperm/')
 def apps_list(request):
     if request.method == "GET":
         #获取已登录用户的user id跟group id
@@ -220,7 +216,6 @@ def apps_list(request):
         return render(request,'opscontrol/apps/apps_list.html',{"user":request.user,"playbookList":playbookList,})
 
 @login_required()
-@permission_required('OpsManage.can_add_ansible_playbook',login_url='/noperm/')
 def apps_playbook_file(request,pid):
     try:
         playbook = Ansible_Playbook.objects.get(id=pid)
@@ -237,7 +232,6 @@ def apps_playbook_file(request,pid):
         else:return JsonResponse({'msg':"剧本不存在，可能已经被删除.","code":500,'data':[]})
              
 @login_required()
-@permission_required('OpsManage.can_read_ansible_playbook',login_url='/noperm/')
 def apps_playbook_run(request,pid):
     try:
         playbook = Ansible_Playbook.objects.get(id=pid)
@@ -310,7 +304,6 @@ def apps_playbook_run(request,pid):
             return JsonResponse({'msg':"剧本执行失败，{user}正在执行该剧本".format(user=DsRedis.OpsAnsiblePlayBookLock.get(playbook.playbook_uuid+'-locked')),"code":500,'data':[]}) 
         
 @login_required()
-@permission_required('OpsManage.can_change_ansible_playbook',login_url='/noperm/')
 def apps_playbook_modf(request,pid):
     try:
         playbook = Ansible_Playbook.objects.get(id=pid)
@@ -408,7 +401,6 @@ def apps_playbook_modf(request,pid):
 
 
 @login_required()
-@permission_required('OpsManage.can_change_ansible_playbook',login_url='/noperm/')
 def apps_playbook_online_modf(request,pid):
     try:
         playbook = Ansible_Playbook.objects.get(id=pid)
@@ -508,7 +500,6 @@ def ansible_log_view(request,model,id):
     
     
 @login_required()
-@permission_required('OpsManage.can_add_ansible_script',login_url='/noperm/')
 def apps_script_online(request):
     if request.method == "GET":
         serverList = AssetsSource().serverList()

@@ -1,0 +1,129 @@
+{% extends 'base_children.html' %}
+
+{% block content %}
+    <div class="layui-row larryms-panel auth-user-add">
+     <form action="{% url 'cmdb_host_api' %}" class="layui-form" method="PUT" id="demoAddForm">
+{#            {% csrf_token %}#}
+        <input name="id" value="{{ data.id }}" type="hidden">
+                <div class="layui-form-item">
+                    <div class="layui-block">
+                        <label class="layui-form-label">主机名</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="hostname" value="{{ data.hostname }}"  type="text" disabled>
+                        </div>
+                    </div>
+                 <div class="layui-form-inline">
+                    <label class="layui-form-label">IP地址</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" name="ip" value="{{ data.ip |default_if_none:''}}" type="text" disabled>
+                    </div>
+                </div>
+
+                    <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">品牌</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="vendor" value="{{ data.vendor |default_if_none:''}}"  type="text" disabled>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+
+         <div class="layui-form-item">
+
+                  <div class="layui-form-block">
+                        <label class="layui-form-label">资产类型</label>
+                        <div class="layui-input-block">
+                            <select name="asset_type" >
+                                    {% for s in asset_type %}
+                                            <option value="{{ s.0 }}"> {{ s.1 }}</option>
+                                    {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">备注</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="memo" value="{{ data.beizhu |default_if_none:''}}" placeholder="备注" type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="larryms-layer-btn " >
+                    <a class="layui-btn layui-btn layui-btn-sm " lay-submit="" lay-filter="demoadd" id="submitAdd">提交</a>
+
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+                </div>
+
+
+            </form>
+        </div>
+
+{% endblock %}
+{% block self_foot %}
+<script type="text/javascript">
+    layui.config({
+        version: "2.0.8",
+        base: '/static/larryms/',
+        layertype:2
+    }).extend({
+        larry: 'js/base'
+    }).use(['jquery','larry','layer','larryms','form','laydate'], function() {
+           var $ = layui.$,
+            larry = layui.larry,
+            table = layui.talbe,
+            larryms = layui.larryms,
+            form = layui.form,
+            laydate = layui.laydate;
+        var curIfr = parent.layer.getFrameIndex(window.name);
+
+        $('#closeAdd').on('click', function() {
+            parent.layer.close(curIfr);
+        });
+        laydate.render({
+        elem: '#start_date'
+        ,value: '{{ data.start_date|date:'Y-n-d' }}', format:'yyyy-MM-dd', isInitValue:true
+        });
+        laydate.render({
+        elem: '#end_date'
+        ,value: '{{ data.end_date|date:'Y-n-d' }}', format:'yyyy-MM-dd', isInitValue:true
+        });
+
+        form.on('submit(demoadd)', function(data) {
+            $.ajax({
+			    dataType: "JSON",
+			    url:data.form.action, //请求地址
+			    type:"PUT",  //提交类似
+			    contentType: "application/json",
+			    data: JSON.stringify(data.field),  //提交参数
+			    success:function(res){
+				larryms.msg(res.msg,{time:350},function () {
+                   parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
+                    parent.layer.close(curIfr);
+                })
+			    },
+	    	    error:function(response){
+				    larryms.msg( response.responseText);
+	    	 }});
+
+            return false;});
+
+    });
+
+
+    </script>
+
+
+
+{% endblock %}

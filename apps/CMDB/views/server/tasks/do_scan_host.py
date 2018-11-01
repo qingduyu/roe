@@ -73,7 +73,7 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
                 elif item[0:3] == '10.':
                     host.idc_id = '2'
                 if tempdict['machine_type'][0:6] == 'XenHVM':
-                    host.asset_type = '2'
+                    host.asset_type = '虚拟机'
                 ip_temp = host.ip_other.split(',')
                 tem = 0  # 如果 ip other 有这个ip 就是已经保存了这个IP，忽略，增加，如过没有则保存
                 for i in ip_temp:

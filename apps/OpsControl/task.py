@@ -5,9 +5,9 @@ from django.shortcuts import render
 from djcelery.models  import PeriodicTask,CrontabSchedule,WorkerState,TaskState,IntervalSchedule
 from django.contrib.auth.decorators import login_required
 from celery import task
-from celery.registry import tasks as cTasks
-from celery import registry
-from celery.task.control import revoke
+from celery.app.registry import tasks as cTasks
+# from celery import registry
+# from celery.task.control import revoke
 from celery.five import keys, items
 from django.contrib.auth.decorators import permission_required
 from utils.logger import logger

@@ -10,6 +10,11 @@ class Host_Serializer(serializers.ModelSerializer):
 
 
 
+class Host_read_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Host
+        fields='__all__'
+
 
 class HostFail_Serializer(serializers.ModelSerializer):
     class Meta:
