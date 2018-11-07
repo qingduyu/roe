@@ -107,4 +107,4 @@ supervisorctl stop all #停止全部进程
 
 ![image](https://github.com/qingduyu/roe/blob/master/demo_image/demo1.jpg)
 
-![image](https://github.com/qingduyu/roe/blob/master/demo_image/mysql日志解析.jpg)
+![image](https://github.com/qingduyu/roe/blob/master/demo_image/demo2.jpg)
