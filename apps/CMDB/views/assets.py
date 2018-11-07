@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import os, xlrd, time
+import os, xlrd
 from django.http import JsonResponse, StreamingHttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required

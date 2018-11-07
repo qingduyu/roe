@@ -2,31 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="扫描主机">
-      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0024_auto_20181031_1914.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/views/binlog2sql.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_host_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dbops/mysql/binglog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/migrations/0002_binlogparseredo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/migrations/0003_binlogparseundo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/migrations/0004_auto_20181107_1022.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/migrations/0005_auto_20181107_1030.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/migrations/0006_auto_20181107_1031.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/migrations/0007_auto_20181107_1051.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_lefttree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_otherapp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_redis.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mail_template.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/serialize/host_serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/serialize/host_serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/host_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/host_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/assets_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/assets_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/db_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/db_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/deploy_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/deploy_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/orders_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/orders_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/assets.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/assets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CodeOps/deploy.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CodeOps/deploy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/MysqlOps/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/MysqlOps/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/MysqlOps/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/MysqlOps/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/MysqlOps/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/MysqlOps/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/MysqlOps/views/binlog2sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/OpsControl/cron.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/cron.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/OpsControl/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/suzhu_servers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/suzhu_servers_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/virtual_host_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/virtual_host_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/roeops.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/roeops.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roeops/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roeops/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/MysqlOps/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/ansible.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/assets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/cron.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/deploy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/sched.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/sql.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dbops/mysql/binglog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dbops/mysql/binglog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/binlog2sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/binlog2sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/mysql.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +51,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/roeops$ansible.coverage" NAME="ansible Coverage Results" MODIFIED="1536764493888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/OpsControl" />
     <SUITE FILE_PATH="coverage/roeops$ansible_api_v2.coverage" NAME="ansible_api_v2 Coverage Results" MODIFIED="1536756655606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/roeops$binlog2sql.coverage" NAME="binlog2sql Coverage Results" MODIFIED="1541501196955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/roeops$logger.coverage" NAME="logger Coverage Results" MODIFIED="1536739787648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/roeops$test.coverage" NAME="test Coverage Results" MODIFIED="1533818539058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/system" />
   </component>
@@ -53,33 +68,40 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="35" />
-          <entry key="py" value="84" />
+          <entry key="html" value="57" />
+          <entry key="log" value="18" />
+          <entry key="md" value="3" />
+          <entry key="py" value="185" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="35" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="84" />
+          <entry key="HTML" value="57" />
+          <entry key="Markdown" value="3" />
+          <entry key="PLAIN_TEXT" value="19" />
+          <entry key="Python" value="185" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="5" />
-          <entry key="html" value="1143" />
-          <entry key="py" value="5431" />
-          <entry key="py@roeops" value="34" />
+          <entry key="Django Console" value="113" />
+          <entry key="dummy" value="13" />
+          <entry key="html" value="3130" />
+          <entry key="log" value="7" />
+          <entry key="md" value="82" />
+          <entry key="py" value="11271" />
+          <entry key="py@roeops" value="51" />
           <entry key="txt" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CommandLine" value="33" />
-          <entry key="HTML" value="1143" />
-          <entry key="PLAIN_TEXT" value="51" />
-          <entry key="Python" value="5430" />
+          <entry key="CommandLine" value="49" />
+          <entry key="HTML" value="3130" />
+          <entry key="Markdown" value="82" />
+          <entry key="PLAIN_TEXT" value="67" />
+          <entry key="Python" value="11383" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -91,99 +113,112 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="107" selection-start-line="107" selection-end-line="107" />
+            <state relative-caret-position="353">
+              <caret line="102" selection-start-line="102" selection-end-line="102" />
               <folding>
-                <element signature="e#46#86#0" expanded="true" />
+                <element signature="e#48#83#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/OpsControl/ansible_ops.py">
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="537" column="20" selection-start-line="537" selection-start-column="20" selection-end-line="537" selection-end-column="20" />
+            <state relative-caret-position="120">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/OpsControl/task.py">
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse_api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+            <state relative-caret-position="480">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
               <folding>
-                <element signature="e#48#84#0" expanded="true" />
+                <element signature="e#46#94#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
+        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/rest_framework/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+            <state relative-caret-position="521">
+              <caret line="485" selection-start-line="485" selection-end-line="485" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/urls.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog2sql.py">
+        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/views/generic/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="51" column="70" selection-start-line="51" selection-start-column="70" selection-end-line="51" selection-end-column="70" />
+            <state relative-caret-position="253">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/dbops/mysql/binglog.html">
+        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/views/decorators/csrf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="201" column="8" lean-forward="true" selection-start-line="201" selection-start-column="8" selection-end-line="201" selection-end-column="8" />
-              <folding>
-                <element signature="e#6695#6712#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="626">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="523">
+              <caret line="202" selection-start-line="202" selection-end-line="202" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py">
+        <entry file="file://$PROJECT_DIR$/templates/dbops/mysql/binglog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="45" lean-forward="true" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/OpsControl/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+            <state relative-caret-position="603">
+              <caret line="212" lean-forward="true" selection-start-line="212" selection-end-line="212" />
               <folding>
-                <element signature="e#53#101#0" expanded="true" />
+                <element signature="e#197#210#0#DjangoTemplate" />
+                <element signature="e#537#1399#0#HTML" />
+                <element signature="e#1471#1541#0#HTML" />
+                <element signature="e#1744#2691#0#HTML" />
+                <element signature="e#2721#3579#0#HTML" />
+                <element signature="e#3608#3982#0#HTML" />
+                <element signature="e#15881#17317#0#HTML" />
+                <element signature="e#16861#17316#0#HTML" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_show.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="156" selection-start-line="156" selection-end-line="198" selection-end-column="3" />
+              <folding>
+                <element signature="e#2259#4173#0#HTML" />
+                <element signature="e#5942#7378#0#HTML" />
+                <element signature="e#6922#7377#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="137" column="15" selection-start-line="137" selection-start-column="15" selection-end-line="137" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -215,6 +250,10 @@
       <find>产品线</find>
       <find>tablespace</find>
       <find>roleIndex</find>
+      <find>event_time</find>
+      <find>sql_type</find>
+      <find>back_interval</find>
+      <find>demo</find>
     </findStrings>
     <replaceStrings>
       <replace>db</replace>
@@ -226,31 +265,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list.html" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_ip.py" />
-        <option value="$PROJECT_DIR$/readme.md" />
-        <option value="$PROJECT_DIR$/apps/CMDB/serialize/ip_serializers.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_ip_api.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/tasks/deploy_key.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_host_api.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/ssh_do.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/serialize/scan_conf_serializers.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/serialize/scan_host_conf_serializers.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf_api.py" />
-        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_add.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf.html" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py" />
-        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_edit.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_ip.html" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/nmapdev.py" />
-        <option value="$PROJECT_DIR$/utils/data/base.py" />
         <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_add.html" />
         <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_db.html" />
         <option value="$PROJECT_DIR$/apps/CMDB/serialize/mysql_serializers.py" />
         <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_cluster.html" />
         <option value="$PROJECT_DIR$/templates/cmdb/db/mysql_user.html" />
-        <option value="$PROJECT_DIR$/utils/mysql.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/db/mysql_update.py" />
@@ -270,13 +289,33 @@
         <option value="$PROJECT_DIR$/apps/CMDB/urls.py" />
         <option value="$PROJECT_DIR$/apps/OpsControl/models.py" />
         <option value="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/task.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py" />
-        <option value="$PROJECT_DIR$/apps/MysqlOps/urls.py" />
+        <option value="$PROJECT_DIR$/tasks/ansible.py" />
+        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/apps/MysqlOps/views/binlog2sql.py" />
-        <option value="$PROJECT_DIR$/templates/dbops/mysql/binglog.html" />
+        <option value="$PROJECT_DIR$/roeops/urls.py" />
+        <option value="$PROJECT_DIR$/api/views/deploy_api.py" />
+        <option value="$PROJECT_DIR$/apps/OpsControl/cron.py" />
+        <option value="$PROJECT_DIR$/apps/OpsControl/task.py" />
+        <option value="$PROJECT_DIR$/apps/CodeOps/deploy.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_otherapp.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_redis.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_lefttree.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base.html" />
+        <option value="$PROJECT_DIR$/utils/mysql.py" />
+        <option value="$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py" />
         <option value="$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py" />
+        <option value="$PROJECT_DIR$/utils/binlog2sql.py" />
+        <option value="$PROJECT_DIR$/templates/mail_template.html" />
+        <option value="$PROJECT_DIR$/apps/MysqlOps/models.py" />
+        <option value="$PROJECT_DIR$/roeops/settings.py" />
+        <option value="$PROJECT_DIR$/logs/celery-worker-default.log" />
+        <option value="$PROJECT_DIR$/apps/MysqlOps/tasks.py" />
+        <option value="$PROJECT_DIR$/apps/MysqlOps/serializers.py" />
+        <option value="$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse_api.py" />
+        <option value="$PROJECT_DIR$/apps/MysqlOps/urls.py" />
+        <option value="$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse.py" />
+        <option value="$PROJECT_DIR$/templates/dbops/mysql/binglog.html" />
       </list>
     </option>
   </component>
@@ -294,7 +333,7 @@
       <path value="$PROJECT_DIR$/static/xterm/addons/terminado/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="94" />
     <option name="width" value="1497" />
     <option name="height" value="860" />
@@ -315,6 +354,11 @@
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -327,7 +371,30 @@
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="CodeOps" type="462c0819:PsiDirectoryNode" />
+              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
+              <item name="serialize" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -339,13 +406,14 @@
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="OpsControl" type="462c0819:PsiDirectoryNode" />
+              <item name="MysqlOps" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="wiki" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -355,12 +423,48 @@
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="tasks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
+              <item name="idc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="codeops" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -374,17 +478,6 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="dbops" type="462c0819:PsiDirectoryNode" />
               <item name="mysql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -401,19 +494,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib" />
-      <recent name="$PROJECT_DIR$/utils" />
-      <recent name="$PROJECT_DIR$/apps" />
-      <recent name="$PROJECT_DIR$/templates/opscontrol" />
-      <recent name="$PROJECT_DIR$/templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/MysqlOps" />
       <recent name="$PROJECT_DIR$/apps/CMDB" />
       <recent name="$PROJECT_DIR$/templates/cmdb/db" />
       <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$/static/bootstrap" />
-      <recent name="$PROJECT_DIR$/templates/opscontrol" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/roeops" />
+      <recent name="$PROJECT_DIR$/apps/CMDB/views/server/scan_lib" />
+      <recent name="$PROJECT_DIR$/utils" />
+      <recent name="$PROJECT_DIR$/apps" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -465,6 +558,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/ansible_api_v2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="binlog2sql" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="roeops" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/binlog2sql.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -547,9 +662,11 @@
       <item itemvalue="Python.logger" />
       <item itemvalue="Python.ansible_api_v2" />
       <item itemvalue="Python.ansible" />
+      <item itemvalue="Python.binlog2sql" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.binlog2sql" />
         <item itemvalue="Python.ansible" />
         <item itemvalue="Python.ansible_api_v2" />
         <item itemvalue="Python.logger" />
@@ -591,24 +708,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="2400" height="1338" extended-state="7" />
+    <frame x="0" y="28" width="2400" height="1338" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.15829787" />
       <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
       <window_info id="Structure" order="2" sideWeight="0.37573385" side_tool="true" weight="0.25365853" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3295583" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32942164" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34115675" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.41408214" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.33445096" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32996973" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32942164" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32942164" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.48952222" />
-      <window_info anchor="bottom" id="manage.py@roeops" order="12" weight="0.32774517" />
+      <window_info anchor="bottom" id="manage.py@roeops" order="11" weight="0.32774517" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.2665549" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32942164" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -616,30 +734,6 @@
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.24171779" />
-      <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
-      <window_info id="Structure" order="2" sideWeight="0.37573385" side_tool="true" weight="0.25365853" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3295583" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.667319" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.19632606" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32996973" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32996973" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.42270058" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32996973" />
-      <window_info anchor="bottom" id="manage.py@roeops" order="13" weight="0.28513405" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -667,12 +761,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/api/views/assets_api.py</url>
-          <line>68</line>
+          <line>65</line>
           <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/api/views/assets_api.py</url>
-          <line>67</line>
+          <line>64</line>
           <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -717,10 +811,73 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/celery/__init__.py</url>
-          <line>7</line>
+          <line>10</line>
           <option name="timeStamp" value="311" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/tasks.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="324" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/tasks.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="325" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py</url>
+          <line>127</line>
+          <option name="timeStamp" value="328" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py</url>
+          <line>137</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py</url>
+          <line>151</line>
+          <option name="timeStamp" value="330" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py</url>
+          <line>97</line>
+          <option name="timeStamp" value="346" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py</url>
+          <line>105</line>
+          <option name="timeStamp" value="354" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="358" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utils/binlog2sql.py</url>
+          <line>434</line>
+          <option name="timeStamp" value="371" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utils/binlog2sql.py</url>
+          <line>432</line>
+          <option name="timeStamp" value="372" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/tasks.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="399" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/MysqlOps/tasks.py</url>
+          <line>63</line>
+          <option name="timeStamp" value="406" />
+        </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -733,465 +890,434 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>rs2</expression-string>
+        <expression-string>BinlogParseRedo.objects.all()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>conn_slave.queryOne('show slave status')</expression-string>
+        <expression-string>BinlogParseRedo.objects.raw('select * from binlogParseRedo')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>conn_slave.queryone('show slave status')</expression-string>
+        <expression-string>BinlogParseRedo.objects.all</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>conn_slave.queryAll('show slave status')</expression-string>
+        <expression-string>BinlogParseRedo.objects.all().count()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>conn_slave.queryAll('show master status')</expression-string>
+        <expression-string>parse_record</expression-string>
+        <language-id>HTML</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>date_time = datetime.datetime.strptime(dt, '%Y-%m-%d %H:%M:%S')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>conn_slave</expression-string>
+        <expression-string>date_time = datetime.datetime.strftime(dt, '%Y-%m-%d %H:%M:%S')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>conn_slave.getSlaveIP()</expression-string>
+        <expression-string>truncate.query</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>rs2 = conn_slave.getSlaveIP()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>rs2 = conn_slave.queryAll('show slave status')</expression-string>
+        <expression-string>BinlogParseRedo.objects.raw('truncate table binlogParseRedo')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utils/data/DsMySQL.py">
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_lefttree.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        <state relative-caret-position="60">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/db/mysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-159">
-          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-          <folding>
-            <element signature="e#48#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/views/generic/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="38" column="44" lean-forward="true" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/data/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2429">
-          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/db/models/manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db_edit.html">
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_otherapp.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db.html">
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base_1.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        <state relative-caret-position="793">
+          <caret line="138" selection-start-line="138" selection-end-line="194" selection-end-column="13" />
+          <folding>
+            <element signature="e#7036#9008#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db_add.html">
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/template/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        <state relative-caret-position="268">
+          <caret line="130" selection-start-line="130" selection-end-line="130" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_user.html">
+    <entry file="file://$PROJECT_DIR$/templates/base_children.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="147" column="24" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
+        <state relative-caret-position="180">
+          <caret line="90" column="54" lean-forward="true" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/rest_framework/views.py">
+    <entry file="file:///usr/local/python2.7/lib/python2.7/logging/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="479" selection-start-line="479" selection-end-line="479" />
+        <state relative-caret-position="253">
+          <caret line="1160" selection-start-line="1160" selection-end-line="1160" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="22" lean-forward="true" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="78" column="54" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="83" column="139" lean-forward="true" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/shortcuts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+          <folding>
+            <element signature="e#58#71#0" expanded="true" />
+            <marker date="1541423427946" expanded="true" signature="3134:3897" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/mysql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="122" column="26" selection-start-line="122" selection-start-column="18" selection-end-line="122" selection-end-column="26" />
+        <state relative-caret-position="556">
+          <caret line="136" selection-start-line="136" selection-end-line="136" />
           <folding>
             <element signature="e#48#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster.html">
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/pymysqlreplication/binlogstream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="179" column="16" selection-start-line="179" selection-start-column="16" selection-end-line="179" selection-end-column="16" />
+        <state relative-caret-position="-4796">
+          <caret line="129" column="8" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py">
+    <entry file="file://$PROJECT_DIR$/utils/binlog2sql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-359">
-          <caret line="158" column="28" lean-forward="true" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
+        <state relative-caret-position="563">
+          <caret line="434" selection-start-line="434" selection-end-line="434" />
           <folding>
-            <element signature="e#46#94#0" expanded="true" />
-            <marker date="1540816353520" expanded="true" signature="5111:5939" ph="..." />
+            <element signature="e#47#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/serialize/mysql_serializers.py">
+    <entry file="file://$PROJECT_DIR$/templates/mail_template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="65" column="33" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+        <state relative-caret-position="103">
+          <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
           <folding>
-            <element signature="e#47#85#0" expanded="true" />
+            <element signature="e#113#125#0#DjangoTemplate" />
+            <element signature="e#824#846#0#DjangoTemplate" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/db/mysql_update.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
-          <folding>
-            <element signature="e#49#132#0" expanded="true" />
-            <marker date="1540818916720" expanded="true" signature="224:654" ph="..." />
-            <marker date="1540818916720" expanded="true" signature="694:695" ph="..." />
-            <marker date="1540818916720" expanded="true" signature="694:1604" ph="..." />
-            <marker date="1540818916720" expanded="true" signature="694:1605" ph="..." />
-            <marker date="1540818916720" expanded="true" signature="2351:2354" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_user_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_instance.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="48" lean-forward="true" selection-end-line="208" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="109" column="43" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/serialize/host_serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#47#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="57" lean-forward="true" selection-end-line="128" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="26" column="30" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="26" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_edit.html">
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/celery/task/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/tasks/cron.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="181" column="18" lean-forward="true" selection-start-line="181" selection-start-column="18" selection-end-line="181" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <marker date="1539684537556" expanded="true" signature="745:1600" ph="..." />
-            <marker date="1539684537556" expanded="true" signature="842:1067" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="165" column="13" lean-forward="true" selection-start-line="165" selection-start-column="13" selection-end-line="165" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_ip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#46#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/tasks/do_scan_host.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="76" column="50" lean-forward="true" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
-          <folding>
-            <element signature="e#46#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list_传统.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/virtual_host_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="137" column="27" lean-forward="true" selection-end-line="209" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="267" column="11" lean-forward="true" selection-start-line="267" selection-start-column="11" selection-end-line="267" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="377" column="40" lean-forward="true" selection-start-line="377" selection-start-column="40" selection-end-line="377" selection-end-column="40" />
-          <folding>
-            <element signature="e#46#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py">
+    <entry file="file://$PROJECT_DIR$/tasks/deploy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="16" selection-end-column="74" />
           <folding>
-            <element signature="e#53#101#0" expanded="true" />
-            <marker date="1540964264462" expanded="true" signature="525:530" ph="..." />
+            <element signature="e#48#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/physical_host_list.html">
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/tasks2.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/tasks3.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/ansible.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        <state relative-caret-position="-1">
+          <folding>
+            <element signature="e#48#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/suzhu_servers_list.html">
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/task2.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/celery/app/task.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        <state relative-caret-position="703">
+          <caret line="427" selection-start-line="427" selection-end-line="427" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py">
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/contrib/auth/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/celery-worker-ansible.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/celery-celerycam.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/celery-beat.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roeops/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="62" column="1" lean-forward="true" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views/orders_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#47#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/celery-worker-default.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="49" column="68" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/celery-worker-database.log">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="16" selection-end-column="75" />
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/sql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#53#101#0" expanded="true" />
+            <element signature="e#48#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        <state relative-caret-position="-450">
           <folding>
             <element signature="e#46#86#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/models.py">
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/ansible_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="537" column="20" selection-start-line="537" selection-start-column="20" selection-end-line="537" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/celery/task/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/celery/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        <state relative-caret-position="620">
+          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
           <folding>
-            <element signature="e#48#84#0" expanded="true" />
+            <element signature="e#38#56#0" expanded="true" />
+            <marker date="1541473948888" expanded="true" signature="1104:1113" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/serialize/mysql_serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="13" />
           <folding>
-            <element signature="e#53#101#0" expanded="true" />
+            <element signature="e#47#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3810">
-          <caret line="254" column="12" selection-start-line="254" selection-start-column="12" selection-end-line="254" selection-end-column="12" />
+        <state relative-caret-position="-854">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="54" />
           <folding>
-            <element signature="e#47#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/binlog2sql/binlog2sql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="123" column="41" lean-forward="true" selection-start-line="123" selection-start-column="41" selection-end-line="123" selection-end-column="41" />
-          <folding>
-            <element signature="e#47#57#0" expanded="true" />
-            <element signature="e#724#2993#0" />
-            <element signature="e#724#846#1" />
-            <element signature="e#2145#2993#0" />
-            <element signature="e#3033#6454#0" />
+            <element signature="e#46#94#0" expanded="true" />
+            <element signature="e#1240#1885#0" />
+            <marker date="1540816353520" expanded="true" signature="5111:5939" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/MysqlOps/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog2sql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="70" selection-start-line="51" selection-start-column="70" selection-end-line="51" selection-end-column="70" />
+        <state relative-caret-position="135">
+          <caret line="9" column="84" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="56" column="60" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="31" />
+          <folding>
+            <element signature="e#47#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+          <folding>
+            <element signature="e#48#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="485" selection-start-line="485" selection-end-line="485" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/views/decorators/csrf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="202" selection-start-line="202" selection-end-line="202" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="e#46#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="156" selection-start-line="156" selection-end-line="198" selection-end-column="3" />
+          <folding>
+            <element signature="e#2259#4173#0#HTML" />
+            <element signature="e#5942#7378#0#HTML" />
+            <element signature="e#6922#7377#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="137" column="15" selection-start-line="137" selection-start-column="15" selection-end-line="137" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/dbops/mysql/binglog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="201" column="8" lean-forward="true" selection-start-line="201" selection-start-column="8" selection-end-line="201" selection-end-column="8" />
+        <state relative-caret-position="603">
+          <caret line="212" lean-forward="true" selection-start-line="212" selection-end-line="212" />
           <folding>
-            <element signature="e#6695#6712#0#HTML" expanded="true" />
+            <element signature="e#197#210#0#DjangoTemplate" />
+            <element signature="e#537#1399#0#HTML" />
+            <element signature="e#1471#1541#0#HTML" />
+            <element signature="e#1744#2691#0#HTML" />
+            <element signature="e#2721#3579#0#HTML" />
+            <element signature="e#3608#3982#0#HTML" />
+            <element signature="e#15881#17317#0#HTML" />
+            <element signature="e#16861#17316#0#HTML" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="45" lean-forward="true" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
         </state>
       </provider>
     </entry>

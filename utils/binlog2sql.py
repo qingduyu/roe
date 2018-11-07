@@ -268,7 +268,7 @@ class Binlog2sql(object):
 
     def __init__(self, connection_settings, start_file=None, start_pos=None, end_file=None, end_pos=None,
                  start_time=None, stop_time=None, only_schemas=None, only_tables=None, no_pk=False,
-                 flashback=False, stop_never=False, back_interval=1.0, only_dml=True, sql_type=None):
+                 flashback=False, stop_never=False, back_interval=0, only_dml=True, sql_type=None):
         """
         conn_setting: {'host': 127.0.0.1, 'port': 3306, 'user': user, 'passwd': passwd, 'charset': 'utf8'}
         """
@@ -314,6 +314,24 @@ class Binlog2sql(object):
             self.server_id = cursor.fetchone()[0]
             if not self.server_id:
                 raise ValueError('missing server_id in %s:%s' % (self.conn_setting['host'], self.conn_setting['port']))
+
+    def get_binlog_startime(self):
+        stream = BinLogStreamReader(connection_settings=self.conn_setting, server_id=self.server_id,
+                                    log_file=self.start_file, log_pos=self.start_pos, only_schemas=self.only_schemas,
+                                    only_tables=self.only_tables, resume_stream=True, blocking=True)
+        try:
+            for binlog_event in stream:
+
+                if binlog_event.timestamp:
+                    event_time = datetime.datetime.fromtimestamp(binlog_event.timestamp)
+                    break
+
+            stream.close()
+                 # event_time = datetime.datetime.fromtimestamp(stream[0].timestamp)
+        except OSError:
+            event_time = datetime.datetime(2015, 1, 1, 0, 0)
+
+        return event_time
 
     def process_binlog(self):
         sqlList = []
@@ -384,26 +402,34 @@ class Binlog2sql(object):
             i = 0
             for line in reversed_lines(f_tmp):
                 sqlList.append(line.rstrip())
-                if i >= batch_size:
-                    i = 0
-                    if self.back_interval:
-                        print('SELECT SLEEP(%s);' % self.back_interval)
-                else:
-                    i += 1
+                # if i >= batch_size:
+                #     i = 0
+                #     if self.back_interval:
+                #         print('SELECT SLEEP(%s);' % self.back_interval)
+                # else:
+                #     i += 1
         return sqlList
     def __del__(self):
         pass
 
 
 if __name__ == '__main__':
-    args = command_line_args(sys.argv[1:])
-    conn_setting = {'host': args.host, 'port': args.port, 'user': args.user, 'passwd': args.password, 'charset': 'utf8'}
-    print args
-    binlog2sql = Binlog2sql(connection_settings=conn_setting, start_file=args.start_file, start_pos=args.start_pos,
-                            end_file=args.end_file, end_pos=args.end_pos, start_time=args.start_time,
-                            stop_time=args.stop_time, only_schemas=args.databases, only_tables=args.tables,
-                            no_pk=args.no_pk, flashback=args.flashback, stop_never=args.stop_never,
-                            back_interval=args.back_interval, only_dml=args.only_dml, sql_type=args.sql_type)
+    # args = command_line_args(sys.argv[1:])
+    # conn_setting = {'host': args.host, 'port': args.port, 'user': args.user, 'passwd': args.password, 'charset': 'utf8'}
+    # print args
+    # print 'start_file:' + args.start_file
+    # print 'start_time:' + args.start_time
+    # binlog2sql = Binlog2sql(connection_settings=conn_setting, start_file=args.start_file, start_pos=args.start_pos,
+    #                         end_file=args.end_file, end_pos=args.end_pos, start_time=args.start_time,
+    #                         stop_time=args.stop_time, only_schemas=args.databases, only_tables=args.tables,
+    #                         no_pk=args.no_pk, flashback=args.flashback, stop_never=args.stop_never,
+    #                         back_interval=args.back_interval, only_dml=args.only_dml, sql_type=args.sql_type)
+    conn_setting={'host':'172.16.50.64','port':3306,'user':'dba','passwd':'NTg1Z@mYxZjdhZ','charset':'utf8'}
+    binlog2sql=Binlog2sql(connection_settings=conn_setting, start_file='binlog.000025', start_pos='',end_file='', end_pos='',
+                          start_time='2018-10-26 11:00:00',stop_time='2018-10-26 11:30:00', only_schemas='ambari', only_tables=['alert_current'],
+                            no_pk=True,back_interval=0, flashback=False, stop_never=False, sql_type=['UPDATE'])
     sqlList = binlog2sql.process_binlog()
+    if sqlList is None:
+        print 'no result'
     for ds in sqlList:
         print ds

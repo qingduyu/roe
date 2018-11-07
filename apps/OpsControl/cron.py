@@ -6,9 +6,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 from CMDB.models import Cron_Config,Server_Assets,Log_Cron_Config
-from utils.ssh_tools import SSHManage
-from utils import base
-from tasks.cron import recordCron
+# from tasks import recordCron
 from django.contrib.auth.decorators import permission_required
 from utils.ansible_api_v2 import ANSRunner
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -47,7 +45,7 @@ def cron_add(request):
                                        cron_script_path=request.POST.get('cron_script_path',None),
                                        cron_status=cron_status,
                                        )
-            recordCron.delay(cron_user=str(request.user),cron_id=cron.id,cron_name=cron.cron_name,cron_content="添加计划任务",cron_server=server.ip)
+            # recordCron.delay(cron_user=str(request.user),cron_id=cron.id,cron_name=cron.cron_name,cron_content="添加计划任务",cron_server=server.ip)
         except Exception,e:
             return render(request,'opscontrol/cron/cron_add.html',{"user":request.user,
                                                                "serverList":serverList,
@@ -134,7 +132,7 @@ def cron_mod(request,cid):
                        cron_script_path=request.POST.get('cron_script_path',None),
                        cron_status=request.POST.get('cron_status'),
                                        )
-            recordCron.delay(cron_user=str(request.user),cron_id=cid,cron_name=cron.cron_name,cron_content="修改计划任务",cron_server=cron.cron_server.ip)
+            # recordCron.delay(cron_user=str(request.user),cron_id=cid,cron_name=cron.cron_name,cron_content="修改计划任务",cron_server=cron.cron_server.ip)
         except Exception,e:
             return render(request,'opscontrol/cron/cron_modf.html',
                                       {"user":request.user,"errorInfo":"更新失败，错误信息："+str(e)},
@@ -169,7 +167,7 @@ def cron_mod(request,cid):
     
     elif request.method == "DELETE" and request.user.has_perm('OpsManager.can_delete_cron_config'):
         try:
-            recordCron.delay(cron_user=str(request.user),cron_id=cid,cron_name=cron.cron_name,cron_content="删除计划任务",cron_server=cron.cron_server.ip)
+            # recordCron.delay(cron_user=str(request.user),cron_id=cid,cron_name=cron.cron_name,cron_content="删除计划任务",cron_server=cron.cron_server.ip)
             sList = [cron.cron_server.ip]
             if cron.cron_server.keyfile == 1:resource = [{"ip": cron.cron_server.ip, "port": int(cron.cron_server.port),"username": cron.cron_server.username}] 
             else:resource = [{"ip": cron.cron_server.ip, "port": int(cron.cron_server.port),
@@ -215,7 +213,7 @@ def cron_config(request):
                                                cron_script=request.FILES.get('file', None),
                                                cron_status=request.POST.get('cron_status',0),
                                                )
-                    recordCron.delay(cron_user=str(request.user),cron_id=cron.id,cron_name=cron.cron_name,cron_content="导入计划任务",cron_server=server.ip)
+                    # recordCron.delay(cron_user=str(request.user),cron_id=cron.id,cron_name=cron.cron_name,cron_content="导入计划任务",cron_server=server.ip)
                     if  int(cron.cron_status) == 1: 
                         sList = [server.ip]
                         if server.keyfile == 1:resource = [{"ip": server.ip, "port": int(server.port),"username": server.username}] 

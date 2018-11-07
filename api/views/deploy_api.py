@@ -1,18 +1,13 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_
-from rest_framework import viewsets,permissions
 from api import serializers
-from OpsControl.models import *
 from CodeOps.models import *
 from rest_framework import status
-from django.http import Http404
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from tasks.deploy import recordProject
+# from tasks.assets import recordProject
 from django.contrib.auth.decorators import permission_required
-from rest_framework import generics
-from django.db.models import Q 
+
 
 @api_view(['GET', 'POST' ])
 @permission_required('OpsManage.can_add_project_config',raise_exception=True)
@@ -44,7 +39,7 @@ def deploy_detail(request, id,format=None):
     elif request.method == 'DELETE':
         if not request.user.has_perm('OpsManage.delete_project_config'):
             return Response(status=status.HTTP_403_FORBIDDEN)
-        recordProject.delay(project_user=str(request.user),project_id=id,project_name=snippet.project.project_name,project_content="删除项目")
+        # recordProject.delay(project_user=str(request.user),project_id=id,project_name=snippet.project.project_name,project_content="删除项目")
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT) 
     

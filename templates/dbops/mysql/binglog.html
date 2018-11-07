@@ -1,213 +1,414 @@
+{% extends 'base_children.html' %}
 
-{% extends 'base.html' %}
-{% block self_head_css_js %}
-    <script src="/static/layer/layer.js"></script>
-    <script src="/static/js/base.js"></script>
+{% block self_head %}
+    {##这里是 个性化的头部脚本呢#}
 {% endblock %}
 
-{%block content%}
-    <script>
-        window.onload=init;
-        function init() {
-            showhide(2);
-        }
-        function showhide(n) {
-            var box = document.getElementById("mysqlask");
-            box.className="active";
-            var box = document.getElementById("binlog_parse");
-            box.className="active";
-        }
-    </script>
-    <div class="content-wrapper">
 
-        <section class="content-header">
-            {#        <div class="alert alert-info alert-dismissible" style="display: {{ display_control }};">#}
-            {#            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>#}
-            {#            <h4>{{ tips }}</h4>#}
-            {#        </div>#}
-        </section>
+{% block content %}
 
-        <section class="content">
-    <div id="wrapper">
-        <form role="form" method='post'>
-            {% csrf_token %}
-{#            {% include "include/sidebar.html" %}#}
-            <div id="page-content-wrapper">
-                <table >
-                    ??:
-                    <tr>
-                        <td>
-                            <select id='ins' class="form-control col-md-3" name = "ins_set">
-                                {% for obj in inslist %}
-                                    {% if obj == insname %}
-                                        <option selected="selected" value ="{{ obj.id }}">{{ obj.vist_ip }} + {{ obj.port }} ({{ obj.role }})</option>
-                                    {% else %}
-                                        <option value ="{{ obj.id }}">{{ obj.vist_ip }} + {{ obj.port }} ({{ obj.role }})</option>
-                                    {% endif %}
-                                {% endfor %}
-                            </select>
-                        </td>
-                    </tr>
+    <div class="layui-row">
+        <div class="layui-col-lg12">
 
-
-                </table>
-                </br>
-
-
-
-                <button name="show_binary" class="btn btn-primary" value="1">show binary logs and DB</button >
-                </br>
-
-                {% if binlist %}
-                    <table >
-                        <tr>
-                            <td>
-                                CHOOSE BINLOG:</br>
-                                <select  class="form-control col-md-3" name = "binary_list">
-                                    {% for obj in binlist %}
-                                        {% if obj == binname %}
-                                            <option selected="selected" value ="{{ obj }}">{{ obj }}</option>
-                                        {% else %}
-                                            <option value ="{{ obj }}" >{{ obj }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                                </br>
-                            </td>
-
-                            <td>
-                                CHOOSE DB:</br>
-                                <select  class="form-control col-md-3" name = "dblist">
-                                    {% for obj in dblist %}
-                                        {% if obj == dbselected %}
-                                            <option selected="selected" value ="{{ obj }}">{{ obj }}</option>
-                                        {% else %}
-                                            <option value ="{{ obj }}" >{{ obj }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                                </br>
-                            </td>
-                            <td>
-                                INPUT TABLE_NAME:</br>
-                                {% if tbname %}
-                                    <input type=="text" placeholder="tablename" class="form-control" maxlength="30" value="{{ tbname }}" name="tbname">
-                                {% else %}
-                                    <input type=="text" placeholder="tablename" class="form-control" maxlength="30"  name="tbname">
-                                {% endif %}
-                            </td>
-                            <td>
-                                CHOOSE BEGIN_TIME:</br>
-                                {% if begintime %}
-                                    <input type=="text" id="id_begin_time"  value="{{ begintime }}" class="form-control" maxlength="30" name="begin_time">
-                                {% else %}
-                                    <input type=="text" id="id_begin_time"  class="form-control" maxlength="30" name="begin_time">
-
-                                {% endif %}
-                            </td>
-                            <td>
-                                CHOOSE ????:</br>
-                                <select class="form-control col-md-3" name = "countnum">
-                                    {% if countnum == 10 %}
-                                        <option selected="selected" value =10 >10</option>
-
-                                    {% else %}
-                                        <option value =10 >10</option>
-                                    {% endif %}
-                                    {% if countnum == 50 %}
-                                        <option selected="selected" value =50 >50</option>
-
-                                    {% else %}
-                                        <option value =50 >50</option>
-                                    {% endif %}
-
-                                    {% if countnum == 200 %}
-                                        <option selected="selected" value =200 >200</option>
-
-                                    {% else %}
-                                        <option value =200 >200</option>
-                                    {% endif %}
-
-                                </select>
-                            </td>
-                        <tr>
-                    </table>
-                {% endif %}
-                {% if binlist %}
-                    <button name="parse_first"  class="btn btn-default" value="1">?????5?</button >
-                    <button id="parse_binlog" name="parse"  class="btn btn-success" value="1">PARSE BINLOG FOR REDO</button >
-                    <button name="parse_undo"  class="btn btn-danger" value="1">PARSE BINLOG FOR UNDO</button >
-
-                {% endif %}
-            </div>
-
-        </form >
-        <div>
             {% if info %}
                 <span style="color:red">{{ info }}</span>
             {% endif %}
+            <form action="{% url 'mysql_binglog_parse' %}" class="layui-form" method="post" id="demoAddForm1">
+   <blockquote class="layui-elem-quote layui-quote-nm">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">数据库集群</label>
+                    <div class="layui-input-inline">
+                        <select name="cluster_id" class="layui-form-select">
+                            {% for obj in cluster %}
+                                {% if obj == instance %}
+                                    <option selected="selected" value="{{ obj.id }}">{{ obj.name }}({{ obj.foreign_ip }}+{{ obj.foreign_port }})
+                                    </option>
+                                {% else %}
+                                    <option value="{{ obj.id }}"> {{ obj.name }}({{ obj.foreign_ip }}+{{ obj.foreign_port }})</option>
+                                {% endif %}
+                                {#                                        <option value="{{obj.id }}">{{ obj.name }}</option>#}
+                            {% endfor %}
+                        </select>
+                    </div>
+                <div class="layui-inline">
+                           <div class="larryms-layer-btn">
+                        <button name="show_binary" class="layui-btn layui-btn-normal" value="1">显示二进制文件</button>
+                    </div>
+                </div>
+   </div>
+                               {% if binlist %}
+  <div class="layui-form-item">
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">选择数据库</label>
+                                <div class="layui-input-inline">
+                                    <select name="dbname">
+                                        {% for obj in dblist %}
+                                            {% if obj.dbname == db_selected %}
+                                                <option selected="selected"
+                                                        value="{{ obj.dbname }}">{{ obj.dbname }}</option>
+                                            {% else %}
+                                                <option value="{{ obj.dbname }}">{{ obj.dbname }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">二进制文件</label>
+                                <div class="layui-input-inline">
+
+                                    <select name="binary_list">
+                                        {% for obj in binlist %}
+                                            {% if obj == binname %}
+                                                <option selected="selected" value="{{ obj }}">{{ obj }}</option>
+                                            {% else %}
+                                                <option value="{{ obj }}">{{ obj }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <div class="larryms-layer-btn">
+                                    <button name="get_binlog_startime" class="layui-btn layui-btn-warm" value="1">
+                                        选择文件确定时间
+                                    </button>
+                                </div>
+                            </div>
+
+  </div>
+                {% endif %}
+
+
+   </blockquote>
+
+                {% csrf_token %}
+
+                {% if event_startime %}
+                    <blockquote class="layui-elem-quote layui-quote-nm">
+                        <div class="layui-form-item">
+                        {% if start_time %}
+                            <div class="layui-inline">
+                                <label class="layui-form-label">起始时间</label>
+                                <div class="layui-input-block">
+                                    <input class="layui-input" name="start_time" value="{{ start_time }}" id="start_time" lay-verify="required"
+                                           type="text">
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="layui-inline">
+                                <label class="layui-form-label">起始时间</label>
+                                <div class="layui-input-block">
+                                    <input class="layui-input" name="start_time" value="{{ event_startime|date:'Y-n-d H:i:s' }}" id="start_time" lay-verify="required"
+                                           type="text">
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">表名</label>
+                                <div class="layui-input-inline">
+                                       <select name="tablename" layui-verify="required" lay-search="">
+                                        {% for obj in tablelist %}
+                                            {% if obj == tb_selected %}
+                                                <option selected="selected"
+                                                        value="{{ obj }}">{{obj }}</option>
+                                            {% else %}
+                                                <option value="{{obj}}">{{ obj }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        {% if stop_time %}
+                            <div class="layui-inline">
+                                <label class="layui-form-label">结束时间</label>
+                                <div class="layui-input-block">
+                                    <input class="layui-input" name="stop_time" value='{{ stop_time}}' id="stop_time" lay-verify="required"
+                                           placeholder="大于起始时间" ,
+                                           type="text">
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="layui-inline">
+                                <label class="layui-form-label">结束时间</label>
+                                <div class="layui-input-block">
+                                    <input class="layui-input" name="stop_time" value='{{ event_startime|date:'Y-n-d H:i:s' }}' id="stop_time" lay-verify="required"
+                                           placeholder="大于起始时间" ,
+                                           type="text">
+                                </div>
+                            </div>
+                            {% endif %}
+                           <div class="layui-inline">
+                                <label class="layui-form-label">sql类型</label>
+                                <div class="layui-input-inline">
+
+                                    <select class='layui-form-select' name=sql_type>
+
+                                        {% if sql_type == 'UPDATE' %}
+                                            <option selected="selected" value='UPDATE'>UPDATE</option>
+
+                                        {% else %}
+                                            <option value='UPDATE'>UPDATE</option>
+                                        {% endif %}
+                                        {% if sql_type == 'INSERT' %}
+                                            <option selected="selected" value='INSERT'>INSERT</option>
+
+                                        {% else %}
+                                            <option value=INSERT>INSERT</option>
+                                        {% endif %}
+                                        {% if sql_type == 'DELETE' %}
+                                            <option selected="selected" value='DELETE'>DELETE</option>
+
+                                        {% else %}
+                                            <option value='DELETE'>DELETE</option>
+                                        {% endif %}
+
+                                    </select>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button id="parse_binlog" name="parse" class="layui-btn layui-btn-normal" value="1">解析日志sql
+                        </button>
+                        <button name="parse_undo" class="layui-btn layui-btn-danger" value="1">逆向解析sql</button>
+
+                 {% if stop_time %}
+                              <button id="parse_binlog_record" name="parse_record" class="layui-btn layui-btn-normal" value="1">五分钟后查看解析记录
+                               </button>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">收件人</label>
+                                <div class="layui-input-block">
+                                    <input class="layui-input" name="mailto"   type="text">
+                                </div>
+                            </div>
+                            <button id="btn-sendmail" name="sendmail" class="layui-btn layui-btn-normal" value="1">根据结果发送邮件
+                               </button>
+                        {% endif %}
+
+                    </blockquote>
+
+
+                {% endif %}
+
+
+
+                {% if parse_undo %}
+                                 <button id="parse_binlog_record" name="parse_uno_record" class="layui-btn layui-btn-normal" value="1">五分钟后查看逆向解析sql
+                                </button>
+                        {% endif %}
+
+            </form>
+
+{% if parse_record %}
+
+    <table id="demo" lay-filter="demo" class="larryms-table-id" data-url="{%  url 'mysql_binglog_redo_api' %}"></table>
+
+{% endif %}
         </div>
 
-        <div>
 
-        </div>
-        <table  class="table table-condensed" border="1">
-            {% for i in sqllist %}
-                <tr>
-                    <td>
-                        {{ forloop.counter }}
-                    </td>
-                    <td>
-                        <pre>{{ i }}</pre>
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
     </div>
 
-    {#    <button id="dict"  class="btn btn-success" value="1">test</button >#}
-        </section>
-    </div>
 {% endblock %}
-{% block self_footer_js %}
-    {#        <script>#}
-    {#            function checknum() {#}
-    {#                var num = document.getElementById('id_begin_pos').value;#}
-    {#                if (num) {#}
-    {#                    if (!isNaN(num)) {#}
-    {#                        return true;#}
-    {#                    }#}
-    {#                    else {#}
-    {#                        alert('??????POS(??)');#}
-    {#                        return false;#}
-    {#                    }#}
-    {#                }#}
-    {#            }#}
-    {##}
-    {#        </script>#}
+{% block self_foot %}
 
-    <script>
-        jeDate({
-            dateCell:"#id_begin_time",
-            format:"YYYY-MM-DD hh:mm:ss",
-            isinitVal:true,
-            isTime:true, //isClear:false,
-            minDate:"2014-09-19 00:00:00",
-            okfun:function(val){alert(val)}
-        })
+   <script type="text/javascript">
+    layui.config({
+        version: "2.0.8",
+        base: '/static/larryms/',
+         layertype: 2, //iframe内层弹窗类型不显示返回首页
+        rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base'
+    }).use(['jquery','larry','layer','table','form','laydate'], function() {
+        var $ = layui.$,
+            larry = layui.larry,
+            larryms = layui.larryms,
+            form = layui.form,
+            table = layui.table,
+            laydate = layui.laydate;
+
+      //按钮监听
+  $(' .layui-btn').on('click', function() {
+      var type = $(this).data('type'),
+        url = $(this).data('url'),
+        tit = $(this).children('cite').text();
+      active[type] ? active[type].call(this, url, tit) : '';
+  });
+        laydate.render({
+        elem: '#start_time'
+        , format:'yyyy-MM-dd HH:mm:ss', isInitValue:true
+              , type:'datetime'
+        });
+        laydate.render({
+        elem: '#stop_time'
+        ,format:'yyyy-MM-dd HH:mm:ss', isInitValue:true
+            ,type:'datetime'
+        });
+  var active = {
+      add: function(url, tit) {
+        var that = this;
+        if ($(that).attr('data-flag') == 'exist') {
+          var index = layui.cache.layerIndex,
+              $max = $max = $('#layui-layer' + index).find('.layui-layer-maxmin');
+          $max.click();
+          layui.cache.layerIndex = null;
+        } else {
+          $(that).attr('data-flag', 'exist');
+          var index = layer.open({
+            title: tit,
+            type: 2,
+            area: ['860px', '550px'],
+            content: url,
+            success: function(index, layero) {
+              form.render();
+            },
+            end: function() {
+              $(that).removeAttr("data-flag");
+              layui.cache.layerIndex = null;
+            }
+          });
+
+        }
+      },
+      del: function() {
+        //批量删除
+          checkStatus = table.checkStatus('demo'),
+          data = checkStatus.data,
+          newsId = [];
+          console.log(data);
+         var url = $(this).data('url');
+        console.log(url);
+        if (data.length > 0) {
+          for (var i in data) {
+            //排除默认管理员
+                newsId.push(data[i].id);
+          }
+          if(newsId.length>0){
+               var ids = {"id":newsId };
+              console.log(newsId);
+              larryms.confirm('你确定要执行批量删除吗？',{icon: 3, title:'批量删除提示！'},function(){
+                  $.ajax({
+			    dataType: "JSON",
+			    url:url, //请求地址
+			    type:"DELETE",  //提交类似
+			    contentType: "application/json",
+			    data: JSON.stringify({"id":newsId }),  //提交参数
+			    success:function(res){
+				larryms.msg(res.msg)
+                    table.reload('demo', {})
+			},
+	    	error:function(response){
+				larryms.msg( response.responseText);
+	    	}
+		});
+              });
+          }else{
+              larryms.msg('默认管理员不可删除,我是神一样的存在！');
+          }
+        } else {
+          larryms.msg('请至少选择一项，进行删除操作');
+        }
+      }
+    };
+        {#form.on('submit(demoadd1)', function(data) {#}
+        {#    $.post(data.form.action, data.field, function(res) {#}
+        {#        if (res.code == 200) {#}
+                    {#larryms.msg(res.msg);#}
+                    {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                    {#parent.layer.close(curIfr);#}
+                    {#// $('#demoAddForm')[0].reset();继续添加注销上一段#}
+        {#            larryms.msg(res.msg,{time:350},function () {#}
+        {#                parent.table.reload('demo',{});#}
+        {#                parent.layer.close(curIfr);#}
+        {#            })#}
+        {##}
+        {#        } else if (res.code == 911) {#}
+        {#            larryms.msg(res.msg);#}
+        {#        } else if (res.code == 500) {#}
+        {#            larryms.msg(res.msg);#}
+        {#        }#}
+        {#    });#}
+        {#    return false;#}
+        {# }); #}
+
+        var tableDataUrl = $('#demo').data('url'), roleIndex = table.render({
+                 elem:'#demo',
+                 id:'demo',
+                 cellMinWidth:80,
+                 url:tableDataUrl,
+                 method:'get',
+                 height:'full-130',
+                 page:true,
+                 cols:[
+                   [
+                           {#{type: "checkbox",fixed: 'left',width: 50},#}
+                       {field: 'id',title: 'id', minWidth: 10, align: 'center'},
+                       {field: 'start_pos', title: 'start_pos', minWidth: 10, align: 'center'},
+                       {field: 'end_pos', title: 'end_pos', minWidth: 10, align: 'center',},
+                       {field: 'date', title: 'date', minWidth: 50, align: 'center'},
+                       {field: 'time', title: 'time', minWidth: 30, align: 'center'},
+                       {field: 'sql', title: 'sql', minWidth: 700, align: 'center'},
+                    ]
+                 ]
+            });
+
+          // 监听工具条
+var pageTableID = $('.larryms-table-id').attr('id');
+table.on('tool('+pageTableID+')', function(obj) {
+      var data = obj.data, tit = '编辑 <em class="tit">'+data.name+ '</em> 信息';
+      console.log(data)
+      if(obj.event == 'edit'){
+          var url =  $(this).data('url')+data.id;
+          var editIndex =  larryms.open({
+              title: tit,
+              type: 2,
+              area: ['860px', '450px'],
+              content: url,
+              success: function(index, layero) {
+                form.render();
+              }
+          });
+      }else if(obj.event == 'detail'){
+          var url = $(this).data('url');
+          larryms.confirm('查看详情还没开始作？',{icon: 3, title:'删除提示'},function(){
+              var ids = {"id":data.id};
+              $.post(url,ids,function(res){
+                  if(res.code==200){
+                      larryms.msg(res.msg);
+                      table.reload(pageTableID,{});
+                  }else{
+                     larryms.msg(res.msg);
+                  }
+              });
+          });
+      }else if(obj.event == 'del'){
+          var url = $(this).data('url');
+           larryms.confirm('查看详情还没开始作？',{icon: 3, title:'删除提示'},function(){
+              var ids = {"id":[data.id]};
+              $.post(url,ids,function(res){
+                  if(res.code==200){
+                      larryms.msg(res.msg);
+                      table.reload(pageTableID,{});
+                  }else{
+                     larryms.msg(res.msg);
+                  }
+              });
+      });
+}})
+    });
+
     </script>
 
-    {#        <script>#}
-    {#            $(document).ready(function(){#}
-    {##}
-    {#                $('#dict').click(function(){#}
-    {#                    var dbtag = $('#ins').val()#}
-    {#                    $.getJSON("{% url 'test' %}",{'dbtag':dbtag},function(ret){#}
-    {#                        $.each(ret,function(i,n){#}
-    {#                            alert(n);#}
-    {#                        })#}
-    {#                    })#}
-    {#                })#}
-    {#            });#}
-    {#        </script>#}
+
+
+
 {% endblock %}

@@ -1,14 +1,14 @@
 #!/bin/env python
 #-*-coding:utf-8-*-
-import MySQLdb,sys,string,time,datetime
-from mysqlask.include import function as func
-# from mysqlask.models import Db_name,Db_account,Db_instance,Oper_log,Task,Incep_error_log
-from mysqlask.include.encrypt import prpcrypt
+import MySQLdb,sys
+# from mysqlask.include import function as func
+from utils.mysql import MySQL
 from celery import task
-from dbcmdb.models import MySQL_Instance,MySQLDB_name,MySQLDB_user
+from CMDB.model.mysql_modles import MySQLCluster
 
-public_user = func.public_user
+# public_user = func.public_user
 
+#mysql
 def mysql_query(sql,user,passwd,host,port,dbname):
     try:
         conn=MySQLdb.connect(host=host,user=user,passwd=passwd,port=int(port),connect_timeout=5,charset='utf8')
@@ -35,6 +35,30 @@ def mysql_query(sql,user,passwd,host,port,dbname):
     except Exception,e:
         return([str(e)],''),['error']
 
+
+class MySQL_OPS(MySQL):
+    def __init__(self, clusterobj,dbname=''):
+        self.ip = clusterobj.foreign_ip
+        self.user = clusterobj.plat_user
+        self.passwd = clusterobj.plat_user_pass
+        self.db = dbname
+        self.port = int(clusterobj.foreign_port)
+        self._sql=MySQL(self.ip,self.port,self.db,self.user,self.passwd)
+        # self._conn = self.connect(self.ip, self.port, self.db, self.user, self.passwd)
+        # self._cursor = self._conn.cursor()
+    def getBinaryLog(self):
+        result,col = self._sql.getBinaryLog()
+        return  result,col
+
+    def getTables(self):
+        if self.db:
+            sql='show tables;'
+            rc,rs=self._sql.queryAll(sql=sql)
+            return rc,rs
+        else:
+            rc=0
+            rs=None
+            return rc,rs
 #??????????????? ???db id
 def get_metadata(hosttag,flag,tbname=''):
     dbname = MySQLDB_name.objects.get(dbtag=hosttag).dbname

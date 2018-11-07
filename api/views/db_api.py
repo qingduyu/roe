@@ -1,20 +1,14 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_
-from rest_framework import viewsets,permissions
 from api import serializers
 from MysqlOps.models import *
 from rest_framework import status
-from django.http import Http404
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth.decorators import permission_required
-from tasks.sql import sendOrderNotice
-from Orders.models import Order_System
 from utils.data.base import MySQLPool
 from django.http import JsonResponse
-from utils.logger import logger
-from utils import mysql as MySQL
+
 
 @api_view(['POST' ])
 @permission_required('OpsManage.can_add_database_server_config',raise_exception=True)

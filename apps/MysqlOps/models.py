@@ -6,6 +6,31 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
+
+class BinlogParseRedo(models.Model):
+    sql = models.CharField(max_length=1900,blank=True, null=True, verbose_name='解析后的sql')
+    start_pos = models.IntegerField(blank=True, null=True, verbose_name='起始位置')
+    end_pos = models.IntegerField(blank=True, null=True, verbose_name='结束位置')
+    date = models.CharField(max_length=50,blank=True, null=True, verbose_name='执行日期')
+    time = models.CharField(max_length=50, blank=True, null=True, verbose_name='执行时间')
+
+    class Meta:
+        db_table = 'binlogParseRedo'
+        verbose_name = 'bin日志解析'
+        verbose_name_plural = 'bin日志解析'
+
+class BinlogParseUndo(models.Model):
+    sql = models.CharField(max_length=1900,blank=True, null=True, verbose_name='逆向解析后的sql')
+    start_pos = models.IntegerField(blank=True, null=True, verbose_name='起始位置')
+    end_pos = models.IntegerField(blank=True, null=True, verbose_name='结束位置')
+    date = models.CharField(max_length=50,blank=True, null=True, verbose_name='执行日期')
+    time = models.CharField(max_length=50, blank=True, null=True, verbose_name='执行时间')
+
+    class Meta:
+        db_table = 'binlogParseUndo'
+        verbose_name = 'bin日志逆向解析'
+        verbose_name_plural = 'bin日志逆向解析'
+
 class Inception_Server_Config(models.Model):
     db_name = models.CharField(max_length=100, verbose_name='数据库名', blank=True, null=True)
     db_host = models.CharField(max_length=100, verbose_name='数据库地址')

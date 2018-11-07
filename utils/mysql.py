@@ -43,14 +43,15 @@ class MySQL(object):
                     colName.append(i[0])
             result = self._cursor.fetchmany(size=num)
             self._conn.commit()
-            return (count, result, colName)
+            return count,result,colName
         except Exception, ex:
             logger.error(msg="MySQL执行SQL语句失败: {ex} sql:{sql}".format(ex=ex, sql=sql))
             self.conn.rollback()
             count = 0
             result = None
+            colName=None
         finally:
-            return count, result
+            return count,result,colName
 
     def queryAll(self, sql):
         try:
@@ -126,6 +127,17 @@ class MySQL(object):
         else:
             return {}
 
+    def getBinaryLog(self):
+        try:
+
+            rc,rs,col = self.execute(sql='show binary logs;')
+        except Exception, ex:
+            print (ex)
+        if rs != None:
+            return rs,col
+        else:
+            rs=[]
+            return rs,col
     def close(self):
         try:
             self._cursor.close()

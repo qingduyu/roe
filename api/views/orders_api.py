@@ -1,6 +1,5 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_
-from rest_framework import viewsets,permissions
 from api import serializers
 
 from rest_framework import status

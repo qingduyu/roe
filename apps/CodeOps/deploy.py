@@ -14,7 +14,7 @@ from utils.ansible_api_v2 import ANSRunner
 from django.contrib.auth.models import User,Group
 from CMDB.views.assets import getBaseAssets
 from Orders.models import Order_System
-from tasks.deploy import recordProject
+# from tasks import recordProject
 from django.contrib.auth.decorators import permission_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from utils.logger import logger
@@ -61,7 +61,7 @@ def deploy_add(request):
                                                     project_repo_passwd = request.POST.get('project_repo_passwd'),
                                                     project_audit_group = request.POST.get('project_audit_group',None),
                                                     )
-            recordProject.delay(project_user=str(request.user),project_id=project.id,project_name=project.project_name,project_content="添加项目")
+            # recordProject.delay(project_user=str(request.user),project_id=project.id,project_name=project.project_name,project_content="添加项目")
         except Exception, ex:
             logger.error(msg="部署项目添加失败: {ex}".format(ex=ex))
             return JsonResponse({'msg':"部署项目添加失败: {ex}".format(ex=ex),"code":500,'data':[]})           
@@ -118,7 +118,7 @@ def deploy_modf(request,pid):
                                                     project_repo_passwd = request.POST.get('project_repo_passwd'),    
                                                     project_model = request.POST.get('project_model'),                                                
                                                     )
-            recordProject.delay(project_user=str(request.user),project_id=pid,project_name=project.project_name,project_content="修改项目")
+            # recordProject.delay(project_user=str(request.user),project_id=pid,project_name=project.project_name,project_content="修改项目")
         except Exception,ex:
             logger.error(msg="部署项目修改失败: {ex}".format(ex=ex))
             return JsonResponse({'msg':"部署项目修改失败: {ex}".format(ex=ex),"code":500,'data':[]}) 
@@ -182,7 +182,7 @@ def deploy_init(request,pid):
         if result[0] > 0:return  JsonResponse({'msg':result[1],"code":500,'data':[]})
         else:
             Project_Config.objects.filter(id=pid).update(project_status = 1)  
-            recordProject.delay(project_user=str(request.user),project_id=project.id,project_name=project.project_name,project_content="初始化项目")              
+            # recordProject.delay(project_user=str(request.user),project_id=project.id,project_name=project.project_name,project_content="初始化项目")
             return JsonResponse({'msg':"初始化成功","code":200,'data':[]})
         
 @login_required()
@@ -395,9 +395,9 @@ def deploy_run(request,pid):
             DsRedis.OpsProject.delete(redisKey=project.project_uuid+"-locked") 
             #异步记入操作日志
 #             if request.POST.get('project_version'):bName = request.POST.get('project_version') 
-            recordProject.delay(project_user=str(request.user),project_id=project.id,
-                                project_name=project.project_name,project_content=project_content,
-                                project_branch=verName)          
+#             recordProject.delay(project_user=str(request.user),project_id=project.id,
+#                                 project_name=project.project_name,project_content=project_content,
+#                                 project_branch=verName)
             return JsonResponse({'msg':"项目部署成功","code":200,'data':tmpServer}) 
         else:
             return JsonResponse({'msg':"项目部署失败：{user}正在部署改项目，请稍后再提交部署。".format(user=DsRedis.OpsProject.get(redisKey=project.project_uuid+"-locked")),"code":500,'data':[]}) 

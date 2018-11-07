@@ -1,14 +1,11 @@
 #!/usr/bin/env python  
 # _#_ coding:utf-8 _*_
-from rest_framework import viewsets,permissions
 from api import serializers
 from CodeOps.models import *
 from CMDB.models import *
 
 from rest_framework import status
-from django.http import Http404
 from django.contrib.auth.models import Group
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from tasks.assets import recordAssets

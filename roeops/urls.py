@@ -72,5 +72,7 @@ urlpatterns = [
     url(r'^wiki/',include('wiki.urls')),
     url(r'^opscontrol/', include('OpsControl.urls')),
     url(r'^codeops/', include('CodeOps.urls')),
+
+    url(r'^mysqlops/', include('MysqlOps.urls')),
 ]
 # urlpatterns = format_suffix_patterns(urlpatterns)
