@@ -21,7 +21,7 @@ yum install sshpass,nmap,supervisor
 
 ##5. 部署 celery
 
-'''
+
  #export PYTHONOPTIMIZE=1
  #vim /etc/supervisord.conf
 文件最后添加
@@ -77,7 +77,6 @@ redirect_stderr=true
 stopsignal=QUIT
 numprocs=1
 
-'''
 
 启动celery 守护进程
 # /usr/bin/supervisord -c /etc/supervisord.conf
