@@ -70,7 +70,7 @@
         <counts>
           <entry key="html" value="57" />
           <entry key="log" value="18" />
-          <entry key="md" value="3" />
+          <entry key="md" value="4" />
           <entry key="py" value="185" />
           <entry key="txt" value="1" />
         </counts>
@@ -78,7 +78,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="57" />
-          <entry key="Markdown" value="3" />
+          <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="19" />
           <entry key="Python" value="185" />
         </counts>
@@ -89,7 +89,7 @@
           <entry key="dummy" value="13" />
           <entry key="html" value="3130" />
           <entry key="log" value="7" />
-          <entry key="md" value="82" />
+          <entry key="md" value="97" />
           <entry key="py" value="11271" />
           <entry key="py@roeops" value="51" />
           <entry key="txt" value="45" />
@@ -99,7 +99,7 @@
         <counts>
           <entry key="CommandLine" value="49" />
           <entry key="HTML" value="3130" />
-          <entry key="Markdown" value="82" />
+          <entry key="Markdown" value="97" />
           <entry key="PLAIN_TEXT" value="67" />
           <entry key="Python" value="11383" />
           <entry key="SQL" value="1" />
@@ -120,15 +120,6 @@
               <folding>
                 <element signature="e#48#83#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -181,7 +172,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/dbops/mysql/binglog.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="603">
@@ -196,6 +187,18 @@
                 <element signature="e#15881#17317#0#HTML" />
                 <element signature="e#16861#17316#0#HTML" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="661">
+                <caret line="109" column="73" selection-start-line="109" selection-start-column="73" selection-end-line="109" selection-end-column="73" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -291,7 +294,6 @@
         <option value="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/tasks/ansible.py" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/apps/MysqlOps/views/binlog2sql.py" />
         <option value="$PROJECT_DIR$/roeops/urls.py" />
         <option value="$PROJECT_DIR$/api/views/deploy_api.py" />
@@ -316,6 +318,7 @@
         <option value="$PROJECT_DIR$/apps/MysqlOps/urls.py" />
         <option value="$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse.py" />
         <option value="$PROJECT_DIR$/templates/dbops/mysql/binglog.html" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -937,13 +940,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_lefttree.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_otherapp.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1318,6 +1314,16 @@
             <element signature="e#15881#17317#0#HTML" />
             <element signature="e#16861#17316#0#HTML" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="661">
+            <caret line="109" column="73" selection-start-line="109" selection-start-column="73" selection-end-line="109" selection-end-column="73" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
