@@ -89,7 +89,7 @@
           <entry key="dummy" value="13" />
           <entry key="html" value="3130" />
           <entry key="log" value="7" />
-          <entry key="md" value="104" />
+          <entry key="md" value="159" />
           <entry key="py" value="11271" />
           <entry key="py@roeops" value="51" />
           <entry key="txt" value="45" />
@@ -99,7 +99,7 @@
         <counts>
           <entry key="CommandLine" value="49" />
           <entry key="HTML" value="3130" />
-          <entry key="Markdown" value="104" />
+          <entry key="Markdown" value="159" />
           <entry key="PLAIN_TEXT" value="67" />
           <entry key="Python" value="11383" />
           <entry key="SQL" value="1" />
@@ -195,8 +195,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="495">
-                <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+              <first_editor relative-caret-position="676">
+                <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
               </first_editor>
               <second_editor />
             </state>
@@ -1320,8 +1320,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="495">
-            <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+          <first_editor relative-caret-position="676">
+            <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
           </first_editor>
           <second_editor />
         </state>
