@@ -30,6 +30,7 @@ def getmenu(request):
             temdic['title'] = menu.title
             temdic['id']=menu.id
             temdic['pid']=0
+            temdic['font']= menu.font
             temdic['icon'] = menu.icon
             temdic['url'] = menu.url
             temdic['spread'] = menu.spread
@@ -43,6 +44,7 @@ def getmenu(request):
                     tempdic2 = dict()
                     tempdic2['id']=smenu.id
                     tempdic2['pid']=smenu.pid.id
+                    tempdic2['font']=smenu.font
                     tempdic2['title'] = smenu.title
                     tempdic2['icon'] = smenu.icon
                     tempdic2['url'] = smenu.url
@@ -58,6 +60,7 @@ def getmenu(request):
                             tempdic3['pid'] = tmenu.pid.id
                             tempdic3['title'] = tmenu.title
                             tempdic3['icon'] = tmenu.icon
+                            tempdic3['font'] = tmenu.font
                             tempdic3['url'] = tmenu.url
                             tempdic3['spread'] = tmenu.spread
                             tempdic3['param'] = tmenu.param
@@ -71,6 +74,7 @@ def getmenu(request):
                                     tempdic4['pid'] = fmenu.pid.id
                                     tempdic4['title'] = fmenu.title
                                     tempdic4['icon'] = fmenu.icon
+                                    tempdic4['font'] = fmenu.font
                                     tempdic4['url'] = fmenu.url
                                     tempdic4['spread'] = fmenu.spread
                                     tempdic4['param'] = fmenu.param
