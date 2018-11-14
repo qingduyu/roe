@@ -81,7 +81,34 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+
+
+# Channels settings  实时通信的通道
+CHANNEL_LAYERS = {
+    "default": {
+       "BACKEND": "asgi_redis.RedisChannelLayer",  # use redis backend
+       "CONFIG": {
+            "hosts": [("localhost", 6379)],
+            "channel_capacity": {
+                                   "http.request": 1000,
+                                   "websocket.send*": 10000,
+                                },
+            "capacity": 10000,
+           },
+       "ROUTING": "roeops.routing.channel_routing",  # load routing from our routing.py file
+       },
+}
+
+
+
+
+
+
+
+
 # Application definition
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -94,8 +121,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken', #s使用token认证
     'crispy_forms',
     'corsheaders',
-    # 'mptt', #树
+    'mptt', #树
     'djcelery',#定时任务
+    'channels',#时时通道
     'api',
     'Orders',
     'CMDB',

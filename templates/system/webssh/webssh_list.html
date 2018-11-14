@@ -1,0 +1,98 @@
+{% extends 'bootstrap_children.html' %}
+{% block self_head %}
+<!-- bootstrap-notify -->
+{#<script type="text/javascript" src="/static/dist/js/bootstrap-notify.js"></script>#}
+<script type="text/javascript" src="/static/bootstrap/js/reconnecting-websocket.js"></script>
+{% endblock %}
+{% block content %}
+<div id="page-wrapper">
+    <div class="row">
+         <div class="col-lg-12">
+              <h3 class="page-header"><i class="fa  fa-user  "></i> 网页版SSH</h3>
+         </div>
+                <!-- /.col-lg-12 -->
+    </div>
+	<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+
+				              {% if serverList %}
+				              <div class="tab-pane " id="server">
+				                   <div class="row">
+				                   		<div class="col-sm-12">
+
+				                            <table width="100%" class="table table-striped table-bordered table-hover" id="assetsListTable">
+				                                <thead>
+													  <tr>
+													       <th class="text-center">资产类型</th>
+													       <th class="text-center">所有IP</th>
+													       <th class="text-center">主机名</th>
+													       <th class="text-center">机房</th>
+													       <th class="text-center">业务线</th>
+													       <th class="text-center">SSH登陆</th>
+													       <th class="text-center">操作</th>
+													    </tr>
+				                                </thead>
+				                                <tbody>
+				                                	{% for a in  serverList %}
+					                                    <tr class="odd gradeX">
+													         <td class="text-center"> {{ a.asset_type }}</td>
+													         <td class="text-center">
+                                                                 {{ a.ip_other }} </td>
+													         <td class="text-center">{{ a.hostname }}</td>
+													         <td class="text-center">{{ a.idc|default:"" }}</td>
+													         <td class="text-center">{{ a.tree_id.name }}</td>
+													         <td class="text-center">{{ a.ssh_status }}   </td>
+{#													         <td class="text-center">#}
+{#													         	{% for g in baseAssets.group %}#}
+{#													         		{% if g.id == a.put_zone %}#}
+{#													         			{{ g.name }}#}
+{#													         		{% endif %}#}
+{#													         	{% endfor %}#}
+{#													         </td>#}
+{#													         <td class="text-center">#}
+{#													         	{% if a.buy_time %}#}
+{#													         		{{ a.buy_time|date:"Y/m/d" }}#}
+{#													         	{% else %}#}
+{#													         		{{ a.create_date|date:"Y/m/d" }}#}
+{#													         	{% endif %}#}
+{#													         </td>#}
+
+													         <td class="text-center">
+{#													         	<a href="/assets_view/{{a.id}}" style="text-decoration:none;"><button  type="button" class="btn btn-default"><abbr title="查看详细信息"><i class="glyphicon glyphicon-info-sign"></i></abbr></button></a>#}
+
+													         	{% if a.id %}
+													         		<a href="/system/webssh/{{a.id}}/" style="text-decoration:none;" target=""><button  type="button" class="btn btn-default"><abbr title="WebSSH"><i class="fa fa-desktop"></i></abbr></button></a>
+													         	{% else %}
+													         		<button  type="button" class="btn btn-default" disabled><abbr title="WebSSH"><i class="fa fa-desktop"></i></abbr></button>
+													         	{% endif %}
+													         </td>
+					                                    </tr>
+					                                 {% endfor %}
+				                                </tbody>
+				                            </table>
+										</div>
+				                   </div>
+				              </div>
+				              {% endif %}
+
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+</div>
+
+
+<script type="text/javascript">
+
+		$(document).ready(function() {
+		    $('#assetsListTable').DataTable({
+		        responsive: true
+		    });
+		});
+</script>
+
+{% endblock %}

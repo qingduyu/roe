@@ -11,7 +11,7 @@ django-guardian
 asgiref==1.1.2
 asgi-redis==1.4.3
 channels==1.1.7
-Celery==4.2.1
+Celery==3.1.25
 django-celery==3.2.2
 celery-with-redis
 paramiko==2.4.2

@@ -1,19 +1,39 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-# from mptt.models import MPTTModel,TreeForeignKey
+from mptt.models import MPTTModel,TreeForeignKey
 from django.db import models
 
 
-class YewuTree(models.Model):
-    name=models.CharField(max_length=32)
+# class YewuTree(models.Model):
+#     name=models.CharField(max_length=32)
+#     href=models.CharField(max_length=200,blank=True,null=True,help_text='moxingbiao')
+#     parent = models.ForeignKey('self', on_delete=models.CASCADE,null=True, blank=True, related_name='children',db_index=True)
+#     root=models.ForeignKey('self',on_delete=models.CASCADE,null=True,blank=True,related_name='sunzi',help_text='指定根结点为产品线节点，为了展示根结点的名字，防止树的高度过高')
+#
+#     def __str__(self):
+# #         return self.name
+# class Meta:
+#     db_table = 'yewuTree'
+#     verbose_name = '业务树'
+#     verbose_name_plural = verbose_name
+#
+
+class YewuTreeMptt(MPTTModel):
+    name=models.CharField(max_length=32,null=True,blank=True)
     href=models.CharField(max_length=200,blank=True,null=True,help_text='moxingbiao')
-    parent = models.ForeignKey('self', on_delete=models.CASCADE,null=True, blank=True, related_name='children',db_index=True)
-    root=models.ForeignKey('self',on_delete=models.CASCADE,null=True,blank=True,related_name='sunzi',help_text='指定根结点为产品线节点，为了展示根结点的名字，防止树的高度过高')
+    parent = TreeForeignKey('self', on_delete=models.CASCADE,null=True, blank=True, related_name='children',db_index=True,verbose_name='父节点')
+
 
     def __str__(self):
         return self.name
 
-
+    class Meta:
+        db_table = 'yewuTreeMptt'
+        verbose_name='业务树'
+        verbose_name_plural=verbose_name
+    class MPTTMeta:
+        level_attr = 'mptt_level'
+        order_insertion_by = ['name']
 
 
 

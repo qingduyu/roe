@@ -458,7 +458,7 @@
 <script type="text/javascript">
 	$(function () { $("[data-toggle='tooltip']").tooltip(); });
 
-	function oBtProjectSelect(){
+	function oBtProjectSelect(){   //动态获取产品线列表
 		   $('#asset_business option:selected').empty();
 		   var dbId = $('#asset_project option:selected').val();
 		   if ( dbId.length > 0){
@@ -539,7 +539,7 @@
 			return net;
 		}
 	}
-
+  //动态设置资产显示和上传的子段
 	var  assets = ['asset_assets_type','asset_name','asset_status','asset_put_zone','asset_group','asset_business'];
     function oBtAssetsType() {
 		   var obj = document.getElementById("assets_type_select");

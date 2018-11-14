@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 from CMDB.model.mysql_modles import MySQL_Instance,Mysql_db,Mysql_User,MySQLCluster,MyARCH,MyDB_ROLE,MyDB_STATUS
 from django.contrib.auth.decorators import login_required
-from CMDB.model.yewutree_model import YewuTree
+from CMDB.model.yewutree_model import YewuTreeMptt as YewuTree
 from system.models import UserProfile
 
 @login_required()

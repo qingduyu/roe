@@ -4,10 +4,11 @@ from django.conf.urls import url
 from roeops.settings import MEDIA_ROOT
 from django.views.static import serve
 from  MysqlOps.views import  binlog_parse
-from MysqlOps.views.binlog_parse_api import BinlogRedoAPI
+from MysqlOps.views.binlog_parse_api import BinlogRedoAPI,BinlogUndoAPI
 urlpatterns = [
     url(r'^binlog_parse/$', binlog_parse.binlog_parse,name='mysql_binglog_parse'),
     url(r'^binlog_redo_api/$', BinlogRedoAPI.as_view(), name='mysql_binglog_redo_api'),
+    url(r'^binlog_undo_api/$', BinlogUndoAPI.as_view(), name='mysql_binglog_undo_api'),
 #     url(r'^view/(?P<pid>[0-9]+)/$', views.article_show),
 #     url(r'^edit/(?P<pid>[0-9]+)/$', views.article_edit),
 #     url(r'^category/(?P<pid>[0-9]+)/$', views.article_category),

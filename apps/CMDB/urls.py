@@ -2,7 +2,7 @@
 # _#_ coding:utf-8 _*_
 from django.conf.urls import url,include
 from django.contrib import admin
-# from yewu_tree import yewu_tree,yewu_mysql,yewu_oracle,yewu_server
+from yewu_tree import yewu_tree,yewu_mysql,yewu_oracle,yewu_server,yewu_huizong
 # from views.net import  netdevice,group_net,idc_net
 from CMDB.views.idc import idc_show,idc_add,idc_edit
 from CMDB.views.idc_api import IDCAPI
@@ -62,12 +62,12 @@ urlpatterns = [
     url(r'^db/api/mysql_db/$', MysqlDBAPI.as_view(), name='api_mysql_db'),
 
 ##############################################
-    # url('^yewutree',yewu_tree,name='yewu_tree'),
-    # url('^yewu_mysql', yewu_mysql, name='yewu_mysql'),
-    # url('^yewu_oracle', yewu_oracle, name='yewu_oracle'),
-    # url('^yewu_server', yewu_server, name='yewu_server'),
+    url('^yewutree',yewu_tree,name='yewu_tree'),
+    url('^yewu_mysql', yewu_mysql, name='yewu_mysql'),
+    url('^yewu_oracle', yewu_oracle, name='yewu_oracle'),
+    url('^yewu_server', yewu_server, name='yewu_server'),
 
-
+    url('^yewu_huizong', yewu_huizong, name='yewu_huizong'),
     url(r'^assets_config',assets.assets_config),
     url(r'^assets_add',assets.assets_add,name='cmdb_assets_add'),
     url(r'^assets_list',assets.assets_list),

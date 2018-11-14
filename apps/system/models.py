@@ -120,6 +120,23 @@ class Server_Command_Record(models.Model):
 
 
 
+class User_Host(models.Model):
+    host_id = models.SmallIntegerField(verbose_name='服务器资产id')
+    user_id = models.SmallIntegerField(verbose_name='用户id')
+
+    class Meta:
+        db_table = 'user_host'
+        permissions = (
+            ("can_read_user_host", "读取用户服务器表权限"),
+            ("can_change_user_host", "更改用户服务器表权限"),
+            ("can_add_user_host", "添加用户服务器表权限"),
+            ("can_delete_user_host", "删除用户服务器表权限"),
+        )
+        unique_together = (("host_id", "user_id"))
+        verbose_name = '用户服务器表'
+        verbose_name_plural = '用户服务器表'
+
+
 class User_Server(models.Model):
     server_id = models.SmallIntegerField(verbose_name='服务器资产id')
     user_id = models.SmallIntegerField(verbose_name='用户id')

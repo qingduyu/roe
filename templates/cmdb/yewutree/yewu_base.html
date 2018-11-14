@@ -1,71 +1,275 @@
+{% extends 'base_children.html' %}
 {% load mptt_tags %}
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>layui</title>
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="/static/layui/layui/css/layui.css" media="all">
-
-    <link rel="stylesheet" href="/static/jquery/jquery-treeview/jquery.treeview.css" />
+{% block self_head %}
+ <link rel="stylesheet" href="/static/jquery/jquery-treeview/jquery.treeview.css"/>
     <script src="/static/jquery/jquery.1.9.1.min.js"></script>
 
-	<script src="/static/jquery/jquery-treeview/jquery.treeview.js" type="text/javascript"></script>
-</head>
-<body>
-            
+    <script src="/static/jquery/jquery-treeview/jquery.treeview.js" type="text/javascript"></script>
+{% endblock %}
+
+
+{% block content %}
+    {% if info %}
+        <span style="color:red">{{ info }}</span>
+    {% endif %}
+
+
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-  <legend>业务拓扑</legend>
+    <legend>业务拓扑</legend>
 </fieldset>
 
- <div class="layui-row layui-col-space15">
-    <div class="layui-col-md2">
-      <div style="display: inline-block; width: 100%; height: auto; padding: 10px; border: 5px solid #ddd; overflow: auto;" >
 
-          <ul id="tree" class="filetree  treeview-famfamfam">
-              {% recursetree yewu %}
-            <li>
-               <a href="http://www.baidu.com"  target="listChannel">{{ node.name }}</a>
-                    {% if not node.is_leaf_node %}
-                       <ul class="children">
-                        {{ children }}
-                        </ul>
-                    {% endif %}
-            </li>
-                 {% endrecursetree %}
-            </ul>
+<div class="layui-fluid">
+    <div class="layui-row  layui-col-space15 larryms-count-demo">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md3 layui-col-lg3">
+            <section class="layui-card">
+
+                {#      这是左边树形#}
+                <ul id="tree" class="filetree  treeview-famfamfam">
+                    {% recursetree yewu %}
+                        <li > <span class="folder">   <a href="{{ node.href }}" target="listChannel">{{ node.name }}</a></span>
+
+                            {% if not node.is_leaf_node %}
+                                <ul class="children">
+                                    {{ children }}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endrecursetree %}
+                </ul>
+
+                </section>
 
 
-      </div>
+        </div>
+
+
+        {# 这是右边的页面#}
+    <div class="layui-col-lg9">
+        <section class="layui-card">
+            <iframe id="listChannel" Name="listChannel" frameborder=0 src="{% url 'yewu_huizong' %}"
+                    width=100% height=900px></iframe>
+        </section>
+
+    </div>
     </div>
 
-     <div class="layui-col-md10">
-          <iframe id="listChannel" Name="listChannel" frameborder=0  src="/cmdb/yewu_server"
-        scrolling=auto width=100%  height=900px ></iframe>
-     </div>
-  </div>
+
+
+
+</div>
+
+{% endblock %}
+{% block self_foot %}
+<script type="text/javascript">
+
+        $("#tree").treeview(
+        {#    {#}
+        {#    collapsed: true,#}
+            {#animated: "fast",#}
+            {#control:"#sidetreecontrol",#}
+            {#prerendered: true,#}
+        {#    persist: "location"#}
+        {# } #}
+        );
+
+
+</script>
+
+
+    <script type="text/javascript">
+        layui.config({
+            version: "2.0.8",
+            base: '/static/larryms/',
+            layertype: 2, //iframe内层弹窗类型不显示返回首页
+            rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+        }).extend({
+            larry: 'js/base'
+        }).use(['jquery', 'larry', 'layer', 'table', 'form', 'laydate'], function () {
+            var $ = layui.$,
+                larry = layui.larry,
+                larryms = layui.larryms,
+                form = layui.form,
+                table = layui.table,
+                laydate = layui.laydate;
+
+            //按钮监听
+            $(' .layui-btn').on('click', function () {
+                var type = $(this).data('type'),
+                    url = $(this).data('url'),
+                    tit = $(this).children('cite').text();
+                active[type] ? active[type].call(this, url, tit) : '';
+            });
+            laydate.render({
+                elem: '#start_time'
+                , format: 'yyyy-MM-dd HH:mm:ss', isInitValue: true
+                , type: 'datetime'
+            });
+            laydate.render({
+                elem: '#stop_time'
+                , format: 'yyyy-MM-dd HH:mm:ss', isInitValue: true
+                , type: 'datetime'
+            });
+            var active = {
+                add: function (url, tit) {
+                    var that = this;
+                    if ($(that).attr('data-flag') == 'exist') {
+                        var index = layui.cache.layerIndex,
+                            $max = $max = $('#layui-layer' + index).find('.layui-layer-maxmin');
+                        $max.click();
+                        layui.cache.layerIndex = null;
+                    } else {
+                        $(that).attr('data-flag', 'exist');
+                        var index = layer.open({
+                            title: tit,
+                            type: 2,
+                            area: ['860px', '550px'],
+                            content: url,
+                            success: function (index, layero) {
+                                form.render();
+                            },
+                            end: function () {
+                                $(that).removeAttr("data-flag");
+                                layui.cache.layerIndex = null;
+                            }
+                        });
+
+                    }
+                },
+                del: function () {
+                    //批量删除
+                    checkStatus = table.checkStatus('demo'),
+                        data = checkStatus.data,
+                        newsId = [];
+                    console.log(data);
+                    var url = $(this).data('url');
+                    console.log(url);
+                    if (data.length > 0) {
+                        for (var i in data) {
+                            //排除默认管理员
+                            newsId.push(data[i].id);
+                        }
+                        if (newsId.length > 0) {
+                            var ids = {"id": newsId};
+                            console.log(newsId);
+                            larryms.confirm('你确定要执行批量删除吗？', {icon: 3, title: '批量删除提示！'}, function () {
+                                $.ajax({
+                                    dataType: "JSON",
+                                    url: url, //请求地址
+                                    type: "DELETE",  //提交类似
+                                    contentType: "application/json",
+                                    data: JSON.stringify({"id": newsId}),  //提交参数
+                                    success: function (res) {
+                                        larryms.msg(res.msg)
+                                        table.reload('demo', {})
+                                    },
+                                    error: function (response) {
+                                        larryms.msg(response.responseText);
+                                    }
+                                });
+                            });
+                        } else {
+                            larryms.msg('默认管理员不可删除,我是神一样的存在！');
+                        }
+                    } else {
+                        larryms.msg('请至少选择一项，进行删除操作');
+                    }
+                }
+            };
+            {#form.on('submit(demoadd1)', function(data) {#}
+            {#    $.post(data.form.action, data.field, function(res) {#}
+            {#        if (res.code == 200) {#}
+            {#larryms.msg(res.msg);#}
+            {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+            {#parent.layer.close(curIfr);#}
+            {#// $('#demoAddForm')[0].reset();继续添加注销上一段#}
+            {#            larryms.msg(res.msg,{time:350},function () {#}
+            {#                parent.table.reload('demo',{});#}
+            {#                parent.layer.close(curIfr);#}
+            {#            })#}
+            {##}
+            {#        } else if (res.code == 911) {#}
+            {#            larryms.msg(res.msg);#}
+            {#        } else if (res.code == 500) {#}
+            {#            larryms.msg(res.msg);#}
+            {#        }#}
+            {#    });#}
+            {#    return false;#}
+            {# }); #}
+
+            var tableDataUrl = $('#demo').data('url'), roleIndex = table.render({
+                elem: '#demo',
+                id: 'demo',
+                cellMinWidth: 80,
+                url: tableDataUrl,
+                method: 'get',
+                height: 'full-130',
+                page: true,
+                cols: [
+                    [
+                        {#{type: "checkbox",fixed: 'left',width: 50},#}
+                        {field: 'id', title: 'id', minWidth: 10, align: 'center'},
+                        {field: 'start_pos', title: 'start_pos', minWidth: 10, align: 'center'},
+                        {field: 'end_pos', title: 'end_pos', minWidth: 10, align: 'center',},
+                        {field: 'date', title: 'date', minWidth: 50, align: 'center'},
+                        {field: 'time', title: 'time', minWidth: 30, align: 'center'},
+                        {field: 'sql', title: 'sql', minWidth: 700, align: 'center'},
+                    ]
+                ]
+            });
+
+            // 监听工具条
+            var pageTableID = $('.larryms-table-id').attr('id');
+            table.on('tool(' + pageTableID + ')', function (obj) {
+                var data = obj.data, tit = '编辑 <em class="tit">' + data.name + '</em> 信息';
+                console.log(data)
+                if (obj.event == 'edit') {
+                    var url = $(this).data('url') + data.id;
+                    var editIndex = larryms.open({
+                        title: tit,
+                        type: 2,
+                        area: ['860px', '450px'],
+                        content: url,
+                        success: function (index, layero) {
+                            form.render();
+                        }
+                    });
+                } else if (obj.event == 'detail') {
+                    var url = $(this).data('url');
+                    larryms.confirm('查看详情还没开始作？', {icon: 3, title: '删除提示'}, function () {
+                        var ids = {"id": data.id};
+                        $.post(url, ids, function (res) {
+                            if (res.code == 200) {
+                                larryms.msg(res.msg);
+                                table.reload(pageTableID, {});
+                            } else {
+                                larryms.msg(res.msg);
+                            }
+                        });
+                    });
+                } else if (obj.event == 'del') {
+                    var url = $(this).data('url');
+                    larryms.confirm('查看详情还没开始作？', {icon: 3, title: '删除提示'}, function () {
+                        var ids = {"id": [data.id]};
+                        $.post(url, ids, function (res) {
+                            if (res.code == 200) {
+                                larryms.msg(res.msg);
+                                table.reload(pageTableID, {});
+                            } else {
+                                larryms.msg(res.msg);
+                            }
+                        });
+                    });
+                }
+            })
+        });
+
+    </script>
+
+
+
+{% endblock %}
 
 
 
 
-<script src="/static/layui/layui/layui.js" charset="utf-8"></script>
-
-	<script type="text/javascript">
-		$(function() {
-			$("#tree").treeview({
-				collapsed: true,
-				{#animated: "fast",#}
-				{#control:"#sidetreecontrol",#}
-				{#prerendered: true,#}
-				persist: "location"
-			});
-		})
-
-	</script>
-
-
-
-</body>
-</html>

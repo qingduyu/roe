@@ -39,7 +39,7 @@ class BinlogRedoAPI(APIView):
 
     def get(self, request, format=None):
 
-            queryset = BinlogParseRedo.objects.all()
+            queryset = BinlogParseRedo.objects.all().order_by('id')
 
             ##########以下内容在数据展示列表中不需要修改
             pg = MyPageNumberPagination()  # 实例化分页类
@@ -52,3 +52,34 @@ class BinlogRedoAPI(APIView):
             json_data['data'] = s.data
             return Response(json_data)
 
+
+
+
+# 分页功能的
+class BinlogUndoAPI(APIView):
+    """
+     列出所有出版社或者创建一个 新的出版社
+      """
+    # permission_classes = (AuthOrReadOnly)
+    permission_classes = ()
+
+    def get_object(self, id):
+        try:
+            return BinlogParseUndo.objects.get(id=id)
+        except BinlogParseUndo.DoesNotExist:
+            raise Http404
+
+    def get(self, request, format=None):
+
+            queryset = BinlogParseUndo.objects.all().order_by('id')
+
+            ##########以下内容在数据展示列表中不需要修改
+            pg = MyPageNumberPagination()  # 实例化分页类
+            page_data = pg.paginate_queryset(queryset=queryset, request=request, view=self)  # 根据请求的页码数，对数据进行分页
+            s = BinlogParseUndoSerializer(instance=page_data, many=True)  # 序列花这个分页数据
+            next = pg.get_next_link()  # 获取下一页
+            prev = pg.get_previous_link()  # 获取上页
+            count = queryset.count()  # 获取数据总数
+            json_data = {'code': 0, 'msg': 'success', 'count': count, 'next': next, 'prev': prev}
+            json_data['data'] = s.data
+            return Response(json_data)

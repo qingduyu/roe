@@ -3,14 +3,11 @@
 
 #扫描配置
 
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render
 from django.http import JsonResponse
-from django.contrib.auth.decorators import login_required
-from rest_framework.response import Response
-import json
 
 from CMDB.model.server_models import IpSource,scan_host_conf
-from CMDB.views.server.tasks.do_scan_ip import do_scan_ip
+from CMDB.tasks import do_scan_ip
 def scan_ip(request):
     if request.method=="GET":   #默认查看
         ip_duans= scan_host_conf.objects.all().order_by('id')
@@ -23,7 +20,7 @@ def scan_ip(request):
         '''进行后台扫描函数'''
         ip_duans=scan_host_conf.objects.all()
         for ip_duan in ip_duans:
-            ips=do_scan_ip(ip_duan.nets)
+            ips=do_scan_ip.delay(ip_duan.nets)
             for item in ips:
                 ip = item
                 try:  # 如果主机存在，并且，扫描的IP 在IP 资源表中，则主机的IP_others 增加IP

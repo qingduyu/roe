@@ -3,14 +3,11 @@
 
 #扫描配置
 
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render
 from django.http import JsonResponse
-from django.contrib.auth.decorators import login_required
-from rest_framework.response import Response
 from CMDB.model.server_models import Host,ASSET_TYPE
-from CMDB.model.server_models import IpSource,scan_conf_ip,scan_host_conf,scan_conf_sshpass
-from CMDB.views.server.tasks.do_scan_host import do_scan_host
-from CMDB.views.server.tasks.deploy_key import deploy_key
+from CMDB.model.server_models import scan_conf_ip,scan_host_conf
+from CMDB.tasks import do_scan_host
 
 
 def  scan_host(request):
@@ -36,7 +33,7 @@ def  scan_host(request):
             ssh_pass=ip_duan.ssh_pass.split(',')
             port=ip_duan.port.split(',')
             try:
-                asset_info=do_scan_host(list(port),ip_duan.nets,list(nets_pass),list(ssh_pass))
+                do_scan_host.delay(list(port),ip_duan.nets,list(nets_pass),list(ssh_pass))
             except Exception as e:
                 print(e)
 

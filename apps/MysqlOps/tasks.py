@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 from django.core.mail import EmailMessage,send_mail,EmailMultiAlternatives
 from django.template import loader
-from MysqlOps.models import BinlogParseRedo
+from MysqlOps.models import BinlogParseRedo,BinlogParseUndo
 from utils import  binlog2sql
 # from dbops.settings import
 EMAIL_SENDER='fanglianchao@veredholdings.com'
@@ -57,19 +57,34 @@ def parse_binlog(instance,binname,dbname,tablesname,start_time,stop_time,sql_typ
                                       only_tables=tablesname, no_pk=False, flashback=flash_back,sql_type=sql_type, stop_never=False)
          sqllist= binlogsql.process_binlog()
          if sqllist:
-             # BinlogParseRedo.objects.extra(where=['id >0']).delete()
-             BinlogParseRedo.objects.filter(start_pos__gt=0).delete()        #每次改变任务内容都要重新启动 celery
-             # BinlogParseRedo.objects.raw('truncate table binlogParseRedo')
-
-             binlog_list_to_insert=[]
-             for i in sqllist:
-                 tmplist=i.split('#')
-                 sql=tmplist[0]
-                 poslist=tmplist[1].split(' ')
-                 # dt=poslist[5]+ ' '+poslist[6]
-                 # date_time=datetime.datetime.strptime(dt,'%Y-%m-%d %H:%M:%S')
-                 binlog_list_to_insert.append(BinlogParseRedo(sql=sql,start_pos=poslist[1],end_pos=poslist[3],date=poslist[5],time=poslist[6]))
-             BinlogParseRedo.objects.bulk_create(binlog_list_to_insert)
+             if flash_back:
+                 # BinlogParseRedo.objects.extra(where=['id >0']).delete()
+                 BinlogParseUndo.objects.filter(start_pos__gt=0).delete()        #每次改变任务内容都要重新启动 celery
+                 # BinlogParseRedo.objects.raw('truncate table binlogParseRedo')
+                 binlog_list_to_insert=[]
+                 for i in sqllist:
+                     tmplist=i.split('#')
+                     sql=tmplist[0]
+                     poslist=tmplist[1].split(' ')
+                     # dt=poslist[5]+ ' '+poslist[6]
+                     # date_time=datetime.datetime.strptime(dt,'%Y-%m-%d %H:%M:%S')
+                     binlog_list_to_insert.append(BinlogParseUndo(sql=sql,start_pos=poslist[1],end_pos=poslist[3],date=poslist[5],time=poslist[6]))
+                 BinlogParseUndo.objects.bulk_create(binlog_list_to_insert)
+             else:
+                 # BinlogParseRedo.objects.extra(where=['id >0']).delete()
+                 BinlogParseRedo.objects.filter(start_pos__gt=0).delete()  # 每次改变任务内容都要重新启动 celery
+                 # BinlogParseRedo.objects.raw('truncate table binlogParseRedo')
+                 binlog_list_to_insert = []
+                 for i in sqllist:
+                     tmplist = i.split('#')
+                     sql = tmplist[0]
+                     poslist = tmplist[1].split(' ')
+                     # dt=poslist[5]+ ' '+poslist[6]
+                     # date_time=datetime.datetime.strptime(dt,'%Y-%m-%d %H:%M:%S')
+                     binlog_list_to_insert.append(
+                         BinlogParseRedo(sql=sql, start_pos=poslist[1], end_pos=poslist[3], date=poslist[5],
+                                         time=poslist[6]))
+                 BinlogParseRedo.objects.bulk_create(binlog_list_to_insert)
     except Exception as ex:
         print  ex
         date=time.strftime("%Y-%m-%d")

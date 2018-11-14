@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-from CMDB.model.yewutree_model import YewuTree,Productline
+from CMDB.model.yewutree_model import YewuTreeMptt,Productline
 
 from CMDB.model.net_models import NetGroup,NetDevice,Network_Assets
 from CMDB.model.idc_models import Idc,Zone_Assets,Line_Assets
