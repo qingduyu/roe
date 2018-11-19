@@ -22,7 +22,8 @@ class YewuTreeMptt(MPTTModel):
     name=models.CharField(max_length=32,null=True,blank=True)
     href=models.CharField(max_length=200,blank=True,null=True,help_text='moxingbiao')
     parent = TreeForeignKey('self', on_delete=models.CASCADE,null=True, blank=True, related_name='children',db_index=True,verbose_name='父节点')
-
+    isLast=models.BooleanField(verbose_name='是否最后节点',default=False,blank=True)
+    yewuxian=models.ForeignKey('self',on_delete=models.SET_NULL,null=True,blank=True,related_name='chanpinxian',help_text='指定根结点为产品线节点，为了展示业务线节点的名字，防止树的高度过高')
 
     def __str__(self):
         return self.name

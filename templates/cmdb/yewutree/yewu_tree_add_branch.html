@@ -1,0 +1,95 @@
+{% extends 'base_children.html' %}
+
+{% block content %}
+    <div class="layui-row larryms-panel auth-user-add">
+     <form action="{% url 'yewu_tree_add_branch' %}" class="layui-form" method="post" id="demoAddForm">
+{#            {% csrf_token %}#}
+
+           <input name="parentid" value="{{ yewunode.id }}" type="hidden">
+
+                <div class="layui-form-item">
+
+                 <div class="layui-form-inline">
+                    <label class="layui-form-label">父节点</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" name="parent_name" value="{{ yewunode.name}}" type="text" disabled>
+                    </div>
+                </div>
+
+                </div>
+
+
+                <div class="layui-form-item">
+
+                    <div class="layui-form-inline">
+
+                        <label class="layui-form-label">节点名称</label>
+                        <div class="layui-input-inline">
+                            <input class="layui-input" name="node_name" value="" placeholder="节点名称" type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="larryms-layer-btn " >
+                    <a class="layui-btn layui-btn-sm " lay-submit="" lay-filter="demoadd" id="submitAdd">提交</a>
+
+                    <a class=" layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+                </div>
+
+
+            </form>
+        </div>
+
+{% endblock %}
+{% block self_foot %}
+<script type="text/javascript">
+    layui.config({
+        version: "2.0.8",
+        base: '/static/larryms/',
+        layertype:2
+    }).extend({
+        larry: 'js/base'
+    }).use(['jquery','larry','layer','larryms','form','laydate'], function() {
+           var $ = layui.$,
+            larry = layui.larry,
+            table = layui.talbe,
+            larryms = layui.larryms,
+            form = layui.form,
+            laydate = layui.laydate;
+        var curIfr = parent.layer.getFrameIndex(window.name);
+
+        $('#closeAdd').on('click', function() {
+            parent.layer.close(curIfr);
+        });
+
+
+        form.on('submit(demoadd)', function(data) {
+            $.ajax({
+			    dataType: "JSON",
+			    url:data.form.action, //请求地址
+			    type:"POST",  //提交类似
+			    data: data.field,  //提交参数
+			    success:function(res){
+				larryms.msg(res.msg,function () {
+                     parent.location.reload();
+                    parent.layer.close(curIfr);
+                   {#parent.location.reload();#}
+                })
+			    },
+	    	    error:function(response){
+				    larryms.msg( response.responseText);
+	    	 }});
+
+            return false;});
+
+    });
+
+
+    </script>
+
+
+
+{% endblock %}

@@ -38,6 +38,7 @@ class MySQLCluster(models.Model):
     desc = models.CharField(u"描述", max_length=100, null=True, blank=True)
     operator = models.ForeignKey(User, verbose_name="可见的人", blank=True,null=True)
     status=models.CharField(u"状态", max_length=30, blank=True,null=True)
+    is_pooled=models.BooleanField(verbose_name='是否在资源池中',default=True,blank=True) #在资源池中的数据才能被分配给业务,同时本资源移出资源池,不再在业务中和资源池中的表明还没准备好
     up_date = models.DateField(null=True, blank=True, verbose_name=u'上线日期')
     down_date = models.DateField(null=True, blank=True, verbose_name=u'下线日期')
     def __unicode__(self):

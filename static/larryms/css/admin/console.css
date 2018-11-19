@@ -61,8 +61,15 @@ section.top1 .larryms-text h3{white-space:nowrap;overflow:hidden;text-overflow:e
 .layui-card .ui-e i::before{color:#FFC630}
 .layui-card .ui-f i::before{color:#009688}
 .larryms-products .layui-card-body p{font-family:"Helvetica Neue",Helvetica,Tahoma,Arial,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;font-size:14px;color:#76838f;line-height:25px}
-
-
+.larryms-products .layui-card-body{
+	transition: all 0.3s linear;
+	cursor: pointer;
+}
+.larryms-products .layui-card-body:hover{
+	box-shadow: 0px 15px 40px rgba(0,0,0,.15);
+	transform: scale(1.02,1.02);
+	margin-top: -2px;
+}
 @media screen and  (min-width:1000px) and (max-width:1280px){
 	.larryms-forums{padding-top:0px;}
 	section.top1 .larryms-text h3{font-size:15px}
@@ -235,11 +242,11 @@ section.top1 .larryms-text h3{white-space:nowrap;overflow:hidden;text-overflow:e
 body.ie-bug .larry-shortcut section.shortcut .larry-ico{
     box-shadow: none;
 }
-body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-green{background:#FC5D2A;}
+/*body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-green{background:#FC5D2A;}
 body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-blue{background:#1E9FFF;}
 body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-red{background:#FF5722;}
 body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-orange{background:#FFB800;}
 body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-purple{background:#9825D1;}
 body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-one{background:#ff2b67;}
 body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-two{background:#16d1b6;}
-body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-three{background:#26d0e0;}
+body.ie-bug .larry-shortcut section.shortcut .larry-ico.larry-bg-three{background:#26d0e0;}*/

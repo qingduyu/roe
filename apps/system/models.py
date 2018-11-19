@@ -83,7 +83,7 @@ class Global_Config(models.Model):
     sql = models.SmallIntegerField(verbose_name='是否开启SQL更新通知', blank=True, null=True)
 
     class Meta:
-        db_table = 'opsmanage_global_config'
+        db_table = 'global_config'
 
 
 class Email_Config(models.Model):

@@ -29,6 +29,8 @@
        <script type="text/html" id="demoBtnBar">
 
            <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="edit">编辑</a>
+       <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="update">更新</a>
+       <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="detail">详情</a>
 
     </script>
 
@@ -42,7 +44,7 @@
         version: "2.0.8",
         base: '/static/larryms/',
          layertype: 2, //iframe内层弹窗类型不显示返回首页
-        rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+        rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
     }).extend({
         larry: 'js/base'
     }).use(['jquery','table', 'form','layer','larry'], function() {
@@ -172,21 +174,20 @@ table.on('tool('+pageTableID+')', function(obj) {
               }
           });
       }else if(obj.event == 'detail'){
-          var url = $(this).data('url');
-          larryms.confirm('查看详情还没开始作？',{icon: 3, title:'删除提示'},function(){
-              var ids = {"id":data.id};
-              $.post(url,ids,function(res){
-                  if(res.code==200){
-                      larryms.msg(res.msg);
-                      table.reload(pageTableID,{});
-                  }else{
-                     larryms.msg(res.msg);
-                  }
-              });
+
+           var url =  $(this).data('url')+data.id;
+           var detailIndex =  larryms.open({
+              title: tit,
+              type: 2,
+              area: ['860px', '450px'],
+              content: url,
+              success: function(index, layero) {
+                form.render();
+              }
           });
-      }else if(obj.event == 'del'){
+      }else if(obj.event == 'update'){
           var url = $(this).data('url');
-           larryms.confirm('查看详情还没开始作？',{icon: 3, title:'删除提示'},function(){
+           larryms.confirm('更新统计信息',{icon: 3, title:'更新提示'},function(){
               var ids = {"id":[data.id]};
               $.post(url,ids,function(res){
                   if(res.code==200){

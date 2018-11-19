@@ -110,7 +110,6 @@ class ModelResultsCollector(CallbackBase):
     def v2_runner_on_failed(self, result,  *args, **kwargs):  
         self.host_failed[result._host.get_name()] = result  
 
-        
 class ModelResultsCollectorToSave(CallbackBase):  
   
     def __init__(self, redisKey,logId,*args, **kwargs):
@@ -128,8 +127,7 @@ class ModelResultsCollectorToSave(CallbackBase):
         data = "<font color='#FA8072'>{host} | UNREACHABLE! => {stdout}</font>".format(host=result._host.get_name(),stdout=json.dumps(result._result,indent=4))    
         DsRedis.OpsAnsibleModel.lpush(self.redisKey,data) 
         if self.logId:AnsibleSaveResult.Model.insert(self.logId, data)
-   
-        
+
     def v2_runner_on_ok(self, result,  *args, **kwargs):   
         for remove_key in ('changed', 'invocation','_ansible_parsed','_ansible_no_log'):
             if remove_key in result._result:
@@ -193,7 +191,8 @@ class PlayBookResultsCollectorToSave(CallbackBase):
             self._process_items(result)   
         else:             
             DsRedis.OpsAnsiblePlayBook.lpush(self.redisKey,msg)
-            if self.logId:AnsibleSaveResult.PlayBook.insert(self.logId, msg)    
+            if self.logId:
+                AnsibleSaveResult.PlayBook.insert(self.logId, msg)
         
         
     def v2_runner_on_failed(self, result, *args, **kwargs):
@@ -635,7 +634,7 @@ class ANSRunner(object):
                     else:
                         data['status'] = 'failed'
                     data_list.append(data)
-            elif success:
+            if success:
                 for x,y in success.items(): 
                     data = {}                    
                     data['ip'] = x
@@ -668,7 +667,7 @@ class ANSRunner(object):
                         data['status'] = 'succeed'
                     data_list.append(data) 
                     
-            elif failed:
+            if failed:
                 for x,y in failed.items():   
                     data = {}                  
                     data['ip'] = x

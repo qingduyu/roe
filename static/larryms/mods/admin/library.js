@@ -1,6 +1,18 @@
-layui.define(['jquery'], function(exports) {
+layui.define(['jquery','code'], function(exports) {
 	var $ = layui.$,
-		larryms = layui.larryms;
+		larryms = layui.larryms,
+		code = layui.code;
+	layui.code({
+		skin: 'notepad',
+		about: false,
+		elem: ".layui-code",
+		encode: true
+	});
+	layui.code({
+		about: false,
+		elem: ".larry-code",
+		encode: true
+	});
 	//不同的页面执行不同的js
 	if (layui.cache.identified == 'fonts') {
 		larryms.plugin('clipboard.min.js', function() {
@@ -23,7 +35,7 @@ layui.define(['jquery'], function(exports) {
 			if ($.trim(txt) != "" && $.trim(txt) != "larry") {
 				$(".icon_lists li").hide().filter(":contains('" + txt + "')").show();
 			} else {
-				larryms.message('请输入点什么再搜索吧(全部图标均含有larry字符)！', 'error','larry-cuowu3', 1500);
+				larryms.message('请输入点什么再搜索吧(全部图标均含有larry字符)！', 'error','larry-cuowu3', 2);
 				$(".icon_lists li").show();
 			}
 		});

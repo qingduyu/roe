@@ -4,6 +4,7 @@ layui.define(['form', 'laytpl', 'table'], function(exports) {
 		laytpl = layui.laytpl,
 		form = layui.form;
 	table = layui.table;
+	larryms.alert('您当前看到的菜单、权限、角色这一系列页面均只是临时的，待相关核心组件更新完成 会有多套菜单权限模板页可供选择');
 	var addIndex;
 	var fontpath = layui.cache.base + 'lib/fonts/';
 	var pageTableID = $('.larryms-table-id').attr('id');

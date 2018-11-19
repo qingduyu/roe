@@ -13,8 +13,8 @@
 .larryms-admin .larryms-page-header span.tit { line-height: 30px; font-size: 16px; color: #666666; font-weight: 300; }
 .larryms-admin .larryms-page-body { margin: 0px 20px; padding: 20px 0px; }
 .larryms-admin .larryms-page-body form { display: block; width: 90%; }
-.layui-form .layui-form-item label.layui-form-label { width: 110px; font-family: "Microsoft YaHei"; }
-.layui-input-block { margin-left: 150px; width: auto; }
+.layui-form .layui-form-item label.layui-form-label { width: 110px; font-family: "Microsoft YaHei";}
+.layui-input-block {  width: auto; }
 .layui-disabled { background: #EEEEEE; color: #595963 !important; }
 .layui-disabled:hover { color: #595963 !important; }
 .layui-input-block textarea { height: 90px; }
@@ -73,18 +73,62 @@ body.larryms-menu .layui-table { padding-top: 0px; margin-top: 0px; }
 .layui-layer-content .layui-tab .larryms-search .search_text { clear: both; display: block; width: 200px; height: 32px; position: absolute; top: 0px; left: 0px; text-align: left; text-indent: 5px; line-height: 32px; border: 1px solid #e5e5e5; }
 .layui-layer-content .layui-tab .larryms-search .search_icon { position: absolute; top: 1px; left: 205px; }
 
-.larryms-navy .larryms-layer-btn { text-align: left; background: #eee; position: absolute; bottom: 0px; left: 0px; right: 0px; padding-top: 10px; border-top: 1px solid #e2e2e2; }
-.larryms-navy .larryms-layer-btn a { margin-bottom: 10px; height: 32px; line-height: 32px; margin-right: 30px; padding-left: 25px; padding-right: 25px; }
-.larryms-navy .larryms-layer-btn a.left { margin-left: 100px; }
+.larryms-navy .larryms-layer-btn {
+	text-align: center;
+	background: #eee;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	padding-top: 10px;
+	border-top: 1px solid #e2e2e2;
+}
+
+.larryms-navy .larryms-layer-btn a {
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 10px;
+	height: 32px;
+	line-height: 32px;
+	margin-right: 30px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.larryms-navy .larryms-layer-btn a.left {
+	/*margin-left: 100px;*/
+}
 .param,
 .condition { display: none; }
 body.larryms-menu-edit { background: #fff; position: relative; padding-top: 0px; overflow: hidden;}
 body.larryms-menu-edit .larryms-menu-type { width: 100%; height: 38px; position: relative; }
 body.larryms-menu-edit .larryms-menu-type .layui-inline-left { display: inline-block; vertical-align: top; position: absolute; top: 0px; left: 0px; }
 body.larryms-menu-edit .larryms-menu-type .layui-inline-right { display: inline-block; vertical-align: top; position: absolute; top: 0px; right: 0px; }
-body.larryms-menu-edit .larryms-layer-btn { text-align: left; background: #eee; position: absolute; bottom: 0px; left: 0px; right: 0px; padding-top: 10px; border-top: 1px solid #e2e2e2; }
-body.larryms-menu-edit .larryms-layer-btn a { margin-bottom: 10px; height: 32px; line-height: 32px; margin-right: 30px; padding-left: 25px; padding-right: 25px; }
-body.larryms-menu-edit .larryms-layer-btn a.left { margin-left: 100px; }
+body.larryms-menu-edit .larryms-layer-btn {
+	text-align: center;
+	background: #eee;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	padding-top: 10px;
+	border-top: 1px solid #e2e2e2;
+}
+
+body.larryms-menu-edit .larryms-layer-btn a {
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 10px;
+	height: 32px;
+	line-height: 32px;
+	margin-right: 30px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+body.larryms-menu-edit .larryms-layer-btn a.left {
+	/*margin-left: 100px;*/
+}
 body.larryms-menu-edit .layui-tab .larryms-search { display: inline-block; vertical-align: top; width: 300px; height: 32px; position: absolute; top: 4px; left: 150px; }
 body.larryms-menu-edit .layui-tab .larryms-search .search_text { clear: both; display: block; width: 200px; height: 32px; position: absolute; top: 0px; left: 0px; text-align: left; text-indent: 5px; line-height: 32px; border: 1px solid #e5e5e5; }
 body.larryms-menu-edit .layui-tab .larryms-search .search_icon { position: absolute; top: 1px; left: 205px; }
@@ -105,13 +149,35 @@ body.auth-user .layui-fluid { width: 100%; height: 100%; }
 .auth-user-add .layui-form label { font-size: 14px; color: #333; }
 .auth-user-add .layui-form .larry-input { width: 92%; }
 .auth-user-add .layui-form  .larry-textarea textarea { width: 92%; }
-.auth-user-add .layui-form .layui-form-select { width: 92%; }
+.auth-user-add .layui-form .layui-form-select { width: 92% !important; }
 .auth-user-add .layui-form .layui-form-select .layui-select-title { width: 100%; }
 .auth-user-add .layui-form .layui-form-select .layui-select-title input.layui-input { background: #e8e8e8; }
 .auth-user-add .layui-form .layui-form-select .layui-select-title input.layui-input:focus { background: #fff; }
-.auth-user-add .layui-form .larryms-layer-btn { text-align: left; background: #eee; position: fixed; bottom: 0px; left: 0px; right: 0px; padding-top: 15px; border-top: 1px solid #e2e2e2; }
-.auth-user-add .layui-form .larryms-layer-btn a { margin-bottom: 15px; height: 32px; line-height: 32px; margin-right: 30px; padding-left: 25px; padding-right: 25px; }
-.auth-user-add .layui-form .larryms-layer-btn a.left { margin-left: 85px; }
+.auth-user-add .layui-form .larryms-layer-btn {
+	text-align: center;
+	background: #eee;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	padding-top: 15px;
+	border-top: 1px solid #e2e2e2;
+}
+
+.auth-user-add .layui-form .larryms-layer-btn a {
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 15px;
+	height: 32px;
+	line-height: 32px;
+	margin-right: 30px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.auth-user-add .layui-form .larryms-layer-btn a.left {
+	/*margin-left: 85px;*/
+}
 .except-text { color: #01AAED; }
 body.larryms-auth-group { background: #fff; }
 .larryms-auth .searchVal { display: inline-block; vertical-align: top; height: 30px; width: 160px; margin-right: 5px; margin-top: 0px; z-index: 99999; }
@@ -584,9 +650,9 @@ body.article .larryms-article .layui-form[width800] .layui-form-item{
 	body.larryms-menu .layui-form .larryms-layer-btn a,body.auth-user .layui-form .larryms-layer-btn a,.auth-user-add .layui-form .larryms-layer-btn a{
 		margin-right: 15px;
 	}
-	body.larryms-menu .layui-form .larryms-layer-btn a.left,body.auth-user .layui-form .larryms-layer-btn a.left,.auth-user-add .layui-form .larryms-layer-btn a.left{
+	/*body.larryms-menu .layui-form .larryms-layer-btn a.left,body.auth-user .layui-form .larryms-layer-btn a.left,.auth-user-add .layui-form .larryms-layer-btn a.left{
 		margin-left: 70px;
-	}
+	}*/
 	body.larryms-menu .layui-layer-content .layui-tab .larryms-search .search_text{
 		width: 150px;
 	}

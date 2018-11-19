@@ -11,211 +11,297 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="Shortcut Icon" href="/static/images/favicon.ico" />
+    <link rel="Shortcut Icon" href="/static/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/static/larryms/layui/css/layui.css" media="all">
     <link rel="stylesheet" type="text/css" href="/static/larryms/css/admin/base.css" media="all">
     <link rel="stylesheet" type="text/css" href="/static/larryms/css/admin/console.css">
 </head>
 
 <body class="larry-bg-gray">
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 10]>
+  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
     <div class="layui-fluid">
         <div class="larry-container">
-            <div class="layui-row layui-col-space15 larryms-data-top">
-                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">
-                    <section class="layui-card">
-                        <div class="layui-card-body countup">
-                            <div class="left a">
-                                <i class="larry-icon larry-gouwucheman"></i>
-                                <p>订单</p>
+            <!-- 快捷导航 -->
+            <div class="layui-row larry-shortcut layui-col-space15" id="shortcut">
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
+                    <section class="shortcut pos-r larry-ico-rotate">
+                        <a target="_blank" class="pos-r" data-url='www.baidu.com' data-id="606" data-group="0" data-icon="larry-daohang" data-font="larry-icon">
+                            <div class="larry-ico larry-bg-red"><i class="larry-icon larry-container"></i></div>
+                            <div class="larry-value">
+                                <cite class="un-nums">百度导航地址</cite>
                             </div>
-                            <div class="right">
-                                <i class="larry-icon larry-xiangxiajiantoushixin"></i>
-                                <div class="p">
-                                    <h3 id="orderCounter">666</h3>
-                                    <cite>+18%同比增长</cite>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
                     </section>
                 </div>
-                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">
-                    <section class="layui-card">
-                        <div class="layui-card-body countup">
-                            <div class="left b">
-                                <i class="larry-icon larry-shouru"></i>
-                                <p>收入</p>
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
+                    <section class="shortcut pos-r larry-ico-rotate">
+                        <a target="_blank" class="pos-r" data-url='wwww.aliyun.com' data-id='302' data-group="1" data-icon="larry-chanpinC" data-font="larry-icon">
+                            <div class="larry-ico larry-bg-two"><i class="larry-icon larry-chanpinC"></i></div>
+                            <div class="larry-value">
+                                <cite class="un-nums">阿里云导航地址</cite>
                             </div>
-                            <div class="right">
-                                <i class="larry-icon larry-xiangshang2"></i>
-                                <div class="p">
-                                    <h3 id="incomeCounter">20000</h3>
-                                    <cite>+50%同比增长</cite>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
                     </section>
                 </div>
-                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">
-                    <section class="layui-card">
-                        <div class="layui-card-body countup">
-                            <div class="left c">
-                                <i class="larry-icon larry-laofangke"></i>
-                                <p>访客</p>
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col layui-hide-xs">
+                    <section class="shortcut pos-r larry-ico-rotate">
+                        <a larry-tab="iframe" class="pos-r" data-url='http://www.github.com/qingdu/roe' data-group="3" data-icon="larry-pc" data-id="312" data-font="larry-icon">
+                            <div class="larry-ico larry-bg-green"><i class="larry-icon larry-pc"></i></div>
+                            <div class="larry-value">
+                                <cite class="un-nums">作者开源地址</cite>
                             </div>
-                            <div class="right">
-                                <i class="larry-icon larry-xiangshang2"></i>
-                                <div class="p">
-                                    <h3 id="UVcounter">33568</h3>
-                                    <cite>+35%环比增长</cite>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
                     </section>
                 </div>
-                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-hide-md layui-show-lg-inline-block layui-col-lg3">
-                    <section class="layui-card">
-                        <div class="layui-card-body countup">
-                            <div class="left d">
-                                <i class="larry-icon larry-zhifumaijia"></i>
-                                <p>买家</p>
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col  layui-hide-xs">
+                    <section class="shortcut pos-r larry-ico-rotate">
+                        <a larry-tab="iframe" class="pos-r" data-url='http://www.lianchaofang.com' data-icon="larry-xiangmu" data-font="larry-icon" data-id="798" data-group="2">
+                            <div class="larry-ico larry-bg-purple"><i class="larry-icon larry-xiangmu"></i></div>
+                            <div class="larry-value">
+                                <cite class="un-nums">作者博客地址</cite>
                             </div>
-                            <div class="right">
-                                <i class="larry-icon larry-xiangshang2"></i>
-                                <div class="p">
-                                    <h3 id="userCounter">3168</h3>
-                                    <cite>+30%同比增长</cite>
-                                </div>
+                        </a>
+                    </section>
+                </div>
+                
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
+                    <section class="shortcut pos-r larry-ico-rotate">
+                        <a larry-tab="iframe" class="pos-r" data-url='admin/panel/message.html' data-icon="larry-message_icon" data-font="larry-icon" data-id="12" data-group="0">
+                            <div class="larry-ico larry-bg-orange"><i class="larry-icon larry-message_icon"></i></div>
+                            <div class="larry-value">
+                                <span class="nums" id="msgNums">1000</span>
+                                <cite>消息中心</cite>
                             </div>
-                        </div>
+                        </a>
+                    </section>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
+                    <section class="shortcut larry-ico-rotate">
+                        <a larry-tab="iframe" class="pos-r" data-url='admin/content/list.html' data-icon="larry-neirongguanli1" data-font="larry-icon" data-id="26" data-group='3'>
+                            <div class="larry-ico larry-bg-blue"><i class="larry-icon larry-neirongguanli1"></i></div>
+                            <div class="larry-value">
+                                <span class="nums" id="artNums">7666</span>
+                                <cite>所有文章列表</cite>
+                            </div>
+                        </a>
                     </section>
                 </div>
             </div>
-            <!-- 订单收入数据 -->
-            <div class="layui-row  layui-col-space15 larryms-count-demo">
-                <div class="layui-col-xs12 layui-col-sm12 layui-col-md7 layui-col-lg7">
-                    <section class="layui-card">
-                        <div class="larryms-card-head">最新订单</div>
-                        <div class="layui-card-body">
-                            <table class="layui-table larryms-order-demo" lay-skin="nob">
+            <!-- 面板 -->
+            <div class="layui-row layui-col-space15">
+                <!-- 更新检查 -->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md6 layui-col-lg6">
+                    <section class="larry-panel top1 layui-hide-xs">
+                        <div class="larry-panel-header">
+                            <h3 class="larry-panel-title">基本介绍</h3>
+                            <i class="larry-icon larry-unfold1 tools"></i>
+                        </div>
+                        <div class="larry-panel-body">
+                            <div class="update">
+                                <div class="larryms clearfix">
+                                    <span class="logo larry-bg-green">鱼仔系统</span>
+                                    <div class="larryms-text">
+                                        <h3 class="larryms-intoduce">鱼仔自动化运维管理系统</h3>
+                                        <ul class="larryms-intoduce-ul">
+                                            <li>
+                                                roeops 是一套基于layui 作为前端框架，django 作为后台框架的完全开源自动化运维管理系统, roeops 结合作者工作经验和各种开源技术，旨在帮助企业提高工作效率，节省运维成本。
+                                            </li>
+                                            <li>
+                                                您可以roeops为基础，开发自己的系统和模块，如DB管理，工单，CMDB，中间件管理等
+                                            </li>
+                                            <li>
+                                                roeops 紧贴业务场景，以实际运维需求为向导，屏除无效和面子项目，使用了大量的开源组件，最大程度上帮助企业和开发者个人节省时间成本和费用开支。
+                                            </li>
+                                        </ul>
+{#                                        <div class="larryms-forums">#}
+{#                                            <a href="http://www.larryms.com/" target="_blank" class="larryms-btn larryms-btn-xs ">返回官网</a>#}
+{#                                            #}
+{#                                            <a id="wapQrcode" target="_blank" class="larryms-btn larryms-btn-xs larryms-btn-danger">移动端体验</a>#}
+{#                                            <a href="http://www.larryms.com/doc.html" target="_blank" class="larryms-btn larryms-btn-xs larryms-btn-normal">开发者文档</a>#}
+{#                                            <a href="tencent://message/?uin=313492783&Site=larryms&Menu=yes" target="_blank" class="larryms-btn larryms-btn-xs">QQ在线咨询</a>#}
+{#                                            <a href="http://www.larryms.com/article/1.html" target="_blank" class="larryms-btn larryms-btn-xs larryms-btn-balcks">服务协议</a>#}
+{#                                            <a id="remarkLarryMS" target="_blank" class="larryms-btn larryms-btn-xs larryms-btn-danger">预览版重要说明</a>#}
+{#                                        </div>#}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- larryMS系统概览 -->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md6 layui-col-lg6">
+                    <section class="larry-panel top1">
+                        <div class="larry-panel-header">
+                            <h3 class="larry-panel-title">版本信息 <a href="http://www.larryms.com/" target="_blank"><em>[</em><span class="versionT"></span><em>]</em></a></h3>
+                            <i class="larry-icon larry-unfold1 tools"></i>
+                        </div>
+                        <div class="larry-panel-body">
+                            <table class="layui-table larry-table-info">
                                 <colgroup>
-                                    <col width="20%">
-                                    <col width="20%">
-                                    <col width="15%">
-                                    <col width="20%">
+                                    <col width="150">
                                     <col>
                                 </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>订单号</th>
-                                        <th>缩略图</th>
-                                        <th>产品</th>
-                                        <th>买家</th>
-                                        <th class="layui-hide-xs">交易状态</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td>mobileABC001</td>
-                                        <td><img src="/static/larryms/images/product/iwatch.png" alt=""></td>
-                                        <td>iWatch</td>
-                                        <td>吕**</td>
-                                        <td  class="layui-hide-xs"><span class="label label-success font-weight-100">已完成</span></td>
+                                        <td><span class="tit">产品名称:</span></td>
+                                        <td><span class="info">鱼仔技术</span></td>
                                     </tr>
                                     <tr>
-                                        <td>mobileABC002</td>
-                                        <td><img src="/static/larryms/images/product/iphone.png" alt=""></td>
-                                        <td>iphone</td>
-                                        <td>江**</td>
-                                        <td  class="layui-hide-xs"><span class="label label-success font-weight-100">已完成</span></td>
+                                        <td><span class="tit">当前版本:</span></td>
+                                        <td><span class="info iframe versionT"> roeops v2.00 ( iframe版 )</span><a href="http://www.larryms.com/cates/2.html" target="_blank" class="p3 larryms-f-blue">更新日志</a></td>
                                     </tr>
                                     <tr>
-                                        <td>mobileABC003</td>
-                                        <td><img src="/static/larryms/images/product/xsq.jpg" alt=""></td>
-                                        <td>AOC</td>
-                                        <td>李**</td>
-                                        <td  class="layui-hide-xs"><span class="label label-warning font-weight-100">待发货</span></td>
+                                        <td><span class="tit">版本选取:</span></td>
+                                        <td>python 2.7 django 1.11, layui 2.4.5</td>
                                     </tr>
                                     <tr>
-                                        <td>mobileABC004</td>
-                                        <td><img src="/static/larryms/images/product/bjb.jpg" alt=""></td>
-                                        <td>Mac Pro</td>
-                                        <td>高**</td>
-                                        <td  class="layui-hide-xs"><span class="label label-default font-weight-100">已取消</span></td>
+                                        <td><span class="tit">开发作者:</span></td>
+                                        <td>鱼仔 （ QQ:554712718 ）</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="tit">系统特点:</span></td>
+                                        <td>门槛地，设计独立，便于学习进阶，实用性强</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </section>
                 </div>
-                <div class="layui-col-xs12 layui-col-sm12 layui-col-md5 layui-col-lg5">
+            </div>
+            <div class="larryms-card layui-row layui-col-space15 larryms-products">
+                <!-- 常用板块 -->
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
                     <section class="layui-card">
-                        <div class="larryms-card-head"><span>收入统计汇总图表</span></div>
-                        <div class="layui-card-body">
-                            <div class="income" id="icome"></div>
+                        <div class="layui-card-body ui-a">
+                            <i class="larry-icon larry-jiemiansheji"></i>
+                            <p>UI范例</p>
+                            <div class="label-content">
+                                <span class="label label-default label-outline">布局</span>
+                                <span class="label label-default label-outline">layui组件</span>
+                                <span class="label label-default label-outline">基本</span>
+                                <span class="label label-default label-outline">表单</span>
+                                <span class="label label-default label-outline">进阶</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+                    <section class="layui-card">
+                        <div class="layui-card-body ui-b">
+                            <i class="larry-icon larry-js1"></i>
+                            <p>JS组件库</p>
+                            <div class="label-content">
+                                <span class="label label-default label-outline">动画库</span>
+                                <span class="label label-default label-outline">60+JS库</span>
+                                <span class="label label-default label-outline">编辑器</span>
+                                <span class="label label-default label-outline">600+图标库</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+                    <section class="layui-card">
+                        <div class="layui-card-body ui-c">
+                            <i class="larry-icon larry-tubiao-zhuzhuangtu"></i>
+                            <p>图表动画</p>
+                            <div class="label-content">
+                                <span class="label label-default label-outline">Echarts</span>
+                                <span class="label label-default label-outline">仪表盘</span>
+                                <span class="label label-default label-outline">svg动画</span>
+                                <span class="label label-default label-outline">scrolla动画</span>
+                                <span class="label label-default label-outline">炫酷CSS3</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+                    <section class="layui-card">
+                        <div class="layui-card-body ui-d">
+                            <i class="larry-icon larry-changyongshili"></i>
+                            <p>页面示例</p>
+                            <div class="label-content">
+                                <span class="label label-default label-outline">小工具</span>
+                                <span class="label label-default label-outline">错误页</span>
+                                <span class="label label-default label-outline">注册登录</span>
+                                <span class="label label-default label-outline">H5场景</span>
+                                <span class="label label-default label-outline">30+常用页</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+                    <section class="layui-card">
+                        <div class="layui-card-body ui-e">
+                            <i class="larry-icon larry-biaoge1"></i>
+                            <p>表格示例</p>
+                            <div class="label-content">
+                                <span class="label label-default label-outline">基本表格</span>
+                                <span class="label label-default label-outline">DataTable</span>
+                                <span class="label label-default label-outline">树形表格</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2">
+                    <section class="layui-card">
+                        <div class="layui-card-body ui-f">
+                            <i class="larry-icon larry-msnui-sys-report"></i>
+                            <p>系统模板</p>
+                            <div class="label-content">
+                                <span class="label label-default label-outline">用户</span>
+                                <span class="label label-default label-outline">权限</span>
+                                <span class="label label-default label-outline">菜单</span>
+                                <span class="label label-default label-outline">内容</span>
+                                <span class="label label-default label-outline">栏目</span>
+                                <span class="label label-default label-outline">微信公众</span>
+                                <span class="label label-default label-outline">100+模板页</span>
+                            </div>
                         </div>
                     </section>
                 </div>
             </div>
+
             <div class="layui-row layui-col-space15">
-                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-col-lg7">
-                    <section class="layui-card">
-                        <div class="larryms-card-head">历史订单</div>
-                        <div class="layui-card-body orders">
-                            <table data-url="/static/larryms/data/admin/order.json" id="historyOrder"></table>
+                <!-- 网站数据统计 -->
+                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-col-lg12">
+                    <section class="larry-panel">
+                        <div class="larry-panel-header">
+                            <h3 class="larry-panel-title">数据概览</h3>
+                            <i class="larry-icon larry-unfold1 tools"></i>
+                        </div>
+                        <div class="larry-panel-body">
+                            <div class="count-data" id="larryCount">
+                            </div>
                         </div>
                     </section>
                 </div>
-                <div class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-col-lg5">
-                    <section class="layui-card">
-                        <div class="larryms-card-head">近期动态
-                                <a class="more  fr"><span class="label label-default">查看所有</span></a>
-                        </div>
-                        <div class="layui-card-body">
-                            <ul class="layui-timeline larryms-dynamic">
-                                <li class="layui-timeline-item">
-                                    <i class="layui-timeline-axis larry-icon larry-youjian"></i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <h3 class="layui-timeline-title">系统消息 <cite>您有新的邮件</cite></h3>
-                                        <div class="metas">1 分钟前</div>
-                                        <ul>
-                                            <li><em class="add">来自</em>larryms@larryms.com的邮件</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="layui-timeline-item pic">
-                                    <i class="layui-timeline-axis larry-icon larry-tupian"></i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <h3 class="layui-timeline-title">管理员 <cite>上传3张图片</cite></h3>
-                                        <div class="metas">2 小时前</div>
-                                        <ul class="photos clearfix" id="larrymsDynamicPic">
-                                            <li class="img"><img src="/static/larryms/images/product/1.jpg" alt=""></li>
-                                            <li class="img"><img src="/static/larryms/images/product/2.jpg" alt=""></li>
-                                            <li class="img"><img src="/static/larryms/images/product/3.jpg" alt=""></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="layui-timeline-item a">
-                                    <i class="layui-timeline-axis larry-icon  larry-xiaoxi"></i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <h3 class="layui-timeline-title">系统消息 <cite>您的产品iWatch已售空</cite></h3>
-                                        <div class="metas">5 小时前</div>
-                                        <ul>
-                                            <!-- <li><em class="add">新增</em>新增左侧三级菜单，纯响应式支持,理论上可达5级菜单</li> -->
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="layui-timeline-item b">
-                                    <i class="layui-timeline-axis larry-icon  larry-dingwei"></i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <h3 class="layui-timeline-title">订单消息 <cite>您有1个新的订单正在发货</cite></h3>
-                                        <ul>
-                                            <li>已打包装箱完成，等待运输...</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
+            </div>
+            <div class="layui-hide" id="qrcodeBox">
+                <style>
+                .qrcode {
+                    display: block;
+                    width: 300px;
+                    height: 300px;
+                    margin: 0 auto;
+                    margin-top: 10px;
+                    position: relative;
+                }
+                .qrcode .qrcode-logo{
+                    display: block;
+                    width: 48px;
+                    height: 48px;
+                    position: absolute;
+                    top: 120px;
+                    left: 126px;
+                    border-radius: 6px;
+                }
+                </style>
+                <div class="qrcode" id="qrcode">
+                    <img class="qrcode-logo" src="/static/larryms/images/logo.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -227,7 +313,7 @@
     layui.config({
         version: "2.0.8",
         base: '/static/larryms/',
-        identified: 'console'
+        identified: 'main'
     }).extend({
         larry: 'js/base'
     }).use('larry');

@@ -1,3 +1,10 @@
+/**
+ * @name : larryMS框架后台界面主文件
+ * @author larry
+ * @QQ: 313492783
+ * @site : www.larryms.com
+ * @Last Modified time: 2018-08-10 15:50:06
+ */
 var larryTab;
 layui.define(['jquery', 'configure', 'larryTab'], function(exports) {
   var $ = layui.$,
@@ -14,7 +21,7 @@ layui.define(['jquery', 'configure', 'larryTab'], function(exports) {
     ThemeUrl = 'lib/templets/theme';
   larryTab = layui.larryTab({
     tab_elem: '#larry_tab',
-    tabMax: 20,
+    tabMax: 30,
     spreadOne: true
   });
   var _initialize = function() {
@@ -249,18 +256,20 @@ layui.define(['jquery', 'configure', 'larryTab'], function(exports) {
       $('#larryms_top_menu').removeClass('pt-page-moveToLeftFade');
       topMenuShade.show();
       TPMflag = true;
+      console.log(TPMflag);
     } else {
       $('#larryms_top_menu').removeClass('pt-page-moveFromTop');
       $('#larryms_top_menu').addClass('pt-page-moveToLeftFade');
       topMenuShade.hide();
       TPMflag = false;
+      console.log(TPMflag);
     }
-    if($('#larryms_top_menu').hasClass('pt-page-moveFromTop')){
-         if($('#larry_left').hasClass('pt-page-moveFromLeft')){
-            $('#larry_left').removeClass('pt-page-moveFromLeft');
-            $('#larry_left').addClass('pt-page-moveToLeftFade');
-            $('.site-mobile-shade').click();
-         }
+    if ($('#larryms_top_menu').hasClass('pt-page-moveFromTop')) {
+      if ($('#larry_left').hasClass('pt-page-moveFromLeft')) {
+        $('#larry_left').removeClass('pt-page-moveFromLeft');
+        $('#larry_left').addClass('pt-page-moveToLeftFade');
+        $('.site-mobile-shade').click();
+      }
     }
   });
   //顶级导航点击时触发左侧菜单展现 仅移动端有效
@@ -385,11 +394,11 @@ layui.define(['jquery', 'configure', 'larryTab'], function(exports) {
       layui.data('larryms', {
         key: 'systemSet',
         value: {
-          tabCache: larryTab.config.tabSession,
-          tabRefresh: larryTab.config.autoRefresh,
-          topMenuSet: larryTab.config.top_menu,
+          tabCache: configure.tabSession,
+          tabRefresh: configure.tabRefresh,
+          topMenuSet: configure.topMenuSet,
           fullScreen: false,
-          pageAnim:larryTab.config.isPageEffect,
+          pageAnim: configure.animations,
           footSet: $('#larry_footer').data('show')
         }
       });
@@ -409,9 +418,9 @@ layui.define(['jquery', 'configure', 'larryTab'], function(exports) {
       larryms.fullScreen.exit();
     }
   }
-  MainFrame.prototype.pageAnimInit = function(value){
-      var that = this;
-      that.init();
+  MainFrame.prototype.pageAnimInit = function(value) {
+    var that = this;
+    that.init();
   }
   MainFrame.prototype.menuInit = function() {
     if (layui.data('larryms').topMenuSet !== undefined) {
@@ -586,8 +595,7 @@ layui.define(['jquery', 'configure', 'larryTab'], function(exports) {
   function locksInterface(options) {
     var id = 'larry_lock_screen',
       lockScreen = document.createElement('div'),
-      interface = laytpl([
-        '<div class="lock-screen" style="display: {{d.Display}};">',
+      interface = laytpl(['<div class="lock-screen" style="display: {{d.Display}};">',
         '<div class="lock-wrapper" id="lock-screen">',
         '<div id="time"></div>',
         '<div class="lock-box">',
@@ -644,9 +652,97 @@ layui.define(['jquery', 'configure', 'larryTab'], function(exports) {
       startTimer()
     }, 500);
   }
-
-
-
+  // 用户首次进入demo页触发  这里会出发统治
+  $(top.document.body).one('click',function(){
+      if(!$(this).hasClass('notice-trigger')){
+        // noticeDemo();
+        $(this).addClass('notice-trigger');
+      }
+  });
+  // function noticeDemo() {
+  //
+  //
+  //   setTimeout(function() {
+  //     larryms.notice({
+  //       msg: '消息通知：点我在选项卡中打开百度Echarts页面！',
+  //       url: 'library/charts/echarts.html'
+  //     }, {
+  //       action: 3,
+  //       navid: 75,
+  //       navgroup: 1,
+  //       navtitle: "百度Echarts",
+  //       navfont: "larry-icon",
+  //       navicon: "larry-moxing",
+  //       hide: 'click'
+  //     });
+  //   }, 7000);
+  //   setTimeout(function() {
+  //     larryms.notice({
+  //       msg: '我没有声音，我可以自动隐藏！',
+  //       msgtype: 'success'
+  //     }, {
+  //       audio: false
+  //     });
+  //   }, 9000);
+  //   setTimeout(function() {
+  //     larryms.notice({
+  //       msg: '重要消息：点我在新窗口查看，也可以右上角点X无视！',
+  //       url: 'https://www.larryms.com/cates/5.html',
+  //       msgtype: 'danger'
+  //     }, {
+  //       action: 4,
+  //       hide: 'click'
+  //     });
+  //   }, 13000);
+  //   setTimeout(function() {
+  //     larryms.notice({
+  //       msg: '您收到1条测试消息，请点击查看!',
+  //       url:'use/notice.html',
+  //       msgtype: 'custom',
+  //       color:'#fff',
+  //       bgcolor:'#1E9FFF'
+  //     }, {
+  //       action: 3,
+  //       navid: 89,
+  //       navgroup: 0,
+  //       navtitle: "消息推送功能",
+  //       navfont: "larry-icon",
+  //       navicon: "larry-info",
+  //       hide:'click',
+  //       font:'fa',
+  //       icon:'fa-flag-checkered',
+  //     });
+  //   }, 18000);
+  //   setTimeout(function() {
+  //     larryms.notice({
+  //       msg: '您收到一条 error测试消息!',
+  //       msgtype: 'error'
+  //     }, {
+  //       audio: false,
+  //       time:6000
+  //     });
+  //   }, 24000);
+  //   setTimeout(function() {
+  //     larryms.notice({
+  //       msg: '您收到一条 waring消息!',
+  //       msgtype: 'warning'
+  //     }, {
+  //       audio: false
+  //     });
+  //   }, 27000);
+  //   setTimeout(function() {
+  //     larryms.notice({
+  //       msg: 'LarryMS框架演示中默认关闭了Tab选项卡的加载动画，Tab选项卡切换刷新等功能，可在浏览一遍之后，通过主题设置中开启默认关闭的设置，对比效果。本月2.0.9版本将是重量级更新【如tree组件、模板系列等】！',
+  //       msgtype:'custom',
+  //       color:'#fff',
+  //       bgcolor:'#01CED1'
+  //     }, {
+  //       hide:'click',
+  //       font:'fa',
+  //       icon:'fa-universal-access'
+  //     });
+  //   }, 32000);
+  // }
   //onload之后动态加载主页控制台界面
   function createHomePage() {
     var ifrContent = '<iframe src="' + layui.cache.homeUrl + '" id="ifr-0" data-group="0" data-id="ifr0" lay-id="" name="ifr_0" class="larryms-iframe"></iframe>';

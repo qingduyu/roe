@@ -11,6 +11,7 @@ layui.define(['jquery','table', 'form','common'], function(exports) {
         tit = $(this).children('cite').text();
       active[type] ? active[type].call(this, url, tit) : '';
   });
+  larryms.alert('您当前看到的菜单、权限、角色这一系列页面均只是临时的，待相关核心组件更新完成 会有多套菜单权限模板页供选择');
   var active = {
       add: function(url, tit) {
         var that = this;

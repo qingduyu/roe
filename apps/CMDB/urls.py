@@ -2,7 +2,11 @@
 # _#_ coding:utf-8 _*_
 from django.conf.urls import url,include
 from django.contrib import admin
-from yewu_tree import yewu_tree,yewu_mysql,yewu_oracle,yewu_server,yewu_huizong
+from yewu_tree import yewu_tree,yewu_huizong,yewu_tree_add_branch,yewu_tree_add_leaf,yewu_tree_delete,yewu_tree_edit,yewutree2
+from yewu_tree import yewu_server_ops,yewu_server
+from yewu_tree import yewu_mysql
+from yewu_tree import yewu_oracle
+
 # from views.net import  netdevice,group_net,idc_net
 from CMDB.views.idc import idc_show,idc_add,idc_edit
 from CMDB.views.idc_api import IDCAPI
@@ -62,25 +66,29 @@ urlpatterns = [
     url(r'^db/api/mysql_db/$', MysqlDBAPI.as_view(), name='api_mysql_db'),
 
 ##############################################
-    url('^yewutree',yewu_tree,name='yewu_tree'),
-    url('^yewu_mysql', yewu_mysql, name='yewu_mysql'),
-    url('^yewu_oracle', yewu_oracle, name='yewu_oracle'),
-    url('^yewu_server', yewu_server, name='yewu_server'),
-
+    url('^yewutree$',yewu_tree,name='yewu_tree'),
+    url(r'^yewutree/addbranch/$', yewu_tree_add_branch, name='yewu_tree_add_branch'),
+    url(r'^yewutree/addleaf/$', yewu_tree_add_leaf, name='yewu_tree_add_leaf'),
+    url(r'^yewutree/editnode/(?P<id>[0-9]+)', yewu_tree_edit, name='yewu_tree_edit'),
+    url(r'^yewutree/delete/$', yewu_tree_delete, name='yewu_tree_delete'),
+    url('^yewu_mysql$', yewu_mysql, name='yewu_mysql'),
+    url('^yewu_oracle$', yewu_oracle, name='yewu_oracle'),
+    url('^yewu_host/(?P<id>[0-9]+)/$', yewu_server, name='yewu_host'),
+    url('^yewu_host_ops/(?P<id>[0-9]+)/$', yewu_server_ops, name='yewu_host_ops'),
     url('^yewu_huizong', yewu_huizong, name='yewu_huizong'),
     url(r'^assets_config',assets.assets_config),
-    url(r'^assets_add',assets.assets_add,name='cmdb_assets_add'),
+    url(r'^assets_add$',assets.assets_add,name='cmdb_assets_add'),
     url(r'^assets_list',assets.assets_list),
     url(r'^assets_mod/(?P<aid>[0-9]+)/$',assets.assets_modf),
     url(r'^assets_view/(?P<aid>[0-9]+)/$',assets.assets_view),
     url(r'^assets_facts',assets.assets_facts,name='cmdb_assets_facts'),
     url(r'^assets_log/(?P<page>[0-9]+)/$',assets.assets_log),
-    url(r'^assets_import/',assets.assets_import),
-    url(r'^assets_search/',assets.assets_search),
-    url(r'^assets_server/',assets.assets_server),
-    url(r'^assets/batch/update/',assets.assets_update),
-    url(r'^assets/batch/delete/',assets.assets_delete),
-    url(r'^assets/batch/dumps/',assets.assets_dumps),
+    url(r'^assets_import/$',assets.assets_import),
+    url(r'^assets_search/$',assets.assets_search),
+    url(r'^assets_server/$',assets.assets_server),
+    url(r'^assets/batch/update/$',assets.assets_update),
+    url(r'^assets/batch/delete/$',assets.assets_delete),
+    url(r'^assets/batch/dumps/$',assets.assets_dumps),
     url(r'^assets/groups/(?P<id>[0-9]+)/$',assets.assets_groups),
 
 

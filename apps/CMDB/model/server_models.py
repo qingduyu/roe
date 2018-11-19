@@ -304,6 +304,7 @@ class Host(models.Model):
     end_time = models.DateField(verbose_name=u"到保时间", default=u"2019-01-01")
     ctime = models.DateTimeField(auto_now_add=True, null=True, verbose_name=u'创建时间', blank=True)
     utime = models.DateTimeField(auto_now=True, null=True, verbose_name=u'更新时间', blank=True)
+    is_pooled=models.BooleanField(verbose_name='是否在资源池中',default=True,blank=True) #在资源池中的数据才能被分配给业务,同时本资源移出资源池,不再在业务中和资源池中的
     memo = models.TextField(u"备注信息", max_length=200, null=True, blank=True)
     class Meta:
         verbose_name = u'主机资产'

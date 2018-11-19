@@ -32,6 +32,7 @@ class OracleCluster(models.Model):
     defaultdb=models.CharField(verbose_name=u"主用DB",  max_length=30, null=True, blank=True)
     tree_id=models.ForeignKey(YewuTree,verbose_name=u"所属产品线", on_delete=models.SET_NULL, null=True, blank=True)
     desc = models.CharField(u"描述", max_length=100, null=True, blank=True)
+    is_pooled=models.BooleanField(verbose_name='是否在资源池中',default=True,blank=True) #在资源池中的数据才能被分配给业务,同时本资源移出资源池,不再在业务中和资源池中的
     operator = models.ForeignKey(User, verbose_name="可见的人", blank=True)
     def __unicode__(self):
         return self.name
