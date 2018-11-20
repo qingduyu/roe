@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="扫描主机">
-      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0032_auto_20181120_1532.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_branch.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_leaf.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/yewutree_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/yewutree_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/CMDB/yewu_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/yewu_tree.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_host.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_host.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_branch.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_branch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_leaf.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_leaf.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_branch.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_branch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_leaf.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_leaf.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,13 +41,13 @@
         <counts>
           <entry key="10" value="1" />
           <entry key="3" value="1" />
-          <entry key="html" value="125" />
+          <entry key="html" value="134" />
           <entry key="js" value="36" />
           <entry key="json" value="9" />
           <entry key="log" value="20" />
           <entry key="md" value="4" />
           <entry key="pub" value="1" />
-          <entry key="py" value="277" />
+          <entry key="py" value="294" />
           <entry key="ts" value="1" />
           <entry key="txt" value="3" />
           <entry key="y" value="1" />
@@ -60,13 +55,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="125" />
+          <entry key="HTML" value="134" />
           <entry key="JSON" value="9" />
           <entry key="JavaScript" value="36" />
           <entry key="Log" value="4" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="277" />
+          <entry key="Python" value="294" />
           <entry key="TypeScript" value="1" />
         </counts>
       </usages-collector>
@@ -74,11 +69,11 @@
         <counts>
           <entry key="Django Console" value="130" />
           <entry key="dummy" value="13" />
-          <entry key="html" value="8869" />
+          <entry key="html" value="9028" />
           <entry key="js" value="71" />
           <entry key="log" value="7" />
           <entry key="md" value="159" />
-          <entry key="py" value="16234" />
+          <entry key="py" value="16516" />
           <entry key="py@roeops" value="125" />
           <entry key="txt" value="52" />
         </counts>
@@ -86,11 +81,11 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CommandLine" value="114" />
-          <entry key="HTML" value="8869" />
+          <entry key="HTML" value="9028" />
           <entry key="JavaScript" value="71" />
           <entry key="Markdown" value="159" />
           <entry key="PLAIN_TEXT" value="83" />
-          <entry key="Python" value="16363" />
+          <entry key="Python" value="16645" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -104,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/CMDB/yewu_tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="49" column="43" lean-forward="true" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+            <state relative-caret-position="585">
+              <caret line="126" column="21" selection-start-line="126" selection-start-column="21" selection-end-line="126" selection-end-column="21" />
               <folding>
                 <element signature="e#23#58#0" expanded="true" />
               </folding>
@@ -113,53 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_leaf.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="184" selection-start-line="184" selection-end-line="184" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_host.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/model/yewutree_model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-              <folding>
-                <element signature="e#24#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_leaf.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="83" column="7" selection-start-line="83" selection-start-column="7" selection-end-line="98" selection-end-column="17" />
-              <folding>
-                <element signature="e#2862#3419#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="277" column="22" lean-forward="true" selection-start-line="277" selection-start-column="22" selection-end-line="277" selection-end-column="22" />
+            <state relative-caret-position="439">
+              <caret line="88" column="44" lean-forward="true" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -167,35 +120,71 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_branch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="67" column="44" lean-forward="true" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/mptt/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="736" selection-start-line="736" selection-end-line="736" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base.html">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
-              <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+              <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_branch.html">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="76" column="41" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
+            <state relative-caret-position="465">
+              <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/tasks.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1320">
+              <caret line="145" column="19" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1035">
+              <caret line="69" column="55" lean-forward="true" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="55" />
+              <folding>
+                <element signature="e#48#83#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/task2.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/tasks/do_scan_host.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="76" column="55" selection-start-line="76" selection-start-column="55" selection-end-line="76" selection-end-column="55" />
+              <folding>
+                <element signature="e#46#69#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -284,17 +273,17 @@
         <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_host_add.html" />
         <option value="$PROJECT_DIR$/static/larryms/js/base.js" />
         <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_leaf.html" />
         <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base_1.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_leaf.html" />
         <option value="$PROJECT_DIR$/apps/CMDB/urls.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/yewu_tree.py" />
         <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_host.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_branch.html" />
         <option value="$PROJECT_DIR$/apps/CMDB/model/server_models.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/model/yewutree_model.py" />
         <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_branch.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_leaf.html" />
         <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base.html" />
+        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_leaf.html" />
+        <option value="$PROJECT_DIR$/apps/CMDB/yewu_tree.py" />
+        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_branch.html" />
       </list>
     </option>
   </component>
@@ -359,6 +348,13 @@
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="CMDB" type="462c0819:PsiDirectoryNode" />
+              <item name="tasks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -376,6 +372,15 @@
               <item name="CMDB" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="scan_lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -442,21 +447,20 @@
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="cmdb" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
-              <item name="servers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
               <item name="yewutree" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="dbops" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="dbops" type="462c0819:PsiDirectoryNode" />
+              <item name="mysql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -714,13 +718,13 @@
     <frame x="0" y="28" width="2400" height="1338" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.1506383" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.1506383" />
       <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
       <window_info id="Structure" order="2" sideWeight="0.37573385" side_tool="true" weight="0.25365853" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32942164" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34115675" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3545683" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3545683" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32942164" />
@@ -729,7 +733,7 @@
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32942164" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="manage.py@roeops" order="11" weight="0.32774517" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.2665549" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.2665549" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32942164" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -898,17 +902,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/CMDB/yewu_tree.py</url>
-          <line>187</line>
+          <line>203</line>
           <option name="timeStamp" value="447" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/CMDB/yewu_tree.py</url>
-          <line>192</line>
+          <line>208</line>
           <option name="timeStamp" value="451" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/CMDB/yewu_tree.py</url>
-          <line>191</line>
+          <line>207</line>
           <option name="timeStamp" value="452" />
         </line-breakpoint>
       </breakpoints>
@@ -974,95 +978,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/db/models/manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list_传统.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="58" selection-end-column="28" />
-          <folding>
-            <element signature="n#table#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/virtual_host_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="32" selection-end-line="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/system/webssh/webssh_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/system/webssh/webssh.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-877" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/system/views/webssh.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_mysql.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/oracle_cluster.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/oracle_cluster_edit.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="18" lean-forward="true" selection-end-line="252" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="77" selection-end-column="26" />
-          <folding>
-            <element signature="e#3052#3907#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/mongo_models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="37" column="123" lean-forward="true" selection-start-line="37" selection-start-column="123" selection-end-line="37" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -1094,25 +1009,8 @@
     <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db_edit.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="69" column="55" lean-forward="true" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse_api.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/system/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1485">
-          <caret line="145" column="19" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1221,23 +1119,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_leaf.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="100" column="28" lean-forward="true" selection-end-line="109" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_leaf.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="83" column="7" selection-start-line="83" selection-start-column="7" selection-end-line="98" selection-end-column="17" />
-          <folding>
-            <element signature="e#2862#3419#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base_children.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -1252,13 +1133,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="184" selection-start-line="184" selection-end-line="184" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/model/yewutree_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1269,24 +1143,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_host.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_branch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="67" column="44" lean-forward="true" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
           <caret line="277" column="22" lean-forward="true" selection-start-line="277" selection-start-column="22" selection-end-line="277" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_huizong.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="6" selection-start-column="6" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/system/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_host.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
         </state>
       </provider>
     </entry>
@@ -1297,20 +1185,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/yewu_tree.py">
+    <entry file="file://$PROJECT_DIR$/templates/dbops/mysql/binglog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="49" column="43" lean-forward="true" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+        <state relative-caret-position="300">
+          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_leaf.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2520" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/physical_host.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-461" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_conf_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-686" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_ip_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-371" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_lib/postdata.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/serializers.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/tasks/do_scan_host.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="76" column="55" selection-start-line="76" selection-start-column="55" selection-end-line="76" selection-end-column="55" />
           <folding>
-            <element signature="e#23#58#0" expanded="true" />
+            <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/task2.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/tasks.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/mysql_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="145" column="19" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/views/binlog_parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="55" lean-forward="true" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="55" />
+          <folding>
+            <element signature="e#48#83#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="155" column="38" lean-forward="true" selection-start-line="155" selection-start-column="38" selection-end-line="155" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/yewu_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="126" column="21" selection-start-line="126" selection-start-column="21" selection-end-line="126" selection-end-column="21" />
+          <folding>
+            <element signature="e#23#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_branch.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
-          <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+          <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_edit_leaf.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="88" column="44" lean-forward="true" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
         </state>
       </provider>
     </entry>

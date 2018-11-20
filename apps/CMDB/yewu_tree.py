@@ -7,11 +7,12 @@ from CMDB.model.server_models import Host
 import json
 
 Yezi_type = {
+    "host": '/cmdb/yewu_host',
     'mysql': '/cmdb/yewu_mysql',
      "oracle": '/cmdb/yewu_oracle',
      'mongo': '/cmdb/yewu_mongo',
     "redis":  '/cmdb/yewu_redis',
-    "tomcat": u"{%url 'yewu_tomcat'%}"
+    "tomcat": '/cmdb/yewu_tomcat',
 }
 
 
@@ -62,7 +63,7 @@ def yewu_tree_add_leaf(request):
         parentids=request.GET.get('parents').split(',')
         parentids.pop()#取出父节点并且删除业务树最顶段的2个节点,
         parentids.pop()
-        yewuxian_select=YewuTree.objects.filter(id__in=parentids)
+        yewuxian=YewuTree.objects.filter(id__in=parentids)
         yewunode=YewuTree.objects.get(id=yewuid)
         yezi=Yezi_type
         return  render(request, 'cmdb/yewutree/yewu_tree_add_leaf.html',locals())
@@ -91,9 +92,20 @@ def yewu_tree_edit_leaf(request):
     '''
     if request.method == 'GET':
         yewuid = request.GET.get('id')
+        parentids = request.GET.get('parents').split(',')
+        parentids.pop()  # 取出父节点并且删除业务树最顶段的2个节点,
+        parentids.pop()
+        yewuxian = YewuTree.objects.filter(id__in=parentids)
+        yewunode = YewuTree.objects.get(id=yewuid)
+        yewuxian_selected=yewunode.yewuxian.name
         return render(request, 'cmdb/yewutree/yewu_tree_edit_leaf.html', locals())
     elif request.method == 'POST':
-        yewuid = request.POST['id']
+        yewuid = request.POST['node_id']
+        yewuxianid = request.POST['yewuxianID']
+        yewu=YewuTree.objects.get(id=yewuid)
+        yewuxian=YewuTree.objects.get(id=yewuxianid)
+        yewu.yewuxian=yewuxian
+        yewu.save()
         return JsonResponse({'msg': "节点添加成功", "code": 200, 'data': []})
 
 
@@ -109,7 +121,11 @@ def yewu_tree_edit_branch(request):
         yewu=YewuTree.objects.all()
         return render(request, 'cmdb/yewutree/yewu_tree_edit_branch.html', locals())
     elif request.method=='POST':
-        yewuid=request.POST['id']
+        yewuid=request.POST['node_id']
+        yewu=YewuTree.objects.get(id=yewuid)
+        yewu_name=request.POST['node_name']
+        yewu.name=yewu_name
+        yewu.save()
         return JsonResponse({'msg': "节点添加成功", "code": 200, 'data': []})
 
 

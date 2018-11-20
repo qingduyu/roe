@@ -140,7 +140,18 @@
                                     obj = inst.get_node(data.reference);
                                 console.log(obj);
                                 if (obj.data.islast == 'True') {
-                                    layer.msg('叶子是不能编辑的')
+                                    var url = '{% url 'yewu_tree_edit_leaf'  %}?id=' + obj.id + '&parents=' + obj.parents;
+                                    layer.open(
+                                        {
+                                            title: '编辑叶子节点',
+                                            type: 2,
+                                            area: ['460px', '360px'],
+                                            content: url,
+                                            success: function (index, layero) {
+                                                form.render();
+                                            }
+                                        }
+                                    )
                                 }
                                 else {
                                     var url = '{% url 'yewu_tree_edit_branch'  %}?id=' + obj.id + '&parents=' + obj.parents;

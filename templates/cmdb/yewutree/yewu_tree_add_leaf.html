@@ -37,7 +37,7 @@
                         <label class="layui-form-label">作为产品线</label>
                         <div class="layui-input-inline">
                             <select name="yewuxianID" >
-                                    {% for s in yewuxian_select %}
+                                    {% for s in yewuxian %}
                                             <option value="{{ s.id }}"> {{ s.name }}</option>
                                     {% endfor %}
                             </select>
@@ -90,7 +90,7 @@
                 data: data.field,  //提交参数
 			    success:function(res){
 				layer.msg(res.msg,{time:350},function () {
-                   {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                   parent.location.reload();
                     parent.layer.close(curIfr);
                 })
 			    },

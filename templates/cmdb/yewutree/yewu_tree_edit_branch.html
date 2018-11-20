@@ -2,7 +2,7 @@
 {% load mptt_tags %}
 {% block content %}
     <div class="layui-row larryms-panel auth-user-add">
-     <form action="{% url 'yewu_tree_add_leaf' %}" class="layui-form" method="post" id="demoAddForm">
+     <form action="{% url 'yewu_tree_edit_branch' %}" class="layui-form" method="post" id="demoAddForm">
 {#            {% csrf_token %}#}
 
            <input name="node_id" value="{{ yewunode.id }}" type="hidden">
@@ -19,12 +19,6 @@
 
 
                 </div>
-
-
-
-
-
-
                 <div class="larryms-layer-btn " >
                     <a class="layui-btn layui-btn-sm " lay-submit="" lay-filter="demoadd" id="submitAdd">提交</a>
 
@@ -66,7 +60,7 @@
                 data: data.field,  //提交参数
 			    success:function(res){
 				layer.msg(res.msg,{time:350},function () {
-                   {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                  parent.location.reload();
                     parent.layer.close(curIfr);
                 })
 			    },

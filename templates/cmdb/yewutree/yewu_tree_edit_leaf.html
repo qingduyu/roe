@@ -2,15 +2,15 @@
 
 {% block content %}
     <div class="layui-row larryms-panel auth-user-add">
-     <form action="{% url 'yewu_tree_add_leaf' %}" class="layui-form" method="post" id="demoAddForm">
+     <form action="{% url 'yewu_tree_edit_leaf' %}" class="layui-form" method="post" id="demoAddForm">
 {#            {% csrf_token %}#}
-        <input name="parentid" value="{{ yewunode.id }}" type="hidden">
+        <input name="node_id" value="{{ yewunode.id }}" type="hidden">
                 <div class="layui-form-item">
 
                  <div class="layui-form-inline">
-                    <label class="layui-form-label">父节点</label>
+                    <label class="layui-form-label">叶子类型</label>
                     <div class="layui-input-inline">
-                        <input class="layui-input" name="parentname" value="{{ yewunode.name}}" type="text" disabled>
+                        <input class="layui-input" name="node_name" value="{{ yewunode.name}}" type="text" disabled>
                     </div>
                 </div>
 
@@ -18,27 +18,18 @@
                 </div>
 
 
-         <div class="layui-form-item">
 
-                  <div class="layui-form-block">
-                        <label class="layui-form-label">叶子类型</label>
-                        <div class="layui-input-inline">
-                            <select name="yezi_type" >
-                                    {% for key,value in yezi.items %}
-                                            <option value="{{key }}"> {{key }}</option>
-                                    {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-
-         </div>
        <div class="layui-form-item">
                  <div class="layui-form-block">
-                        <label class="layui-form-label">作为产品线</label>
+                        <label class="layui-form-label">产品线指定</label>
                         <div class="layui-input-inline">
                             <select name="yewuxianID" >
-                                    {% for s in yewuxian_select %}
+                                    {% for s in yewuxian %}
+                                        {% if s.name == yewuxian_selected %}
+                                            <option  selected="selected"  value="{{ s.id }}"> {{ s.name }}</option>
+                                        {% else %}
                                             <option value="{{ s.id }}"> {{ s.name }}</option>
+                                        {% endif %}
                                     {% endfor %}
                             </select>
                         </div>
