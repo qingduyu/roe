@@ -2,7 +2,7 @@
 # _#_ coding:utf-8 _*_
 from django.conf.urls import url,include
 from django.contrib import admin
-from yewu_tree import yewu_tree,yewu_huizong,yewu_tree_add_branch,yewu_tree_add_leaf,yewu_tree_delete,yewu_tree_edit,yewutree2
+from yewu_tree import yewu_tree,yewu_huizong,yewu_tree_add_branch,yewu_tree_add_leaf,yewu_tree_delete,yewu_tree_edit_branch,yewu_tree_edit_leaf,yewutree2
 from yewu_tree import yewu_server_ops,yewu_server
 from yewu_tree import yewu_mysql
 from yewu_tree import yewu_oracle
@@ -69,8 +69,11 @@ urlpatterns = [
     url('^yewutree$',yewu_tree,name='yewu_tree'),
     url(r'^yewutree/addbranch/$', yewu_tree_add_branch, name='yewu_tree_add_branch'),
     url(r'^yewutree/addleaf/$', yewu_tree_add_leaf, name='yewu_tree_add_leaf'),
-    url(r'^yewutree/editnode/(?P<id>[0-9]+)', yewu_tree_edit, name='yewu_tree_edit'),
+    url(r'^yewutree/editbranch/$', yewu_tree_edit_branch, name='yewu_tree_edit_branch'),
+    url(r'^yewutree/editleaf/$', yewu_tree_edit_leaf, name='yewu_tree_edit_leaf'),
     url(r'^yewutree/delete/$', yewu_tree_delete, name='yewu_tree_delete'),
+
+
     url('^yewu_mysql$', yewu_mysql, name='yewu_mysql'),
     url('^yewu_oracle$', yewu_oracle, name='yewu_oracle'),
     url('^yewu_host/(?P<id>[0-9]+)/$', yewu_server, name='yewu_host'),

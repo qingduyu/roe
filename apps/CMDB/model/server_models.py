@@ -276,7 +276,7 @@ class Host(models.Model):
     ip_public = models.GenericIPAddressField(u"公网IP", max_length=15,null=True,blank=True)
     ip_control = models.GenericIPAddressField(u"远程管理卡IP", max_length=15,null=True,blank=True)
     ip_other = models.CharField(max_length=850,verbose_name=u'其他IP',blank=True,null=True)
-    tree_id = models.ForeignKey(YewuTreeMptt, verbose_name=u"业务树ID", on_delete=models.SET_NULL, null=True, blank=True)
+    tree_id = models.ForeignKey(YewuTreeMptt, verbose_name=u"业务树ID", on_delete=models.SET_NULL, related_name='yewu_host', null=True, blank=True)
     asset_no = models.CharField(u"资产编号", max_length=50, null=True, blank=True)
     asset_type = models.CharField(u"设备类型", choices=ASSET_TYPE, max_length=30, null=True, blank=True)
     hostserver = models.CharField(verbose_name=u'宿主服务器', max_length=50, blank=True, null=True)

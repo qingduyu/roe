@@ -14,40 +14,34 @@
         <span style="color:red">{{ info }}</span>
     {% endif %}
 
-{##}
-{#    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">#}
-{#        <legend>业务拓扑</legend>#}
-{#    </fieldset>#}
+    {##}
+    {#    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">#}
+    {#        <legend>业务拓扑</legend>#}
+    {#    </fieldset>#}
 
 
     <div class="layui-fluid">
         <div class="layui-row  layui-col-space15 larryms-count-demo">
             <div class="layui-col-xs12 layui-col-sm12 layui-col-md3 layui-col-lg3">
+                <fieldset class="layui-elem-field">
+                    <div class="layui-field-box">
+                        对树编辑？ 试试右键，拖拽。
+                    </div>
+                </fieldset>
                 <section class="layui-card">
-{#           <div class="layui-btn-group larryms-btn-group">#}
-{#                        <div class="layui-inline">#}
-{#                        	<div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>#}
-{#                            <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="{% url 'cmdb_mysql_instance_add' %}"><i class="layui-icon">&#xe61f;</i>#}
-{#                                <cite>添加中间节点</cite>#}
-{#                            </button>#}
-{#                            <button class="layui-btn layui-btn-sm layui-btn-green" data-type="del"  data-url="{% url 'cmdb_xunihost_api' %}"><i class="layui-icon">&#xe640;</i>#}
-{#                                <cite>添加叶子节点</cite>#}
-{#                            </button>#}
-{#                        </div>#}
-{#                    </div>#}
-                    {#      这是左边树形#}
-                    <div id="tree" >
-{#                     <li class="jstree-open" id="tree">#}
 
-                        <ul >
+                    <div id="tree">
+                        <ul>
                             {% recursetree yewu %}
 
-
                                 {% if node.isLast %}
-                                    <li class="jstree-open"   id="{{ node.id }}" data-jstree='{"disabled":true}' data-islast="{{ node.isLast }}">
-                                        <a href="#"  onclick="window.open('{{ node.href }}/{{ node.id }}','listChannel')">{{ node.name }}</a>
+                                    <li class="jstree-open" id="{{ node.id }}" data-jstree='{"disabled":true}'
+                                        data-islast="{{ node.isLast }}">
+                                        <a href="#"
+                                           onclick="window.open('{{ node.href }}/{{ node.id }}','listChannel')">{{ node.name }}</a>
                                         {% else %}
-                                    <li class="jstree-open"  id="{{ node.id }}" data-islast="{{ node.isLast }}" data-name="{{ node.name }}"><a>{{ node.name }}  </a>
+                                    <li class="jstree-open" id="{{ node.id }}" data-islast="{{ node.isLast }}"
+                                        data-name="{{ node.name }}"><a>{{ node.name }}  </a>
                                 {% endif %}
 
                             {% if not node.is_leaf_node %}
@@ -60,225 +54,33 @@
 
                             {% endrecursetree %}
                         </ul>
-{#                     </li>#}
-
                     </div>
                 </section>
-
-
             </div>
-
-
             {# 这是右边的页面#}
             <div class="layui-col-lg9">
                 <section class="layui-card">
                     <iframe id="listChannel" Name="listChannel" frameborder=0 src="{% url 'yewu_huizong' %}"
                             width=100% height=900px></iframe>
                 </section>
-
             </div>
         </div>
-
-
     </div>
 
 {% endblock %}
 {% block self_foot %}
 
-
-{#    <script type="text/javascript">#}
-{#        layui.config({#}
-{#            version: "2.0.8",#}
-{#            base: '/static/larryms/',#}
-{#            layertype: 2, //iframe内层弹窗类型不显示返回首页#}
-{#            rightMenu: custom // false关闭，设置为custom时使用自定义，不使用默认menu#}
-{#        }).extend({#}
-{#            larry: 'js/base'#}
-{#        }).use(['jquery', 'larry', 'layer', 'layui', 'form'], function () {#}
-{#            var $ = layui.$,#}
-{#                larry = layui.larry,#}
-{#                larryms = layui.larryms,#}
-{#                form = layui.form,#}
-{#                table = layui.table,#}
-{#                jstree=jstree;#}
-{##}
-{#            //按钮监听#}
-{#            $(' .layui-btn').on('click', function () {#}
-{#                var type = $(this).data('type'),#}
-{#                    url = $(this).data('url'),#}
-{#                    dataid = $(this).data('id'),#}
-{#                    tit = $(this).data('name').text();#}
-{#                active[type] ? active[type].call(this, url, tit) : '';#}
-{#            });#}
-{##}
-{#            var active = {#}
-{#                add: function (url, tit) {#}
-{#                    var that = this;#}
-{#                    if ($(that).attr('data-flag') == 'exist') {#}
-{#                        var index = layui.cache.layerIndex,#}
-{#                            $max = $max = $('#layui-layer' + index).find('.layui-layer-maxmin');#}
-{#                        $max.click();#}
-{#                        layui.cache.laye, rIndex = null;#}
-{#                    } else {#}
-{#                        $(that).attr('data-flag', 'exist');#}
-                        {#var url2 =url + dataid;#}
-{#                        var index = layer.open({#}
-{#                            title: tit,#}
-{#                            type: 2,#}
-{#                            area: ['860px', '550px'],#}
-{#                            content: url,#}
-{#                            success: function (index, layero) {#}
-{#                                form.render();#}
-{#                            },#}
-{#                            end: function () {#}
-{#                                $(that).removeAttr("data-flag");#}
-{#                                layui.cache.layerIndex = null;#}
-{#                            }#}
-{#                        });#}
-{##}
-{#                    }#}
-{#                },#}
-{#                edit: function (url2, tit) {#}
-{#                    var that = this;#}
-{#                    if ($(that).attr('data-flag') == 'exist') {#}
-{#                        var index = layui.cache.layerIndex,#}
-{#                            $max = $max = $('#layui-layer' + index).find('.layui-layer-maxmin');#}
-{#                        $max.click();#}
-{#                        layui.cache.laye, rIndex = null;#}
-{#                    } else {#}
-{#                        $(that).attr('data-flag', 'exist');#}
-                        {#var url2 =url + dataid;#}
-{#                        var index = layer.open({#}
-{#                            title: tit,#}
-{#                            type: 2,#}
-{#                            area: ['860px', '550px'],#}
-{#                            content: url2,#}
-{#                            success: function (index, layero) {#}
-{#                                form.render();#}
-{#                            },#}
-{#                            end: function () {#}
-{#                                $(that).removeAttr("data-flag");#}
-{#                                layui.cache.layerIndex = null;#}
-{#                            }#}
-{#                        });#}
-{##}
-{#                    }#}
-{#                },#}
-{#                del: function () {#}
-{#                    var url = $(this).data('url');#}
-{#                    var dataid = $(this).data('url');#}
-{#                    console.log(url);#}
-{#                    if (data.length > 0) {#}
-{##}
-{#                        if (dataid > 0) {#}
-{#                            larryms.confirm('你确定要执行删除吗？', {icon: 3, title: '删除提示！'}, function () {#}
-{#                                $.ajax({#}
-{#                                    dataType: "JSON",#}
-{#                                    url: url, //请求地址#}
-{#                                    type: "DELETE",  //提交类似#}
-{#                                    contentType: "application/json",#}
-{#                                    data: JSON.stringify({"id": dataid}),  //提交参数#}
-{#                                    success: function (res) {#}
-{#                                        larryms.msg(res.msg)#}
-{#                                    },#}
-{#                                    error: function (response) {#}
-{#                                        larryms.msg(response.responseText);#}
-{#                                    }#}
-{#                                });#}
-{#                            });#}
-{#                        } else {#}
-{#                            larryms.msg('默认管理员不可删除,我是神一样的存在！');#}
-{#                        }#}
-{#                    } else {#}
-{#                        larryms.msg('请至少选择一项，进行删除操作');#}
-{#                    }#}
-{#                }#}
-{#            };#}
-{##}
-{##}
-{##}
-{##}
-{##}
-{#            var tableDataUrl = $('#demo').data('url'), roleIndex = table.render({#}
-{#                elem: '#demo',#}
-{#                id: 'demo',#}
-{#                cellMinWidth: 80,#}
-{#                url: tableDataUrl,#}
-{#                method: 'get',#}
-{#                height: 'full-130',#}
-{#                page: true,#}
-{#                cols: [#}
-{#                    [#}
-                        {#{type: "checkbox",fixed: 'left',width: 50},#}
-{#                        {field: 'id', title: 'id', minWidth: 10, align: 'center'},#}
-{#                        {field: 'start_pos', title: 'start_pos', minWidth: 10, align: 'center'},#}
-{#                        {field: 'end_pos', title: 'end_pos', minWidth: 10, align: 'center',},#}
-{#                        {field: 'date', title: 'date', minWidth: 50, align: 'center'},#}
-{#                        {field: 'time', title: 'time', minWidth: 30, align: 'center'},#}
-{#                        {field: 'sql', title: 'sql', minWidth: 700, align: 'center'},#}
-{#                    ]#}
-{#                ]#}
-{#            });#}
-{##}
-{#            // 监听工具条#}
-{#            var pageTableID = $('.larryms-table-id').attr('id');#}
-{#            table.on('tool(' + pageTableID + ')', function (obj) {#}
-{#                var data = obj.data, tit = '编辑 <em class="tit">' + data.name + '</em> 信息';#}
-{#                console.log(data)#}
-{#                if (obj.event == 'edit') {#}
-{#                    var url = $(this).data('url') + data.id;#}
-{#                    var editIndex = larryms.open({#}
-{#                        title: tit,#}
-{#                        type: 2,#}
-{#                        area: ['860px', '450px'],#}
-{#                        content: url,#}
-{#                        success: function (index, layero) {#}
-{#                            form.render();#}
-{#                        }#}
-{#                    });#}
-{#                } else if (obj.event == 'detail') {#}
-{#                    var url = $(this).data('url');#}
-{#                    larryms.confirm('查看详情还没开始作？', {icon: 3, title: '删除提示'}, function () {#}
-{#                        var ids = {"id": data.id};#}
-{#                        $.post(url, ids, function (res) {#}
-{#                            if (res.code == 200) {#}
-{#                                larryms.msg(res.msg);#}
-{#                                table.reload(pageTableID, {});#}
-{#                            } else {#}
-{#                                larryms.msg(res.msg);#}
-{#                            }#}
-{#                        });#}
-{#                    });#}
-{#                } else if (obj.event == 'del') {#}
-{#                    var url = $(this).data('url');#}
-{#                    larryms.confirm('查看详情还没开始作？', {icon: 3, title: '删除提示'}, function () {#}
-{#                        var ids = {"id": [data.id]};#}
-{#                        $.post(url, ids, function (res) {#}
-{#                            if (res.code == 200) {#}
-{#                                larryms.msg(res.msg);#}
-{#                                table.reload(pageTableID, {});#}
-{#                            } else {#}
-{#                                larryms.msg(res.msg);#}
-{#                            }#}
-{#                        });#}
-{#                    });#}
-{#                }#}
-{#            })#}
-{#        });#}
-{##}
-{#    </script>#}
-
     <script src="/static/jquery/jquery-2.2.3.min.js"></script>
-       <script src="/static/jquery/jstree/jstree.min.js" type="text/javascript"></script>
+    <script src="/static/jquery/jstree/jstree.min.js" type="text/javascript"></script>
     <script src="/static/layui/layui/layui.all.js" type="text/javascript"></script>
     <script type="text/javascript">
 
-       $("#tree").jstree(
+        $("#tree").jstree(
             {
                 "core": {
                     // so that create works
                     "check_callback": true
-                }, 'plugins': ['contextmenu'],
+                }, 'plugins': ['contextmenu', 'dnd'],
                 'contextmenu': {    // 邮件菜单
                     'items': {
                         'add1': {
@@ -287,11 +89,11 @@
                                 var inst = $.jstree.reference(data.reference),
                                     obj = inst.get_node(data.reference);
                                 console.log(obj)
-                                if (obj.data.islast =='True' ) {
+                                if (obj.data.islast == 'True') {
                                     layer.msg('此为叶子节点,  不能添加子节点');
                                 }
                                 else {
-                                     var url='{% url 'yewu_tree_add_branch'  %}?id='+obj.id;  //只需要知道本节点就行
+                                    var url = '{% url 'yewu_tree_add_branch'  %}?id=' + obj.id;  //只需要知道本节点就行
                                     layer.open(
                                         {
                                             title: '增加树节点',
@@ -307,19 +109,19 @@
                             }
                         },
                         'add2': {
-                            'label': '增加叶子节点',
+                            'label': '叶子节点',
                             'action': function (data) {
                                 var inst = $.jstree.reference(data.reference),
                                     obj = inst.get_node(data.reference);
                                 console.log(obj)
-                                if (obj.data.islast =='True' ) {
+                                if (obj.data.islast == 'True') {
                                     layer.msg('此为叶子节点,  不能添加子节点');
                                 }
                                 else {
-                                    var url='{% url 'yewu_tree_add_leaf'  %}?id='+obj.id+'&parents='+obj.parents;
+                                    var url = '{% url 'yewu_tree_add_leaf'  %}?id=' + obj.id + '&parents=' + obj.parents;
                                     layer.open(
                                         {
-                                            title: '增加子节点',
+                                            title: '增加叶子节点',
                                             type: 2,
                                             area: ['460px', '450px'],
                                             content: url,
@@ -337,20 +139,22 @@
                                 var inst = jQuery.jstree.reference(data.reference),
                                     obj = inst.get_node(data.reference);
                                 console.log(obj);
-                                if (obj.data.islast=='True'){layer.msg('叶子节点禁止编辑');}
-
+                                if (obj.data.islast == 'True') {
+                                    layer.msg('叶子是不能编辑的')
+                                }
                                 else {
-                                    layer.open({title:'友情提示' ,
-                                    content:'开始编辑把'})
-                                    jQuery("#menuTree").jstree("refresh");
-                                    jQuery.get("/accountmanage/deleteMenu?id=" + obj.id, function (dat) {
-                                        if (dat == 1) {
-                                            alert("删除节点成功");
-                                            jQuery("#menuTree").jstree("refresh");
-                                        } else {
-                                            alert('删除节点失败');
+                                    var url = '{% url 'yewu_tree_edit_branch'  %}?id=' + obj.id + '&parents=' + obj.parents;
+                                    layer.open(
+                                        {
+                                            title: '编辑树节点',
+                                            type: 2,
+                                            area: ['460px', '160px'],
+                                            content: url,
+                                            success: function (index, layero) {
+                                                form.render();
+                                            }
                                         }
-                                    });
+                                    )
                                 }
                             }
                         },
@@ -360,23 +164,26 @@
                                 var inst = jQuery.jstree.reference(data.reference),
                                     obj = inst.get_node(data.reference);
                                 console.log(obj)
-                                if (obj.data.islast=='True') {
-                                    layer.confirm('轻易不要删除，确定要删除本节点？'+obj.text ,{btn: ['确定', '我再想想'],title:'提示'},function () {
-                                            $.ajax({
-                                        dataType: "JSON",
-                                        url:'{% url 'yewu_tree_delete' %}', //请求地址
-                                        type: "POST",  //提交类似
-                                        {#contentType: "application/json",#}
-                                        {#data: JSON.stringify(data.field),  //提交参数#}
-                                        data: {'id': obj.id},  //提交参数
-                                        success: function (res) {
-                                            layer.msg(res.msg);
-                                            location.reload();
-                                        },
-                                        error: function (response) {
-                                            larryms.msg(response.responseText);
-                                        }
-                                    });
+                                if (obj.data.islast == 'True') {
+                                    layer.confirm('轻易不要删除，确定要删除本节点？' + obj.text, {
+                                        btn: ['确定', '我再想想'],
+                                        title: '提示'
+                                    }, function () {
+                                        $.ajax({
+                                            dataType: "JSON",
+                                            url: '{% url 'yewu_tree_delete' %}', //请求地址
+                                            type: "POST",  //提交类似
+                                            {#contentType: "application/json",#}
+                                            {#data: JSON.stringify(data.field),  //提交参数#}
+                                            data: {'id': obj.id},  //提交参数
+                                            success: function (res) {
+                                                layer.msg(res.msg);
+                                                location.reload();
+                                            },
+                                            error: function (response) {
+                                                larryms.msg(response.responseText);
+                                            }
+                                        });
                                     })
 
                                 }
@@ -386,33 +193,33 @@
                                         title: '友情提示',
                                         content: '还有子节点奥,不能删除'
                                     })
-                                    jQuery("#menuTree").jstree("refresh");
-                                    jQuery.get("/accountmanage/deleteMenu?id=" + obj.id, function (dat) {
-                                        if (dat == 1) {
-                                            alert("删除节点成功");
-                                            jQuery("#menuTree").jstree("refresh");
-                                        } else {
-                                            alert('删除节点失败');
-                                        }
-                                    });
+                                }
+                                else if (obj.parent=='#') {
+                                    layer.open({
+                                        title: '友情提示',
+                                        content: '嗨，大哥，这是根节点奥,不能删除'
+                                    })
                                 }
                                 else {
-                                        layer.confirm('确定要删除本树节点？'+obj.text ,{btn: ['确定', '我再想想'],title:'提示'},function () {
-                                            $.ajax({
-                                        dataType: "JSON",
-                                        url:'{% url 'yewu_tree_delete' %}', //请求地址
-                                        type: "POST",  //提交类似
-                                        {#contentType: "application/json",#}
-                                        {#data: JSON.stringify(data.field),  //提交参数#}
-                                        data: {'id': obj.id},  //提交参数
-                                        success: function (res) {
-                                            layer.msg(res.msg);
-                                            location.reload();
-                                        },
-                                        error: function (response) {
-                                            larryms.msg(response.responseText);
-                                        }
-                                    });
+                                    layer.confirm('确定要删除本树节点？' + obj.text, {
+                                        btn: ['确定', '我再想想'],
+                                        title: '提示'
+                                    }, function () {
+                                        $.ajax({
+                                            dataType: "JSON",
+                                            url: '{% url 'yewu_tree_delete' %}', //请求地址
+                                            type: "POST",  //提交类似
+                                            {#contentType: "application/json",#}
+                                            {#data: JSON.stringify(data.field),  //提交参数#}
+                                            data: {'id': obj.id},  //提交参数
+                                            success: function (res) {
+                                                layer.msg(res.msg);
+                                                location.reload();
+                                            },
+                                            error: function (response) {
+                                                larryms.msg(response.responseText);
+                                            }
+                                        });
                                     })
                                 }
                             },
@@ -422,7 +229,34 @@
 
                 }
             }
-        );
+        ).on('move_node.jstree', function (e, data) {
+            console.info(data);
+            layer.msg('这就是开始拖拽了,  不能添加子节点');
+
+            $.ajax({
+                dataType: "JSON",
+                url: '{% url 'yewu_tree' %}', //请求地址
+                type: "POST",  //提交类似
+                {#contentType: "application/json",#}
+                {#data: JSON.stringify(data.field),  //提交参数#}
+                data: {
+                    id: data.node.id,
+                    newparentid: data.parent,
+                    old_parentid: data.old_parent,
+                },  //提交参数
+                success: function (res) {
+                    layer.msg(res.msg, function () {
+                        {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                        location.reload()
+                    })
+                },
+                error: function (response) {
+                    layer.msg(response.responseText);
+                }
+            });
+
+
+        });
     </script>
 
 

@@ -7,25 +7,38 @@ from CMDB.model.server_models import Host
 import json
 
 Yezi_type = {
-    'mysql':u"{% url 'yewu_mysql' %}",
+    'mysql': '/cmdb/yewu_mysql',
      "oracle": '/cmdb/yewu_oracle',
-     'mongo': u"{%url 'yewu_mongo'%}",
-    "redis": u"{%url 'yewu_redis'%}",
+     'mongo': '/cmdb/yewu_mongo',
+    "redis":  '/cmdb/yewu_redis',
     "tomcat": u"{%url 'yewu_tomcat'%}"
 }
 
 
 
-
-
 def yewu_tree(request):
-    yewu=YewuTree.objects.all()
+    if request.method=='GET':
+        yewu=YewuTree.objects.all()
 
-    return  render(request, 'cmdb/yewutree/yewu_base.html',locals())
-
+        return  render(request, 'cmdb/yewutree/yewu_base.html',locals())
+    elif request.method=='POST':
+        '''拖拽的功能'''
+        yewuid=request.POST['id']
+        parentid=request.POST['newparentid']
+        yewunode=YewuTree.objects.get(id=yewuid)
+        parent=YewuTree.objects.get(id=parentid)
+        if parent.isLast:
+            return JsonResponse({'msg': "叶子节点是最后节点，不能移动到其下面", "code": 200, 'data': []})
+        else:
+            try:
+                yewunode.parent=parent
+                yewunode.save()
+                return JsonResponse({'msg': "节点移动完成，请刷新页面查看", "code": 200, 'data': []})
+            except Exception as e:
+                print(e)
+                return JsonResponse({'msg': "更新失败，看看是怎么会使", "code": 500, 'data': e })
 
 def yewu_tree_add_branch(request):
-
     if request.method=="GET":
         yewuid=request.GET.get('id')
         yewunode=YewuTree.objects.get(id=yewuid)
@@ -44,7 +57,6 @@ def yewu_tree_add_leaf(request):
     :param request:
     :return:
     '''
-
     if request.method=="GET":
         yewuid=request.GET.get('id')
         parentids=request.GET.get('parents').split(',')
@@ -70,17 +82,35 @@ def yewu_tree_add_leaf(request):
 
 
 
-def yewu_tree_edit(request):
+
+def yewu_tree_edit_leaf(request):
     '''
     业务树的编辑
     :param request:
     :return:
     '''
-    print('daociyiyou')
-    if request.method=='POST':
-        yewuid=request.POST['id']
+    if request.method == 'GET':
+        yewuid = request.GET.get('id')
+        return render(request, 'cmdb/yewutree/yewu_tree_edit_leaf.html', locals())
+    elif request.method == 'POST':
+        yewuid = request.POST['id']
         return JsonResponse({'msg': "节点添加成功", "code": 200, 'data': []})
 
+
+def yewu_tree_edit_branch(request):
+    '''
+    业务树的编辑
+    :param request:
+    :return:
+    '''
+    if request.method == 'GET':
+        yewuid = request.GET.get('id')
+        yewunode=YewuTree.objects.get(id=yewuid)
+        yewu=YewuTree.objects.all()
+        return render(request, 'cmdb/yewutree/yewu_tree_edit_branch.html', locals())
+    elif request.method=='POST':
+        yewuid=request.POST['id']
+        return JsonResponse({'msg': "节点添加成功", "code": 200, 'data': []})
 
 
 def yewu_tree_delete(request):
@@ -134,6 +164,9 @@ def yewutree2(request):
 
 def yewu_huizong(request):
     return render(request, 'cmdb/yewutree/yewu_huizong.html')
+
+
+
 
 def yewu_server(request,id):
     ' 则是展示业务的的关联主机'

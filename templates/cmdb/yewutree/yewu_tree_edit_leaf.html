@@ -1,0 +1,110 @@
+{% extends 'base_children.html' %}
+
+{% block content %}
+    <div class="layui-row larryms-panel auth-user-add">
+     <form action="{% url 'yewu_tree_add_leaf' %}" class="layui-form" method="post" id="demoAddForm">
+{#            {% csrf_token %}#}
+        <input name="parentid" value="{{ yewunode.id }}" type="hidden">
+                <div class="layui-form-item">
+
+                 <div class="layui-form-inline">
+                    <label class="layui-form-label">父节点</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" name="parentname" value="{{ yewunode.name}}" type="text" disabled>
+                    </div>
+                </div>
+
+
+                </div>
+
+
+         <div class="layui-form-item">
+
+                  <div class="layui-form-block">
+                        <label class="layui-form-label">叶子类型</label>
+                        <div class="layui-input-inline">
+                            <select name="yezi_type" >
+                                    {% for key,value in yezi.items %}
+                                            <option value="{{key }}"> {{key }}</option>
+                                    {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+         </div>
+       <div class="layui-form-item">
+                 <div class="layui-form-block">
+                        <label class="layui-form-label">作为产品线</label>
+                        <div class="layui-input-inline">
+                            <select name="yewuxianID" >
+                                    {% for s in yewuxian_select %}
+                                            <option value="{{ s.id }}"> {{ s.name }}</option>
+                                    {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="larryms-layer-btn " >
+                    <a class="layui-btn layui-btn-sm " lay-submit="" lay-filter="demoadd" id="submitAdd">提交</a>
+
+                    <a class=" layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+                </div>
+
+
+            </form>
+        </div>
+
+{% endblock %}
+{% block self_foot %}
+<script type="text/javascript">
+    layui.config({
+        version: "2.0.8",
+        base: '/static/larryms/',
+        layertype:2
+    }).extend({
+        larry: 'js/base'
+    }).use(['jquery','larry','layer','larryms','form'], function() {
+           var $ = layui.$,
+            larry = layui.larry,
+            larryms = layui.larryms,
+            form = layui.form;
+        var curIfr = parent.layer.getFrameIndex(window.name);
+
+        $('#closeAdd').on('click', function() {
+            parent.layer.close(curIfr);
+        });
+
+
+        form.on('submit(demoadd)', function(data) {
+            $.ajax({
+			    dataType: "JSON",
+			    url:data.form.action, //请求地址
+			    type:"POST",  //提交类似
+			    {#contentType: "application/json",#}
+			    {#data: JSON.stringify(data.field),  //提交参数#}
+                data: data.field,  //提交参数
+			    success:function(res){
+				layer.msg(res.msg,{time:350},function () {
+                   {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                    parent.layer.close(curIfr);
+                })
+			    },
+	    	    error:function(response){
+				    larryms.msg( response.responseText);
+	    	 }});
+
+            return false;});
+
+    });
+
+
+    </script>
+
+
+
+{% endblock %}

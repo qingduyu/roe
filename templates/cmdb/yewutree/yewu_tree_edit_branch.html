@@ -1,36 +1,28 @@
 {% extends 'base_children.html' %}
-
+{% load mptt_tags %}
 {% block content %}
     <div class="layui-row larryms-panel auth-user-add">
-     <form action="{% url 'yewu_tree_add_branch' %}" class="layui-form" method="post" id="demoAddForm">
+     <form action="{% url 'yewu_tree_add_leaf' %}" class="layui-form" method="post" id="demoAddForm">
 {#            {% csrf_token %}#}
 
-           <input name="parentid" value="{{ yewunode.id }}" type="hidden">
+           <input name="node_id" value="{{ yewunode.id }}" type="hidden">
 
-                <div class="layui-form-item">
-
-                 <div class="layui-form-inline">
-                    <label class="layui-form-label">父节点</label>
-                    <div class="layui-input-inline">
-                        <input class="layui-input" name="parent_name" value="{{ yewunode.name}}" type="text" disabled>
-                    </div>
-                </div>
-
-                </div>
-
-
-                <div class="layui-form-item">
+               <div class="layui-form-item">
 
                     <div class="layui-form-inline">
 
                         <label class="layui-form-label">节点名称</label>
                         <div class="layui-input-inline">
-                            <input class="layui-input" name="node_name" value="" placeholder="节点名称" type="text">
+                            <input class="layui-input" name="node_name" value="{{ yewunode.name }}" placeholder="节点名称" type="text">
                         </div>
                     </div>
 
 
                 </div>
+
+
+
+
 
 
                 <div class="larryms-layer-btn " >
@@ -52,13 +44,11 @@
         layertype:2
     }).extend({
         larry: 'js/base'
-    }).use(['jquery','larry','layer','larryms','form','laydate'], function() {
+    }).use(['jquery','larry','layer','larryms','form'], function() {
            var $ = layui.$,
             larry = layui.larry,
-            table = layui.talbe,
             larryms = layui.larryms,
-            form = layui.form,
-            laydate = layui.laydate;
+            form = layui.form;
         var curIfr = parent.layer.getFrameIndex(window.name);
 
         $('#closeAdd').on('click', function() {
@@ -71,12 +61,13 @@
 			    dataType: "JSON",
 			    url:data.form.action, //请求地址
 			    type:"POST",  //提交类似
-			    data: data.field,  //提交参数
+			    {#contentType: "application/json",#}
+			    {#data: JSON.stringify(data.field),  //提交参数#}
+                data: data.field,  //提交参数
 			    success:function(res){
-				larryms.msg(res.msg,{time:350},function () {
-                     parent.location.reload();
+				layer.msg(res.msg,{time:350},function () {
+                   {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
                     parent.layer.close(curIfr);
-                   {#parent.location.reload();#}
                 })
 			    },
 	    	    error:function(response){
