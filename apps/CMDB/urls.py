@@ -5,7 +5,7 @@ from django.contrib import admin
 from yewu_tree import yewu_tree,yewu_huizong,yewu_tree_add_branch,yewu_tree_add_leaf,yewu_tree_delete,yewu_tree_edit_branch,yewu_tree_edit_leaf,yewutree2
 from yewu_tree import yewu_server_ops,yewu_server
 from yewu_tree import yewu_mysql
-from yewu_tree import yewu_oracle
+from yewu_tree import yewu_oracle,yewu_mongo,yewu_redis
 
 # from views.net import  netdevice,group_net,idc_net
 from CMDB.views.idc import idc_show,idc_add,idc_edit
@@ -74,11 +74,22 @@ urlpatterns = [
     url(r'^yewutree/delete/$', yewu_tree_delete, name='yewu_tree_delete'),
 
 
-    url('^yewu_mysql$', yewu_mysql, name='yewu_mysql'),
-    url('^yewu_oracle$', yewu_oracle, name='yewu_oracle'),
-    url('^yewu_host/(?P<id>[0-9]+)/$', yewu_server, name='yewu_host'),
+    url('^yewu_mysql/$', yewu_mysql, name='yewu_mysql'),
+    url('^yewu_oracle/$', yewu_oracle, name='yewu_oracle'),
+
+
+    url('^yewu_redis/$', yewu_redis, name='yewu_redis'),
+    url('^yewu_mongo/$', yewu_mongo, name='yewu_mongo'),
+
+    # url('^yewu_tomcat/$', yewu_oracle, name='yewu_tomcat'),
+
+    url('^yewu_host/$', yewu_server, name='yewu_host'),
     url('^yewu_host_ops/(?P<id>[0-9]+)/$', yewu_server_ops, name='yewu_host_ops'),
-    url('^yewu_huizong', yewu_huizong, name='yewu_huizong'),
+    url('^yewu_huizong/$', yewu_huizong, name='yewu_huizong'),
+
+
+
+
     url(r'^assets_config',assets.assets_config),
     url(r'^assets_add$',assets.assets_add,name='cmdb_assets_add'),
     url(r'^assets_list',assets.assets_list),

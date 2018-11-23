@@ -23,25 +23,27 @@
     <div class="layui-fluid">
         <div class="layui-row  layui-col-space15 larryms-count-demo">
             <div class="layui-col-xs12 layui-col-sm12 layui-col-md3 layui-col-lg3">
-                <fieldset class="layui-elem-field">
-                    <div class="layui-field-box">
-                        对树编辑？ 试试右键，拖拽。
-                    </div>
-                </fieldset>
+{#                <fieldset class="layui-elem-field">#}
+{#                    <div class="layui-field-box">#}
+{#                        对树编辑？ 试试右键，拖拽。#}
+{#                    </div>#}
+{#                </fieldset>#}
                 <section class="layui-card">
 
                     <div id="tree">
-                        <ul>
+
+                         <ul>
                             {% recursetree yewu %}
 
                                 {% if node.isLast %}
                                     <li class="jstree-open" id="{{ node.id }}" data-jstree='{"disabled":true}'
                                         data-islast="{{ node.isLast }}">
                                         <a href="#"
-                                           onclick="window.open('{{ node.href }}/{{ node.id }}','listChannel')">{{ node.name }}</a>
-                                        {% else %}
-                                    <li class="jstree-open" id="{{ node.id }}" data-islast="{{ node.isLast }}"
-                                        data-name="{{ node.name }}"><a>{{ node.name }}  </a>
+                                           onclick="window.open('{{ node.href }}/?id={{ node.id }}','listChannel')">{{ node.name }}</a>
+                                        {% elif node.is_root_node %}
+                                     <li class="jstree-open" id="{{ node.id }}" data-islast="{{ node.isLast }}" data-name="{{ node.name }}"><a>顶级节点，想编辑？右键和拖拽 </a>
+                                    {% else %}
+                                     <li class="jstree-open" id="{{ node.id }}" data-islast="{{ node.isLast }}" data-name="{{ node.name }}"><a>{{ node.name }}  </a>
                                 {% endif %}
 
                             {% if not node.is_leaf_node %}
@@ -54,7 +56,19 @@
 
                             {% endrecursetree %}
                         </ul>
+
+
                     </div>
+                <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend>内部分类</legend>
+</fieldset>
+                    <div>
+                    <ul>
+                        <li class="layui-btn layui-btn-normal">  <a href="{% url 'yewu_oracle' %}#" target="listChannel">空闲机</a></li>
+
+                        <li class="layui-btn layui-btn-warm"><a href="{% url 'yewu_mysql' %}" target="listChannel">故障机</a></li>
+                    </ul>
+                </div>
                 </section>
             </div>
             {# 这是右边的页面#}
@@ -209,7 +223,8 @@
                                     layer.open({
                                         title: '友情提示',
                                         content: '嗨，大哥，这是根节点奥,不能删除'
-                                    })
+                                    });
+                                    location.reload();
                                 }
                                 else {
                                     layer.confirm('确定要删除本树节点？' + obj.text, {
@@ -242,9 +257,15 @@
             }
         ).on('move_node.jstree', function (e, data) {
             console.info(data);
-            layer.msg('这就是开始拖拽了,  不能添加子节点');
-
-            $.ajax({
+            if(data.parent=='#')
+            {
+                 layer.open({
+                                        title: '友情提示',
+                                        content: '嗨，大哥，这是根节点奥,不能再向上了'
+                                    })
+            }
+            else {
+                  $.ajax({
                 dataType: "JSON",
                 url: '{% url 'yewu_tree' %}', //请求地址
                 type: "POST",  //提交类似
@@ -265,6 +286,9 @@
                     layer.msg(response.responseText);
                 }
             });
+
+            }
+
 
 
         });

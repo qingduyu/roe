@@ -16,7 +16,7 @@ Yezi_type = {
 }
 
 
-
+#业务树
 def yewu_tree(request):
     if request.method=='GET':
         yewu=YewuTree.objects.all()
@@ -39,6 +39,7 @@ def yewu_tree(request):
                 print(e)
                 return JsonResponse({'msg': "更新失败，看看是怎么会使", "code": 500, 'data': e })
 
+#增加树枝节点（完成）
 def yewu_tree_add_branch(request):
     if request.method=="GET":
         yewuid=request.GET.get('id')
@@ -51,7 +52,7 @@ def yewu_tree_add_branch(request):
         child=YewuTree.objects.get_or_create(name=node_name,parent=parent,isLast=False)
         return JsonResponse({'msg': "节点添加成功", "code": 200, 'data': []})
 
-
+#增加叶子节点
 def yewu_tree_add_leaf(request):
     '''
     添加叶子节点
@@ -63,6 +64,7 @@ def yewu_tree_add_leaf(request):
         parentids=request.GET.get('parents').split(',')
         parentids.pop()#取出父节点并且删除业务树最顶段的2个节点,
         parentids.pop()
+        parentids.append(yewuid)
         yewuxian=YewuTree.objects.filter(id__in=parentids)
         yewunode=YewuTree.objects.get(id=yewuid)
         yezi=Yezi_type
@@ -81,9 +83,7 @@ def yewu_tree_add_leaf(request):
         except Exception as e:
             print(e)
 
-
-
-
+#编辑叶子节点
 def yewu_tree_edit_leaf(request):
     '''
     业务树的编辑
@@ -108,7 +108,7 @@ def yewu_tree_edit_leaf(request):
         yewu.save()
         return JsonResponse({'msg': "节点添加成功", "code": 200, 'data': []})
 
-
+#编辑树枝节点
 def yewu_tree_edit_branch(request):
     '''
     业务树的编辑
@@ -126,9 +126,9 @@ def yewu_tree_edit_branch(request):
         yewu_name=request.POST['node_name']
         yewu.name=yewu_name
         yewu.save()
-        return JsonResponse({'msg': "节点添加成功", "code": 200, 'data': []})
+        return JsonResponse({'msg': "节点编辑成功", "code": 200, 'data': []})
 
-
+#删除树枝节点
 def yewu_tree_delete(request):
     '''
     删除节点，注意删除关联业务数据，每次增加业务叶子的模板，这里的if判断条件就要相应的增加
@@ -182,16 +182,16 @@ def yewu_huizong(request):
     return render(request, 'cmdb/yewutree/yewu_huizong.html')
 
 
-
-
-def yewu_server(request,id):
+def yewu_server(request):
     ' 则是展示业务的的关联主机'
-    try:
-        host=Host.objects.filter(tree_id_id=id)
-        yewuid=id
-        return render(request, 'cmdb/yewutree/yewu_host.html',locals())
-    except Exception as e:
-        print e
+    if request.method=='GET':
+        id=request.GET.get('id')
+        try:
+            host=Host.objects.filter(tree_id_id=id)
+            yewuid=id
+            return render(request, 'cmdb/yewutree/yewu_host.html',locals())
+        except Exception as e:
+            print e
 
 def yewu_server_ops(request,id):
     '''进行主机和业务树的关联,post 方式传递2个参数,以后改成搜索多选框 ,一个是业务树的id,一个是主机的id'''
@@ -213,7 +213,22 @@ def yewu_server_ops(request,id):
 
 
 def yewu_mysql(request):
-    return render(request, 'cmdb/yewutree/yewu_mysql.html')
+    return render(request, 'cmdb/yewutree/yewu_mysql.html',locals())
 
 def yewu_oracle(request):
-    return render(request, 'cmdb/yewutree/yewu_oracle.html')
+
+    if request.method=='GET':
+        yewuid = request.GET.get('id')
+        return render(request, 'cmdb/yewutree/yewu_oracle.html',locals())
+    elif request.method=='POST':
+        json_data = {'code': 200, 'msg': '数据添加完毕'}
+        return JsonResponse(json_data, content_type="application/json")
+
+
+
+def yewu_mongo(request):
+    return render(request, 'cmdb/yewutree/yewu_mongo.html',locals())
+
+
+def yewu_redis(request):
+    return render(request, 'cmdb/yewutree/yewu_redis.html',locals())

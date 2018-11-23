@@ -4,7 +4,7 @@ import uuid,os,json
 from django.http import HttpResponseRedirect,JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from CMDB.models import Server_Assets, Network_Assets
+from CMDB.models import Server_Assets
 from utils.data.DsRedisOps import DsRedis
 
 from django.contrib.auth.models import User,Group

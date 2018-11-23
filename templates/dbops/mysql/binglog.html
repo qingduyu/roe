@@ -13,7 +13,7 @@
     <form action="{% url 'mysql_binglog_parse' %}" class="layui-form" method="post" id="demoAddForm1">
         {% csrf_token %}
         <div class="layui-row">
-            <div class="layui-col-xs5">
+            <div class="layui-col-lg5">
 
                 <div class="layui-form-item">
                     <label class="layui-form-label">数据库集群</label>
@@ -93,21 +93,22 @@
 
         <div class="layui-row">
             {% if event_startime %}
-                <blockquote class="layui-elem-quote layui-quote-nm">
-                    <div class="layui-form-item">
+
+                   <div class="layui-form-item">
+
                         {% if start_time %}
-                            <div class="layui-inline">
-                                <label class="layui-form-label">起始时间</label>
-                                <div class="layui-input-block">
+                            <div class="layui-form-inline">
+                                <label class="layui-form-label">起始</label>
+                                <div class="layui-input-inline">
                                     <input class="layui-input" name="start_time" value="{{ start_time }}"
                                            id="start_time" lay-verify="required"
                                            type="text">
                                 </div>
                             </div>
                         {% else %}
-                            <div class="layui-inline">
-                                <label class="layui-form-label">起始时间</label>
-                                <div class="layui-input-block">
+                            <div class="layui-form-inline">
+                                <label class="layui-form-label">起始</label>
+                                <div class="layui-input-inline">
                                     <input class="layui-input" name="start_time"
                                            value="{{ event_startime|date:'Y-n-d H:i:s' }}" id="start_time"
                                            lay-verify="required"
@@ -133,8 +134,8 @@
                         </div>
                         {% if stop_time %}
                             <div class="layui-inline">
-                                <label class="layui-form-label">结束时间</label>
-                                <div class="layui-input-block">
+                                <label class="layui-form-label">结束</label>
+                                <div class="layui-input-inline">
                                     <input class="layui-input" name="stop_time" value='{{ stop_time }}' id="stop_time"
                                            lay-verify="required"
                                            placeholder="大于起始时间" ,
@@ -143,8 +144,8 @@
                             </div>
                         {% else %}
                             <div class="layui-inline">
-                                <label class="layui-form-label">结束时间</label>
-                                <div class="layui-input-block">
+                                <label class="layui-form-label">结束</label>
+                                <div class="layui-input-inline">
                                     <input class="layui-input" name="stop_time"
                                            value='{{ event_startime|date:'Y-n-d H:i:s' }}' id="stop_time"
                                            lay-verify="required"
@@ -183,7 +184,9 @@
                             </div>
                         </div>
 
-                    </div>
+
+                   </div>
+
 
                 <div class="layui-form-item">
                               <button id="parse_binlog" name="parse" class="layui-btn layui-btn-normal" value="1">解析日志
@@ -202,20 +205,20 @@
                         </button>
                         <div class="layui-inline">
                             <label class="layui-form-label">收件人</label>
-                            <div class="layui-input-block">
+                            <div class="layui-input-inline">
                                 <input class="layui-input" name="mailto" type="text">
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">起始id</label>
-                            <div class="layui-input-block">
-                                <input class="layui-input" name="start_id" type="number">
+                            <div class="layui-input-inline">
+                                <input class="layui-input" name="start_id" type="text">
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">结束id</label>
-                            <div class="layui-input-block">
-                                <input class="layui-input" name="endi_id" type="number">
+                            <div class="layui-input-inline">
+                                <input class="layui-input" name="endi_id" type="text">
                             </div>
                         </div>
 
@@ -234,19 +237,19 @@
                         </button>
                         <div class="layui-inline">
                             <label class="layui-form-label">收件人</label>
-                            <div class="layui-input-block">
+                            <div class="layui-input-inline">
                                 <input class="layui-input" name="mailto" type="text">
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">起始id</label>
-                            <div class="layui-input-block">
+                            <div class="layui-input-inline">
                                 <input class="layui-input" name="start_id" type="number">
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">结束id</label>
-                            <div class="layui-input-block">
+                            <div class="layui-input-inline">
                                 <input class="layui-input" name="endi_id" type="number">
                             </div>
                         </div>
@@ -261,7 +264,6 @@
 
 
 
-                </blockquote>
 
 
             {% endif %}
