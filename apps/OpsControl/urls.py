@@ -9,9 +9,13 @@ from ansible_ops import (apps_list,apps_online,apps_model,apps_script_online,app
                          ansible_inventory_groups,ansible_inventory_groups_server)
 
 from task import task_model,task_search,task_view
+
+from views.exe_modules import exe_modules,get_jsontree,get_treehost
+
 urlpatterns = [
 
-
+    url(r'^get_jsontree', get_jsontree, name='get_jsontree'),
+    url(r'^get_treehost', get_treehost, name='get_treehost'),
     url(r'^cron_add', cron_add,name='crontable_add'),
     url(r'^cron_list/(?P<page>[0-9]+)/$', cron_list,name='crontab_list'),
     url(r'^cron_config', cron_config,name='crontab_config'),
@@ -42,4 +46,6 @@ urlpatterns = [
     url(r'^task_model/$', task_model),
     url(r'^task_view/$', task_view),
     url(r'^task_search/$',task_search),
+
+    url(r'^ansible_exe_modules/$', exe_modules,name='ansible_exe_modules'),
 ]

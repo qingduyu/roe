@@ -43,7 +43,7 @@ platforms.C_FORCE_ROOT = True  #允许root启动
 #celery导入所有的任务模块
 CELERY_IMPORTS = ("tasks.assets","tasks.ansible",
                   "tasks.cron","tasks.deploy",
-                  "tasks.sql","tasks.sched","MysqlOps.tasks")
+                  "tasks.sql","tasks.sched","MysqlOps.tasks","CMDB.tasks")
 CELERY_QUEUES = (
     Queue('default',Exchange('default'),routing_key='default'),  #指定队列
     Queue('ansible',Exchange('ansible'),routing_key='ansible'),  #指定ansible队列
@@ -54,6 +54,7 @@ CELERY_QUEUES = (
 # assets,cron,sched 下面的任务走 队列  default,队列，并且按照routerkey 打头
 CELERY_ROUTES = {
     'tasks.sql.*':{'queue':'database','routing_key':'database'},
+    'CMDB.tasks.*':{'queue':'default','routing_key':'default'},
     'MysqlOps.tasks.*':{'queue':'database','routing_key':'database'},
     'tasks.assets.*':{'queue':'default','routing_key':'default'},
     'tasks.cron.*':{'queue':'default','routing_key':'default'},

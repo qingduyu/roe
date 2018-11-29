@@ -136,22 +136,6 @@ layui.extend({larryms: "lib/larryms"}).define(["jquery", "configure", "layer", "
         } else {
             layui.link(layui.cache.base + "css/fonts/larry-icon.css")
         }
-        if (window.top === window.self) {
-            layui.use(["larrySecret", "md5"], function () {
-                var e = layui.larrySecret, i = layui.md5;
-                var r = e.userKey;
-                if (s.grantUser && s.grantKey) {
-                    var l = u.grantCheck(s.grantUser, s.grantKey, r);
-                    if (!l) {
-                        console.log("您需要前往larryms.com官网获取产品授权,或检查授权参数是否正确配置");
-                        return false
-                    }
-                } else {
-                    console.log("请前往larryms.com官方获取授权密钥,或检查配置文件必填参数");
-                    return false
-                }
-            })
-        }
         if (layui.cache.page) {
             layui.cache.page = layui.cache.page.split(",");
             if (d.inArray("larry", layui.cache.page) === -1) {

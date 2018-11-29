@@ -7,6 +7,8 @@ from yewu_tree import yewu_server_ops,yewu_server
 from yewu_tree import yewu_mysql
 from yewu_tree import yewu_oracle,yewu_mongo,yewu_redis
 
+from yewu_tree_api import get_treehost,get_jsontree
+
 # from views.net import  netdevice,group_net,idc_net
 from CMDB.views.idc import idc_show,idc_add,idc_edit
 from CMDB.views.idc_api import IDCAPI
@@ -30,6 +32,7 @@ from CMDB.views.server.host_api import HOST_API,HOSTFail_API,WuLiHOST_API,XuNiHO
 from CMDB.views.server.virtual_host import xunihost_show
 from CMDB.views.server.physical_host import wulihost_show
 from CMDB.views.server.suzhu_host import suzhuhost_show
+
 urlpatterns = [
 
     url('^idc_show',idc_show,name='idc_show'),
@@ -87,8 +90,8 @@ urlpatterns = [
     url('^yewu_host_ops/(?P<id>[0-9]+)/$', yewu_server_ops, name='yewu_host_ops'),
     url('^yewu_huizong/$', yewu_huizong, name='yewu_huizong'),
 
-
-
+    url('^get_json_tree/$',get_jsontree, name='get_json_tree'),
+    url('^get_json_tree_host/(?P<id>[0-9]+)/$', get_treehost, name='get_json_tree_host'),
 
     url(r'^assets_config',assets.assets_config),
     url(r'^assets_add$',assets.assets_add,name='cmdb_assets_add'),

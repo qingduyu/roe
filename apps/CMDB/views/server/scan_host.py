@@ -5,9 +5,13 @@
 
 from django.shortcuts import render
 from django.http import JsonResponse
+import json
 from CMDB.model.server_models import Host,ASSET_TYPE
-from CMDB.model.server_models import scan_conf_ip,scan_host_conf
+from CMDB.model.server_models import scan_host_conf
 from CMDB.tasks import do_scan_host
+
+
+
 
 
 def  scan_host(request):
@@ -16,29 +20,30 @@ def  scan_host(request):
     :return:
     '''
     if request.method=="GET":   #默认查看
-        ip_duans= scan_conf_ip.objects.all()
-        ipduan=dict()
+        ip_duans= scan_host_conf.objects.all()
+        ipduan=[]
         for i in ip_duans:
-            ipduan['id']=i.id
-            ipduan['name']=i.nets
+            temp={}
+            temp['id']=i.id
+            temp['nets']=i.nets
+            ipduan.append(temp)
         return render(request, 'cmdb/servers/scan_host.html', locals())
     if request.method=='POST':
         '''进行后台扫描函数'''
-        ip_duans=scan_host_conf.objects.all()
-        # ports=scan_conf_port.objects.values('port').first()['port'].split(',')
-        # ssh_pass=scan_conf_sshpass.objects.values('ssh_pass').first()['ssh_pass'].split(',')
-
+        ids=request.POST['ipduan_id'].split(',')
+        ip_duans=scan_host_conf.objects.filter(id__in=ids)
         for ip_duan in ip_duans:
             nets_pass = ip_duan.nets_pass.split(',')
             ssh_pass=ip_duan.ssh_pass.split(',')
             port=ip_duan.port.split(',')
             try:
                 do_scan_host.delay(list(port),ip_duan.nets,list(nets_pass),list(ssh_pass))
+                # aa=do_scan_host(port,ip_duan.nets,nets_pass,ssh_pass)
             except Exception as e:
                 print(e)
 
 
-        json_data = {'code': 200, 'msg': '主机扫描完成'}
+        json_data = {'code': 200, 'msg': '主机正在扫描中，稍后刷新'}
         return JsonResponse(json_data,safe=False)
 
 

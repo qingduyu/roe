@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 
-from CMDB.model.server_models import scan_conf_ip,scan_conf_cmd,scan_conf_keyfile,scan_conf_port,scan_conf_sshpass,scan_host_conf
+from CMDB.model.server_models import scan_conf_port,scan_conf_sshpass,scan_host_conf
 #
 # @login_required()
 # def scan_host_conf(request):
@@ -63,7 +63,7 @@ def scan_host_ip_add(request):
     if request.method == 'POST':
         data=request.POST
         try:
-             scan_conf_ip.objects.create(nets=data['nets'],nets_pass=data['nets_pass'])
+             scan_host_conf.objects.create(nets=data['nets'],nets_pass=data['nets_pass'])
              json_data = {'code': 200, 'msg': 'IP地址段添加成功'}
              return Response(json_data,content_type="application/json")
         except Exception as e:
@@ -80,5 +80,5 @@ def scan_host_ip_del(request):
     ip_id = request.GET.get('id', '')
 
     if ip_id:
-        scan_conf_ip.objects.filter(id=ip_id).delete()
+        scan_host_conf.objects.filter(id=ip_id).delete()
     return HttpResponse(u'删除成功')
