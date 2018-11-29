@@ -20,7 +20,7 @@ class Log_Ansible_Model(models.Model):
     create_time = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='执行时间')
 
     class Meta:
-        db_table = 'opsmanage_log_ansible_model'
+        db_table = 'log_ansible_model'
         permissions = (
             ("can_read_log_ansible_model", "读取Ansible模块执行记录权限"),
             ("can_change_log_ansible_model", "更改Ansible模块执行记录权限"),
@@ -33,7 +33,7 @@ class Log_Ansible_Model(models.Model):
 
 class Ansible_Playbook(models.Model):
     type = (
-        ('service', u'service'),
+        ('prod_line', u'prod_line'),
         ('group', u'group'),
         ('custom', u'custom'),
     )
@@ -49,7 +49,7 @@ class Ansible_Playbook(models.Model):
     playbook_type = models.SmallIntegerField(verbose_name='剧本类型', blank=True, null=True, default=0)
 
     class Meta:
-        db_table = 'opsmanage_ansible_playbook'
+        db_table = 'ansible_playbook'
         permissions = (
             ("can_read_ansible_playbook", "读取Ansible剧本权限"),
             ("can_change_ansible_playbook", "更改Ansible剧本权限"),
@@ -67,12 +67,12 @@ class Ansible_Script(models.Model):
     script_server = models.TextField(max_length=200, verbose_name='目标机器', blank=True, null=True)
     script_file = models.FileField(upload_to='./script/', verbose_name='脚本路径')
     script_args = models.TextField(blank=True, null=True, verbose_name='脚本参数')
-    script_service = models.SmallIntegerField(verbose_name='授权业务', blank=True, null=True)
+    auth_prod = models.SmallIntegerField(verbose_name='授权产品线', blank=True, null=True)
     script_group = models.SmallIntegerField(verbose_name='授权组', blank=True, null=True)
     script_type = models.CharField(max_length=50, verbose_name='脚本类型', blank=True, null=True)
 
     class Meta:
-        db_table = 'opsmanage_ansible_script'
+        db_table = 'ansible_script'
         permissions = (
             ("can_read_ansible_script", "读取Ansible脚本权限"),
             ("can_change_ansible_script", "更改Ansible脚本权限"),
@@ -91,7 +91,7 @@ class Log_Ansible_Playbook(models.Model):
     ans_user = models.CharField(max_length=50, verbose_name='使用用户', default=None)
     ans_name = models.CharField(max_length=100, verbose_name='模块名称', default=None)
     ans_content = models.CharField(max_length=100, default=None)
-    ans_server = models.TextField(verbose_name='服务器', default=None)
+    ans_host = models.TextField(verbose_name='服务器', default=None)
     create_time = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='执行时间')
 
     class Meta:
@@ -108,10 +108,10 @@ class Log_Ansible_Playbook(models.Model):
 
 class Ansible_Playbook_Number(models.Model):
     playbook = models.ForeignKey('Ansible_Playbook', related_name='server_number', on_delete=models.CASCADE)
-    playbook_server = models.CharField(max_length=100, verbose_name='目标服务器', blank=True, null=True)
+    playbook_host = models.CharField(max_length=100, verbose_name='目标服务器', blank=True, null=True)
 
     class Meta:
-        db_table = 'opsmanage_ansible_playbook_number'
+        db_table = 'ansible_playbook_number'
         permissions = (
             ("can_read_ansible_playbook_number", "读取Ansible剧本成员权限"),
             ("can_change_ansible_playbook_number", "更改Ansible剧本成员权限"),
@@ -122,9 +122,10 @@ class Ansible_Playbook_Number(models.Model):
         verbose_name_plural = 'Ansible剧本成员表'
 
     def __unicode__(self):
-        return '%s' % (self.playbook_server)
+        return '%s' % (self.playbook_host)
 
 
+##动态资产
 class Ansible_Inventory(models.Model):
     name = models.CharField(max_length=200, unique=True, verbose_name='资产名称')
     desc = models.CharField(max_length=200, verbose_name='功能描述')
@@ -132,7 +133,7 @@ class Ansible_Inventory(models.Model):
     create_time = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='创建时间')
 
     class Meta:
-        db_table = 'opsmanage_ansible_inventory'
+        db_table = 'ansible_inventory'
         permissions = (
             ("can_read_ansible_inventory", "读取ansible资产权限"),
             ("can_change_ansible_inventory", "更改ansbile资产权限"),
@@ -144,26 +145,26 @@ class Ansible_Inventory(models.Model):
 
 
 
-
+#动态资产组
 class Ansible_Inventory_Groups(models.Model):
     inventory = models.ForeignKey('Ansible_Inventory', related_name='inventory_group', on_delete=models.CASCADE)
     group_name = models.CharField(max_length=100, verbose_name='group name')
     ext_vars = models.TextField(verbose_name='组外部变量', blank=True, null=True)
 
     class Meta:
-        db_table = 'opsmanage_ansible_inventory_groups'
+        db_table = 'ansible_inventory_groups'
         verbose_name = 'Ansible资产成员表'
         verbose_name_plural = 'Ansible资产成员表'
         unique_together = (("inventory", "group_name"))
 
-
+#动态资产和主机关联
 class Ansible_Inventory_Groups_Server(models.Model):
-    groups = models.ForeignKey('Ansible_Inventory_Groups', related_name='inventory_group_server',
+    groups = models.ForeignKey('Ansible_Inventory_Groups', related_name='inventory_group_host',
                                on_delete=models.CASCADE)
     server = models.SmallIntegerField(verbose_name='服务器')
 
     class Meta:
-        db_table = 'opsmanage_ansible_inventory_groups_servers'
+        db_table = 'ansible_inventory_groups_host'
         unique_together = (("groups", "server"))
 
 

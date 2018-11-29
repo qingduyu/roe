@@ -23,56 +23,59 @@ from utils.logger import logger
 from utils.ansible_api_v2 import ANSRunner
 from dao.assets import AssetsSource
 
-@login_required()
-def apps_model(request):
-    if request.method == "GET":
-        projectList = Project_Assets.objects.all()
-        serverList = AssetsSource().serverList()
-        groupList = Group.objects.all()
-        serviceList = Service_Assets.objects.all()
-        inventoryList = Ansible_Inventory.objects.all()
-        return render(request,'opscontrol/apps/apps_model.html',{"user":request.user,"ans_uuid":uuid.uuid4(),
-                                                            "serverList":serverList,"groupList":groupList,
-                                                            "serviceList":serviceList,"projectList":projectList,
-                                                            "inventoryList":inventoryList})
-    elif  request.method == "POST" and request.user.has_perm('OpsManage.can_exec_ansible_model'):
-        resource = []
-        sList = []
-        if request.POST.get('server_model') in ['service','group','custom','inventory']:
-            if request.POST.get('server_model') == 'custom':
-                serverList = request.POST.getlist('ansible_server')
-                sList,resource = AssetsSource().custom(serverList)
-            elif request.POST.get('server_model') == 'group':
-                sList,resource = AssetsSource().group(group=request.POST.get('ansible_group'))
-            elif request.POST.get('server_model') == 'service':
-                sList,resource = AssetsSource().service(business=request.POST.get('ansible_service')) 
-            elif request.POST.get('server_model') == 'inventory': 
-                sList,resource,groups = AssetsSource().inventory(inventory=request.POST.get('ansible_inventory'))
-            if len(request.POST.get('custom_model')) > 0:model_name = request.POST.get('custom_model')
-            else:model_name = request.POST.get('ansible_model',None)
-            if len(sList) > 0:
-                redisKey = request.POST.get('ans_uuid')
-                logId = AnsibleRecord.Model.insert(user=str(request.user),ans_model=model_name,ans_server=','.join(sList),ans_args=request.POST.get('ansible_args',None))
-                DsRedis.OpsAnsibleModel.delete(redisKey)
-                DsRedis.OpsAnsibleModel.lpush(redisKey, "[Start] Ansible Model: {model}  ARGS:{args}".format(model=model_name,args=request.POST.get('ansible_args',"None")))
-                if request.POST.get('ansible_debug') == 'on':ANS = ANSRunner(resource,redisKey,logId,verbosity=4)
-                else:ANS = ANSRunner(resource,redisKey,logId)
-                if request.POST.get('server_model') == 'inventory':sList = groups[:-1]
-                ANS.run_model(host_list=sList,module_name=model_name,module_args=request.POST.get('ansible_args',""))
-                DsRedis.OpsAnsibleModel.lpush(redisKey, "[Done] Ansible Done.")
-                return JsonResponse({'msg':"操作成功","code":200,'data':[]})
-            else:
-                return JsonResponse({'msg':"操作失败，未选择主机或者该分组没有成员","code":500,'data':[]})
-        else:
-            return JsonResponse({'msg':"操作失败，不支持的操作类型","code":500,'data':[]})
+# @login_required()
+# def apps_model(request):
+#     if request.method == "GET":
+#         projectList = Project_Assets.objects.all()
+#         serverList = AssetsSource().serverList()
+#         groupList = Group.objects.all()
+#         serviceList = Service_Assets.objects.all()
+#         inventoryList = Ansible_Inventory.objects.all()
+#         return render(request,'opscontrol/apps/apps_model.html',{"user":request.user,"ans_uuid":uuid.uuid4(),
+#                                                             "serverList":serverList,"groupList":groupList,
+#                                                             "serviceList":serviceList,"projectList":projectList,
+#                                                             "inventoryList":inventoryList})
+#     elif  request.method == "POST" and request.user.has_perm('OpsManage.can_exec_ansible_model'):
+#         resource = []
+#         sList = []
+#         if request.POST.get('server_model') in ['service','group','custom','inventory']:
+#             if request.POST.get('server_model') == 'custom':
+#                 serverList = request.POST.getlist('ansible_server')
+#                 sList,resource = AssetsSource().custom(serverList)
+#             elif request.POST.get('server_model') == 'group':
+#                 sList,resource = AssetsSource().group(group=request.POST.get('ansible_group'))
+#             elif request.POST.get('server_model') == 'service':
+#                 sList,resource = AssetsSource().service(business=request.POST.get('ansible_service'))
+#             elif request.POST.get('server_model') == 'inventory':
+#                 sList,resource,groups = AssetsSource().inventory(inventory=request.POST.get('ansible_inventory'))
+#             if len(request.POST.get('custom_model')) > 0:model_name = request.POST.get('custom_model')
+#             else:model_name = request.POST.get('ansible_model',None)
+#             if len(sList) > 0:
+#                 redisKey = request.POST.get('ans_uuid')
+#                 logId = AnsibleRecord.Model.insert(user=str(request.user),ans_model=model_name,ans_server=','.join(sList),ans_args=request.POST.get('ansible_args',None))
+#                 DsRedis.OpsAnsibleModel.delete(redisKey)
+#                 DsRedis.OpsAnsibleModel.lpush(redisKey, "[Start] Ansible Model: {model}  ARGS:{args}".format(model=model_name,args=request.POST.get('ansible_args',"None")))
+#                 if request.POST.get('ansible_debug') == 'on':ANS = ANSRunner(resource,redisKey,logId,verbosity=4)
+#                 else:ANS = ANSRunner(resource,redisKey,logId)
+#                 if request.POST.get('server_model') == 'inventory':sList = groups[:-1]
+#                 ANS.run_model(host_list=sList,module_name=model_name,module_args=request.POST.get('ansible_args',""))
+#                 DsRedis.OpsAnsibleModel.lpush(redisKey, "[Done] Ansible Done.")
+#                 return JsonResponse({'msg':"操作成功","code":200,'data':[]})
+#             else:
+#                 return JsonResponse({'msg':"操作失败，未选择主机或者该分组没有成员","code":500,'data':[]})
+#         else:
+#             return JsonResponse({'msg':"操作失败，不支持的操作类型","code":500,'data':[]})
     
 @login_required()
 def ansible_run(request):
     if request.method == "POST":
         redisKey = request.POST.get('ans_uuid')          
         msg = DsRedis.OpsAnsibleModel.rpop(redisKey)
-        if msg:return JsonResponse({'msg':msg,"code":200,'data':[]}) 
-        else:return JsonResponse({'msg':None,"code":200,'data':[]})
+        if msg:
+            return JsonResponse({'msg':msg,"code":200,'data':[]})
+
+        else:
+            return JsonResponse({'msg':None,"code":200,'data':[]})
         
         
 @login_required()

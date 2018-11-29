@@ -67,7 +67,7 @@ CELERY_DEFAULT_QUEUE = 'default'
 CELERY_DEFAULT_EXCHANGE_TYPE = 'topic'
 CELERY_DEFAULT_ROUTING_KEY = 'default'
 
-REDSI_KWARGS_LPUSH = {"host":'127.0.0.1','port':6379,'db':3}
+REDSI_KWARGS_LPUSH = {"host":'127.0.0.1','port':6379,'db':3}       #redis 的后台ansble 命令，参数传入
 REDSI_LPUSH_POOL = None
 
 # Quick-start development settings - unsuitable for production

@@ -390,26 +390,6 @@
                     }
                 }
             };
-            {#form.on('submit(demoadd1)', function(data) {#}
-            {#    $.post(data.form.action, data.field, function(res) {#}
-            {#        if (res.code == 200) {#}
-            {#larryms.msg(res.msg);#}
-            {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
-            {#parent.layer.close(curIfr);#}
-            {#// $('#demoAddForm')[0].reset();继续添加注销上一段#}
-            {#            larryms.msg(res.msg,{time:350},function () {#}
-            {#                parent.table.reload('demo',{});#}
-            {#                parent.layer.close(curIfr);#}
-            {#            })#}
-            {##}
-            {#        } else if (res.code == 911) {#}
-            {#            larryms.msg(res.msg);#}
-            {#        } else if (res.code == 500) {#}
-            {#            larryms.msg(res.msg);#}
-            {#        }#}
-            {#    });#}
-            {#    return false;#}
-            {# }); #}
 
             var tableDataUrl = $('#demo').data('url'), roleIndex = table.render({
                 elem: '#demo',

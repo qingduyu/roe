@@ -3,19 +3,17 @@ from django.conf.urls import url,include
 
 from cron import cron_add,cron_list,cron_config,cron_log,cron_mod
 
-from ansible_ops import (apps_list,apps_online,apps_model,apps_script_online,apps_script_list,apps_script_file,
+from ansible_ops import (apps_list,apps_online,apps_script_online,apps_script_list,apps_script_file,
                          apps_script_online_run,ansible_run,ansible_log,ansible_log_view,apps_upload,apps_playbook_run,
                          apps_playbook_file,apps_playbook_modf,apps_playbook_online_modf,ansible_inventory,ansible_inventory_modf,
                          ansible_inventory_groups,ansible_inventory_groups_server)
 
 from task import task_model,task_search,task_view
 
-from views.exe_modules import exe_modules,get_jsontree,get_treehost
+from views.exe_modules import exe_modules
 
 urlpatterns = [
 
-    url(r'^get_jsontree', get_jsontree, name='get_jsontree'),
-    url(r'^get_treehost', get_treehost, name='get_treehost'),
     url(r'^cron_add', cron_add,name='crontable_add'),
     url(r'^cron_list/(?P<page>[0-9]+)/$', cron_list,name='crontab_list'),
     url(r'^cron_config', cron_config,name='crontab_config'),
@@ -23,12 +21,12 @@ urlpatterns = [
     url(r'^cron_mod/(?P<cid>[0-9]+)/$', cron_mod,name='crontab_modify'),
 
     url(r'^apps/$', apps_list),
-    url(r'^apps/model/$', apps_model),
+    # url(r'^apps/model/$', apps_model),
     url(r'^apps/script/online/$', apps_script_online),
     url(r'^apps/script/list/$', apps_script_list),
     url(r'^apps/script/file/(?P<pid>[0-9]+)/$', apps_script_file),
     url(r'^apps/script/run/(?P<pid>[0-9]+)/$', apps_script_online_run),
-    url(r'^apps/run/$', ansible_run),
+
     url(r'^apps/log/$', ansible_log),
     url(r'^apps/log/(?P<model>[a-z]+)/(?P<id>[0-9]+)/$', ansible_log_view),
     url(r'^apps/playbook/upload/$', apps_upload),
@@ -48,4 +46,6 @@ urlpatterns = [
     url(r'^task_search/$',task_search),
 
     url(r'^ansible_exe_modules/$', exe_modules,name='ansible_exe_modules'),
+
+    url(r'^get_ans_run_result/$', ansible_run,name='get_ans_run_result'),
 ]

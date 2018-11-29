@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding=utf-8 -*-
 import json,re,os
+
 from collections import namedtuple
 from ansible.errors import AnsibleParserError
 from ansible.parsing.dataloader import DataLoader
@@ -11,6 +12,7 @@ from ansible.executor.task_queue_manager import TaskQueueManager
 from ansible.plugins.callback import CallbackBase
 from ansible.executor.playbook_executor import PlaybookExecutor
 from utils.data.DsRedisOps import DsRedis
+
 from utils.data.DsMySQL import AnsibleSaveResult
 from utils.logger import logger
 from ansible import constants
@@ -690,9 +692,9 @@ class ANSRunner(object):
         
 if __name__ == '__main__':
     resource = [
-                 {"hostname": "192.168.1.235"},
-                 {"hostname": "192.168.1.234"},
-                 {"hostname": "192.168.1.233"},
+                 {"hostname": "172.16.50.222"},
+                 {"hostname": "172.16.50.223"},
+                 {"hostname": "172.16.50.210"},
                  ]
 #     resource =  { 
 #                     "dynamic_host": { 
@@ -708,7 +710,7 @@ if __name__ == '__main__':
 #                 } 
     
     rbt = ANSRunner(resource,redisKey='1')
-    rbt.run_model(host_list=["192.168.1.235","192.168.1.234","192.168.1.233"],module_name='yum',module_args="name=htop state=present")
+    rbt.run_model(host_list=["172.16.50.222","172.16.50.220","172.16.50.210"],module_name='ping',module_args=" ")
 #     data = rbt.get_model_result()
 #     print data
 #     print data

@@ -21,7 +21,7 @@
                             </div>
 
                             <div class="layui-card-body">
-                                <form class="layui-form layui-form-pane" id="ansibleModelRun" lay-filter="layui-form">
+                                <form class="layui-form layui-form-pane" id="ansibleModelRun" lay-filter="layui-form" action="{% url 'ansible_exe_modules' %}">
 
                                     <div class="layui-form-item">
                                         <label class="layui-form-label">产品线</label>
@@ -77,11 +77,10 @@
                                     <div class="layui-form-item">
                                         <label class="layui-form-label">调试模式</label>
                                         <div class="layui-input-block">
-                                            <input type="checkbox" name="debug" lay-skin="switch"
-                                                   lay-filter='switchtest' lay-text="ON|OFF">
+                                            <input type="checkbox" name="ans_debug" lay-skin="switch" value="ON"  lay-text="ON|OFF">
                                         </div>
                                     </div>
-
+            {% csrf_token %}
 
                                     <div class="layui-form-item">
                                         <div class="layui-input-block">
@@ -89,8 +88,7 @@
                                                     class="layui-btn layui-btn-danger">撤销
                                             </button>
 
-                                            <button type="button" class="layui-btn layui-btn-normal" lay-submit="'"
-                                                    lay-filter='runjob' id="run_ansible_model">执行
+                                            <button type="button" class="layui-btn layui-btn-normal" lay-submit="" lay-filter='runjob' id="run_ansible_model">执行
                                             </button>
 
                                         </div>
@@ -206,8 +204,7 @@
 
 
             form.on('submit(runjob)', function (data) {
-
-                console.log(data);
+                console.log(data.field)
                 var btnObj = $(data);
                 btnObj.attr('disabled', true);
                 var form = document.getElementById('ansibleModelRun');
@@ -227,13 +224,13 @@
                 /* 轮训获取结果 开始  */
                 var interval = setInterval(function () {
                     $.ajax({
-                        url: '/apps/run/',
+                        url: '{% url 'get_ans_run_result' %}',
                         type: 'post',
-                        data: $('#ansibleModelRun').serialize(),
+                        data: data.field,
                         success: function (result) {
                             if (result["msg"] !== null) {
                                 $("#result").append("<p>" + result["msg"] + "</p>");
-                                document.getElementById("scrollToTop").scrollIntoView();
+                                {#document.getElementById("scrollToTop").scrollIntoView();#}
                                 if (result["msg"].indexOf("[Done]") == 0) {
                                     clearInterval(interval);
                                     larryms.msg("Ansible执行完成");
@@ -250,9 +247,11 @@
 
 // 	    /* 轮训获取结果结束  */
                 $.ajax({
-                    url: '/apps/model/', //请求地址
+                    dataType: "text",
+                    url: '{% url 'ansible_exe_modules' %}', //请求地址
                     type: "POST",  //提交类似
-                    data: $('#ansibleModelRun').serialize(),  //提交参数
+                      {#contentType: "application/json",#}
+                    data: data.field,  //提交参数
                     success: function (res) {
                         btnObj.removeAttr('disabled');
                         if (res["code"] == "500") {
@@ -277,7 +276,7 @@
     type: 'get',                //ÇëÇó·½Ê½: post, get, put, delete...
     header: {},                 //×Ô¶¨ÒåÇëÇóÍ·
     data: {},                   //×Ô¶¨Òå³ýËÑË÷ÄÚÈÝÍâµÄÆäËûÊý¾Ý
-    searchUrl: '{% url 'get_jsontree' %}',           //ËÑË÷µØÖ·, Ä¬ÈÏÊ¹ÓÃxm-select-searchµÄÖµ, ´Ë²ÎÊýÓÅÏÈ¼¶¸ß
+    searchUrl: '{% url 'get_json_tree' %}',
     searchName: 'keyword',      //×Ô¶¨ÒåËÑË÷ÄÚÈÝµÄkeyÖµ
     searchVal: '',              //×Ô¶¨ÒåËÑË÷ÄÚÈÝ, ËÑËØÒ»´ÎºóÊ§Ð§, ÓÅÏÈ¼¶¸ßÓÚËÑË÷¿òÖÐµÄÖµ
     keyName: 'name',            //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐnameµÄkey, Ä¬ÈÏ name
@@ -314,8 +313,8 @@
         }
         return true;
     },
-    clearInput: false,          //µ±ÓÐËÑË÷ÄÚÈÝÊ±, µã»÷Ñ¡ÏîÊÇ·ñÇå¿ÕËÑË÷ÄÚÈÝ, Ä¬ÈÏ²»Çå¿Õ
-}, true);
+    clearInput: false,          //µ±ÓÐËÑË÷ÄÚÈÝÊ±,  µã»÷Ñ¡ÏîÊÇ·ñÇå¿ÕËÑË÷ÄÚÈÝ, Ä¬ÈÏ²»Çå¿Õ
+   }, true);
             formSelects.data('prod_line','server',{
                 url: '{% url 'get_json_tree' %}',
 

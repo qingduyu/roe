@@ -67,7 +67,8 @@ class DsRedis(object):
             except Exception, ex:
                 logger.warn(msg="Get redis key failed: {ex}".format(ex=str(ex))) 
                 return False      
-            
+
+     #redis 和ansible  交互的模块哦
     class OpsAnsibleModel(object):
         @staticmethod
         def lpush(redisKey,data):
