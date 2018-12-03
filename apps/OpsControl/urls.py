@@ -11,6 +11,7 @@ from ansible_ops import (apps_list,apps_online,apps_script_online,apps_script_li
 from task import task_model,task_search,task_view
 
 from views.exe_modules import exe_modules
+from views.exe_script import exe_script
 
 urlpatterns = [
 
@@ -46,6 +47,6 @@ urlpatterns = [
     url(r'^task_search/$',task_search),
 
     url(r'^ansible_exe_modules/$', exe_modules,name='ansible_exe_modules'),
-
+    url(r'^ansible_exe_script/$', exe_script, name='ansible_exe_script'),
     url(r'^get_ans_run_result/$', ansible_run,name='get_ans_run_result'),
 ]

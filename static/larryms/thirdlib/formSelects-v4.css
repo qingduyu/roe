@@ -103,7 +103,7 @@ div[xm-select-skin=danger].xm-form-selected .xm-select,div[xm-select-skin=danger
 .xm-select-linkage li.xm-select-this span {border-left: 15px solid #009688;color: #009688;padding-left: 15px;}
 .xm-select-linkage-group {position: absolute;left: 0;top: 0;right: 0;bottom: 0;overflow-x: hidden;overflow-y: auto;}
 .xm-select-linkage-group li:hover {border-left: 1px solid #009688;}
-.xm-select-linkage-group li:hover span {padding-left: 19px;}
+.xm-select-linkage-group li:hover span {padding-left: 10px;}
 .xm-select-linkage-group li.xm-select-this:hover span {padding-left: 5px;border-left-width: 4px;}
 .xm-select-linkage-group:nth-child(4n+1){background-color: #EFEFEF; left: 0;}
 .xm-select-linkage-group:nth-child(4n+1) li.xm-select-active{background-color: #F5F5F5;}

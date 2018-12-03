@@ -516,7 +516,8 @@ def apps_script_online(request):
         resource = []
         sList = []
         def saveScript(content,filePath):
-            if os.path.isdir(os.path.dirname(filePath)) is not True:os.makedirs(os.path.dirname(filePath))#判断文件存放的目录是否存在，不存在就创建
+            if os.path.isdir(os.path.dirname(filePath)) is not True:
+                os.makedirs(os.path.dirname(filePath))#判断文件存放的目录是否存在，不存在就创建
             with open(filePath, 'w') as f:
                 f.write(content) 
             return filePath
