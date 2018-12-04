@@ -39,7 +39,7 @@ class Order_System(models.Model):
     '''自定义权限'''
 
     class Meta:
-        db_table = 'opsmanage_order_system'
+        db_table = 'order_system'
         permissions = (
             ("can_read_order_system", "读取工单系统权限"),
             ("can_change_order_systemr", "更改工单系统权限"),
@@ -61,7 +61,7 @@ class Project_Order(models.Model):
     '''自定义权限'''
 
     class Meta:
-        db_table = 'opsmanage_project_order'
+        db_table = 'project_order'
         permissions = (
             ("can_read_project_order", "读取代码部署工单权限"),
             ("can_change_project_order", "更改代码部署工单权限"),
@@ -72,46 +72,3 @@ class Project_Order(models.Model):
         verbose_name_plural = '代码部署工单表'
 
 
-class SQL_Audit_Order(models.Model):
-    order = models.OneToOneField('Order_System')
-    order_type = models.CharField(max_length=10, verbose_name='sql类型')
-    order_db = models.ForeignKey('MysqlOps.DataBase_Server_Config', related_name='order_db', verbose_name='数据库id')
-    order_sql = models.TextField(verbose_name='待审核SQL内容', blank=True, null=True)
-    order_file = models.FileField(upload_to='./sql/', verbose_name='sql脚本路径')
-
-    class Meta:
-        db_table = 'opsmanage_sql_audit_order'
-        permissions = (
-            ("can_read_sql_audit_order", "读取SQL审核工单权限"),
-            ("can_change_sql_audit_order", "更改SQL审核工单权限"),
-            ("can_add_sql_audit_order", "添加SQL审核工单权限"),
-            ("can_delete_sql_audit_order", "删除SQL审核工单权限"),
-        )
-        verbose_name = 'SQL审核工单表'
-        verbose_name_plural = 'SQL审核工单表'
-
-
-class SQL_Order_Execute_Result(models.Model):
-    '''
-        errlevel: 返回值为非0的情况下，说明是有错的。1表示警告，不影响执行，2表示严重错误，必须修改。
-        stagestatus: 用来表示检查及执行的过程是成功还是失败，如果审核成功，则返回 Audit completed。如果执行成功则返回Execute Successfully，否则返回Execute failed.
-                                                                        如果备份成功，则在后面追加Backup successfully，否则追加Backup failed，这个列的返回信息是为了将结果集直接输出而设置的.
-                            参考文档：http://mysql-inception.github.io/inception-document/results/
-    '''
-    order = models.ForeignKey('SQL_Audit_Order', verbose_name='orderid')
-    stage = models.CharField(max_length=20)
-    errlevel = models.IntegerField(verbose_name='错误信息')
-    stagestatus = models.CharField(max_length=40)
-    errormessage = models.TextField(blank=True, null=True, verbose_name='错误信息')
-    sqltext = models.TextField(blank=True, null=True, verbose_name='SQL内容')
-    affectrow = models.IntegerField(blank=True, null=True, verbose_name='影响行数')
-    sequence = models.CharField(max_length=30, db_index=True, verbose_name='序号')
-    backup_db = models.CharField(max_length=100, blank=True, null=True, verbose_name='Inception备份服务器')
-    execute_time = models.CharField(max_length=20, verbose_name='语句执行时间')
-    sqlsha = models.CharField(max_length=50, blank=True, null=True, verbose_name='是否启动OSC')
-    create_time = models.DateTimeField(auto_now_add=True, db_index=True)
-
-    class Meta:
-        db_table = 'opsmanage_sql_execute_result'
-        verbose_name = 'SQL工单执行记录表'
-        verbose_name_plural = 'SQL工单执行记录表'

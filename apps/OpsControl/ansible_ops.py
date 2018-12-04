@@ -4,7 +4,7 @@ import uuid,os,json
 from django.http import HttpResponseRedirect,JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from CMDB.models import Server_Assets
+
 from utils.data.DsRedisOps import DsRedis
 
 from django.contrib.auth.models import User,Group
@@ -16,12 +16,12 @@ from OpsControl.models import (Ansible_Playbook,Ansible_Playbook_Number,
 
 from CodeOps.models import Project_Assets,Service_Assets
 
-from CMDB.models import Assets
+
 from utils.data.DsMySQL import AnsibleRecord
 from django.contrib.auth.decorators import permission_required
 from utils.logger import logger
 from utils.ansible_api_v2 import ANSRunner
-from dao.assets import AssetsSource
+
 
 # @login_required()
 # def apps_model(request):

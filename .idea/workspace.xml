@@ -2,13 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="扫描主机">
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0033_auto_20181204_1630.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0034_auto_20181204_1644.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/CodeOps/migrations/0002_auto_20181204_1650.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/migrations/0008_auto_20181204_1647.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/Orders/migrations/0002_auto_20181204_1634.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/system/migrations/0012_auto_20181204_1642.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/ansible_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/assets_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/cron_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/db_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/deploy_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/files_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/logs_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/orders_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/task_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/user_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/user_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/users_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/users_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/wiki_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/wiki_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/forms/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/idc_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/idc_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/net_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/net_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CMDB/views/assets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CodeOps/deploy.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CodeOps/deploy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CodeOps/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CodeOps/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/CodeOps/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CodeOps/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/MysqlOps/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/MysqlOps/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/OpsControl/cron.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/cron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/OpsControl/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/OpsControl/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/views/exe_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/views/exe_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/larryms/thirdlib/formSelects-v4.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/larryms/thirdlib/formSelects-v4.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_modules.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/OpsControl/views/trans_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/views/trans_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/Orders/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/Orders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/Orders/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/Orders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/Orders/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/Orders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/Orders/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/dao/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/dao/assets.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/dao/order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/system/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/system/views/filemanage.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system/views/filemanage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/system/views/menuops.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/system/views/menuops.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roeops/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/assets/assets_add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/assets/assets_config.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/assets/assets_groups.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/assets/assets_list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/assets/assets_log.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/assets/assets_modf.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/assets/assets_search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cmdb/assets/assets_view.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_scripts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_scripts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,39 +87,41 @@
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="10" value="1" />
           <entry key="3" value="1" />
+          <entry key="conf" value="1" />
           <entry key="css" value="2" />
-          <entry key="html" value="210" />
+          <entry key="html" value="214" />
           <entry key="ini" value="1" />
           <entry key="js" value="64" />
           <entry key="json" value="14" />
           <entry key="log" value="20" />
           <entry key="md" value="5" />
-          <entry key="pub" value="1" />
-          <entry key="py" value="406" />
+          <entry key="pub" value="2" />
+          <entry key="py" value="470" />
           <entry key="ts" value="2" />
           <entry key="txt" value="3" />
-          <entry key="y" value="1" />
+          <entry key="y" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="2" />
-          <entry key="HTML" value="210" />
+          <entry key="HTML" value="214" />
           <entry key="Ini" value="1" />
           <entry key="JSON" value="14" />
           <entry key="JavaScript" value="64" />
           <entry key="Log" value="4" />
           <entry key="Markdown" value="5" />
-          <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="406" />
+          <entry key="PLAIN_TEXT" value="26" />
+          <entry key="Python" value="470" />
           <entry key="TypeScript" value="2" />
         </counts>
       </usages-collector>
@@ -76,28 +130,28 @@
           <entry key="Django Console" value="143" />
           <entry key="css" value="19" />
           <entry key="dummy" value="24" />
-          <entry key="html" value="15381" />
+          <entry key="html" value="15840" />
           <entry key="ini" value="1" />
           <entry key="js" value="155" />
           <entry key="json" value="160" />
           <entry key="log" value="7" />
           <entry key="md" value="160" />
-          <entry key="py" value="20002" />
-          <entry key="py@roeops" value="134" />
+          <entry key="py" value="20188" />
+          <entry key="py@roeops" value="141" />
           <entry key="txt" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="19" />
-          <entry key="CommandLine" value="121" />
-          <entry key="HTML" value="15381" />
+          <entry key="CommandLine" value="128" />
+          <entry key="HTML" value="15840" />
           <entry key="Ini" value="1" />
           <entry key="JSON" value="160" />
           <entry key="JavaScript" value="155" />
           <entry key="Markdown" value="160" />
           <entry key="PLAIN_TEXT" value="96" />
-          <entry key="Python" value="20144" />
+          <entry key="Python" value="20330" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -111,22 +165,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/OpsControl/urls.py">
+        <entry file="file://$PROJECT_DIR$/apps/OpsControl/views/exe_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+            <state relative-caret-position="300">
+              <caret line="20" lean-forward="true" selection-end-line="79" />
               <folding>
-                <element signature="e#1#41#0" expanded="true" />
+                <element signature="e#46#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/OpsControl/views/exe_script.py">
+        <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
+            <state relative-caret-position="425">
+              <caret line="94" column="129" selection-start-line="94" selection-start-column="129" selection-end-line="94" selection-end-column="129" />
+              <folding>
+                <element signature="e#2126#2201#0#HTML" expanded="true" />
+                <element signature="e#2235#2315#0#HTML" expanded="true" />
+                <element signature="e#2320#2339#0#HTML" expanded="true" />
+                <element signature="e#2357#2376#0#HTML" expanded="true" />
+                <element signature="e#2396#2415#0#HTML" expanded="true" />
+                <element signature="e#2435#2454#0#HTML" expanded="true" />
+                <element signature="e#2524#2551#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/OpsControl/views/trans_file.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
               <folding>
                 <element signature="e#46#65#0" expanded="true" />
               </folding>
@@ -135,69 +207,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/OpsControl/ansible_ops.py">
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="540" column="79" lean-forward="true" selection-start-line="533" selection-start-column="16" selection-end-line="540" selection-end-column="79" />
-              <folding>
-                <element signature="e#47#66#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="411">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_scripts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="482" column="34" selection-start-line="482" selection-start-column="34" selection-end-line="482" selection-end-column="34" />
-              <folding>
-                <element signature="e#2054#2076#0#HTML" expanded="true" />
-                <element signature="e#2293#2950#0#HTML" />
-                <element signature="e#2987#3530#0#HTML" />
-                <element signature="e#1844#1886#0#HTML" />
-                <element signature="e#1980#2468#0#HTML" />
-                <element signature="e#20438#22415#0#HTML" />
-                <element signature="e#22474#22961#0#HTML" />
-                <element signature="e#23310#26457#0#HTML" />
-                <element signature="e#24361#26320#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_script_online.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="289" column="16" lean-forward="true" selection-start-line="283" selection-start-column="4" selection-end-line="289" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_modules.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1784">
-              <caret line="31" column="58" lean-forward="true" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
-              <folding>
-                <element signature="e#628#650#0#HTML" expanded="true" />
-                <element signature="e#5789#6277#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/ansible_api_v2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-              <folding>
-                <element signature="e#45#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/apps/MysqlOps/serializers.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -212,7 +232,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pageTableID</find>
       <find>userlistbar</find>
       <find>edit</find>
       <find>userAddForm</find>
@@ -242,6 +261,7 @@
       <find>resource</find>
       <find>compile-editor</find>
       <find>ansible_model</find>
+      <find>playbook_file</find>
     </findStrings>
     <replaceStrings>
       <replace>db</replace>
@@ -253,57 +273,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_redis.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tomcat.html" />
-        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_mongo.html" />
-        <option value="$PROJECT_DIR$/apps/CMDB/yewu_tree.py" />
-        <option value="$PROJECT_DIR$/templates/cmdb/yewutree/yewu_base.html" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/views/jiaoben.py" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/views/wenjian.py" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/views/buzhou.py" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/views/mingling.py" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_jobs.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.py" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_stepjobs.html" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/views/stepjobs.py" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/views/chose_host.py" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_playbooks.html" />
-        <option value="$PROJECT_DIR$/static/larryms/lib/larryms.js" />
-        <option value="$PROJECT_DIR$/readme.md" />
-        <option value="$PROJECT_DIR$/templates/cmdb/assets/assets_list.html" />
-        <option value="$PROJECT_DIR$/static/larryms/js/base.js" />
-        <option value="$PROJECT_DIR$/static/larryms/lib/larrySecret.js" />
-        <option value="$PROJECT_DIR$/templates/base_children.html" />
-        <option value="$PROJECT_DIR$/apps/CMDB/tasks/do_scan_host.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/tasks/do_scan_ip.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/tasks/deploy_key.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/tasks.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_conf.py" />
-        <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" />
-        <option value="$PROJECT_DIR$/apps/CMDB/views/server/scan_host.py" />
-        <option value="$PROJECT_DIR$/static/larryms/thirdlib/conf.json" />
-        <option value="$PROJECT_DIR$/static/larryms/configure.js" />
         <option value="$PROJECT_DIR$/static/larryms/thirdlib/cascader.js" />
         <option value="$PROJECT_DIR$/templates/cmdb/assets/assets_add.html" />
         <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_script_modf.html" />
-        <option value="$PROJECT_DIR$/apps/CMDB/urls.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/yewu_tree_api.py" />
         <option value="$PROJECT_DIR$/templates/dbops/mysql/binglog.html" />
         <option value="$PROJECT_DIR$/utils/data/DsRedisOps.py" />
         <option value="$PROJECT_DIR$/roeops/settings.py" />
         <option value="$PROJECT_DIR$/conf/logger.ini" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/models.py" />
         <option value="$PROJECT_DIR$/utils/ansible_api_v2.py" />
         <option value="$PROJECT_DIR$/apps/OpsControl/ans_hosts.py" />
         <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_modules.html" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" />
         <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_script_list.html" />
         <option value="$PROJECT_DIR$/apps/OpsControl/views/exe_modules.py" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/urls.py" />
         <option value="$PROJECT_DIR$/static/larryms/thirdlib/formSelects-v4.css" />
-        <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_scripts.html" />
         <option value="$PROJECT_DIR$/apps/OpsControl/views/exe_script.py" />
+        <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_scripts.html" />
+        <option value="$PROJECT_DIR$/api/views/ansible_api.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/model/server_models.py" />
+        <option value="$PROJECT_DIR$/apps/OpsControl/models.py" />
+        <option value="$PROJECT_DIR$/apps/CodeOps/deploy.py" />
+        <option value="$PROJECT_DIR$/api/views/orders_api.py" />
+        <option value="$PROJECT_DIR$/api/views/logs_api.py" />
+        <option value="$PROJECT_DIR$/api/views/users_api.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/views/assets.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/urls.py" />
+        <option value="$PROJECT_DIR$/api/views/user_api.py" />
+        <option value="$PROJECT_DIR$/apps/dao/assets.py" />
+        <option value="$PROJECT_DIR$/apps/dao/order.py" />
+        <option value="$PROJECT_DIR$/apps/CodeOps/urls.py" />
+        <option value="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/model/net_models.py" />
+        <option value="$PROJECT_DIR$/api/serializers.py" />
+        <option value="$PROJECT_DIR$/api/views/wiki_api.py" />
+        <option value="$PROJECT_DIR$/api/urls.py" />
+        <option value="$PROJECT_DIR$/apps/system/urls.py" />
+        <option value="$PROJECT_DIR$/apps/OpsControl/cron.py" />
+        <option value="$PROJECT_DIR$/apps/system/views/filemanage.py" />
+        <option value="$PROJECT_DIR$/apps/Orders/urls.py" />
+        <option value="$PROJECT_DIR$/apps/Orders/models.py" />
+        <option value="$PROJECT_DIR$/apps/Orders/views.py" />
+        <option value="$PROJECT_DIR$/apps/system/models.py" />
+        <option value="$PROJECT_DIR$/roeops/index.py" />
+        <option value="$PROJECT_DIR$/apps/system/views/menuops.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/model/idc_models.py" />
+        <option value="$PROJECT_DIR$/apps/CMDB/models.py" />
+        <option value="$PROJECT_DIR$/apps/MysqlOps/models.py" />
+        <option value="$PROJECT_DIR$/apps/CodeOps/models.py" />
+        <option value="$PROJECT_DIR$/apps/MysqlOps/migrations/0008_auto_20181204_1647.py" />
+        <option value="$PROJECT_DIR$/apps/OpsControl/urls.py" />
+        <option value="$PROJECT_DIR$/apps/OpsControl/views/trans_file.py" />
+        <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html" />
       </list>
     </option>
   </component>
@@ -360,6 +380,18 @@
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="CodeOps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="OpsControl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -368,6 +400,18 @@
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="OpsControl" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="Orders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -383,26 +427,6 @@
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="larryms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="larryms" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="larryms" type="462c0819:PsiDirectoryNode" />
-              <item name="thirdlib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -424,8 +448,7 @@
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
-              <item name="idc" type="462c0819:PsiDirectoryNode" />
+              <item name="codeops" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -444,7 +467,7 @@
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="opscontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="cron" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -693,16 +716,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="2480" height="1538" extended-state="6" />
+    <frame x="0" y="28" width="2500" height="1338" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.23868313" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.15918367" />
       <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
       <window_info id="Structure" order="2" sideWeight="0.37573385" side_tool="true" weight="0.25365853" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32942164" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34115675" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3539124" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.35373008" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32942164" />
@@ -767,26 +790,6 @@
           <url>file://$PROJECT_DIR$/templates/system/users/rolelist.html</url>
           <line>13</line>
           <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/api/views/assets_api.py</url>
-          <line>65</line>
-          <option name="timeStamp" value="138" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/api/views/assets_api.py</url>
-          <line>64</line>
-          <option name="timeStamp" value="139" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/CMDB/views/assets.py</url>
-          <line>267</line>
-          <option name="timeStamp" value="143" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/CMDB/views/assets.py</url>
-          <line>266</line>
-          <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/CMDB/views/db/msyql_api.py</url>
@@ -883,6 +886,11 @@
           <line>40</line>
           <option name="timeStamp" value="505" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/api/views/wiki_api.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="507" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -946,68 +954,24 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_ip_api.py">
+    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_script_online.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="45" lean-forward="true" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+        <state relative-caret-position="180">
+          <caret line="62" column="68" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_tree_add_leaf.html">
+    <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_scripts.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="85" column="44" lean-forward="true" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
+        <state relative-caret-position="345">
+          <caret line="455" column="12" lean-forward="true" selection-end-line="652" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/urls.py">
+    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_playbook_upload.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="49" lean-forward="true" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/serialize/host_serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/yewu_tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="201" column="17" selection-start-line="201" selection-start-column="17" selection-end-line="201" selection-end-column="17" />
-          <folding>
-            <element signature="e#23#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="93" column="28" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="28" />
-          <folding>
-            <element signature="e#46#86#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-220">
+          <caret line="187" column="17" selection-start-line="187" selection-start-column="4" selection-end-line="187" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1021,313 +985,357 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
+    <entry file="file://$PROJECT_DIR$/api/views/db_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
-          <folding>
-            <element signature="e#46#94#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-2213" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/assets/assets_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="466" column="52" selection-start-line="466" selection-start-column="39" selection-end-line="466" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/dbops/mysql/binglog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="394" column="30" lean-forward="true" selection-start-line="394" selection-start-column="30" selection-end-line="394" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_user_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="19" column="55" lean-forward="true" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2340" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_model.html" />
-    <entry file="file://$PROJECT_DIR$/apps/system/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="73" column="15" selection-start-line="73" selection-start-column="15" selection-end-line="73" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roeops/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="69" column="91" selection-start-line="69" selection-start-column="91" selection-end-line="69" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/data/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/data/DsRedisOps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="75" column="29" lean-forward="true" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
-          <folding>
-            <element signature="e#23#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db_edit.html">
+    <entry file="file://$PROJECT_DIR$/api/views/files_api.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_db.html">
+    <entry file="file://$PROJECT_DIR$/api/views/task_api.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_edit.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="93" column="50" lean-forward="true" selection-start-line="93" selection-start-column="50" selection-end-line="93" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dao/assets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="25" lean-forward="true" selection-end-line="175" selection-end-column="37" />
-          <folding>
-            <element signature="e#49#108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/logger.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dao/order.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/yewutree_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/data/DsMySQL.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#48#241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="15">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#47#86#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/OpsControl/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/encrpt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/yewu_tree_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="48" column="71" lean-forward="true" selection-start-line="48" selection-start-column="71" selection-end-line="48" selection-end-column="71" />
-          <folding>
-            <element signature="e#46#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/ans_hosts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="15" lean-forward="true" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+        <state relative-caret-position="2295">
+          <caret line="153" column="15" lean-forward="true" selection-start-line="153" selection-start-column="15" selection-end-line="153" selection-end-column="15" />
           <folding>
             <element signature="e#45#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/cron.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/exception.py">
+    <entry file="file://$PROJECT_DIR$/apps/CodeOps/deploy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="630">
+          <caret line="207" column="57" selection-start-line="207" selection-start-column="57" selection-end-line="207" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_playbooks.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_script_modf.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_script_list.html">
+    <entry file="file://$PROJECT_DIR$/api/views/logs_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="180">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
           <folding>
-            <element signature="e#341#4382#0#HTML" />
+            <element signature="e#47#74#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/views/exe_modules.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="50" lean-forward="true" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
-          <folding>
-            <element signature="e#46#65#0" expanded="true" />
-            <marker date="1543806294600" expanded="true" signature="638:640" ph="..." />
-            <marker date="1543806294600" expanded="true" signature="855:860" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/larryms/thirdlib/formSelects-v4.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1935">
-          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_edit.html">
+    <entry file="file://$PROJECT_DIR$/api/views/orders_api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" selection-end-column="32" />
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_show.html">
+    <entry file="file://$PROJECT_DIR$/api/views/users_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="60">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_modules.html">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/assets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1784">
-          <caret line="31" column="58" lean-forward="true" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
           <folding>
-            <element signature="e#628#650#0#HTML" expanded="true" />
-            <element signature="e#5789#6277#0#HTML" />
+            <element signature="e#46#86#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/tasks.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/OpsControl/task.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="184" selection-start-line="184" selection-end-line="184" />
+        <state relative-caret-position="-405" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dao/assets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="13" selection-start-column="2" selection-end-line="175" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/apps/apps_script_online.html">
+    <entry file="file://$PROJECT_DIR$/apps/dao/order.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="289" column="16" lean-forward="true" selection-start-line="283" selection-start-column="4" selection-end-line="289" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_scripts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="482" column="34" selection-start-line="482" selection-start-column="34" selection-end-line="482" selection-end-column="34" />
-          <folding>
-            <element signature="e#2054#2076#0#HTML" expanded="true" />
-            <element signature="e#2293#2950#0#HTML" />
-            <element signature="e#2987#3530#0#HTML" />
-            <element signature="e#1844#1886#0#HTML" />
-            <element signature="e#1980#2468#0#HTML" />
-            <element signature="e#20438#22415#0#HTML" />
-            <element signature="e#22474#22961#0#HTML" />
-            <element signature="e#23310#26457#0#HTML" />
-            <element signature="e#24361#26320#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/ansible_api_v2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-          <folding>
-            <element signature="e#45#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding>
-            <element signature="e#1#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="480">
+          <caret line="36" column="6" lean-forward="true" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/OpsControl/ansible_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="540" column="79" lean-forward="true" selection-start-line="533" selection-start-column="16" selection-end-line="540" selection-end-column="79" />
+        <state relative-caret-position="30">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#47#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/views/exe_script.py">
+    <entry file="file://$PROJECT_DIR$/conf/roeops.conf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roeops/settings.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roeops/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/y.pub">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/y">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
+        <state relative-caret-position="405">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/net_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="213" selection-start-line="213" selection-start-column="2" selection-end-line="255" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views/wiki_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="49" column="1" lean-forward="true" selection-start-column="2" selection-end-line="112" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#45#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/system/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#45#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/OpsControl/cron.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="27" lean-forward="true" selection-start-column="2" selection-end-line="246" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/system/views/filemanage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding>
+            <element signature="e#45#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/Orders/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/Orders/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/Orders/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="174" column="36" lean-forward="true" selection-start-line="174" selection-start-column="36" selection-end-line="174" selection-end-column="36" />
+          <folding>
+            <element signature="e#49#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/system/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2355">
+          <caret line="160" column="49" lean-forward="true" selection-start-line="160" selection-start-column="49" selection-end-line="160" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roeops/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="98" column="46" lean-forward="true" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
+          <folding>
+            <element signature="e#24#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/system/views/menuops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+          <folding>
+            <element signature="e#31#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/model/idc_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/serializers.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0008_auto_20181204_1647.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/OpsControl/views/trans_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
           <folding>
             <element signature="e#46#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/OpsControl/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="51" column="28" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="28" />
+          <folding>
+            <element signature="e#1#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CodeOps/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views/user_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#45#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CodeOps/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+          <folding>
+            <element signature="e#45#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/Orders/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/OpsControl/views/exe_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-end-line="79" />
+          <folding>
+            <element signature="e#46#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="94" column="129" selection-start-line="94" selection-start-column="129" selection-end-line="94" selection-end-column="129" />
+          <folding>
+            <element signature="e#2126#2201#0#HTML" expanded="true" />
+            <element signature="e#2235#2315#0#HTML" expanded="true" />
+            <element signature="e#2320#2339#0#HTML" expanded="true" />
+            <element signature="e#2357#2376#0#HTML" expanded="true" />
+            <element signature="e#2396#2415#0#HTML" expanded="true" />
+            <element signature="e#2435#2454#0#HTML" expanded="true" />
+            <element signature="e#2524#2551#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

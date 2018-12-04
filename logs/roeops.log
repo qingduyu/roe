@@ -59,3 +59,5 @@
 2018-11-29 18:28:51 [INFO] Authentication (publickey) failed.
 2018-11-29 18:28:51 [INFO] Authentication (publickey) failed.
 2018-11-29 18:28:51 [INFO] Authentication (password) successful!
+2018-12-04 22:30:42 [INFO] Connected (version 2.0, client OpenSSH_7.4)
+2018-12-04 22:30:42 [INFO] Authentication (publickey) successful!

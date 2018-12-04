@@ -83,121 +83,9 @@ def deploy_apply(request,pid):
         return HttpResponseRedirect('/order/deploy/apply/{id}/'.format(id=pid))  
 
 
-@login_required()
-@permission_required('orders.can_read_sql_audit_order',login_url='/noperm/')
-def db_sqlorder_audit(request):
-    try:
-        config = SQL_Audit_Control.objects.get(id=1)  
-    except:
-        return render(request,'orders/db_sqlorder_audit.html',{"user":request.user,"errinfo":"请先在数据管理-基础配置-SQL工单审核配置，做好相关配置。"})
-    if request.method == "GET":
-        try:
-            try:
-                audit_group = []
-                for g in json.loads(config.audit_group):
-                    audit_group.append(int(g)) 
-            except:
-                audit_group = []   
-            userList = User.objects.filter(groups__in=audit_group)    
-            dataBaseList = DataBase_Server_Config.objects.all()
-            serviceList = Service_Assets.objects.all()
-            projectList = Project_Assets.objects.all()
-        except Exception, ex:
-            logger.warn(msg="获取SQL审核配置信息失败: {ex}".format(ex=str(ex)))
-        return render(request,'orders/db_sqlorder_audit.html',{"user":request.user,"dataBaseList":dataBaseList,"userList":userList,
-                                                                 "serviceList":serviceList,"projectList":projectList})
-    elif request.method == "POST":
-        if request.POST.get('type') == 'audit':
-            dbId = request.POST.get('order_db')
-            if Order_System.objects.filter(order_subject=request.POST.get('order_desc'),order_type=0).count() > 0:
-                return  JsonResponse({'msg':"审核失败，工单（{desc}）已经存在".format(desc=request.POST.get('order_desc')),"code":500,'data':[]})
-            try:
-                db = DataBase_Server_Config.objects.get(id=int(dbId))
-            except Exception,ex:
-                logger.error(msg="获取数据库配置信息失败: {ex}".format(ex=str(ex)))
-                return JsonResponse({'msg':str(ex),"code":500,'data':[]})
-            if request.POST.get('order_type') == 'online':
-                try:
-                    incept = Inception(
-                                       host=db.db_host,name=db.db_name,
-                                       user=db.db_user,passwd=db.db_passwd,
-                                       port=db.db_port
-                                       )
-                    result = incept.checkSql(request.POST.get('order_sql'))
-                    if result.get('status') == 'success':
-                        count = 0
-                        sList = []
-                        for ds in result.get('data'):
-                            if ds.get('errlevel') > 0 and ds.get('errmsg'):count = count + 1
-                            sList.append({'sql':ds.get('sql'),'row':ds.get('affected_rows'),'errmsg':ds.get('errmsg')})
-                        if count > 0:return JsonResponse({'msg':"审核失败，请检查SQL语句","code":500,'data':sList})
-                        else:
-                            mask='【已自动授权】'
-                            if config.t_auto_audit == 1 and db.db_env == 'test':order_status = 8
-                            elif config.p_auto_audit == 1 and db.db_env == 'prod':order_status = 8
-                            else:
-                                order_status = 4
-                                mask='【申请中】'
-                            try:
-                                order_executor = User.objects.get(id=request.POST.get('order_executor'))
-                                order = Order_System.objects.create(
-                                                           order_user=request.user.id,
-                                                           order_subject = request.POST.get('order_desc'),
-                                                           order_level = 0,
-                                                           order_executor = order_executor.id,
-                                                           order_status = order_status,
-                                                           order_type = 0
-                                                           )  
-                                sendOrderNotice.delay(order.id,mask)                          
-                            except Exception, ex:
-                                logger.error(msg="SQL审核失败: {ex}".format(ex=str(ex)))
-                                return JsonResponse({'msg':str(ex),"code":500,'data':[]})
-                            try:
-                                SQL_Audit_Order.objects.create(
-                                                               order = order,
-                                                               order_db = db,   
-                                                               order_type = 'online',                                                            
-                                                               order_sql = request.POST.get('order_sql')
-                                                               )
-                            except Exception, ex:
-                                logger.error(msg="SQL审核失败: {ex}".format(ex=str(ex)))
-                                return JsonResponse({'msg':str(ex),"code":500,'data':[]})                               
-                            return JsonResponse({'msg':"审核成功，SQL已经提交","code":200,'data':sList})
-                    else:
-                        return JsonResponse({'msg':result.get('errinfo'),"code":500,'data':[]}) 
-                except Exception, ex:
-                    return JsonResponse({'msg':str(ex),"code":200,'data':[]})     
-            elif request.POST.get('order_type') == 'file':
-                try:
-                    order_executor = User.objects.get(id=request.POST.get('order_executor'))  
-                    order = Order_System.objects.create(
-                                               order_user=request.user.id,
-                                               order_subject = request.POST.get('order_desc'),
-                                               order_level = 0,
-                                               order_executor = order_executor.id,
-                                               order_status = 4,
-                                               order_type = 0
-                                               )                          
-                except Exception, ex:
-                    logger.error(msg="SQL文件审核失败: {ex}".format(ex=str(ex)))
-                    return JsonResponse({'msg':str(ex),"code":500,'data':[]})                 
-                try:                                  
-                    SQL_Audit_Order.objects.create(
-                                                    order = order,
-                                                    order_db = db,
-                                                    order_type = 'file',  
-                                                    order_sql = request.POST.get('order_sql'),
-                                                    order_file = request.FILES.get('order_file'),
-                                                )  
-                    sendOrderNotice.delay(order.id,mask='【申请中】')                          
-                except Exception, ex:
-                    logger.error(msg="SQL文件审核失败: {ex}".format(ex=str(ex)))
-                    return JsonResponse({'msg':str(ex),"code":500,'data':[]})
-                return JsonResponse({'msg':"SQL工单已经提交","code":200,'data':[]})  
 
 
 @login_required()
-@permission_required('orders.can_read_order_system',login_url='/noperm/')
 def order_list(request,page):
     if request.method == "GET":
         if request.user.is_superuser:
@@ -250,7 +138,6 @@ def order_list(request,page):
         
         
 @login_required()
-@permission_required('orders.can_read_order_system',login_url='/noperm/')
 def order_search(request):        
     if request.method == "GET":
         userList = User.objects.all()       
@@ -336,7 +223,6 @@ def order_search(request):
     
     
 @login_required()
-@permission_required('filemanage.can_read_fileupload_audit_order',login_url='/noperm/')
 def file_upload_list(request,page):
     if request.method == "GET":
         if request.user.is_superuser:

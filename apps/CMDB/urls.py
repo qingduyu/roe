@@ -14,7 +14,7 @@ from CMDB.views.idc import idc_show,idc_add,idc_edit
 from CMDB.views.idc_api import IDCAPI
 from CMDB.views.db.oracle import *
 from CMDB.views.db.oracle_api import OracleClusterAPI
-from CMDB.views import assets
+
 from CMDB.views.db.mysql import (mysql_cluster,mysql_cluster_instance, mysql_cluster_db,mysql_cluster_user,
                                  mysql_cluster_add,mysql_cluster_edit,mysql_cluster_db_add,mysql_cluster_db_edit,
                                  mysql_cluster_instance_add,mysql_cluster_instance_edit,mysql_cluster_user_add,mysql_cluster_user_edit,
@@ -93,20 +93,7 @@ urlpatterns = [
     url('^get_json_tree/$',get_jsontree, name='get_json_tree'),
     url('^get_json_tree_host/(?P<id>[0-9]+)/$', get_treehost, name='get_json_tree_host'),
 
-    url(r'^assets_config',assets.assets_config),
-    url(r'^assets_add$',assets.assets_add,name='cmdb_assets_add'),
-    url(r'^assets_list',assets.assets_list),
-    url(r'^assets_mod/(?P<aid>[0-9]+)/$',assets.assets_modf),
-    url(r'^assets_view/(?P<aid>[0-9]+)/$',assets.assets_view),
-    url(r'^assets_facts',assets.assets_facts,name='cmdb_assets_facts'),
-    url(r'^assets_log/(?P<page>[0-9]+)/$',assets.assets_log),
-    url(r'^assets_import/$',assets.assets_import),
-    url(r'^assets_search/$',assets.assets_search),
-    url(r'^assets_server/$',assets.assets_server),
-    url(r'^assets/batch/update/$',assets.assets_update),
-    url(r'^assets/batch/delete/$',assets.assets_delete),
-    url(r'^assets/batch/dumps/$',assets.assets_dumps),
-    url(r'^assets/groups/(?P<id>[0-9]+)/$',assets.assets_groups),
+
 
 
 ##############自动扫描相关,新主机资产#######

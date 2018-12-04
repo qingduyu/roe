@@ -19,31 +19,13 @@ class Role(models.Model):
     name=models.CharField(unique=True,max_length=32)
     desc=models.CharField(verbose_name=u'角色描述',max_length=50,blank=True,null=True)
     status=models.BooleanField(verbose_name=u'角色状态',blank=True,default=True)
-    menus=models.ManyToManyField('Menus')
+    menus=models.ManyToManyField('LarryMenus')
 
     def __str__(self):
         return self.name
 
 
 
-class Menus(models.Model):
-    title=models.CharField(max_length=32,verbose_name=u'菜单名')
-    parent=models.ForeignKey('self',verbose_name='父级菜单',null=True,blank=True,default=0,help_text=u'如果添加的是子菜单，请选择父菜单')
-    parent_copy = models.IntegerField( verbose_name=u'父级菜单拷贝', blank=True, null=True,help_text='顶级菜单设置为-1,为了treetable')
-    show=models.BooleanField(verbose_name=u'是否显示',default=False,help_text=u'菜单是否显示，默认不显示')
-    spread=models.BooleanField(verbose_name=u'是否展开',default=False)
-    href=models.CharField(max_length=300,verbose_name=u'菜单地址',null=True,blank=True,default='javascript:void(0)',help_text=u'给菜单设置一个url地址')
-    priority = models.IntegerField(verbose_name=u'显示优先级',null=True,blank=True,help_text=u'菜单的显示顺序,优先级越大显示越靠前')
-    target=models.CharField(max_length=32,verbose_name=u'打开方式',null=True,blank=True,help_text=u"如果是新打开则填写,__blank")
-    icon=models.CharField(max_length=32,verbose_name=u'图标代码',null=True,blank=True)
-
-    def __str__(self):
-        return '{parent}{name}'.format(name=self.title,parent="%s--->" % self.parent.title if self.parent else '')
-
-    class Meta:
-        verbose_name=u'Menus'
-        verbose_name_plural=u'Menus'
-        db_table ='Menus'
 
 
 class LarryMenus(models.Model):
@@ -96,7 +78,7 @@ class Email_Config(models.Model):
     cc_user = models.TextField(verbose_name='抄送用户列表', blank=True, null=True)
 
     class Meta:
-        db_table = 'opsmanage_email_config'
+        db_table = 'email_config'
 
 
 class Server_Command_Record(models.Model):
@@ -107,7 +89,7 @@ class Server_Command_Record(models.Model):
     etime = models.CharField(max_length=50, verbose_name='命令执行时间', unique=True)
 
     class Meta:
-        db_table = 'opsmanage_server_command_record'
+        db_table = 'server_command_record'
         permissions = (
             ("can_read_server_command_record", "读取服务器操作日志权限"),
             ("can_change_server_command_record", "更改服务器操作日志权限"),
@@ -137,35 +119,6 @@ class User_Host(models.Model):
         verbose_name_plural = '用户服务器表'
 
 
-class User_Server(models.Model):
-    server_id = models.SmallIntegerField(verbose_name='服务器资产id')
-    user_id = models.SmallIntegerField(verbose_name='用户id')
-
-    class Meta:
-        db_table = 'opsmanage_user_server'
-        permissions = (
-            ("can_read_user_server", "读取用户服务器表权限"),
-            ("can_change_user_server", "更改用户服务器表权限"),
-            ("can_add_user_server", "添加用户服务器表权限"),
-            ("can_delete_user_server", "删除用户服务器表权限"),
-        )
-        unique_together = (("server_id", "user_id"))
-        verbose_name = '用户服务器表'
-        verbose_name_plural = '用户服务器表'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -185,7 +138,7 @@ class FileUpload_Audit_Order(models.Model):
     chown_user = models.CharField(max_length=100,verbose_name='文件宿主')
     chown_rwx = models.CharField(max_length=100,verbose_name='文件权限')
     class Meta:
-        db_table = 'opsmanage_fileupload_audit_order'
+        db_table = 'fileupload_audit_order'
         permissions = (
             ("can_read_fileupload_audit_order", "读取文件上传审核工单权限"),
             ("can_change_fileupload_audit_order", "更改文件上传审核工单权限"),
@@ -200,7 +153,7 @@ class UploadFiles(models.Model):
     file_path = models.FileField(upload_to = './file/upload/%Y%m%d%H%M%S',verbose_name='文件上传路径',max_length=500)
     file_type = models.CharField(max_length=100,blank=True,null=True,verbose_name='文件类型')
     class Meta:
-        db_table = 'opsmanage_uploadfiles'
+        db_table = 'uploadfiles'
 
 class FileDownload_Audit_Order(models.Model):
     order = models.OneToOneField(Order_System)
@@ -208,7 +161,7 @@ class FileDownload_Audit_Order(models.Model):
     dest_server = models.TextField(verbose_name='目标服务器')
     dest_path = models.CharField(max_length=200,verbose_name='文件路径')
     class Meta:
-        db_table = 'opsmanage_filedownload_audit_order'
+        db_table = 'filedownload_audit_order'
         permissions = (
             ("can_read_filedownload_audit_order", "读取文件下载审核工单权限"),
             ("can_change_filedownload_audit_order", "更改文件下载审核工单权限"),

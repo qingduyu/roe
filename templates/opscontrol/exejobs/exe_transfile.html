@@ -1,10 +1,383 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_children.html' %}
+{% block self_head %}
 
-</body>
-</html>
+ <link  rel="stylesheet" href="/static/larryms/thirdlib/formSelects-v4.css" >
+<script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ace.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ext-language_tools.js"></script>
+{#   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/mode-mysql.js"></script>#}
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-python.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sql.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-yaml.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sh.js"></script>
+
+
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/theme-monokai.js"></script>
+
+
+
+<style type="text/css">
+	#editor {
+		/* position: absolute; */
+	width: 100%;
+	height: 400px;
+
+   }	
+</style>
+{% endblock %}
+{% block content %}
+<div class="layui-fluid form-demo-box">
+    <div class="layui-row">
+         <div class="layui-col-lg6">
+             <form class="layui-form layui-form-pane" id="ansiblescriptRun" lay-filter="layui-form" action="{% url 'ansible_transfile' %}">
+                                      {% csrf_token %}
+
+             <section>
+
+                 <div class="layui-form-item">
+                                            <label class="layui-form-label">作业名称</label>
+                                             <div class="layui-input-block">
+                                                 <input  name="job_name" class="layui-input" value="快速分发文件_{{ time_now }}" required>
+                                             </div>
+
+
+                 </div>
+
+             </section>
+
+             <section>
+                 <div class="layui-card">
+                     <div class="layui-card-header">
+                         <div class="layui-form-inline">
+                              <strong> 源文件</strong>
+
+                         <button class="layui-btn layui-btn-primary">添加本地文件</button>
+                             <button class="layui-btn layui-btn-primary">添加服务器文件</button>
+
+                         </div>
+
+                     </div>
+                     <div class="layui-card-body">
+                         <table class="layui-table fileSourceTable" style="font-size: 13px!important; border-bottom:1px #ddd solid !important;" data-content="±ØÌîÏî">
+                             <thead>
+                             <tr style="background: #f6f8f8; border-top: 2px solid rgb(74, 155, 255) !important;">
+                                 <th style="width: 30%;">文件列表</th>
+                                 <th style="width: 25%;">服务地址</th>
+                                 <th style="width: 25%;">权限账户</th>
+                                 <th style="width: 20%;">操作</th>
+                             </tr>
+                             </thead>
+                             <tbody>
+                             <tr class="blankTr">
+                                 <td colspan="4" style="text-align: center;">请添加源文件
+                                     <input type="hidden" class="fileSource">
+                                 </td>
+                             </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
+
+             </section>
+                 <br>
+             <section>
+
+                 <div class="layui-card">
+                     <div class="layui-card-header">
+                           <strong>目标文件</strong>
+                     </div>
+                     <div class="layui-card-body" style="height: 900px;">
+
+
+
+                         <div class="layui-form-item">
+                                            <label class="layui-form-label">目标路径</label>
+                                            <div class="layui-input-inline">
+                                                <input class="layui-input" name="script_args" id="script_args"  value="/data/soft" placeholder="" layui-required>
+                                            </div>
+
+                         </div>
+
+                             <div class="layui-form-item">
+                                        <label class="layui-form-label">产品线</label>
+                                        <div class="layui-input-block">
+                                            <select name="prod_line" xm-select='prod_line'  xm-select-radio>
+                                                    <option value="">liandongduoxuan</option>
+                                            </select>
+{#                                             <input type="text" id="yewuxian" class="layu=3i-input" readonly="readonly">#}
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">目标机器</label>
+                                        <div class="layui-input-block">
+                                            <select name='hosts' id="select_host" xm-select='select_host'  xm-select-max="3">
+                                                    <option value="">选择一个服务器</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+                             <button type="button" class="layui-btn layui-btn-green" lay-submit="" lay-filter='runjob' id="run_ansible_model">开始执行</button>
+
+
+                         </form>
+
+                     </div>
+                 </div>
+             </section>
+
+
+             <section>
+                 <div class="layui-card"></div>
+             </section>
+         </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
+{% block self_foot %}
+
+    <script type="text/javascript">
+        layui.config({
+            version: "2.0.8",
+            base: '/static/larryms/',
+            layertype:2
+        }).extend({
+            larry: 'js/base'
+        }).use(['larry', 'layer', 'jquery', 'larryms', 'form','formSelects'], function () {
+            var $ = layui.$,
+                larry = layui.larry,
+                form = layui.form,
+                layer = layui.layer,
+                formSelects = layui.formSelects,
+                larryms = layui.larryms;
+
+            {#var curIfr = parent.layer.getFrameIndex(window.name);#}
+
+
+            form.on('submit(runjob)', function (data) {
+                console.log(data.field)
+                var btnObj = $(data);
+                btnObj.attr('disabled', true);
+	        var editor = ace.edit("editor");
+	    var contents = editor.getSession().getValue();
+	    if ( contents.length == 0){
+	        larryms.msg("脚本内容不能为空");
+	    	btnObj.removeAttr('disabled');
+	    	return false;
+	    };
+
+                $("#result").html("服务器正在处理，请稍等。。。");
+                /* 轮训获取结果 开始  */
+                var interval = setInterval(function () {
+                    $.ajax({
+                        url: '{% url 'get_ans_run_result' %}',
+                        type: 'post',
+                        data: data.field,
+                        success: function (result) {
+                            if (result["msg"] !== null) {
+                                $("#result").append("<p>" + result["msg"] + "</p>");
+                                {#document.getElementById("scrollToTop").scrollIntoView();#}
+                                if (result["msg"].indexOf("[Done]") == 0) {
+                                    clearInterval(interval);
+                                    larryms.msg("Ansible执行完成");
+                                    btnObj.removeAttr('disabled');
+                                }
+                            }
+                        },
+                        error: function (response) {
+                            btnObj.removeAttr('disabled');
+                            clearInterval(interval);
+                        }
+                    });
+                }, 500);  //一秒钟运行2此
+
+// 	    /* 轮训获取结果结束  */
+                $.ajax({
+                    dataType: "text",
+                    url: '{% url 'ansible_exe_script' %}', //请求地址
+                    type: "POST",  //提交类似
+                      {#contentType: "application/json",#}
+                    data: {
+                        "script_content":contents ,
+                    "ans_uuid":data.field.ans_uuid ,
+            "csrfmiddlewaretoken": data.field.csrfmiddlewaretoken,
+"hosts":data.field.hosts ,
+"script_args": data.field.script_args,
+"script_name": data.field.script_name
+                    },  //提交参数
+                    success: function (res) {
+                        btnObj.removeAttr('disabled');
+                        if (res["code"] == "500") {
+                            clearInterval(interval);
+                            btnObj.removeAttr('disabled');
+                            larryms.msg(res["msg"]);
+                        }
+
+                    },
+                    error: function (response) {
+                        btnObj.removeAttr('disabled');
+                        larryms.msg("运行失败" );
+                        clearInterval(interval);
+                    }
+                });
+
+
+            });
+
+
+            formSelects.config('prod_line', {
+    type: 'get',                //ÇëÇó·½Ê½: post, get, put, delete...
+    header: {},                 //×Ô¶¨ÒåÇëÇóÍ·
+    data: {},                   //×Ô¶¨Òå³ýËÑË÷ÄÚÈÝÍâµÄÆäËûÊý¾Ý
+    searchUrl: '{% url 'get_json_tree' %}',
+    searchName: 'keyword',      //×Ô¶¨ÒåËÑË÷ÄÚÈÝµÄkeyÖµ
+    searchVal: '',              //×Ô¶¨ÒåËÑË÷ÄÚÈÝ, ËÑËØÒ»´ÎºóÊ§Ð§, ÓÅÏÈ¼¶¸ßÓÚËÑË÷¿òÖÐµÄÖµ
+    keyName: 'name',            //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐnameµÄkey, Ä¬ÈÏ name
+    keyVal: 'value',            //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐvalueµÄkey, Ä¬ÈÏ value
+    keySel: 'selected',         //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐselectedµÄkey, Ä¬ÈÏ selected
+    keyDis: 'disabled',         //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐdisabledµÄkey, Ä¬ÈÏ disabled
+    keyChildren: 'children',    //Áª¶¯¶àÑ¡×Ô¶¨Òåchildren
+    delay: 500,                 //ËÑË÷ÑÓ³ÙÊ±¼ä, Ä¬ÈÏÍ£Ö¹ÊäÈë500msºó¿ªÊ¼ËÑË÷
+    direction: 'auto',          //¶àÑ¡ÏÂÀ­·½Ïò, auto|up|down
+    response: {
+        statusCode: 0,          //³É¹¦×´Ì¬Âë
+        statusName: 'code',     //code key
+        msgName: 'msg',         //msg key
+        dataName: 'data'        //data key
+    },
+    success: function(id, url, searchVal, result){      //Ê¹ÓÃÔ¶³Ì·½Ê½µÄsuccess»Øµ÷
+        console.log(id);        //×é¼þID xm-select
+        console.log(url);       //URL
+        console.log(searchVal); //ËÑË÷µÄvalue
+        console.log(result);    //·µ»ØµÄ½á¹û
+    },
+    error: function(id, url, searchVal, err){           //Ê¹ÓÃÔ¶³Ì·½Ê½µÄerror»Øµ÷
+        //
+        console.log(err);   //err¶ÔÏó
+    },
+    beforeSuccess: function(id, url, searchVal, result){
+
+        result.data=JSON.parse(result.data)
+        return result;  //±ØÐëreturnÒ»¸ö½á¹û, Õâ¸ö½á¹ûÒª·ûºÏ¶ÔÓ¦µÄÊý¾Ý½á¹¹
+    },
+    beforeSearch: function(id, url, searchVal){         //ËÑË÷Ç°µ÷ÓÃ´Ë·½·¨, return true½«´¥·¢ËÑË÷, ·ñÔò²»´¥·¢
+        if(!searchVal){//Èç¹ûËÑË÷ÄÚÈÝÎª¿Õ,¾Í²»´¥·¢ËÑË÷
+            return false;
+        }
+        return true;
+    },
+    clearInput: false,          //µ±ÓÐËÑË÷ÄÚÈÝÊ±,  µã»÷Ñ¡ÏîÊÇ·ñÇå¿ÕËÑË÷ÄÚÈÝ, Ä¬ÈÏ²»Çå¿Õ
+   }, true);
+            formSelects.data('prod_line','server',{
+                url: '{% url 'get_json_tree' %}',
+
+                 linkage: true,
+                linkageWidth:130,
+                 keyChildren: 'children',
+                keyName: 'name',
+                keyVal: 'value',
+                 success: function(result){
+						        console.log(result);
+						    },
+                 error: function(err){           //Ê¹ÓÃÔ¶³Ì·½Ê½µÄerror»Øµ÷
+						        //Í¬ÉÏ
+						        console.log(err);   //err¶ÔÏó
+						    },
+
+
+            });
+
+          formSelects.on('prod_line', function(id, vals, val, isAdd, isDisabled){
+              var hostids='';
+              for(var i in vals)
+              {
+                  var  hostname=vals[i].name.split('/').pop();
+                  var hostid=vals[i].value.split('/').pop();
+                  if (hostname ==='host')
+                  {
+	   $('#select_host option:selected').empty();
+
+		   if ( hostid > 0){
+
+  formSelects.config('select_host', {
+    type: 'get',                //ÇëÇó·½Ê½: post, get, put, delete...
+    header: {},                 //×Ô¶¨ÒåÇëÇóÍ·
+    data: {},                   //×Ô¶¨Òå³ýËÑË÷ÄÚÈÝÍâµÄÆäËûÊý¾Ý
+    searchUrl: '',           //ËÑË÷µØÖ·, Ä¬ÈÏÊ¹ÓÃxm-select-searchµÄÖµ, ´Ë²ÎÊýÓÅÏÈ¼¶¸ß
+    searchName: 'keyword',      //×Ô¶¨ÒåËÑË÷ÄÚÈÝµÄkeyÖµ
+    searchVal: '',              //×Ô¶¨ÒåËÑË÷ÄÚÈÝ, ËÑËØÒ»´ÎºóÊ§Ð§, ÓÅÏÈ¼¶¸ßÓÚËÑË÷¿òÖÐµÄÖµ
+    keyName: 'name',            //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐnameµÄkey, Ä¬ÈÏ name
+    keyVal: 'value',            //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐvalueµÄkey, Ä¬ÈÏ value
+    keySel: 'selected',         //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐselectedµÄkey, Ä¬ÈÏ selected
+    keyDis: 'disabled',         //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐdisabledµÄkey, Ä¬ÈÏ disabled
+
+    delay: 500,                 //ËÑË÷ÑÓ³ÙÊ±¼ä, Ä¬ÈÏÍ£Ö¹ÊäÈë500msºó¿ªÊ¼ËÑË÷
+    direction: 'auto',          //¶àÑ¡ÏÂÀ­·½Ïò, auto|up|down
+    response: {
+        statusCode: 0,          //³É¹¦×´Ì¬Âë
+        statusName: 'code',     //code key
+        msgName: 'msg',         //msg key
+        dataName: 'data'        //data key
+    },
+    success: function(id, url, searchVal, result){      //Ê¹ÓÃÔ¶³Ì·½Ê½µÄsuccess»Øµ÷
+        console.log(id);        //×é¼þID xm-select
+        console.log(url);       //URL
+        console.log(searchVal); //ËÑË÷µÄvalue
+        console.log(result);    //·µ»ØµÄ½á¹û
+    },
+    error: function(id, url, searchVal, err){           //Ê¹ÓÃÔ¶³Ì·½Ê½µÄerror»Øµ÷
+        //
+        console.log(err);   //err¶ÔÏó
+    },
+    beforeSuccess: function(id, url, searchVal, result){
+
+        result.data=JSON.parse(result.data)
+        return result;  //±ØÐëreturnÒ»¸ö½á¹û, Õâ¸ö½á¹ûÒª·ûºÏ¶ÔÓ¦µÄÊý¾Ý½á¹¹
+    },
+    beforeSearch: function(id, url, searchVal){         //ËÑË÷Ç°µ÷ÓÃ´Ë·½·¨, return true½«´¥·¢ËÑË÷, ·ñÔò²»´¥·¢
+        if(!searchVal){//Èç¹ûËÑË÷ÄÚÈÝÎª¿Õ,¾Í²»´¥·¢ËÑË÷
+            return false;
+        }
+        return true;
+    },
+    clearInput: false,          //µ±ÓÐËÑË÷ÄÚÈÝÊ±, µã»÷Ñ¡ÏîÊÇ·ñÇå¿ÕËÑË÷ÄÚÈÝ, Ä¬ÈÏ²»Çå¿Õ
+}, true);
+				formSelects.data('select_host', 'server', {
+    url: '/cmdb/get_json_tree_host/'+ hostid ,
+
+});
+		   };
+
+                  }
+                  else{
+                      larryms.alert('最后的节点要是host，才能选出主机奥');
+                      formSelects.value('prod_line',[vals[i].value],false) ;//删掉这个值
+                  }
+                  console.log(hostname);
+                  console.log(hostid)
+
+              };
+        }, true);
+
+
+        });
+
+
+    </script>
+{%endblock %}

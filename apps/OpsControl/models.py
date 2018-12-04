@@ -2,7 +2,7 @@
 # _#_ coding:utf-8 _*_
 from django.db import models
 import sys
-from CMDB.model.server_models import Server_Assets
+
 
 reload(sys)
 sys.setdefaultencoding("utf-8")

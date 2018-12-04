@@ -3,7 +3,7 @@
 #菜单管理
 from django.shortcuts import render
 from django.http import HttpResponse
-from system.models import Menus,LarryMenus
+from system.models import LarryMenus
 import json
 
 
@@ -16,8 +16,8 @@ def menulist(request):
     return render(request, 'system/menuops.html', locals())
 
 def getmulist(request):
-    menus = Menus.objects.all()
-    count=Menus.objects.count()
+    menus = LarryMenus.objects.all()
+    count=LarryMenus.objects.count()
     d1 = []
 
     for menu in menus:  # 子菜单
@@ -25,10 +25,10 @@ def getmulist(request):
         temdic["id"] =menu.id
         temdic["title"] = menu.title
         temdic["icon"] = menu.icon
-        temdic["href"] = menu.href
+        temdic["url"] = menu.url
         temdic["spread"] = menu.spread
         temdic["target"] = menu.target
-        temdic["parent_id"] = menu.parent_id
+        temdic["parent_id"] = menu.pid_id
         temdic["parent_copy"]=menu.parent_copy
         temdic["priority"]=menu.priority
         d1.append(temdic)

@@ -12,7 +12,7 @@ class Project_Assets(models.Model):
     project_name = models.CharField(max_length=100, unique=True)
 
     class Meta:
-        db_table = 'opsmanage_project_assets'
+        db_table = 'project_assets'
         permissions = (
             ("can_read_project_assets", "读取产品线权限"),
             ("can_change_project_assets", "更改产品线权限"),
@@ -30,7 +30,7 @@ class Service_Assets(models.Model):
     service_name = models.CharField(max_length=100)
 
     class Meta:
-        db_table = 'opsmanage_service_assets'
+        db_table = 'service_assets'
         permissions = (
             ("can_read_service_assets", "读取业务资产权限"),
             ("can_change_service_assets", "更改业务资产权限"),
@@ -74,7 +74,7 @@ class Project_Config(models.Model):
     '''自定义权限'''
 
     class Meta:
-        db_table = 'opsmanage_project_config'
+        db_table = 'project_config'
         permissions = (
             ("can_read_project_config", "读取项目部署权限"),
             ("can_change_project_config", "更改项目部署权限"),
@@ -95,7 +95,7 @@ class Log_Project_Config(models.Model):
     create_time = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='执行时间')
 
     class Meta:
-        db_table = 'opsmanage_log_project_config'
+        db_table = 'log_project_config'
         verbose_name = '项目配置操作记录表'
         verbose_name_plural = '项目配置操作记录表'
 
@@ -106,7 +106,7 @@ class Project_Number(models.Model):
     dir = models.CharField(max_length=100, verbose_name='项目目录', default=None)
 
     class Meta:
-        db_table = 'opsmanage_project_number'
+        db_table = 'project_number'
         unique_together = (("project", "server"))
         verbose_name = '项目成员表'
         verbose_name_plural = '项目成员表'

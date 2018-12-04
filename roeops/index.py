@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
-from system.models import Menus,LarryMenus
+from system.models import LarryMenus
 import json
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 @login_required(login_url='/login')
 def index(request):
     try:
-        menu_top = Menus.objects.filter(parent_id__isnull=True).order_by('priority')
+        menu_top = LarryMenus.objects.filter(pid_id__isnull=True).order_by('priority')
     except Exception as e:
         print(e)
     return render(request, 'index.html', locals())
@@ -96,7 +96,7 @@ def getmenu(request):
 def submenu(request, id):
     try:
         # 一级菜单
-        submenus = Menus.objects.get(id=id).menus_set.all()
+        submenus = LarryMenus.objects.get(id=id).menus_set.all()
     except Exception as e:
         print e
     d1 = []
@@ -109,7 +109,7 @@ def submenu(request, id):
         temdic['href'] = menu.href
         temdic['spread'] = menu.spread
         temdic['target'] = menu.target
-        tmenus = Menus.objects.filter(parent_id__exact=menu.id)
+        tmenus = LarryMenus.objects.filter(parent_id__exact=menu.id)
 
         if tmenus.exists():
             d2 = []

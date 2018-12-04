@@ -5,7 +5,7 @@ from django.db import models
 
 
 from CMDB.model.idc_models import Idc
-from CMDB.model.server_models import Assets
+
 
 #网络分组
 class NetGroup(models.Model):
@@ -73,28 +73,3 @@ class NetDevice(models.Model):
         verbose_name = '网络设备'
         verbose_name_plural = '网络设备'
 
-class Network_Assets(models.Model):
-    assets = models.OneToOneField('Assets')
-    bandwidth =  models.CharField(max_length=100,blank=True,null=True,verbose_name='背板带宽')
-    ip = models.CharField(unique=True,max_length=100,blank=True,null=True,verbose_name='管理ip')
-    username = models.CharField(max_length=100,blank=True,null=True)
-    passwd = models.CharField(max_length=100,blank=True,null=True)
-    sudo_passwd = models.CharField(max_length=100,blank=True,null=True)
-    port = models.DecimalField(max_digits=6,decimal_places=0,blank=True,null=True)
-    port_number = models.SmallIntegerField(blank=True,null=True,verbose_name='端口个数')
-    firmware =  models.CharField(max_length=100,blank=True,null=True,verbose_name='固件版本')
-    cpu = models.CharField(max_length=100,blank=True,null=True,verbose_name='cpu型号')
-    stone = models.CharField(max_length=100,blank=True,null=True,verbose_name='内存大小')
-    configure_detail = models.TextField(max_length=100,blank=True,null=True,verbose_name='配置说明')
-    create_date = models.DateTimeField(auto_now_add=True)
-    update_date = models.DateTimeField(auto_now_add=True)
-    class Meta:
-        db_table = 'opsmanage_network_assets'
-        permissions = (
-            ("can_read_network_assets", "读取网络资产权限"),
-            ("can_change_network_assets", "更改网络资产权限"),
-            ("can_add_network_assets", "添加网络资产权限"),
-            ("can_delete_network_assets", "删除网络资产权限"),
-        )
-        verbose_name = '网络资产表'
-        verbose_name_plural = '网络资产表'
