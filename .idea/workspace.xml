@@ -81,7 +81,7 @@
           <entry key="js" value="155" />
           <entry key="json" value="160" />
           <entry key="log" value="7" />
-          <entry key="md" value="164" />
+          <entry key="md" value="171" />
           <entry key="py" value="20822" />
           <entry key="py@roeops" value="141" />
           <entry key="txt" value="52" />
@@ -96,7 +96,7 @@
           <entry key="Ini" value="1" />
           <entry key="JSON" value="160" />
           <entry key="JavaScript" value="155" />
-          <entry key="Markdown" value="164" />
+          <entry key="Markdown" value="171" />
           <entry key="PLAIN_TEXT" value="476" />
           <entry key="Python" value="20964" />
           <entry key="SQL" value="1" />
@@ -124,8 +124,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="642">
-                <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
+              <first_editor relative-caret-position="627">
+                <caret line="139" column="74" selection-start-line="139" selection-start-column="74" selection-end-line="139" selection-end-column="74" />
               </first_editor>
               <second_editor />
             </state>
@@ -1241,8 +1241,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="642">
-            <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
+          <first_editor relative-caret-position="627">
+            <caret line="139" column="74" selection-start-line="139" selection-start-column="74" selection-end-line="139" selection-end-column="74" />
           </first_editor>
           <second_editor />
         </state>
