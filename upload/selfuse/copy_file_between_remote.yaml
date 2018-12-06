@@ -1,0 +1,30 @@
+---
+- hosts: "{{source_host}}"
+  gather_facts: False
+  tasks:
+    - name: test-source-host-sshkey
+      ignore_errors: True
+      command: ls -l /root/.ssh/id_rsa.pub
+      register: result
+    - name: if-not-exist-sshkey-exit
+      fail: msg='please generate sshkey first'
+      when: result|failed
+    - name: get-pub-key
+      fetch:
+        src: /root/.ssh/id_rsa.pub
+        dest: /tmp/id_rsa
+        flat: yes
+- hosts: "{{ dest_host }}"
+  gather_facts: False
+  serial: 5
+  tasks:
+    - name: auth
+      lineinfile:
+        line:  "{{ lookup('file', '/tmp/id_rsa') }}"
+        path: /root/.ssh/authorized_keys
+        create: yes
+    - name: transfile
+      synchronize:
+        src: "{{source_file}}"
+        dest: "{{dest_file}}"
+      delegate_to: "{{source_host}}"

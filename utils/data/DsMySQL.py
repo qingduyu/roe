@@ -56,7 +56,7 @@ class AnsibleRecord(object):
                 if config.ansible_playbook == 1:
                     return Log_Ansible_Playbook.objects.create(
                                               ans_user = user,
-                                              ans_server = ans_server,
+                                             ans_host = ans_server,
                                               ans_name = ans_name,
                                               ans_id = ans_id,
                                               ans_content = ans_content,

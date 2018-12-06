@@ -2,146 +2,51 @@
 {% block self_head %}
 
  <link  rel="stylesheet" href="/static/larryms/thirdlib/formSelects-v4.css" >
-{#<script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ace.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ext-language_tools.js"></script>#}
-{#   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/mode-mysql.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-python.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sql.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-yaml.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sh.js"></script>#}
-{##}
-{##}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/theme-monokai.js"></script>#}
-
-
-
-<style type="text/css">
-	#editor {
-		/* position: absolute; */
-	width: 100%;
-	height: 400px;
-
-   }	
-</style>
 {% endblock %}
 {% block content %}
 <div class="layui-fluid form-demo-box">
 
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+  <ul class="layui-tab-title">
+    <li class="layui-this">根据业务树选择主机</li>
+    <li>自定义分组选择</li>
+    <li>通盘选择</li>
 
-
-<div class="layui-row">
-    <div class="layui-col-lg6">
-
-           <form class="layui-form layui-form-pane" id="ansiblescriptRun" lay-filter="layui-form" action="{% url 'ansible_transfile' %}">
+  </ul>
+  <div class="layui-tab-content" style="height: 100px;">
+    <div class="layui-tab-item layui-show">
+                   <form class="layui-form layui-form-pane" id="ansiblescriptRun" lay-filter="layui-form" action="{% url 'ansible_transfile' %}">
                                       {% csrf_token %}
-                       <div class="layui-form-item">
-                                            <label class="layui-form-label">作业名称</label>
-                                             <div class="layui-input-block">
-                                                 <input  name="job_name" class="layui-input" value="快速分发文件_{{ time_now }}" required>
-                                             </div>
-
-
-                 </div>
-  <input  type="hidden"   class="form-control" id="ans_uuid" name="ans_uuid" value="{{ans_uuid}}">
-             <section>
-                 <div class="layui-card" >
-                     <div class="layui-card-header">
-                         <div class="layui-form-inline">
-                              <strong> 源文件</strong>
-
-                         </div>
-
-                     </div>
-                     <div class="layui-card-body"  >
-                            <div class="layui-form-item">
-                                            <label class="layui-form-label">源文件/目录</label>
-                                            <div class="layui-input-block">
-                                                <input class="layui-input" name="source_file" id="script_args"  value="/data/soft/file.zip or tgz or tar.gz" placeholder="" layui-required>
-                                            </div>
-
-                         </div>
-                                      <div class="layui-form-item">
-                                        <label class="layui-form-label">文件源机器</label>
-                                        <div class="layui-input-block">
-
-                                           <input class="layui-input" name="source_host" placeholder="请输入IP 地址" lay-verify="required">
-
-                                        </div>
-                                    </div>
-                     </div>
-                 </div>
-
-             </section>
-        <br>
-            <section>
-
-                 <div class="layui-card">
-                     <div class="layui-card-header">
-                           <strong>目标文件</strong>
-                     </div>
-                     <div class="layui-card-body" style="height: 500px;">
-
-
-
-                         <div class="layui-form-item">
-                                            <label class="layui-form-label">目标路径</label>
-                                            <div class="layui-input-inline">
-                                                <input class="layui-input" name="dest_file" id="script_args"  value="/tmp/soft/" placeholder="" layui-verefy="required">
-                                            </div>
-
-                         </div>
-
-                             <div class="layui-form-item">
+                                     <div class="layui-form-item">
                                         <label class="layui-form-label">产品线</label>
                                         <div class="layui-input-block">
                                             <select name="prod_line" xm-select='prod_line'  xm-select-radio>
-                                                    <option value="">联动多选</option>
+                                                    <option value="">liandongduoxuan</option>
                                             </select>
 {#                                             <input type="text" id="yewuxian" class="layu=3i-input" readonly="readonly">#}
                                         </div>
-                             </div>
-                         <div class="layui-form-item">
-                                        <label class="layui-form-label">目标机器</label>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">文件源机器</label>
                                         <div class="layui-input-block">
-                                            <select name='dest_hosts' id="select_host" xm-select='select_host'  xm-select-max="3" layui-verefy="required">
+                                            <select name='hosts' id="select_host" xm-select='select_host'  xm-select-max="3">
                                                     <option value="">选择一个服务器</option>
                                             </select>
 
                                         </div>
                                     </div>
 
-                             <button type="button" class="layui-btn layui-btn-green" lay-submit="" lay-filter='runjob' id="run_ansible_model">开始执行</button>
+                               <button type="button" class="layui-btn layui-btn-green" lay-submit="" lay-filter='runjob' id="run_ansible_model">确定</button>
 
-                     </div>
+                   </form>
 
-
-                     </div>
-
-             </section>
-                 </form>
     </div>
+    <div class="layui-tab-item">还没开发</div>
+    <div class="layui-tab-item">还没开发</div>
 
-    <div class="layui-col-lg6">
-
-              <section>
-                     <div class="layui-card">
-                            <div class="layui-card-header">
-
-                                <strong>执行结果</strong>
-
-                            </div>
-                            <div class="layui-card-body layui-bg-black">
-
-                                <div class="html">
-                                    <div id="result">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-            </section>
-    </div>
+  </div>
 </div>
+
 
 
 
@@ -160,77 +65,59 @@
             layertype:2
         }).extend({
             larry: 'js/base'
-        }).use(['larry', 'layer', 'jquery', 'larryms', 'form','formSelects','upload'], function () {
+        }).use(['larry', 'layer', 'jquery', 'larryms', 'form','formSelects'], function () {
             var $ = layui.$,
                 larry = layui.larry,
                 form = layui.form,
                 layer = layui.layer,
                 formSelects = layui.formSelects,
-                upload=layui.upload,
+
                 larryms = layui.larryms;
 
             {#var curIfr = parent.layer.getFrameIndex(window.name);#}
 
 
 
+
+
             form.on('submit(runjob)', function (data) {
                 console.log(data.field)
-                console.log(data)
-                var btnObj = $(data.elem);
-                {#btnObj.attr('disabled', true);#}
 
-                 $.ajax({
+
+
+// 	    /* 轮训获取结果结束  */
+                $.ajax({
                     dataType: "text",
-                    url: '{% url 'ansible_transfile' %}', //请求地址
+                    url: '{% url 'ansible_exe_script' %}', //请求地址
                     type: "POST",  //提交类似
                       {#contentType: "application/json",#}
-                    data: data.field,  //提交参数
+                    data: {
+                        "script_content":contents ,
+                    "ans_uuid":data.field.ans_uuid ,
+            "csrfmiddlewaretoken": data.field.csrfmiddlewaretoken,
+"hosts":data.field.hosts ,
+"script_args": data.field.script_args,
+"script_name": data.field.script_name
+                    },  //提交参数
                     success: function (res) {
-                        res2=JSON.parse(res)
-                            console.log(res)
-                           if (res2.code == 200) {
+                        btnObj.removeAttr('disabled');
+                        if (res["code"] == "500") {
                             clearInterval(interval);
-                            larryms.msg(res2.msg );
-                        };
-                        if( res2["code"] === 500){
-                             larryms.msg(res2.msg );
+                            btnObj.removeAttr('disabled');
+                            larryms.msg(res["msg"]);
                         }
 
                     },
                     error: function (response) {
-                        larryms.msg("运行失败,时间超时了" );
+                        btnObj.removeAttr('disabled');
+                        larryms.msg("运行失败" );
                         clearInterval(interval);
                     }
                 });
 
 
-                $("#result").html("服务器正在处理，请稍等。。。");
-                /* 轮训获取结果 开始  */
-                var interval = setInterval(function () {
-                    $.ajax({
-                        url: '{% url 'get_ans_run_result' %}',
-                        type: 'post',
-                        data: data.field,
-                        success: function (result) {
-                            if (result["msg"] !== null) {
-                                $("#result").append("<p>" + result["msg"] + "</p>");
-                                {#document.getElementById("scrollToTop").scrollIntoView();#}
-                                if (result["msg"].indexOf("[Done]") == 0) {
-                                    clearInterval(interval);
-                                    larryms.msg("Ansible执行完成");
-                                    btnObj.removeAttr('disabled');
-                                }
-                            }
-                        },
-                        error: function (response) {
-                            btnObj.removeAttr('disabled');
-                            clearInterval(interval);
-                        }
-                    });
-                }, 50);  //一秒钟运行2此
-
-
             });
+
 
             formSelects.config('prod_line', {
     type: 'get',                //ÇëÇó·½Ê½: post, get, put, delete...
@@ -245,7 +132,7 @@
     keyDis: 'disabled',         //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐdisabledµÄkey, Ä¬ÈÏ disabled
     keyChildren: 'children',    //Áª¶¯¶àÑ¡×Ô¶¨Òåchildren
     delay: 500,                 //ËÑË÷ÑÓ³ÙÊ±¼ä, Ä¬ÈÏÍ£Ö¹ÊäÈë500msºó¿ªÊ¼ËÑË÷
-    direction: 'down',          //¶àÑ¡ÏÂÀ­·½Ïò, auto|up|down
+    direction: 'auto',          //¶àÑ¡ÏÂÀ­·½Ïò, auto|up|down
     response: {
         statusCode: 0,          //³É¹¦×´Ì¬Âë
         statusName: 'code',     //code key

@@ -497,8 +497,10 @@ class ANSRunner(object):
             executor.run()  
         except Exception as err: 
             logger.error(msg="run playbook failed: {err}".format(err=str(err)))
-            if self.redisKey:DsRedis.OpsAnsibleModel.lpush(self.redisKey,data=err)
-            if self.logId:AnsibleSaveResult.Model.insert(self.logId, err)            
+            if self.redisKey:
+                DsRedis.OpsAnsibleModel.lpush(self.redisKey,data=err)
+            if self.logId:
+                AnsibleSaveResult.Model.insert(self.logId, err)
             return False
             
     def get_model_result(self):  

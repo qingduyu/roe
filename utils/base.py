@@ -139,4 +139,14 @@ def getFileType(filePath):
         file_type = '未知'
         logger.error("获取文件类型失败: {ex}".format(ex=ex))
     return file_type
-    
+
+
+
+import re
+
+def isIP(str):
+    p = re.compile('^((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)$')
+    if p.match(str):
+        return True
+    else:
+        return False

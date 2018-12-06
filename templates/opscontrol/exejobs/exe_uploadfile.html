@@ -2,16 +2,16 @@
 {% block self_head %}
 
  <link  rel="stylesheet" href="/static/larryms/thirdlib/formSelects-v4.css" >
-{#<script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ace.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ext-language_tools.js"></script>#}
+<script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ace.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ext-language_tools.js"></script>
 {#   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/mode-mysql.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-python.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sql.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-yaml.js"></script>#}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sh.js"></script>#}
-{##}
-{##}
-{#    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/theme-monokai.js"></script>#}
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-python.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sql.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-yaml.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sh.js"></script>
+
+
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/theme-monokai.js"></script>
 
 
 
@@ -26,15 +26,14 @@
 {% endblock %}
 {% block content %}
 <div class="layui-fluid form-demo-box">
-
-
-
-<div class="layui-row">
-    <div class="layui-col-lg6">
-
-           <form class="layui-form layui-form-pane" id="ansiblescriptRun" lay-filter="layui-form" action="{% url 'ansible_transfile' %}">
+    <div class="layui-row">
+         <div class="layui-col-lg6">
+             <form class="layui-form layui-form-pane" id="ansiblescriptRun" lay-filter="layui-form" action="{% url 'ansible_transfile' %}">
                                       {% csrf_token %}
-                       <div class="layui-form-item">
+
+             <section>
+
+                 <div class="layui-form-item">
                                             <label class="layui-form-label">作业名称</label>
                                              <div class="layui-input-block">
                                                  <input  name="job_name" class="layui-input" value="快速分发文件_{{ time_now }}" required>
@@ -42,51 +41,58 @@
 
 
                  </div>
-  <input  type="hidden"   class="form-control" id="ans_uuid" name="ans_uuid" value="{{ans_uuid}}">
+
+             </section>
+
              <section>
-                 <div class="layui-card" >
+                 <div class="layui-card">
                      <div class="layui-card-header">
                          <div class="layui-form-inline">
                               <strong> 源文件</strong>
 
+                         <button class="layui-btn layui-btn-primary" id="localfile">添加本地文件</button>
+                             <button class="layui-btn layui-btn-primary" id="hostfile">添加服务器文件</button>
+
                          </div>
 
                      </div>
-                     <div class="layui-card-body"  >
-                            <div class="layui-form-item">
-                                            <label class="layui-form-label">源文件/目录</label>
-                                            <div class="layui-input-block">
-                                                <input class="layui-input" name="source_file" id="script_args"  value="/data/soft/file.zip or tgz or tar.gz" placeholder="" layui-required>
-                                            </div>
-
-                         </div>
-                                      <div class="layui-form-item">
-                                        <label class="layui-form-label">文件源机器</label>
-                                        <div class="layui-input-block">
-
-                                           <input class="layui-input" name="source_host" placeholder="请输入IP 地址" lay-verify="required">
-
-                                        </div>
-                                    </div>
+                     <div class="layui-card-body">
+                         <table class="layui-table fileSourceTable" style="font-size: 13px!important; border-bottom:1px #ddd solid !important;" data-content="±ØÌîÏî">
+                             <thead>
+                             <tr style="background: #f6f8f8; border-top: 2px solid rgb(74, 155, 255) !important;">
+                                 <th style="width: 30%;">文件列表</th>
+                                 <th style="width: 25%;">服务地址</th>
+                                 <th style="width: 25%;">权限账户</th>
+                                 <th style="width: 20%;">操作</th>
+                             </tr>
+                             </thead>
+                             <tbody id="filelist">
+                             <tr class="blankTr">
+                                 <td colspan="4" style="text-align: center;">请添加源文件
+                                    
+                                 </td>
+                             </tr>
+                             </tbody>
+                         </table>
                      </div>
                  </div>
 
              </section>
-        <br>
-            <section>
+                 <br>
+             <section>
 
                  <div class="layui-card">
                      <div class="layui-card-header">
                            <strong>目标文件</strong>
                      </div>
-                     <div class="layui-card-body" style="height: 500px;">
+                     <div class="layui-card-body" style="height: 900px;">
 
 
 
                          <div class="layui-form-item">
                                             <label class="layui-form-label">目标路径</label>
                                             <div class="layui-input-inline">
-                                                <input class="layui-input" name="dest_file" id="script_args"  value="/tmp/soft/" placeholder="" layui-verefy="required">
+                                                <input class="layui-input" name="script_args" id="script_args"  value="/data/soft" placeholder="" layui-required>
                                             </div>
 
                          </div>
@@ -95,55 +101,39 @@
                                         <label class="layui-form-label">产品线</label>
                                         <div class="layui-input-block">
                                             <select name="prod_line" xm-select='prod_line'  xm-select-radio>
-                                                    <option value="">联动多选</option>
+                                                    <option value="">liandongduoxuan</option>
                                             </select>
 {#                                             <input type="text" id="yewuxian" class="layu=3i-input" readonly="readonly">#}
                                         </div>
-                             </div>
-                         <div class="layui-form-item">
+                                    </div>
+                                    <div class="layui-form-item">
                                         <label class="layui-form-label">目标机器</label>
                                         <div class="layui-input-block">
-                                            <select name='dest_hosts' id="select_host" xm-select='select_host'  xm-select-max="3" layui-verefy="required">
+                                            <select name='hosts' id="select_host" xm-select='select_host'  xm-select-max="3">
                                                     <option value="">选择一个服务器</option>
                                             </select>
 
                                         </div>
                                     </div>
-
+                         
                              <button type="button" class="layui-btn layui-btn-green" lay-submit="" lay-filter='runjob' id="run_ansible_model">开始执行</button>
 
+
+                         </form>
+
                      </div>
-
-
-                     </div>
-
+                 </div>
              </section>
-                 </form>
+
+
+             <section>
+                 <div class="layui-card"></div>
+             </section>
+         </div>
+
+
+
     </div>
-
-    <div class="layui-col-lg6">
-
-              <section>
-                     <div class="layui-card">
-                            <div class="layui-card-header">
-
-                                <strong>执行结果</strong>
-
-                            </div>
-                            <div class="layui-card-body layui-bg-black">
-
-                                <div class="html">
-                                    <div id="result">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-            </section>
-    </div>
-</div>
-
-
 
 </div>
 
@@ -171,38 +161,78 @@
 
             {#var curIfr = parent.layer.getFrameIndex(window.name);#}
 
+            
+      
+            
+                var fileuploadview=$('#filelist'),
+                    uploadListIns=upload.render({
+                        element: '#localfile',
+                        url:'{% url 'ansible_transfile' %}',
+                        accept:'file',
+                        multiple:true,
+                        auto:true,
+                        before: function(obj){
+                        larryms.msg('存在风险，暂不开放此功能');
+                        return false;
+    },
+                        choose:function (obj) {
+                            var files = this.files = obj.pushFile(); //将每次的文件追加到文件队列
+      //读取本地文件
+      obj.preview(function(index, file, result){
+        var tr = $(['<tr id="upload-'+ index +'">'
+          ,'<td>'+ file.name +'</td>'
+          ,'<td>'+ (file.size/1014).toFixed(1) +'kb</td>'
+          ,'<td>正在上传</td>'
+          ,'<td>'
+            ,'<button class="layui-btn layui-btn-xs demo-reload layui-hide">重新传«</button>'
+            ,'<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>'
+          ,'</td>'
+        ,'</tr>'].join(''));
+
+        //重传
+        tr.find('.demo-reload').on('click', function(){
+          obj.upload(index, file);
+        });
+
+        //删除
+        tr.find('.demo-delete').on('click', function(){
+          delete files[index]; //删除对应的文件
+          tr.remove();
+          uploadListIns.config.elem.next()[0].value = ''; //清空 input file只一边删除后出现同名文件不可选¡
+        });
+
+        fileuploadview.append(tr);
+      });}
+      ,done: function(res, index, upload){
+      if(res.code == 0){ //上传成功¦
+        var tr = demoListView.find('tr#upload-'+ index)
+        ,tds = tr.children();
+        tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');
+        tds.eq(3).html('');
+        return delete this.files[index]; //删除文件队列已经成功上传的文件
+      }
+      this.error(index, upload);
+    }
+    ,error: function(index, upload){
+      var tr = demoListView.find('tr#upload-'+ index)
+      ,tds = tr.children();
+      tds.eq(2).html('<span style="color: #FF5722;">上传失败</span>');
+      tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+    }
+                    });
 
 
             form.on('submit(runjob)', function (data) {
                 console.log(data.field)
-                console.log(data)
-                var btnObj = $(data.elem);
-                {#btnObj.attr('disabled', true);#}
-
-                 $.ajax({
-                    dataType: "text",
-                    url: '{% url 'ansible_transfile' %}', //请求地址
-                    type: "POST",  //提交类似
-                      {#contentType: "application/json",#}
-                    data: data.field,  //提交参数
-                    success: function (res) {
-                        res2=JSON.parse(res)
-                            console.log(res)
-                           if (res2.code == 200) {
-                            clearInterval(interval);
-                            larryms.msg(res2.msg );
-                        };
-                        if( res2["code"] === 500){
-                             larryms.msg(res2.msg );
-                        }
-
-                    },
-                    error: function (response) {
-                        larryms.msg("运行失败,时间超时了" );
-                        clearInterval(interval);
-                    }
-                });
-
+                var btnObj = $(data);
+                btnObj.attr('disabled', true);
+	        var editor = ace.edit("editor");
+	    var contents = editor.getSession().getValue();
+	    if ( contents.length == 0){
+	        larryms.msg("脚本内容不能为空");
+	    	btnObj.removeAttr('disabled');
+	    	return false;
+	    };
 
                 $("#result").html("服务器正在处理，请稍等。。。");
                 /* 轮训获取结果 开始  */
@@ -227,10 +257,41 @@
                             clearInterval(interval);
                         }
                     });
-                }, 50);  //一秒钟运行2此
+                }, 500);  //一秒钟运行2此
+
+// 	    /* 轮训获取结果结束  */
+                $.ajax({
+                    dataType: "text",
+                    url: '{% url 'ansible_transfile' %}', //请求地址
+                    type: "POST",  //提交类似
+                      {#contentType: "application/json",#}
+                    data: {
+                        "script_content":contents ,
+                    "ans_uuid":data.field.ans_uuid ,
+            "csrfmiddlewaretoken": data.field.csrfmiddlewaretoken,
+"hosts":data.field.hosts ,
+"script_args": data.field.script_args,
+"script_name": data.field.script_name
+                    },  //提交参数
+                    success: function (res) {
+                        btnObj.removeAttr('disabled');
+                        if (res["code"] == "500") {
+                            clearInterval(interval);
+                            btnObj.removeAttr('disabled');
+                            larryms.msg(res["msg"]);
+                        }
+
+                    },
+                    error: function (response) {
+                        btnObj.removeAttr('disabled');
+                        larryms.msg("运行失败" );
+                        clearInterval(interval);
+                    }
+                });
 
 
             });
+
 
             formSelects.config('prod_line', {
     type: 'get',                //ÇëÇó·½Ê½: post, get, put, delete...
@@ -245,7 +306,7 @@
     keyDis: 'disabled',         //×Ô¶¨Òå·µ»ØÊý¾ÝÖÐdisabledµÄkey, Ä¬ÈÏ disabled
     keyChildren: 'children',    //Áª¶¯¶àÑ¡×Ô¶¨Òåchildren
     delay: 500,                 //ËÑË÷ÑÓ³ÙÊ±¼ä, Ä¬ÈÏÍ£Ö¹ÊäÈë500msºó¿ªÊ¼ËÑË÷
-    direction: 'down',          //¶àÑ¡ÏÂÀ­·½Ïò, auto|up|down
+    direction: 'auto',          //¶àÑ¡ÏÂÀ­·½Ïò, auto|up|down
     response: {
         statusCode: 0,          //³É¹¦×´Ì¬Âë
         statusName: 'code',     //code key

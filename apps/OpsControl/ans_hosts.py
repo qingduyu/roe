@@ -15,7 +15,7 @@ def get_ans_host(hostid_list):
           for i in host:
               temp = {}
               temp['ip']=i.ip
-              temp['port']=i.port
+              temp['port']=int(i.port)
               temp['username']=i.username
               temp['sudo_passwd']=i.sudo_passwd
               if i.keyfile !=1:
