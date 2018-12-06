@@ -27331,3 +27331,93 @@ IOError: [Errno 32] Broken pipe
     sys.stderr.write(msg)
 IOError: [Errno 32] Broken pipe
 
+2018-12-06 16:31:37 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+
+2018-12-06 16:31:37 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+
+2018-12-06 16:31:37 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+
+2018-12-06 16:31:56 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+
+2018-12-06 16:32:12 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+
+2018-12-06 16:32:13 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+
+2018-12-06 16:32:13 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+
+2018-12-06 16:32:14 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+
+2018-12-06 16:32:14 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+
+2018-12-06 16:32:14 [ERROR] Traceback (most recent call last):
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 274, in serverResponse
+    "size": self.sentLength,
+  File "/data/python-env/roeops/lib/python2.7/site-packages/daphne/http_protocol.py", line 421, in log_action
+    self.action_logger(protocol, action, details)
+  File "/data/python-env/roeops/lib/python2.7/site-packages/channels/management/commands/runserver.py", line 145, in log_action
+    sys.stderr.write(msg)
+IOError: [Errno 32] Broken pipe
+

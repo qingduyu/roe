@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="扫描主机">
-      <change afterPath="$PROJECT_DIR$/templates/opscontrol/exejobs/choose_host.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_uploadfile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/selfuse/copy_file_between_remote.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/ans_hosts.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/ans_hosts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/views/trans_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/views/trans_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_image/demo4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_image/demo5.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/roeops.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/roeops.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_modules.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/ansible_api_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ansible_api_v2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data/DsMySQL.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/data/DsMySQL.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +48,7 @@
           <entry key="js" value="64" />
           <entry key="json" value="14" />
           <entry key="log" value="20" />
-          <entry key="md" value="5" />
+          <entry key="md" value="6" />
           <entry key="pub" value="2" />
           <entry key="py" value="480" />
           <entry key="ts" value="2" />
@@ -73,7 +65,7 @@
           <entry key="JSON" value="14" />
           <entry key="JavaScript" value="64" />
           <entry key="Log" value="4" />
-          <entry key="Markdown" value="5" />
+          <entry key="Markdown" value="6" />
           <entry key="PLAIN_TEXT" value="29" />
           <entry key="Python" value="480" />
           <entry key="TypeScript" value="2" />
@@ -89,7 +81,7 @@
           <entry key="js" value="155" />
           <entry key="json" value="160" />
           <entry key="log" value="7" />
-          <entry key="md" value="160" />
+          <entry key="md" value="164" />
           <entry key="py" value="20822" />
           <entry key="py@roeops" value="141" />
           <entry key="txt" value="52" />
@@ -104,7 +96,7 @@
           <entry key="Ini" value="1" />
           <entry key="JSON" value="160" />
           <entry key="JavaScript" value="155" />
-          <entry key="Markdown" value="160" />
+          <entry key="Markdown" value="164" />
           <entry key="PLAIN_TEXT" value="476" />
           <entry key="Python" value="20964" />
           <entry key="SQL" value="1" />
@@ -119,11 +111,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="229" column="20" selection-start-line="229" selection-start-column="20" selection-end-line="229" selection-end-column="20" />
+            <state relative-caret-position="588">
+              <caret line="259" column="6" lean-forward="true" selection-start-line="259" selection-start-column="6" selection-end-line="259" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="642">
+                <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -238,7 +242,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/roeops/settings.py" />
         <option value="$PROJECT_DIR$/conf/logger.ini" />
         <option value="$PROJECT_DIR$/templates/opscontrol/apps/apps_script_list.html" />
         <option value="$PROJECT_DIR$/static/larryms/thirdlib/formSelects-v4.css" />
@@ -289,6 +292,7 @@
         <option value="$PROJECT_DIR$/apps/OpsControl/views/trans_file.py" />
         <option value="$PROJECT_DIR$/upload/selfuse/copy_file_between_remote.yaml" />
         <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -333,38 +337,7 @@
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="CMDB" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="CodeOps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="OpsControl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="OpsControl" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -386,6 +359,11 @@
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="demo_image" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -397,70 +375,6 @@
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="tasks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
-              <item name="idc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
-              <item name="yewutree" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="codeops" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="dbops" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="opscontrol" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="opscontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="cron" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="roeops" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="opscontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="exejobs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
@@ -711,13 +625,13 @@
     <frame x="0" y="28" width="1920" height="1138" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.22139038" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.22139038" />
       <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
       <window_info id="Structure" order="2" sideWeight="0.37573385" side_tool="true" weight="0.25365853" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32942164" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34038267" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.12990937" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.2205438" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32942164" />
@@ -956,11 +870,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/dao/assets.py" />
     <entry file="file://$PROJECT_DIR$/apps/dao/order.py" />
     <entry file="file://$PROJECT_DIR$/apps/OpsControl/ansible_ops.py">
@@ -1324,8 +1233,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="229" column="20" selection-start-line="229" selection-start-column="20" selection-end-line="229" selection-end-column="20" />
+        <state relative-caret-position="588">
+          <caret line="259" column="6" lean-forward="true" selection-start-line="259" selection-start-column="6" selection-end-line="259" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="642">
+            <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
