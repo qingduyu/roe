@@ -1,0 +1,7 @@
+/**
+ * videojs-playlist-thumbs
+ * @version 0.1.5
+ * @copyright 2016 Emmanuel Alves <manel.pb@gmail.com>
+ * @license MIT
+ */
+.video-js{position:relative}.video-js .vjs-big-play-button{top:50%;left:50%;margin-left:-50px;margin-top:-20px}.video-js.vjs-playlist{display:block}.video-js .vjs-button-prev,.video-js .vjs-button-next{cursor:pointer;font-size:15px;margin-bottom:2px;font-weight:bold;margin-left:10px;margin-right:10px}.video-js .vjs-button-prev:before{content:"<<"}.video-js .vjs-button-next:before{content:">>"}.video-js .vjs-playlist-items{border:1px solid #000;height:100%;position:absolute;right:0;overflow:scroll;margin:0;padding:0}.video-js .vjs-playlist-items li{background-size:cover;height:120px;position:relative}.video-js .vjs-playlist-items li .vjs-playlist-video-title{position:absolute;bottom:10px;text-shadow:1px 2px 3px #000;left:10px;text-transform:uppercase}.video-js .vjs-playlist-items li .vjs-playlist-video-title div{margin-top:8px}.video-js .vjs-playlist-items li div.vjs-playlist-video-upnext{font-size:12px;color:red}.video-js .vjs-playlist-items li:hover{cursor:pointer}

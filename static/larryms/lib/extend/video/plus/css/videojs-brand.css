@@ -1,0 +1,12 @@
+/**
+ * videojs-brand
+ * @version 0.0.4
+ * @copyright 2016 Emmanuel Alves <manel.pb@gmail.com>
+ * @license MIT
+ */
+.video-js.vjs-brand{display:block}
+.vjs-brand-container a.vjs-brand-container-link>img{
+	clear: both;
+	width: 100%;
+	height: auto;
+}

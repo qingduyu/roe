@@ -96,7 +96,7 @@ div,li,span,input,button,a{outline:0 none;outline:0 none!important;}
 .larry-message-error{background:#FF5722}
 .larry-message-waring{background:#FFB800}
 .larry-message-tips{background:#F7B824}
-.larryms-message-box .resultmsg{width:calc(100% - 90px);width:-moz-calc(100%-90px);width:-webkit-calc(100%-90px)}
+.larryms-message-box .resultmsg{width:calc(100% - 90px);width:-moz-calc(100% - 90px);width:-webkit-calc(100% - 90px)}
 
 /*skin:larry-debug*/
 body .larry-debug .layui-layer-title{background:#FF5722;color:#fff;border:none;}

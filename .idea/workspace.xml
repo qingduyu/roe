@@ -2,19 +2,445 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="扫描主机">
-      <change afterPath="$PROJECT_DIR$/apps/MysqlOps/migrations/0009_auto_20181207_1524.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/wiki/migrations/0002_auto_20181207_1524.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/Print.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/anijs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/ckeditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ast.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/de-ch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/en-au.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/eo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/gu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/kn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ku.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ne.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/no.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/oc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/pt-br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/si.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/sq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/tt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/ug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/zh-cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/ckeditor/translations/zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/cropper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/echarts/echartStyle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/echarts/echarts-gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/echarts/echarts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/fullpage/fullpages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/gridster/collision.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/gridster/coords.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/gridster/draggable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/gridster/gridster.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/gridster/gridsterExtras.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/howler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/intro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor/nebase.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor/third-party/browser-md5-file.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/anchor/anchor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/attachment.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/attachment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/attachment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_chm.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_doc.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_exe.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_jpg.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_mp3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_mv.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_pdf.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_ppt.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_psd.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_rar.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_txt.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/fileTypeImages/icon_xls.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/alignicon.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/alignicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/file-icons.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/file-icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/icons.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/progress.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/success.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/attachment/images/success.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/background/background.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/background/background.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/background/background.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/background/images/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/background/images/success.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/chart.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/charts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/charts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/charts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/images/charts0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/images/charts1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/images/charts2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/images/charts3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/images/charts4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/charts/images/charts5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/emotion.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/emotion.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/emotion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/images/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/images/bface.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/images/cface.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/images/fface.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/images/jxface2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/images/neweditor-tab-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/images/tface.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/images/wface.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/emotion/images/yface.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/fonts/buttoniconex.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/fonts/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/fonts/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/fonts/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/fonts/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/fonts/images/addfile.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/fonts/images/selected.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/gmap/gmap.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/help/help.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/help/help.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/help/help.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/image.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/image.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/images/alignicon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/images/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/images/icons.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/images/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/images/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/images/progress.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/images/success.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/image/images/success.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/insertframe/insertframe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/internal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/link/link.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/map/map.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/map/show.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/music/balls.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/music/music.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/music/music.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/music/music.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/preview/preview.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/addimg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/brush.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/delimg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/delimgH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/emptyH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/eraser.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/redo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/redoH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/scale.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/scaleH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/size.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/undo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/images/undoH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/scrawl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/scrawl.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/scrawl/scrawl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/searchreplace/searchreplace.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/searchreplace/searchreplace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/snapscreen/snapscreen.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/spechars/spechars.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/spechars/spechars.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/table/dragicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/table/edittable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/table/edittable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/table/edittable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/table/edittd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/table/edittip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/images/bg.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/images/pre0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/images/pre1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/images/pre2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/images/pre3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/images/pre4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/template.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/template/template.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/center_focus.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/file-icons.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/file-icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/icons.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/left_focus.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/none_focus.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/progress.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/right_focus.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/success.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/images/success.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/video.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/video.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/video/video.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/webapp/webapp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/wordimage/fClipboard_ueditor.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/wordimage/imageUploader.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/wordimage/tangram.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/wordimage/wordimage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/dialogs/wordimage/wordimage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/addimage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/alldeletebtnhoverskin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/alldeletebtnupskin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/copy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/deletedisable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/deleteenable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/listbackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/localimage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/music.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/rotateleftdisable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/rotateleftenable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/rotaterightdisable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/rotaterightenable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/en/images/upload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/zh-cn/images/copy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/zh-cn/images/localimage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/zh-cn/images/music.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/zh-cn/images/upload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/i18n/zh-cn/zh-cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/neconfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/neditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/nparse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/php/Uploader.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/php/action_crawler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/php/action_list.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/php/action_upload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/php/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/php/controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/iframe.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/css/neditor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/css/neditor.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/dialogbase.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/fonts/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/fonts/iconfont.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/fonts/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/fonts/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/fonts/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/anchor.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/arrow_down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/arrow_up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/button-bg.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/cancelbutton.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/charts.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/cursor_h.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/cursor_h.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/cursor_v.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/cursor_v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/dialog-title-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/filescan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/highlighted.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/icons-all.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/icons.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/loaderror.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/lock.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/neweditor-tab-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/pagebreak.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/scale.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/sortable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/spacer.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/sparator_v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/table-cell-align.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/tangram-colorpicker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/toolbar_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/unhighlighted.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/upload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/videologo.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/word.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/themes/notadd/images/wordpaste.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/SyntaxHighlighter/shCore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/SyntaxHighlighter/shCoreDefault.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/codemirror/codemirror.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/codemirror/codemirror.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/adapters/mootools-adapter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/adapters/mootools-adapter.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/adapters/prototype-adapter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/adapters/prototype-adapter.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/adapters/standalone-framework.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/adapters/standalone-framework.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/highcharts-more.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/highcharts-more.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/highcharts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/highcharts.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/annotations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/annotations.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/canvas-tools.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/canvas-tools.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/data.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/drilldown.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/drilldown.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/exporting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/exporting.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/funnel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/funnel.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/heatmap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/heatmap.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/map.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/no-data-to-display.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/modules/no-data-to-display.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/themes/dark-blue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/themes/dark-green.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/themes/gray.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/themes/grid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/highcharts/themes/skies.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/jquery-1.10.2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/jquery-1.10.2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/jquery-1.10.2.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/snapscreen/UEditorSnapscreen.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/video-js/font/vjs.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/video-js/font/vjs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/video-js/font/vjs.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/video-js/font/vjs.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/video-js/video-js.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/video-js/video-js.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/video-js/video-js.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/video-js/video.dev.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/video-js/video.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/Uploader.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.custom.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.flashonly.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.flashonly.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.html5only.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.html5only.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.withoutimage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/webuploader/webuploader.withoutimage.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/zeroclipboard/ZeroClipboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/zeroclipboard/ZeroClipboard.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/neditor_old/third-party/zeroclipboard/ZeroClipboard.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/pdfobject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/printJS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/scrolla.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/langs/en_GB.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/langs/zh_CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/license.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/codesample/css/prism.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-cool.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-cry.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-embarassed.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-frown.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-innocent.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-kiss.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-laughing.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-sealed.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-smile.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-surprised.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-undecided.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-wink.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/emoticons/img/smiley-yell.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/help/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/plugins/visualblocks/css/visualblocks.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/content.inline.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/content.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/content.mobile.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/fonts/tinymce-mobile.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/fonts/tinymce-small.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/fonts/tinymce-small.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/fonts/tinymce-small.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/fonts/tinymce-small.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/fonts/tinymce.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/fonts/tinymce.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/fonts/tinymce.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/fonts/tinymce.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/img/anchor.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/img/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/img/object.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/img/trans.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/skin.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/skin.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/skin.mobile.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/skins/lightgray/skin.mobile.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/tinymce/tinymce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/css/videojs-brand.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/css/videojs-playlist-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/css/videojs-playlist.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/css/videojs-watermark.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/css/videojs.ads.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/css/videojs.record.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojs-contrib-eme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojs-contrib-hls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojs-contrib-media-sources.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojs-flash.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojs-responsive-layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojs.ads.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojs.concurrency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojs.hotkeys.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojs.record.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojsbrand.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojsplaylist.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojsplaylist_a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojsplaylistui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/videojswatermark.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/vtt.global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/plus/vtt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/video/videojs_old.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/watermark.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extend/we/wangEditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extendStyle/gridster/gridster.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extendStyle/gridster/gridster.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extendStyle/print/print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extendStyle/we/fonts/w-e-icon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/extendStyle/we/wangEditor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/larryTree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/larryms/lib/xss.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/MysqlOps/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/MysqlOps/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/OpsControl/ans_hosts.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/OpsControl/ans_hosts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/wiki/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/wiki/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/roeops.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/roeops.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roeops/djchannels/wssh.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/djchannels/wssh.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roeops/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/roeops/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/system/webssh/webssh.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/system/webssh/webssh.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/larryms/configure.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/larryms/configure.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/larryms/css/admin/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/larryms/css/admin/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/larryms/lib/larryApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/larryms/lib/larryEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/larryms/lib/larryEditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/larryms/lib/larrySecret.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/larryms/lib/larryajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/larryms/lib/larryajax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/larryms/lib/larryms.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/larryms/lib/larryms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/console.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/console.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,44 +477,46 @@
           <entry key="10" value="1" />
           <entry key="3" value="1" />
           <entry key="conf" value="1" />
-          <entry key="css" value="3" />
-          <entry key="html" value="227" />
+          <entry key="css" value="8" />
+          <entry key="html" value="231" />
           <entry key="ini" value="1" />
-          <entry key="js" value="64" />
-          <entry key="json" value="14" />
+          <entry key="js" value="88" />
+          <entry key="json" value="21" />
           <entry key="log" value="20" />
           <entry key="md" value="6" />
           <entry key="pub" value="2" />
           <entry key="py" value="517" />
+          <entry key="rnc" value="1" />
           <entry key="ts" value="2" />
-          <entry key="txt" value="3" />
+          <entry key="txt" value="4" />
           <entry key="y" value="2" />
           <entry key="yaml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="3" />
-          <entry key="HTML" value="227" />
+          <entry key="CSS" value="8" />
+          <entry key="HTML" value="231" />
           <entry key="Ini" value="1" />
-          <entry key="JSON" value="14" />
-          <entry key="JavaScript" value="64" />
+          <entry key="JSON" value="21" />
+          <entry key="JavaScript" value="88" />
           <entry key="Log" value="4" />
           <entry key="Markdown" value="6" />
-          <entry key="PLAIN_TEXT" value="29" />
+          <entry key="PLAIN_TEXT" value="30" />
           <entry key="Python" value="517" />
+          <entry key="RNG Compact" value="1" />
           <entry key="TypeScript" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Django Console" value="143" />
-          <entry key="css" value="19" />
+          <entry key="css" value="23" />
           <entry key="dummy" value="24" />
-          <entry key="html" value="17084" />
+          <entry key="html" value="17721" />
           <entry key="ini" value="1" />
-          <entry key="js" value="155" />
-          <entry key="json" value="160" />
+          <entry key="js" value="183" />
+          <entry key="json" value="189" />
           <entry key="log" value="7" />
           <entry key="md" value="171" />
           <entry key="py" value="20922" />
@@ -99,12 +527,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="19" />
+          <entry key="CSS" value="23" />
           <entry key="CommandLine" value="135" />
-          <entry key="HTML" value="17084" />
+          <entry key="HTML" value="17721" />
           <entry key="Ini" value="1" />
-          <entry key="JSON" value="160" />
-          <entry key="JavaScript" value="155" />
+          <entry key="JSON" value="189" />
+          <entry key="JavaScript" value="183" />
           <entry key="Markdown" value="171" />
           <entry key="PLAIN_TEXT" value="476" />
           <entry key="Python" value="21064" />
@@ -121,111 +549,100 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roeops/settings.py">
+        <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryMenu.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryms.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+            <state relative-caret-position="24105">
+              <caret line="1607" column="6" lean-forward="true" selection-start-line="1607" selection-start-column="6" selection-end-line="1607" selection-end-column="6" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roeops/urls.py">
+        <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryTab.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryTree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="72" column="48" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
+            <state relative-caret-position="-73">
+              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/roeops/index.py">
+        <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryajax.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="152" column="71" selection-start-line="152" selection-start-column="55" selection-end-line="152" selection-end-column="71" />
+            <state relative-caret-position="197">
+              <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryEditor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1992">
+              <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/auth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3328">
+              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/thirddemo.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/temp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/login.html">
+        <entry file="file://$PROJECT_DIR$/static/larryms/thirdlib/conf.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-430">
-              <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#898#2040#0#HTML" />
-                <element signature="e#2075#2244#0#HTML" />
-                <element signature="e#2269#2553#0#HTML" />
-                <element signature="e#2607#2769#0#HTML" />
-                <element signature="e#2799#3041#0#HTML" />
-                <element signature="e#3074#3309#0#HTML" />
-                <element signature="e#7619#8071#0#HTML" />
-                <element signature="e#8098#9454#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
-              <folding>
-                <element signature="e#47#86#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="66" column="51" lean-forward="true" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/OpsControl/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="51" column="75" selection-start-line="51" selection-start-column="58" selection-end-line="51" selection-end-column="75" />
-              <folding>
-                <element signature="e#1#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/xterm/xterm.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1125">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tasks/ansible.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#48#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/OpsControl/ans_hosts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -283,13 +700,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/CMDB/views/assets.py" />
-        <option value="$PROJECT_DIR$/apps/CMDB/urls.py" />
-        <option value="$PROJECT_DIR$/api/views/user_api.py" />
-        <option value="$PROJECT_DIR$/apps/dao/assets.py" />
-        <option value="$PROJECT_DIR$/apps/dao/order.py" />
-        <option value="$PROJECT_DIR$/apps/CodeOps/urls.py" />
-        <option value="$PROJECT_DIR$/apps/OpsControl/ansible_ops.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/model/net_models.py" />
         <option value="$PROJECT_DIR$/api/serializers.py" />
         <option value="$PROJECT_DIR$/api/views/wiki_api.py" />
@@ -334,6 +744,13 @@
         <option value="$PROJECT_DIR$/templates/system/webssh/webssh.html" />
         <option value="$PROJECT_DIR$/apps/CMDB/model/server_models.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/static/larryms/thirdlib/conf.json" />
+        <option value="$PROJECT_DIR$/templates/console.html" />
+        <option value="$PROJECT_DIR$/static/larryms/css/admin/base.css" />
+        <option value="$PROJECT_DIR$/static/larryms/configure.js" />
+        <option value="$PROJECT_DIR$/static/larryms/lib/larryms.js" />
+        <option value="$PROJECT_DIR$/static/larryms/lib/larryajax.js" />
+        <option value="$PROJECT_DIR$/static/larryms/lib/larryEditor.js" />
       </list>
     </option>
   </component>
@@ -352,7 +769,7 @@
       <path value="$PROJECT_DIR$/static/xterm/addons/terminado/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="289" />
     <option name="y" value="261" />
     <option name="width" value="1230" />
@@ -380,6 +797,12 @@
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -396,12 +819,73 @@
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="larryms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="larryms" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="larryms" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
               <item name="roeops" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="dbops" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="dbops" type="462c0819:PsiDirectoryNode" />
+              <item name="mysql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="opscontrol" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="orders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="roeops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="roeops" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -632,16 +1116,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="1360" height="706" extended-state="7" />
-    <editor active="true" />
+    <frame x="0" y="28" width="1920" height="1138" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.20839694" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.1459893" />
       <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
       <window_info id="Structure" order="2" sideWeight="0.37573385" side_tool="true" weight="0.25365853" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32942164" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.7118644" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.24064171" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.13595167" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32942164" />
@@ -885,244 +1368,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/views/exe_modules.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2048" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/choose_host.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
-          <caret line="154" column="36" selection-start-line="154" selection-start-column="16" selection-end-line="154" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_modules.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" selection-start-line="47" selection-start-column="34" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_cluster_edit.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/ansible_api_v2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="548" column="28" selection-start-line="548" selection-start-column="28" selection-end-line="548" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/idc/idc_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="135" column="28" selection-start-line="135" selection-start-column="24" selection-end-line="135" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload/selfuse/copy_file_between_remote.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/views/trans_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="84" column="39" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
-          <folding>
-            <element signature="e#46#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="42">
-            <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="301" column="8" selection-start-line="301" selection-start-column="8" selection-end-line="301" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/system/webssh/webssh_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="65" column="87" selection-start-line="65" selection-start-column="87" selection-end-line="65" selection-end-column="87" />
-          <folding>
-            <element signature="e#3139#3168#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/system/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-          <folding>
-            <element signature="e#45#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/system/views/webssh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roeops/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roeops/routing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roeops/djchannels/wssh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2370">
-          <caret line="160" column="20" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roeops/asgi.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/channels/generic/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2023" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/wiki/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0008_auto_20181204_1647.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0007_auto_20181107_1051.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0006_auto_20181107_1031.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0005_auto_20181107_1030.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0004_auto_20181107_1022.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0003_binlogparseundo.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0002_binlogparseredo.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/assets.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/sched.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="136" column="25" lean-forward="true" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
-          <folding>
-            <element signature="e#48#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/migrations/0009_auto_20181207_1524.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/MysqlOps/tasks.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/sql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-413">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#48#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/deploy.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/system/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/OpsControl/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-773">
-          <caret line="93" column="12" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="12" />
-          <folding>
-            <element signature="e#45#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tasks/cron.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1191,13 +1436,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="66" column="51" lean-forward="true" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roeops/index.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -1207,7 +1445,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-430">
+        <state relative-caret-position="-144">
           <folding>
             <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
             <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
@@ -1220,6 +1458,235 @@
             <element signature="e#7619#8071#0#HTML" />
             <element signature="e#8098#9454#0#HTML" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/thirdlib/custom.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/core.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/index/login.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/demo/notices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1755" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/demo/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2593">
+          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/log.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-810" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/audioplayer.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/data/menu.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4410" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/data/admin/menus.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1395" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/data/说明.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/js/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/demo.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/css/admin/console.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/data/admin/conf.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/data/admin/conf_group.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-613">
+          <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/opscontrol/exejobs/exe_transfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2053" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/data/admin/user.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/console.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5430">
+          <caret line="570" column="16" lean-forward="true" selection-start-line="570" selection-start-column="16" selection-end-line="570" selection-end-column="16" />
+          <folding>
+            <element signature="e#3551#7778#0" />
+            <element signature="e#7851#8135#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/phrase.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1480">
+          <caret line="103" column="16" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/css/admin/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="97" column="39" lean-forward="true" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/console.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="41" column="34" lean-forward="true" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/css/demo/use.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/css/demo/grant.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/larrySecret.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/configure.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="3" lean-forward="true" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryApi.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/face.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryElem.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryMenu.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24105">
+          <caret line="1607" column="6" lean-forward="true" selection-start-line="1607" selection-start-column="6" selection-end-line="1607" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryTab.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryTree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-73">
+          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/lib/larryEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1992">
+          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3328">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/thirddemo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/mods/admin/temp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/larryms/thirdlib/conf.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
