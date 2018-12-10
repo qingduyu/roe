@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=100,verbose_name='分类名称',unique=True)
     class Meta:
-        db_table = 'opsmanage_wiki_category'
+        db_table = 'wiki_category'
         permissions = (
             ("can_read_wiki_category", "读取分类权限"),
             ("can_change_wiki_category", "更改分类权限"),
@@ -29,7 +29,7 @@ class Category(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=100,verbose_name='标签类型',unique=True)
     class Meta:
-        db_table = 'opsmanage_wiki_tag'
+        db_table = 'wiki_tag'
         permissions = (
             ("can_read_wiki_tag", "读取标签权限"),
             ("can_change_wiki_tag", "更改标签权限"),
@@ -53,7 +53,7 @@ class Post(models.Model):
     author = models.ForeignKey(User,verbose_name='创建者')
 
     class Meta:
-        db_table = 'opsmanage_wiki_post'
+        db_table = 'wiki_post'
         permissions = (
             ("can_read_wiki_post", "读取文章权限"),
             ("can_change_wiki_post", "更改文章权限"),
@@ -75,7 +75,7 @@ class Comment(models.Model):
     created_time = models.DateTimeField(auto_now_add=True,verbose_name='评论时间')
     post = models.ForeignKey('Post',verbose_name='文章id')
     class Meta:
-        db_table = 'opsmanage_wiki_comment'
+        db_table = 'wiki_comment'
         permissions = (
             ("can_read_wiki_comment", "读取评论权限"),
             ("can_change_wiki_comment", "更改评论权限"),

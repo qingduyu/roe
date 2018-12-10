@@ -8,17 +8,6 @@ from CMDB.model.idc_models import Idc
 
 from django.db import models
 
-
-#
-
-
-
-
-
-
-
-
-
 #Ip 资源池
 class IpSource(models.Model):
     ip=models.CharField(max_length=64,null=True,verbose_name=u"I P 地址",unique=True)

@@ -6,5 +6,6 @@
 	"selectN":"selectN",
 	"formSelects":"formSelects-v4",
 	"interact":"interact",
-	"cascader":"cascader"
+	"cascader":"cascader",
+	"treeGrid":"treeGrid"
 }

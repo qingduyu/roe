@@ -41,9 +41,9 @@ CELERY_TIMEZONE='Asia/Shanghai'
 platforms.C_FORCE_ROOT = True  #允许root启动
 
 #celery导入所有的任务模块
-CELERY_IMPORTS = ("tasks.assets","tasks.ansible",
-                  "tasks.cron","tasks.deploy",
-                  "tasks.sql","tasks.sched","MysqlOps.tasks","CMDB.tasks")
+CELERY_IMPORTS = ("tasks.ansible",
+                 "tasks.deploy",
+                  "MysqlOps.tasks","CMDB.tasks")
 CELERY_QUEUES = (
     Queue('default',Exchange('default'),routing_key='default'),  #指定队列
     Queue('ansible',Exchange('ansible'),routing_key='ansible'),  #指定ansible队列
@@ -53,12 +53,8 @@ CELERY_QUEUES = (
 #下面定义路由规则，task.sql ,会执行database 这个队列
 # assets,cron,sched 下面的任务走 队列  default,队列，并且按照routerkey 打头
 CELERY_ROUTES = {
-    'tasks.sql.*':{'queue':'database','routing_key':'database'},
     'CMDB.tasks.*':{'queue':'default','routing_key':'default'},
     'MysqlOps.tasks.*':{'queue':'database','routing_key':'database'},
-    'tasks.assets.*':{'queue':'default','routing_key':'default'},
-    'tasks.cron.*':{'queue':'default','routing_key':'default'},
-    'tasks.sched.*':{'queue':'default','routing_key':'default'},
     'tasks.ansible.AnsibleScripts':{'queue':'ansible','routing_key':'ansible'},
     'tasks.ansible.AnsiblePlayBook':{'queue':'ansible','routing_key':'ansible'},
 }

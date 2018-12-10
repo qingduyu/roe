@@ -8,7 +8,7 @@ try:
 except ImportError:
     import json
 from utils.interactive import interactive_shell,get_redis_instance,SshTerminalThread
-from system.models import Global_Config,User_Host
+from system.models import User_Host
 from CMDB.models import Host
 from django.contrib.auth.models import User
 from utils.logger import logger

@@ -6,6 +6,11 @@ from OpsControl.models import Ansible_Inventory
 from utils.logger import logger
 from utils.encrpt import prpcrypt
 def get_ans_host(hostid_list):
+    '''
+    传入的是 id 的列表， 输出的是 ip列表 和 可登陆主机的 【ip,port,username,password】
+    :param hostid_list:
+    :return:
+    '''
     ip_list=[]
     host_list=[]
     try:

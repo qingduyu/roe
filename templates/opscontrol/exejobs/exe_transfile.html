@@ -186,8 +186,8 @@
                       {#contentType: "application/json",#}
                     data: data.field,  //提交参数
                     success: function (res) {
-                        res2=JSON.parse(res)
-                            console.log(res)
+                        res2=JSON.parse(res);
+                            console.log(res);
                            if (res2.code == 200) {
                             clearInterval(interval);
                             larryms.msg(res2.msg );
