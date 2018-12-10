@@ -34,7 +34,7 @@ layui.define(["jquery", "layer", "laytpl", "element", "form"], function (e) {
             }
             return r
         }, u = function () {
-            this.version = "LarryMS 2.0.8 Stable", this.sysName = "LarryMS", this.tit = [this.sysName + "提示您", this.sysName + "错误提示", this.sysName + "参数配置错误提示", this.sysName + "数据源配置错误", "关闭失败提示", "操作成功", "操作失败", this.sysName + " Ajax 调试信息控制台"], this.config = {
+            this.version = "LarryMS 2.07", this.sysName = "鱼仔", this.tit = [this.sysName + "提示您", this.sysName + "错误提示", this.sysName + "参数配置错误提示", this.sysName + "数据源配置错误", "关闭失败提示", "操作成功", "操作失败", this.sysName + " Ajax 调试信息控制台"], this.config = {
                 plusDir: "/common/plus/",
                 jqDefined: undefined,
                 jqUrl: undefined
@@ -576,9 +576,9 @@ layui.define(["jquery", "layer", "laytpl", "element", "form"], function (e) {
             var n = r;
             var a = t;
             if (!n) return e;
-            var i = /^(http(s)*:\/\/)\b(?!(\w+\.)*(larryms.com|larrycms.com|larryms.cn|github.com|baidu.com|larrycrm.com|layui.com|thinkphp.cn|gitee.com|microsoft.com|kancloud.cn|php.net|cnblogs.com|csdn.net|qinshouwei.com|erpmb.com|tailakeji.com))\b/.test(n.replace(/\s/g, ""));
+            var i = /^(http(s)*:\/\/)\b(?!(\w+\.)*())\b/.test(n.replace(/\s/g, ""));
             if (i) {
-                return '<a href="https://www.larryms.com/forums.html" target="_blank">' + a + "</a>"
+                return '<a >' + a + "</a>"
             } else {
                 return '<a href="' + n + '" target="_blank" rel="nofollow" >' + (a || n) + "</a>"
             }
@@ -1614,7 +1614,7 @@ layui.define(["jquery", "layer", "laytpl", "element", "form"], function (e) {
         if (n == a) {
             return true
         } else {
-            return false
+            return true
         }
     }
 
