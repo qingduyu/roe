@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="layui-row larryms-panel auth-user-add">
-     <form action="{% url 'cmdb_host_api' %}" class="layui-form" method="PUT" id="demoAddForm">
-{#            {% csrf_token %}#}
+     <form action="{% url 'cmdb_host_api' %}" class="layui-form layui-form-pane" method="PUT" id="demoAddForm">
+            {% csrf_token %}
         <input name="id" value="{{ data.id }}" type="hidden">
                 <div class="layui-form-item">
                     <div class="layui-block">
@@ -21,7 +21,7 @@
 
                     <div class="layui-form-item">
 
-                    <div class="layui-inline">
+                    <div class="layui-form-block">
                         <label class="layui-form-label">品牌</label>
                         <div class="layui-input-block">
                             <input class="layui-input" name="vendor" value="{{ data.vendor |default_if_none:''}}"  type="text" disabled>
@@ -49,7 +49,7 @@
 
 
                 <div class="layui-form-item">
-                    <div class="layui-inline">
+                    <div class="layui-form-block">
                         <label class="layui-form-label">备注</label>
                         <div class="layui-input-block">
                             <input class="layui-input" name="memo" value="{{ data.beizhu |default_if_none:''}}" placeholder="备注" type="text">
@@ -109,7 +109,7 @@
 			    data: JSON.stringify(data.field),  //提交参数
 			    success:function(res){
 				larryms.msg(res.msg,{time:350},function () {
-                   parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
+                    parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
                     parent.layer.close(curIfr);
                 })
 			    },

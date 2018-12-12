@@ -18,7 +18,7 @@ from system.serializers import *
 # _#_ coding:utf-8 _*_
 from rest_framework import viewsets, permissions
 from rest_framework import status
-from api import serializers
+
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import User

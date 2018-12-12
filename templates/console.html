@@ -35,7 +35,7 @@
                 </div>
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
                     <section class="shortcut pos-r larry-ico-rotate">
-                        <a larry-tab="iframe"  class="pos-r" data-url='http://www.aliyun.com'  data-icon="larry-chanpinC" data-font="larry-icon">
+                        <a larry-tab="iframe"  class="pos-a" data-url='https://www.aliyun.com'  data-icon="larry-chanpinC" data-font="larry-icon">
                             <div class="larry-ico larry-bg-two"><i class="larry-icon larry-chanpinC"></i></div>
                             <div class="larry-value">
                                 <cite class="un-nums">阿里云</cite>
@@ -45,10 +45,10 @@
                 </div>
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col layui-hide-xs">
                     <section class="shortcut pos-r larry-ico-rotate">
-                        <a larry-tab="iframe" class="pos-r" data-url='http://www.github.com/qingdu/roe'  data-icon="larry-pc" data-font="larry-icon">
+                        <a larry-tab="iframe" class="pos-r" data-url='http://10.0.8.40/zabbix.php?action=dashboard.view'  data-icon="larry-pc" data-font="larry-icon">
                             <div class="larry-ico larry-bg-green"><i class="larry-icon larry-github"></i></div>
                             <div class="larry-value">
-                                <cite class="un-nums">项目地址</cite>
+                                <cite class="un-nums">监控地址</cite>
                             </div>
                         </a>
                     </section>
@@ -66,11 +66,11 @@
                 
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
                     <section class="shortcut pos-r larry-ico-rotate">
-                        <a larry-tab="iframe" class="pos-r" data-url='admin/panel/message.html' data-icon="larry-message_icon" data-font="larry-icon" >
+                        <a larry-tab="iframe" class="pos-r" data-url='https://github.com/qingduyu/roe' data-icon="larry-message_icon" data-font="larry-icon" >
                             <div class="larry-ico larry-bg-orange"><i class="larry-icon larry-message_icon"></i></div>
                             <div class="larry-value">
                                 <span class="nums" id="msgNums">1000</span>
-                                <cite>消息中心</cite>
+                                <cite>测试网址</cite>
                             </div>
                         </a>
                     </section>
@@ -310,7 +310,9 @@
     </div>
     <!-- 加载js文件-->
     <script type="text/javascript" src="/static/larryms/layui/layui.js"></script>
+
     <script type="text/javascript">
+        layui.cache.rightMenu = 'false';
     {#layui.cache.page = 'console';#}
     layui.config({
         version: "2.0.8",

@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="layui-row larryms-panel auth-user-add">
-     <form action="{% url 'api_idc' %}" class="layui-form" method="PUT" id="demoAddForm">
+     <form action="{% url 'api_idc' %}" class="layui-form layui-form-pane" method="PUT" id="demoAddForm">
 {#            {% csrf_token %}#}
         <input name="id" value="{{ data.id }}" type="hidden">
                 <div class="layui-form-item">

@@ -1,0 +1,217 @@
+{% extends 'base_children.html' %}
+{% load mytags %}
+{% block content %}
+    <div class="layui-row larryms-panel ">
+     <form action="{% url 'cmdb_xunihost_add' %}" class="layui-form layui-form-pane" method="post" id="demoAddForm">
+            {% csrf_token %}
+                <div class="layui-form-item">
+                    <div class="layui-form-inline">
+                        <label class="layui-form-label">主机名</label>
+                        <div class="layui-input-inline">
+                            <input class="layui-input" name="hostname" lay-verify="required" placeholder="请输入主机名" type="text">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">访问IP</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="ip" placeholder="ip地址" type="text">
+                        </div>
+                    </div>
+
+
+                         <div class="layui-inline">
+                        <label class="layui-form-label">宿主IP</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="hostserver" lay-verify="ip" placeholder='宿主机ip' type="text">
+                        </div>
+                    </div>
+                </div>
+
+     <div class="layui-col-md6">
+                <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">系统类型</label>
+                        <div class="layui-input-inline">
+                            <select name="system_type" >
+                                <option value="windows server 2008"> windows server 2008</option>
+                                 <option value="windows server 2012"> windows server 2012</option>
+                                 <option value="centos6.x"> centos6.x</option>
+                                <option value="centos7.x"> centos7.x</option>
+
+
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">登陆用户</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="username"  placeholder="user" type="text">
+                        </div>
+                    </div>
+                          <div class="layui-inline">
+                        <label class="layui-form-label">密码</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="passwd"  placeholder="password" type="text">
+                        </div>
+                    </div>
+
+                </div>
+     </div>
+
+
+     <div class="layui-col-md6">
+
+            <div class="layui-form-item">
+
+
+     <div class="layui-inline">
+                        <label class="layui-form-label">机房</label>
+                        <div class="layui-input-block">
+                                <select name="idc" >
+                                    <option value=""></option>
+                                    {% for ss in idc %}
+                                        {% ifequal ss.id|int2str idc_id %}
+                                            <option value="{{ ss.id }}" selected> {{ ss.name }}</option>
+                                        {% else %}
+                                            <option value="{{ ss.id }}"> {{ ss.name }}</option>
+                                        {% endifequal %}
+                                    {% endfor %}
+                                </select>
+                        </div>
+                    </div>
+
+
+                 <div class="layui-inline">
+                        <label class="layui-form-label">虚拟机类型</label>
+                        <div class="layui-input-block">
+                                <select name="vendor" >
+                                    <option value=""></option>
+
+                                    <option value="KVM"> KVM</option>
+                                        <option value="vmware"> vmware</option>
+                                      <option value="xen"> xen</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">ssh登陆</label>
+                        <div class="layui-input-block">
+                                <select name="ssh_status" >
+                                    <option value="0" selected>不可登陆</option>
+                                    <option value="1" > 可ssh登陆</option>
+
+                                </select>
+                        </div>
+                    </div>
+
+                </div>
+
+     </div>
+
+  <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">使用人</label>
+                     <div class="layui-input-block">
+                          <input class="layui-input" name="useuser"  placeholder="用途" type="text">
+                     </div>
+
+                    </div>
+
+
+                                <div class="layui-inline">
+                        <label class="layui-form-label">用途</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="purpose"  placeholder="用途" type="text">
+                        </div>
+                    </div>
+
+          <div class="layui-inline">
+                        <label class="layui-form-label">上线日</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="up_date"  id ='up_date' placeholder="" type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="larryms-layer-btn " align="center">
+{#                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-normal" id="testconn">测试连接</a>#}
+                    <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="demoadd" id="submitAdd">确定</a>
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+                </div>
+
+
+            </form>
+        </div>
+
+{% endblock %}
+{% block self_foot %}
+<script type="text/javascript">
+    layui.config({
+        version: "2.0.8",
+        base: '/static/larryms/',
+         layertype: 2, //iframe内层弹窗类型不显示返回首页
+        rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base'
+    }).use(['larry','layer','form','laydate'], function() {
+        var $ = layui.$,
+            larry = layui.larry,
+            table = layui.talbe,
+            larryms = layui.larryms,
+             laydate = layui.laydate,
+            form = layui.form;
+
+        var curIfr = parent.layer.getFrameIndex(window.name);
+        $('#resetAdd').on('click', function() {
+            $('#demoAddForm')[0].reset();
+        });
+        $('#closeAdd').on('click', function() {
+            parent.layer.close(curIfr);
+        });
+          laydate.render({
+        elem: '#up_date'
+        ,value: '{{ data.start_date|date:'Y-n-d' }}', format:'yyyy-MM-dd', isInitValue:true
+        });
+        laydate.render({
+        elem: '#down_date'
+        ,value: '{{ data.end_date|date:'Y-n-d' }}', format:'yyyy-MM-dd', isInitValue:true
+        });
+
+        form.on('submit(demoadd)', function(data) {
+            $.post(data.form.action, data.field, function(res) {
+                if (res.code == 0) {
+                    {#larryms.msg(res.msg);#}
+                    {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                    {#parent.layer.close(curIfr);#}
+                    {#// $('#demoAddForm')[0].reset();继续添加注销上一段#}
+                    larryms.msg(res.msg,{time:350},function () {
+                        parent.table.reload('demo',{});
+                        parent.layer.close(curIfr);
+                    })
+
+                } else if (res.code == 911) {
+                    larryms.msg(res.msg);
+                } else if (res.code == 500) {
+                    larryms.msg(res.msg);
+                }
+            });
+            return false;
+        });
+
+    });
+
+
+    </script>
+
+{% endblock %}

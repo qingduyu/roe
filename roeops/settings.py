@@ -121,7 +121,7 @@ INSTALLED_APPS = [
     'mptt', #树
     'djcelery',#定时任务
     'channels',#时时通道
-    'api',
+
     'Orders',
     'CMDB',
     'system',

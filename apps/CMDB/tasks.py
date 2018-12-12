@@ -161,17 +161,28 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
             ip = item
             is_active = 1
             try:  # 如果主机ip存在，则设置fail表， 主机已经存在host表 增加 增加IP
-                ip_host = Host.objects.values("ip_other")
-                for ips in ip_host:
-                    ip_list = ips['ip_other'].split(',')
-                    for ipi in ip_list:
-                        if ipi == ip:
-                            is_inhost = True
-                            Host_fail.objects.update_or_create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'],
-                                                               is_inhost=is_inhost)
 
-                Host_fail.objects.create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'], is_active=is_active,
-                                         is_inhost=False)
+                ip_host=Host.objects.filter(ip_other__contains=ip)
+
+                if not ip_host.exists():
+                    Host_fail.objects.create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'],
+                                             is_active=is_active,
+                                             is_inhost=False)
+                else:
+                    is_inhost = False
+                    for ips in ip_host:
+                        ip_list = ips['ip_other'].split(',')  # 因为总是出现会过包含主机的信息
+                        for ipi in ip_list:
+                          if ipi == ip:
+                            is_inhost = True
+                            break
+                        if is_inhost:
+                          break
+
+                    if not is_inhost:
+                       Host_fail.objects.update_or_create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'],
+                                                       is_inhost=is_inhost)
+
             except Exception as e:
                 print(e)
 
@@ -184,17 +195,28 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
             ip = item
             is_active = 1
             try:  # 如果主机ip存在，则设置fail表， 主机已经存在host表 增加 增加IP
-                ip_host = Host.objects.values("ip_other")
-                for ips in ip_host:
-                    ip_list = ips['ip_other'].split(',')
-                    for ipi in ip_list:
+                ip_host = Host.objects.filter(ip_other__contains=ip)
+                if not ip_host.exists():
+                    Host_fail.objects.create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'],
+                                             is_active=is_active,
+                                             is_inhost=False)
+                else:
+                    is_inhost=False
+                    for ips in ip_host:
+                      ip_list = ips['ip_other'].split(',')   #因为总是出现会过包含主机的信息
+                      for ipi in ip_list:
                         if ipi == ip:
                             is_inhost = True
-                            Host_fail.objects.update_or_create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'],
-                                                               is_inhost=is_inhost)
+                            break
+                      if is_inhost:
+                          break
 
-                Host_fail.objects.create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'], is_active=is_active,
-                                         is_inhost=False)
+                    if not is_inhost:
+
+                         Host_fail.objects.update_or_create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'],
+                                                                is_inhost=is_inhost)
+
+
             except Exception as e:
                 print(e)
 

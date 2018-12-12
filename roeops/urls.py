@@ -51,7 +51,7 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     url(r'^apitest/', include(router.urls)),
-    url(r'^api/', include('api.urls')),
+
     url(r'^admin/', admin.site.urls),
     url(r'^login',login,name='login'),
     url(r'^logout', logout, name='logout'),

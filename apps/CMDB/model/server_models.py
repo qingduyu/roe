@@ -63,7 +63,7 @@ class Host(models.Model):
     memory = models.CharField(u"内存大小", max_length=30, null=True, blank=True)
     disk = models.CharField(u"硬盘信息", max_length=255, null=True, blank=True)
     sn = models.CharField(u"SN号 码", max_length=60,null=True, blank=True)
-    idc = models.ForeignKey(Idc, verbose_name=u"所在机房", on_delete=models.SET_NULL, null=True, blank=True)
+    idc = models.ForeignKey(Idc, verbose_name=u"所在机房", on_delete=models.SET_NULL, null=True, blank=True,related_name='idc')
     cabinet = models.CharField(max_length=64, verbose_name=u'机柜', null=True, blank=True)
     location = models.CharField(u"机架位置", max_length=100, null=True, blank=True)
     uplink_port = models.CharField(max_length=256, verbose_name=u"上联端口", null=True, blank=True)

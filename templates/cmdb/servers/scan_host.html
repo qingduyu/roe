@@ -57,8 +57,7 @@
             </div>
                     <div class="layui-card-body">
 
-                        <table id="demo" lay-filter="demo" class="larryms-table-id"
-                               data-url="{% url 'cmdb_host_api' %}"></table>
+                        <table id="demo" lay-filter="demo" class="larryms-table-id"        data-url="{% url 'cmdb_host_api' %}"></table>
                     </div>
                 </section>
             </div>
@@ -83,8 +82,7 @@
 
                     <div class="layui-card-body">
 
-                        <table id="demo2" lay-filter="demo2" class="larryms-table-id"
-                               data-url="{% url 'cmdb_hostfail_api' %}"></table>
+                        <table id="demo2" lay-filter="demo2" class="larryms-table-id2"    data-url="{% url 'cmdb_hostfail_api' %}"></table>
                     </div>
                 </section>
             </div>
@@ -191,13 +189,6 @@
             };
 
 
-
-        {#form.on('select(multiselect)', function (data) {#}
-        {#    console.log(data.elem); //µÃµ½selectÔ­Ê¼DOM¶ÔÏó#}
-        {#    console.log(data.value); //µÃµ½±»Ñ¡ÖÐµÄÖµ#}
-        {#    console.log(data.othis); //µÃµ½ÃÀ»¯ºóµÄDOM¶ÔÏó#}
-        {#    console.log(data.current_value); //µ±Ç°²Ù×÷µÄÖµ#}
-        {# });#}
             form.on('submit(demoadd)', function (data) {
                 larryms.msg('已经开吃扫描，请稍后查看本页 '),
                     console.log(data)

@@ -29,7 +29,7 @@ from CMDB.views.server.scan_ip_api import IPAPI
 from CMDB.views.server.scan_host import scan_host,scan_host_edit
 from CMDB.views.server.host_api import HOST_API,HOSTFail_API,WuLiHOST_API,XuNiHOST_API,SuZhuHOST_API
 
-from CMDB.views.server.virtual_host import xunihost_show
+from CMDB.views.server.virtual_host import xunihost_show,xunihost_add
 from CMDB.views.server.physical_host import wulihost_show
 from CMDB.views.server.suzhu_host import suzhuhost_show
 
@@ -122,6 +122,7 @@ urlpatterns = [
     url(r'^wulihost/api/$', WuLiHOST_API.as_view(), name='cmdb_wulihost_api'),
 
     url(r'^xunihost/list/$',xunihost_show,name='cmdb_xunihost_show'),
+    url(r'^xunihost/add/$', xunihost_add, name='cmdb_xunihost_add'),
     url(r'^xunihost/api/$', XuNiHOST_API.as_view(), name='cmdb_xunihost_api'),
 
 

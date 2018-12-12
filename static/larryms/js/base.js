@@ -11,7 +11,6 @@ layui.extend({larryms: "lib/larryms"}).define(["jquery", "configure", "layer", "
         larryEditor: "lib/larryEditor",
         larryApi: "lib/larryApi",
         larryTree: "lib/larryTree",
-        larrySecret: "lib/larrySecret",
         shuttle: "lib/shuttle",
         face: "lib/face",
         xss: "lib/xss",

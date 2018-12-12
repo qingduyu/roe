@@ -11,7 +11,7 @@ layui.define(function(exports){
 		fontSet:true,//是否使用larryms在线图标库，设置为false时需要手动在页面中引入字体库样式文件
 		font:'larry-icon',//默认主字体库使用larry-icon
 		fontUrl:'//at.alicdn.com/t/font_477590_k9hqhxos6x.css',//可以根据需要使用自定义路径但不建议在此修改，可根据文档在项目公共模块中设置自定义字体库url
-		theme:true,//开启主题自定义设置
+		theme:false,//开启主题自定义设置
 		thirdExtend:true,//开启用户自定义扩展组件目录 false时关闭
 		thirdDir: 'thirdlib/',//用户自定义扩展组件目录，thirdlib为用户自定义目录名称（可以任意修改名称但路径需要在larryms目录下）
 		//主框架相关主题初始化参数
