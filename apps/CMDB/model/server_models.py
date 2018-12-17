@@ -89,6 +89,20 @@ class Host(models.Model):
     def __unicode__(self):
         return self.ip
 
+
+class NetworkCard_Assets(models.Model):
+    host = models.ForeignKey('Host')
+    device =  models.CharField(max_length=20,blank=True,null=True)
+    macaddress = models.CharField(u'MAC',max_length=64,blank=True,null=True)
+    ip = models.GenericIPAddressField(u'IP', blank=True,null=True)
+    module = models.CharField(max_length=50,blank=True,null=True)
+    mtu = models.CharField(max_length=50,blank=True,null=True)
+    active = models.SmallIntegerField(blank=True,null=True,verbose_name='是否在线')
+    class Meta:
+        db_table = 'networkcard_assets'
+        verbose_name = '服务器网卡资产表'
+        verbose_name_plural = '服务器网卡资产表'
+        unique_together = (("host", "macaddress"))
 #主机分组
 class HostGroup(models.Model):
     name = models.CharField(u"组名", max_length=30, unique=True)

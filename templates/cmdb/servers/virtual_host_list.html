@@ -7,29 +7,49 @@
 {% block content %}
 {#    #这里是真正的内容部分#}
        <div class="layui-row">
-            <div class="layui-col-lg12">
-                <blockquote class="layui-elem-quote">
+            <div class="layui-card">
+                <div class="layui-card-header">
 
-                    <div class="layui-btn-group larryms-btn-group">
-                        <div class="layui-inline">
-                        	<div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
-                            <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="{% url 'cmdb_xunihost_add' %}"><i class="layui-icon">&#xe61f;</i>
-                                <cite>添加虚拟主机</cite>
-                            </button>
-                            <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"  data-url="{% url 'cmdb_xunihost_api' %}"><i class="layui-icon">&#xe640;</i>
-                                <cite>删除虚拟机信息</cite>
-                            </button>
+                    <div class="layui-col-lg6">
+                        <div class="layui-btn-group larryms-btn-group">
+                            <div class="layui-input-inline ">
+                                <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add"
+                                        data-url="{% url 'cmdb_xunihost_add' %}"><i class="layui-icon">&#xe61f;</i>
+                                    <cite>添加虚拟主机</cite>
+                                </button>
+                                <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"
+                                        data-url="{% url 'cmdb_xunihost_api' %}"><i class="layui-icon">&#xe640;</i>
+                                    <cite>删除虚拟机信息</cite>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </blockquote>
+                    <div class="layui-col-lg6">
+                        <div class="layui-input-inline">
+                            <input id="keyword" name="keyword" autocomplete="off" placeholder="请输入搜索关键字"
+                                   class="layui-input">
 
-                <table id="demo" lay-filter="demo" class="larryms-table-id" data-url="{%  url 'cmdb_xunihost_api' %}"></table>
+                        </div>
+
+                    <div class="layui-input-inline" style="width: 90px">
+                         <button class="layui-btn " id="search" data-type="reload"><i
+                                    class="larry-icon larry-suosou"></i></button>
+                    </div>
+                    </div>
+
+                </div>
+
+
+
+<div class="layui-card-body">
+    <table id="demo" lay-filter="demo" class="larryms-table-id" data-url="{%  url 'cmdb_xunihost_api' %}"></table>
+</div>
+
             </div>
         </div>
        <script type="text/html" id="demoBtnBar">
-
-           <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="edit"><i class="layui-icon larry-xiugaimima"></i></a>
-       <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="update"><i class="larry-icon larry-shuaxin"></i></a>
+           <a class="layui-btn layui-btn-xs" data-url="{% url 'cmdb_xunihost_edit' %}" lay-event="edit"><i class="layui-icon larry-xiugaimima"></i></a>
+       <a class="layui-btn layui-btn-xs" data-url="{% url 'host_ansible_facts' %}" lay-event="update"><i class="larry-icon larry-shuaxin"></i></a>
        <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="detail"><i class="larry-icon larry-caidan3"></i></a>
 
     </script>
@@ -47,13 +67,19 @@
         rightMenu: true // false关闭，设置为custom时使用自定义，不使用默认menu
     }).extend({
         larry: 'js/base'
-    }).use(['jquery','table', 'form','layer','larry'], function() {
+    }).use(['jquery','table','form','layer','larry'], function() {
     var $ = layui.$,
     larryms = layui.larryms,
-    form = layui.form;
-  table = layui.table;
+    form = layui.form,
+  table = layui.table,
+
   layer=layui.layer;
   //按钮监听
+  {#        laypage({#}
+  {#  cont: 'demo'#}
+  {#  ,pages: 100 //×ÜÒ³Êý#}
+  {#  ,groups: 5 //Á¬ÐøÏÔÊ¾·ÖÒ³Êý#}
+  {# });#}
   $(' .layui-btn').on('click', function() {
       var type = $(this).data('type'),
         url = $(this).data('url'),
@@ -124,7 +150,14 @@
         } else {
           larryms.msg('请至少选择一项，进行删除操作');
         }
-      }
+      },
+      reload:function () {
+         var keyword=$("#keyword").val();
+         table.reload('demo',{
+         method:'post',
+         where:{keyword:keyword}
+    });
+}
     };
 
 
@@ -160,7 +193,7 @@ table.on('tool('+pageTableID+')', function(obj) {
       var data = obj.data, tit = '编辑 <em class="tit">'+data.name+ '</em> 信息';
       console.log(data)
       if(obj.event == 'edit'){
-          var url =  $(this).data('url')+data.id;
+          var url =  $(this).data('url')+"?id="+data.id;
           var editIndex =  larryms.open({
               title: tit,
               type: 2,
@@ -185,7 +218,8 @@ table.on('tool('+pageTableID+')', function(obj) {
       }else if(obj.event == 'update'){
           var url = $(this).data('url');
            larryms.confirm('更新统计信息',{icon: 3, title:'更新提示'},function(){
-              var ids = {"id":[data.id]};
+              var ids = {"id":data.id};
+              console.log(ids)
               $.post(url,ids,function(res){
                   if(res.code==200){
                       larryms.msg(res.msg);

@@ -67,3 +67,45 @@ def xunihost_add(request):
 
         except Exception as e:
             print  e
+
+
+
+def xunihost_edit(request):
+
+    if request.method == 'GET':
+        hostid=request.GET['id']
+        host=Host.objects.get(id=hostid)
+        idc = Idc.objects.all()
+        operators = User.objects.all()
+        return render(request, 'cmdb/servers/virtual_host_edit.html', locals())
+
+    if request.method == "POST":
+
+        '''新增加数据，这个IP 一定是在hostfail 中，并且不再 host 中'''
+        id=request.POST['id']
+
+        onlinedate = request.POST['up_date']
+        hostserver = request.POST['hostserver']
+        useuser = request.POST['useuser']
+        purpose = request.POST['purpose']
+        idc = request.POST['idc']
+        ssh_status = request.POST['ssh_status']
+        try:
+                    host = Host.objects.get(id=id)
+
+                    host.onlinedate = onlinedate
+                    host.useuser = useuser
+                    host.purpose = purpose
+                    host.idc_id = idc
+                    host.ssh_status = ssh_status
+                    host.save()
+                    json_data = {'code': 0, 'msg': '主机编辑成功'}
+                    return JsonResponse(json_data)
+
+
+        except Exception as e:
+                 print e
+                 json_data = {'code': 0, 'msg': '主机编辑失败，请看信息' + e}
+                 return JsonResponse(json_data)
+
+
