@@ -576,7 +576,7 @@ class ANSRunner(object):
                     nks = []
                     for nk in data.keys():
                         if re.match(r"^ansible_(eth|bind|eno|ens|em)\d+?",nk):
-                            device = data.get(nk).get('device')
+                            device = data.get(nk).get('device')  #这是设备名字
                             try:
                                 address = data.get(nk).get('ipv4').get('address')
                             except:
@@ -584,9 +584,23 @@ class ANSRunner(object):
                             macaddress = data.get(nk).get('macaddress')
                             module = data.get(nk).get('module')
                             mtu = data.get(nk).get('mtu')
-                            if data.get(nk).get('active'):active = 1
-                            else:active = 0
-                            nks.append({"device":device,"address":address,"macaddress":macaddress,"module":module,"mtu":mtu,"active":active})
+                            if data.get(nk).get('active'):
+                                active = 1
+                            else:
+                                active = 0
+                            nks.append(
+                                {"device": device, "address": address, "macaddress": macaddress, "module": module,
+                                 "mtu": mtu, "active": active})
+
+                            try:  #多个vip地址的情况
+                                addressvip_list= data.get(nk).get('ipv4_secondaries')
+                                for i in addressvip_list:
+                                    addressi= i.get('address')
+                                    nks.append({"device": device, "address": addressi, "macaddress": macaddress, "module": module,
+                                     "mtu": mtu, "active": active})
+                            except Exception as e:
+                                print e
+
                     cmdb_data['status'] = 0
                     cmdb_data['nks'] = nks
                     data_list.append(cmdb_data)    

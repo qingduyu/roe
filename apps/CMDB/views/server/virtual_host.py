@@ -109,3 +109,9 @@ def xunihost_edit(request):
                  return JsonResponse(json_data)
 
 
+def xunihost_detail(request):
+    id=request.GET['id']
+    host=Host.objects.get(id=id)
+    network_cards=host.networkcard_assets_set.all()
+    return render(request,'cmdb/servers/virtual_host_detail.html',locals())
+

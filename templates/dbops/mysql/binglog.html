@@ -10,7 +10,7 @@
         <span style="color:red">{{ info }}</span>
     {% endif %}
 
-    <form action="{% url 'mysql_binglog_parse' %}" class="layui-form" method="post" id="demoAddForm1">
+    <form action="{% url 'mysql_binglog_parse' %}" class="layui-form layui-form-pane" method="post" id="demoAddForm1">
         {% csrf_token %}
         <div class="layui-row">
             <div class="layui-col-lg5">

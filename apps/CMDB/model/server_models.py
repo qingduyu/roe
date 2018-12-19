@@ -102,7 +102,7 @@ class NetworkCard_Assets(models.Model):
         db_table = 'networkcard_assets'
         verbose_name = '服务器网卡资产表'
         verbose_name_plural = '服务器网卡资产表'
-        unique_together = (("host", "macaddress"))
+        unique_together = (("host", "macaddress",'ip'))
 #主机分组
 class HostGroup(models.Model):
     name = models.CharField(u"组名", max_length=30, unique=True)

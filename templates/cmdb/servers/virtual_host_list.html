@@ -50,7 +50,7 @@
        <script type="text/html" id="demoBtnBar">
            <a class="layui-btn layui-btn-xs" data-url="{% url 'cmdb_xunihost_edit' %}" lay-event="edit"><i class="layui-icon larry-xiugaimima"></i></a>
        <a class="layui-btn layui-btn-xs" data-url="{% url 'host_ansible_facts' %}" lay-event="update"><i class="larry-icon larry-shuaxin"></i></a>
-       <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="detail"><i class="larry-icon larry-caidan3"></i></a>
+       <a class="layui-btn layui-btn-xs" data-url="{% url 'cmdb_xunihost_detail' %}" lay-event="detail"><i class="larry-icon larry-caidan3"></i></a>
 
     </script>
 
@@ -99,7 +99,7 @@
           var index = layer.open({
             title: tit,
             type: 2,
-            area: ['1060px', '550px'],
+            area: ['1260px', '560px'],
             content: url,
             success: function(index, layero) {
               form.render();
@@ -175,14 +175,14 @@
                    [
                        {type: "checkbox", fixed: 'left', width: 50},
                        {field: 'hostname', title: '主机名', minWidth: 180, align: 'center'},
-                       {field: 'ip', title: '访问IP', minWidth: 80, align: 'center'},
-                       {field: 'ip_other', title: '其他IP ', minWidth: 80, align: 'center'},
+
+                       {field: 'ip_other', title: '所有IP ', minWidth: 180, align: 'center'},
                        {field: 'idc', title: '机房', minWidth: 80, align: 'center'},
-                       {field: 'useuser', title: '使用人', minWidth: 80, align: 'center'},
-                       {field: 'purpose', title: '用途', minWidth: 80, align: 'center'},
+                       {field: 'useuser', title: '使用人', minWidth: 50, align: 'center'},
+                       {field: 'purpose', title: '用途', minWidth: 100, align: 'center'},
+                       {field: 'ssh_status', title: 'ssh', minWidth: 20, align: 'center'},
                        {field: 'system_type', title: '系统', minWidth: 80, align: 'center'},
-                       {field: 'onlinedate', title: '上线日', minWidth: 80, align: 'center'},
-                       {title: '操作', minWidth: 65, templet: '#demoBtnBar', fixed: "right", align: "center"}
+                       {title: '操作', minWidth:105, templet: '#demoBtnBar', fixed: "right", align: "center"}
                        ]
                  ]
             });
@@ -205,11 +205,11 @@ table.on('tool('+pageTableID+')', function(obj) {
           });
       }else if(obj.event == 'detail'){
 
-           var url =  $(this).data('url')+data.id;
+           var url =  $(this).data('url')+'?id='+data.id;
            var detailIndex =  larryms.open({
-              title: tit,
+              title: '虚拟主机详情',
               type: 2,
-              area: ['860px', '450px'],
+              area: ['1160px', '550px'],
               content: url,
               success: function(index, layero) {
                 form.render();

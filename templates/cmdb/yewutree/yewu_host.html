@@ -10,6 +10,7 @@
             <div class="layui-col-lg12">
                 <table class="layui-table larryms-order-demo" lay-skin="nob">
                         <colgroup>
+                            <col width="2%">
                             <col width="20%">
                             <col width="20%">
                             <col width="10%">
@@ -19,6 +20,7 @@
                         </colgroup>
                         <thead>
                         <tr>
+                            	        <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
                             <th>主机名</th>
                             <th>ip</th>
                             <th>主机类型</th>
@@ -30,13 +32,13 @@
                         <tbody>
                         {% for i in host %}
                             <tr>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
                                 <td>{{ i.hostname }}</td>
                                 <td>{{ i.ip }}</td>
                                 <td>{{ i.asset_type }}</td>
                                 <td>{{ i.tree_id.yewuxian.name }}</td>
-
                                 <td>
-                                    <a href=''><span class="btn btn-sm btn-info">详情</span></a>
+                                    <a href='#'><span class="btn btn-sm btn-info">详情</span></a>
                                 </td>
                             </tr>
                         {% endfor %}

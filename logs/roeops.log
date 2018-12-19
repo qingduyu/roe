@@ -10,3 +10,10 @@
 2018-12-19 10:33:52 [INFO] Authentication (publickey) successful!
 2018-12-19 10:36:21 [INFO] Connected (version 2.0, client OpenSSH_7.4)
 2018-12-19 10:36:21 [INFO] Authentication (publickey) successful!
+2018-12-19 14:41:13 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-19 15:31:32 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-19 15:32:03 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-19 15:32:08 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-19 15:32:10 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-19 15:32:17 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-19 20:34:09 [WARNING] 写入服务器网卡信息失败: (1062, "Duplicate entry '5-c6:c3:ee:72:1e:1b' for key 'networkcard_assets_host_id_macaddress_fe227fda_uniq'")

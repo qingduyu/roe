@@ -93,16 +93,13 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
 
             try:  # 如果主机存在，并且，扫描的IP 在IP 资源表中，则主机的IP_others 增加IP
                 # ipsource=IpSource.objects.get(ip=ip)
-                host = Host.objects.get(hostname=tempdict['hostname'])
+                host = Host.objects.get(sn=tempdict['sn'])
                 host.hostname = tempdict['hostname']
                 host.system_type = tempdict['system_ver']
                 host.port = tempdict['ssh_port']
                 host.username = tempdict['ssh_user']
                 host.passwd = tempdict['ssh_passwd']
-                host.sn = tempdict['sn']
-                host.cpu_model = tempdict['cpu_model']
-                host.cpu_num = tempdict['cpu_num']
-                host.memory = tempdict['mem_total']
+
                 # host.disk=disk
                 host.status = '1'
                 host.ssh_status = '1'
@@ -124,19 +121,14 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
             except Exception as msg:  # 如果找不到这个主机就认为是新的，就去部署ansible
                 print(msg)
                 host = Host()
-
                 # ssh_pwd =  tempdict['ssh_passwd']
                 # data = deploy_key(ip, int(ssh_port), ssh_pwd)
-
                 host.hostname = tempdict['hostname']
                 host.system_type = tempdict['system_ver']
                 host.port = tempdict['ssh_port']
                 host.username = tempdict['ssh_user']
                 host.passwd = tempdict['ssh_passwd']
                 host.sn = tempdict['sn']
-                host.cpu_model = tempdict['cpu_model']
-                host.cpu_num = tempdict['cpu_num']
-                host.memory = tempdict['mem_total']
                 # host.disk = disk
                 host.status = '1'
                 host.ssh_status = '1'

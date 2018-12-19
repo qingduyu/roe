@@ -624,17 +624,21 @@ def ansible_facts(request):
                 except Exception, ex:
                     logger.error(msg="更新服务器信息失败: {ex}".format(ex=str(ex)))
                     return JsonResponse({'msg': "数据更新失败-写入数据失败", "code": 400})
-                for nk in ds.get('nks'):
+
+                for nk in ds.get('nks'): #线把信息删除在创建
                     macaddress = nk.get('macaddress')
                     count = NetworkCard_Assets.objects.filter(host=host, macaddress=macaddress).count()
-                    if count > 0:
+                    if count>0:
                         try:
-                            NetworkCard_Assets.objects.filter(host=host, macaddress=macaddress).update(
-                                host=host, device=nk.get('device'),
-                                ip=nk.get('address'), module=nk.get('module'),
-                                mtu=nk.get('mtu'), active=nk.get('active'))
-                        except Exception, ex:
-                            logger.warn(msg="主机更新完毕，更新网卡信息失败: {ex}".format(ex=str(ex)))
+                            NetworkCard_Assets.objects.filter(host=host,macaddress=macaddress).delete()
+                        except Exception,ex:
+                            logger.warn(msg="主机更新完毕，清理已有信息失败: {ex}".format(ex=str(ex)))
+                for nk in ds.get('nks'):
+                    macaddress = nk.get('macaddress')
+                    address=nk.get('address')
+                    count = NetworkCard_Assets.objects.filter(host=host, macaddress=macaddress,ip=address).count()
+                    if count > 0:
+                       print '网卡怎么还没删掉呢'
                     else:
                         try:
                             NetworkCard_Assets.objects.create(host=host, device=nk.get('device'),
