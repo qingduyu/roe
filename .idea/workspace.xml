@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="这是增加一些内容">
+      <change afterPath="$PROJECT_DIR$/apps/CMDB/migrations/0037_auto_20181219_2035.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/model/server_models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/CMDB/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/tasks.py" afterDir="false" />
@@ -9,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/host_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/host_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/roeops.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/roeops.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/scan_conf_list_传统.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/scan_host.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cmdb/servers/virtual_host_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cmdb/servers/virtual_host_detail.html" afterDir="false" />
@@ -61,7 +63,7 @@
           <entry key="js" value="102" />
           <entry key="json" value="21" />
           <entry key="log" value="20" />
-          <entry key="md" value="9" />
+          <entry key="md" value="10" />
           <entry key="pub" value="2" />
           <entry key="py" value="617" />
           <entry key="rnc" value="1" />
@@ -80,7 +82,7 @@
           <entry key="JSON" value="21" />
           <entry key="JavaScript" value="102" />
           <entry key="Log" value="4" />
-          <entry key="Markdown" value="9" />
+          <entry key="Markdown" value="10" />
           <entry key="PLAIN_TEXT" value="35" />
           <entry key="Python" value="617" />
           <entry key="RNG Compact" value="1" />
@@ -99,9 +101,9 @@
           <entry key="js" value="226" />
           <entry key="json" value="189" />
           <entry key="log" value="7" />
-          <entry key="md" value="206" />
+          <entry key="md" value="255" />
           <entry key="py" value="24244" />
-          <entry key="py@roeops" value="163" />
+          <entry key="py@roeops" value="166" />
           <entry key="sh" value="2" />
           <entry key="txt" value="127" />
           <entry key="yaml" value="380" />
@@ -110,12 +112,12 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="23" />
-          <entry key="CommandLine" value="150" />
+          <entry key="CommandLine" value="153" />
           <entry key="HTML" value="21069" />
           <entry key="Ini" value="1" />
           <entry key="JSON" value="189" />
           <entry key="JavaScript" value="226" />
-          <entry key="Markdown" value="206" />
+          <entry key="Markdown" value="255" />
           <entry key="PLAIN_TEXT" value="561" />
           <entry key="Python" value="24386" />
           <entry key="SQL" value="1" />
@@ -144,7 +146,11 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -156,10 +162,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="525">
               <caret line="638" column="97" selection-start-line="638" selection-start-column="97" selection-end-line="638" selection-end-column="97" />
               <folding>
                 <element signature="e#46#94#0" expanded="true" />
@@ -173,8 +179,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/ansible_api_v2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="576" selection-start-line="576" selection-end-line="576" />
+            <state relative-caret-position="195">
+              <caret line="586" column="50" selection-start-line="586" selection-start-column="50" selection-end-line="586" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="165">
+                <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -270,7 +288,6 @@
         <option value="$PROJECT_DIR$/templates/cmdb/idc/idc_edit.html" />
         <option value="$PROJECT_DIR$/apps/CMDB/serialize/host_serializers.py" />
         <option value="$PROJECT_DIR$/templates/cmdb/servers/scan_host_edit.html" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/templates/opscontrol/exejobs/choose_host.html" />
         <option value="$PROJECT_DIR$/upload/selfuse/ssh_copy.sh" />
         <option value="$PROJECT_DIR$/templates/cmdb/servers/vitual_host_edit.html" />
@@ -315,6 +332,7 @@
         <option value="$PROJECT_DIR$/utils/ansible_api_v2.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/model/server_models.py" />
         <option value="$PROJECT_DIR$/apps/CMDB/views/server/host_api.py" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -795,13 +813,13 @@
     <frame x="0" y="28" width="1920" height="1138" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.20320855" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62426615" visible="true" weight="0.20320855" />
       <window_info id="Favorites" order="1" sideWeight="0.50090414" side_tool="true" weight="0.16524065" />
       <window_info id="Structure" order="2" sideWeight="0.37573385" side_tool="true" weight="0.25365853" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32942164" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.2306143" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4853978" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4853978" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32942164" />
@@ -809,7 +827,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.3285834" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="manage.py@roeops" order="11" weight="0.32729104" />
+      <window_info anchor="bottom" id="manage.py@roeops" order="11" visible="true" weight="0.32729104" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.21349446" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32942164" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -863,11 +881,6 @@
           <url>file://$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py</url>
           <line>52</line>
           <option name="timeStamp" value="543" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/ansible_api_v2.py</url>
-          <line>578</line>
-          <option name="timeStamp" value="567" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -940,16 +953,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="640">
-            <caret line="128" column="66" selection-start-line="128" selection-start-column="66" selection-end-line="128" selection-end-column="66" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_conf.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1211,13 +1214,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/ansible_api_v2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="576" selection-start-line="576" selection-end-line="576" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/virtual_host_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1239,8 +1235,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="638" column="97" selection-start-line="638" selection-start-column="97" selection-end-line="638" selection-end-column="97" />
+          <folding>
+            <element signature="e#46#94#0" expanded="true" />
+            <marker date="1545222779318" expanded="false" signature="13747:13752" ph="..." />
+            <marker date="1545222779318" expanded="true" signature="23632:23633" ph="..." />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/model/server_models.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1249,15 +1254,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/suzhu_host.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="638" column="97" selection-start-line="638" selection-start-column="97" selection-end-line="638" selection-end-column="97" />
-          <folding>
-            <element signature="e#46#94#0" expanded="true" />
-            <marker date="1545222779318" expanded="false" signature="13747:13752" ph="..." />
-            <marker date="1545222779318" expanded="true" signature="23632:23633" ph="..." />
-          </folding>
+          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/ansible_api_v2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="586" column="50" selection-start-line="586" selection-start-column="50" selection-end-line="586" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="165">
+            <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
