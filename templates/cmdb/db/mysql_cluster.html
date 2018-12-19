@@ -30,9 +30,7 @@
             </div>
         </div>
        <script type="text/html" id="demoBtnBar">
-           <a class="layui-btn layui-btn-xs" data-url="oracle_instance.html" lay-event="show_instacne">实例</a>
-           <a class="layui-btn layui-btn-xs" data-url="oracle_user.html" lay-event="show_user">用户</a>
-           <a class="layui-btn layui-btn-xs" data-url="oracle_tablespace.html" lay-event="show_db">DB</a>
+           <a class="layui-btn layui-btn-xs" data-url="oracle_instance.html" lay-event="show_instacne">详情</a>
            <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="edit">编辑</a>
 
     </script>
@@ -190,7 +188,6 @@
                        {field: 'foreign_ip', title: '访问IP', minWidth: 80, align: 'center'},
                        {field: 'foreign_port', title: '端口', minWidth: 30, align: 'center'},
                        {field: 'domain', title: '域名', minWidth: 80, align: 'center'},
-                       {field: 'prod_line', title: '产品线', minWidth: 80, align: 'center'},
                        {field: 'desc', title: '描述', minWidth: 80, align: 'center'},
                        {field: 'operator', title: '可见人', minWidth: 80, align: 'center'},
                        {title: '操作', minWidth: 185, templet: '#demoBtnBar', fixed: "right", align: "center"}

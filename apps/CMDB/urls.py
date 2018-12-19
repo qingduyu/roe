@@ -12,7 +12,7 @@ from yewu_tree_api import get_treehost,get_jsontree
 # from views.net import  netdevice,group_net,idc_net
 from CMDB.views.idc import idc_show,idc_add,idc_edit
 from CMDB.views.idc_api import IDCAPI
-from CMDB.views.db.oracle import *
+from CMDB.views.db.oracle import oracle_cluster, oracle_cluster_instance, oracle_cluster_tablespace, oracle_cluster_user
 from CMDB.views.db.oracle_api import OracleClusterAPI
 
 from CMDB.views.db.mysql import (mysql_cluster,mysql_cluster_instance, mysql_cluster_db,mysql_cluster_user,
@@ -41,11 +41,6 @@ urlpatterns = [
     url(r'^idc/edit/(?P<id>[0-9]+)$', idc_edit, name='idc_edit'),
     url(r'^idc/api/idc/$',IDCAPI.as_view(),name='api_idc'),
 
-    url(r'^db/oracle_cluster/$', oracle_cluster, name='oracle_cluster'),
-    url(r'^db/oracle_user/$', oracle_cluster_user, name='oracle_cluster_user'),
-
-    url(r'^oracle_cluster_api/$',OracleClusterAPI.as_view(),name='api_oracle_cluster'),
-
 ############################以下是mysql 资产相关url
     url(r'^db/mysql_cluster/$',mysql_cluster,name='cmdb_mysql_cluster'),
     url(r'^db/mysql_cluster/add/$', mysql_cluster_add, name='cmdb_mysql_cluster_add'),
@@ -69,7 +64,15 @@ urlpatterns = [
     url(r'^db/mysql_db/edit/(?P<id>[0-9]+)$', mysql_cluster_db_edit, name='cmdb_mysql_db_edit'),
     url(r'^db/api/mysql_db/$', MysqlDBAPI.as_view(), name='api_mysql_db'),
 
-##############################################
+    ##########################这里是oracle资产相关####################
+    url(r'^db/oracle_cluster/$', oracle_cluster, name='oracle_cluster'),
+    url(r'^db/oracle_user/$', oracle_cluster_user, name='oracle_cluster_user'),
+    url(r'^db/oracle_tablespace/$', oracle_cluster_tablespace, name='oracle_cluster_tablespace'),
+    url(r'^db/oracle_instance/$', oracle_cluster_instance, name='oracle_cluster_instance'),
+
+    url(r'^oracle_cluster_api/$', OracleClusterAPI.as_view(), name='api_oracle_cluster'),
+
+    #########################业务树相关
     url('^yewutree$',yewu_tree,name='yewu_tree'),
     url(r'^yewutree/addbranch/$', yewu_tree_add_branch, name='yewu_tree_add_branch'),
     url(r'^yewutree/addleaf/$', yewu_tree_add_leaf, name='yewu_tree_add_leaf'),

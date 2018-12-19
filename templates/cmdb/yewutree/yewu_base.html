@@ -22,7 +22,7 @@
 
     <div class="layui-fluid">
         <div class="layui-row  layui-col-space15 larryms-count-demo">
-            <div class="layui-col-xs12 layui-col-sm12 layui-col-md3 layui-col-lg3">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3 layui-col-lg3">
 {#                <fieldset class="layui-elem-field">#}
 {#                    <div class="layui-field-box">#}
 {#                        对树编辑？ 试试右键，拖拽。#}
@@ -64,15 +64,15 @@
 </fieldset>
                     <div>
                     <ul>
-                        <li class="layui-btn layui-btn-normal">  <a href="{% url 'yewu_oracle' %}#" target="listChannel">空闲机</a></li>
+                        <li class="layui-btn layui-btn-normal"><a href="#" target="listChannel">空闲机</a></li>
 
-                        <li class="layui-btn layui-btn-warm"><a href="{% url 'yewu_mysql' %}" target="listChannel">故障机</a></li>
+                        <li class="layui-btn layui-btn-warm"><a href="#" target="listChannel">故障机</a></li>
                     </ul>
                 </div>
                 </section>
             </div>
             {# 这是右边的页面#}
-            <div class="layui-col-lg9">
+            <div class="layui-col-lg9 layui-col-md9 layui-col-sm6">
                 <section class="layui-card">
                     <iframe id="listChannel" Name="listChannel" frameborder=0 src="{% url 'yewu_huizong' %}"
                             width=100% height=900px></iframe>

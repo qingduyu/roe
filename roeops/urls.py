@@ -20,9 +20,7 @@ from index import index,main,login,logout,noperm
 from index import submenu,codeing,getmenu
 # from CMDB.views.db.oracle_api import OracleClusterViewset
 
-
-
-
+from index import developing
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -54,13 +52,14 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
     url(r'^login',login,name='login'),
+
     url(r'^logout', logout, name='logout'),
     url(r'^noperm', noperm, name='noperm'),
     url(r'^$',index,name='index' ), #代码首页会获取到顶级菜单
     url(r'^getmenu$', getmenu, name='getmenu'),
 
     # url(r'^getmenu/(?P<id>[0-9]+)/$',submenu,name='submenu'),  #点击子菜单后动态获取
-
+    url(r'^developing', developing, name='developing'),
     url(r'^codinghard',codeing,name='codinghard'),#正在努力开发代码中
 
     url(r'^console.html',main,name='page-main'),

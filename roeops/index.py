@@ -164,3 +164,7 @@ def logout(request):
 @login_required()
 def noperm(request):
     return render(request,'system/noperm.html',{"user":request.user})
+
+
+def developing(request):
+    return render(request, 'developing.html', locals())

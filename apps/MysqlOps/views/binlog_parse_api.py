@@ -7,7 +7,7 @@ from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import permission_required
 from MysqlOps.models import BinlogParseRedo,BinlogParseUndo
-from serializers import BinlogParseUndoSerializer,BinlogParseRedoSerializer
+from MysqlOps.serializers import BinlogParseUndoSerializer, BinlogParseRedoSerializer
 from rest_framework.views import APIView
 from django.http.response import JsonResponse,Http404
 from rest_framework.parsers import JSONParser

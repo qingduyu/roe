@@ -27,9 +27,6 @@ def oracle_cluster_edit(request,id):
 def oracle_cluster_instance(request):
     return render(request, 'cmdb/db/oracle_instance.html')
 
-@login_required()
-def oracle_cluster_instance_show(request):
-    return render(request, 'cmdb/db/oracle_instance.html')
 
 @login_required()
 def oracle_cluster_instance_add(request):
@@ -45,9 +42,6 @@ def oracle_cluster_instance_edit(request,id):
 def oracle_cluster_user(request):
     return render(request, 'cmdb/db/oracle_user.html')
 
-@login_required()
-def oracle_cluster_user_show(request):
-    return render(request, 'cmdb/db/oracle_user.html')
 
 @login_required()
 def oracle_cluster_user_add(request):
@@ -63,9 +57,6 @@ def oracle_cluster_user_edit(request,id):
 def oracle_cluster_tablespace(request):
     return render(request, 'cmdb/db/oracle_tablespace.html')
 
-@login_required()
-def oracle_cluster_tablespace_show(request):
-    return render(request, 'cmdb/db/oracle_tablespace.html')
 
 @login_required()
 def oracle_cluster_tablespace_add(request):

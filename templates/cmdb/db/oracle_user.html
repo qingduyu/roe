@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_children.html' %}
 
-</body>
-</html>
+{% block self_head %}
+    {##这里是 个性化的头部脚本呢#}
+{% endblock %}
+
+{% block content %}
+    {#    #这里是真正的内容部分#}
+    <div class="noFind">
+        <div class="ufo">
+            <i class="seraph icon-test ufo_icon"></i>
+            <i class="layui-icon page_icon">&#xe638;</i>
+        </div>
+        <div class="page404">
+            <i class="layui-icon">&#xe61c;</i>
+            <p>页面功能正在开发中，暂不开放</p>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block self_foot %}
+    {#    #这里是个性化的底足脚本#}
+
+{% endblock %}

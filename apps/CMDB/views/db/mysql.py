@@ -16,7 +16,7 @@ def mysql_cluster(request):
 def mysql_cluster_add(request):
     mysql_arch=MyARCH
     operators= UserProfile.objects.all()
-    prod_line=YewuTree.objects.filter(root__isnull=True) # 业务的根结点为空，则就是产品线
+
     my_status=MyDB_STATUS
     return render(request, 'cmdb/db/mysql_cluster_add.html',locals())
 
@@ -26,7 +26,7 @@ def mysql_cluster_edit(request,id):
     data = MySQLCluster.objects.get(id=id)
     mysql_arch = MyARCH
     operators = UserProfile.objects.all()
-    prod_line = YewuTree.objects.filter(root__isnull=True)  # 业务的根结点为空，则就是产品线
+    prod_line = YewuTree.objects.filter(yewuxian__isnull=True)  # 业务的根结点为空，则就是产品线
     my_status = MyDB_STATUS
     return render(request, 'cmdb/db/mysql_cluster_edit.html',locals())
 
