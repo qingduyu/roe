@@ -30,8 +30,8 @@ from CMDB.views.server.scan_host import scan_host,scan_host_edit
 from CMDB.views.server.host_api import HOST_API,HOSTFail_API,WuLiHOST_API,XuNiHOST_API,SuZhuHOST_API
 
 from CMDB.views.server.virtual_host import xunihost_show,xunihost_add,xunihost_edit,xunihost_detail
-from CMDB.views.server.physical_host import wulihost_show,wulihost_add,wulihost_edit
-from CMDB.views.server.suzhu_host import suzhuhost_show,suzhuhost_add,suzhuhost_edit
+from CMDB.views.server.physical_host import wulihost_show,wulihost_add,wulihost_edit,wulihost_detail
+from CMDB.views.server.suzhu_host import suzhuhost_show,suzhuhost_add,suzhuhost_edit,suzhuhost_detail
 from CMDB.views.server.host_api import ansible_facts
 
 urlpatterns = [
@@ -123,11 +123,13 @@ urlpatterns = [
     url(r'^suzhuhost/list/$', suzhuhost_show, name='cmdb_suzhuhost_show'),
     url(r'^suzhuhost/add/$', suzhuhost_add, name='cmdb_suzhuhost_add'),
     url(r'^suzhuhost/edit/$', suzhuhost_edit, name='cmdb_suzhuhost_edit'),
+    url(r'^suzhuhost/detail/$', suzhuhost_detail, name='cmdb_suzhuhost_detail'),
     url(r'^suzhuhost/api/$', SuZhuHOST_API.as_view(), name='cmdb_suzhuhost_api'),
 
     url(r'^wulihost/list/$', wulihost_show, name='cmdb_wulihost_show'),
     url(r'^wulihost/add/$', wulihost_add, name='cmdb_wulihost_add'),
     url(r'^wulihost/edit/$', wulihost_edit, name='cmdb_wulihost_edit'),
+    url(r'^wulihost/detail/$', wulihost_detail, name='cmdb_wulihost_detail'),
     url(r'^wulihost/api/$', WuLiHOST_API.as_view(), name='cmdb_wulihost_api'),
 
     url(r'^xunihost/list/$',xunihost_show,name='cmdb_xunihost_show'),

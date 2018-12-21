@@ -233,7 +233,7 @@ class SuZhuHOST_API(APIView):
             keyword=''
         if keyword:
             try:
-                queryset = Host.objects.filter(
+                queryset = Host.objects.filter(Q(asset_type__exact=u'虚拟机宿主机')).filter(
                         Q(hostname__contains=keyword) |
                         Q(ip__contains=keyword) |
                         Q(ip_other__contains=keyword) |
@@ -241,8 +241,8 @@ class SuZhuHOST_API(APIView):
                         Q(idc__name__contains=keyword)|
                         Q(vendor__contains=keyword) |
                         Q(purpose__contains=keyword) |
-                        Q(memo__contains=keyword) &
-                Q(asset_type__exact=u'虚拟机宿主机'))
+                        Q(memo__contains=keyword)
+                         )
                 # pg = MyPageNumberPagination()  # 实例化分页类
                 # page_data = pg.paginate_queryset(queryset=queryset, request=request, view=self)  # 根据请求的页码数，对数据进行分页
                 s = Host_read_Serializer(instance=queryset, many=True)  # 序列花这个分页数据
@@ -362,7 +362,7 @@ class XuNiHOST_API(APIView):
             keyword=''
         if keyword:
             try:
-                queryset = Host.objects.filter(
+                queryset = Host.objects.filter(Q(asset_type__exact=u'虚拟机')).filter(
                         Q(hostname__contains=keyword) |
                         Q(ip__contains=keyword) |
                         Q(ip_other__contains=keyword) |
@@ -370,8 +370,8 @@ class XuNiHOST_API(APIView):
                         Q(idc__name__contains=keyword)|
                         Q(vendor__contains=keyword) |
                         Q(purpose__contains=keyword) |
-                        Q(memo__contains=keyword) &
-                Q(asset_type__exact=u'虚拟机'))
+                        Q(memo__contains=keyword)
+               )
                 # pg = MyPageNumberPagination()  # 实例化分页类
                 # page_data = pg.paginate_queryset(queryset=queryset, request=request, view=self)  # 根据请求的页码数，对数据进行分页
                 s = Host_read_Serializer(instance=queryset, many=True)  # 序列花这个分页数据
@@ -490,7 +490,7 @@ class WuLiHOST_API(APIView):
             keyword = ''
         if keyword:
             try:
-                queryset = Host.objects.filter(
+                queryset = Host.objects.filter(Q(asset_type__exact=u'物理机')).filter(
                     Q(hostname__contains=keyword) |
                     Q(ip__contains=keyword) |
                     Q(ip_other__contains=keyword) |
@@ -498,8 +498,8 @@ class WuLiHOST_API(APIView):
                     Q(idc__name__contains=keyword) |
                     Q(vendor__contains=keyword) |
                     Q(purpose__contains=keyword) |
-                    Q(memo__contains=keyword) &
-                    Q(asset_type__exact=u'物理机'))
+                    Q(memo__contains=keyword)
+                    )
                 # pg = MyPageNumberPagination()  # 实例化分页类
                 # page_data = pg.paginate_queryset(queryset=queryset, request=request, view=self)  # 根据请求的页码数，对数据进行分页
                 s = Host_read_Serializer(instance=queryset, many=True)  # 序列花这个分页数据

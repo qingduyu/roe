@@ -575,7 +575,7 @@ class ANSRunner(object):
                     #获取网卡资源
                     nks = []
                     for nk in data.keys():
-                        if re.match(r"^ansible_(eth|bind|eno|ens|em)\d+?",nk):
+                        if re.match(r"^ansible_(eth|bind|bond|eno|ens|em)\d+?",nk):
                             device = data.get(nk).get('device')  #这是设备名字
                             try:
                                 address = data.get(nk).get('ipv4').get('address')

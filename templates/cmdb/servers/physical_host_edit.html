@@ -2,7 +2,7 @@
 {% load mytags %}
 {% block content %}
     <div class="layui-row larryms-panel ">
-        <form action="{% url 'cmdb_xunihost_edit' %}" class="layui-form layui-form-pane" method="post" id="demoAddForm">
+        <form action="{% url 'cmdb_wulihost_edit' %}" class="layui-form layui-form-pane" method="post" id="demoAddForm">
             {% csrf_token %}
             <input class="layui-input" name="id" value="{{ host.id }}" type="text" hidden>
             <div class="layui-form-item">
@@ -18,62 +18,7 @@
                         <input class="layui-input" name="ip" value="{{ host.ip }}" type="text" disabled>
                     </div>
                 </div>
-
                 <div class="layui-inline">
-                    <label class="layui-form-label">宿主机</label>
-                    <div class="layui-input-block">
-                        <input class="layui-input" name="hostserver" value="{{ host.hostserver | default_if_none:"" }}"
-                               type="text">
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">端口</label>
-                    <div class="layui-input-block">
-                        <input class="layui-input" name="port" value="{{ host.port }}" type="text" disabled>
-                    </div>
-                </div>
-            </div>
-  <div class="layui-form-item">
-
-                <div class="layui-inline">
-                    <label class="layui-form-label">用户</label>
-                    <div class="layui-input-block">
-                        <input class="layui-input" name="username" value="{{ host.username }}" type="text" disabled>
-                    </div>
-                </div>
-
-                <div class="layui-inline">
-                    <label class="layui-form-label">密码</label>
-                    <div class="layui-input-block">
-                        <input class="layui-input" name="passwd" value="{{ host.passwd | default_if_none:"" }}"
-                               type="text">
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="layui-col-md6">
-
-                <div class="layui-form-item">
-
-                    <div class="layui-inline">
-                        <label class="layui-form-label">机房</label>
-                        <div class="layui-input-block">
-                            <select name="idc">
-                                <option value=""></option>
-                                {% for ss in idc %}
-                                    {% ifequal ss.id host.idc_id %}
-                                        <option value="{{ ss.id }}" selected> {{ ss.name }}</option>
-                                    {% else %}
-                                        <option value="{{ ss.id }}"> {{ ss.name }}</option>
-                                    {% endifequal %}
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="layui-inline">
                         <label class="layui-form-label">ssh登陆</label>
                         <div class="layui-input-block">
                             <select name="ssh_status">
@@ -89,6 +34,72 @@
                             </select>
                         </div>
                     </div>
+     <div class="layui-form-inline">
+                      <label class="layui-form-label">端口</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" name="port" value="{{ host.port }}" type="text" >
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layui-form-item">
+
+                       <div class="layui-form-inline">
+                      <label class="layui-form-label">用户</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" name="username" value="{{ host.username }}" type="text" >
+                    </div>
+                </div>
+                       <div class="layui-form-inline">
+                      <label class="layui-form-label">密码</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" name="passwd" value="{{ host.passwd }}" type="text" >
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md6">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">机房</label>
+                        <div class="layui-input-block">
+                            <select name="idc">
+                                <option value=""></option>
+                                {% for ss in idc %}
+                                    {% ifequal ss.id host.idc_id %}
+                                        <option value="{{ ss.id }}" selected> {{ ss.name }}</option>
+                                    {% else %}
+                                        <option value="{{ ss.id }}"> {{ ss.name }}</option>
+                                    {% endifequal %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                 <div class="layui-inline">
+                    <label class="layui-form-label">机柜</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="cabinet" value="{{ host.cabinet | default_if_none:"" }}"
+                               type="text">
+                    </div>
+                </div>
+
+                 <div class="layui-inline">
+                    <label class="layui-form-label">机架</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="location" value="{{ host.location | default_if_none:"" }}"
+                               type="text">
+                    </div>
+                </div>
+
+                  <div class="layui-inline">
+                    <label class="layui-form-label">上联端口</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="uplink_port" value="{{ host.uplink_port | default_if_none:"" }}"
+                               type="text">
+                    </div>
+                </div>
+
 
                 </div>
 

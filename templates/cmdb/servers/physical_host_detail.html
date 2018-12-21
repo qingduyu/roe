@@ -1,0 +1,158 @@
+{% extends 'base_children.html' %}
+
+{% block self_head %}
+{##这里是 个性化的头部脚本呢#}
+        <link rel="stylesheet" type="text/css" href="/static/larryms/css/admin/bootstrap.css" media="all">
+{% endblock %}
+
+{% block content %}
+<div class="layui-row">
+
+<div class="layui-col-lg4 layui-col-md4">
+
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <strong>主机自带信息</strong>
+        </div>
+        <div class="layui-card-body">
+            <div class="list-group">
+                <div class="list-group-item">
+                    <i class="pull-left layui-left">主机名</i>
+                    <span class="pull-right layui-right">{{ host.hostname }}</span>
+                </div>
+                  <div class="list-group-item">
+                    ip: <span class="layui-right">{{ host.ip }}</span>
+                </div>
+                     <div class="list-group-item">
+                    其他ip:
+                    <span class="pull-right">{{ host.ip_other }}</span>
+                </div>
+
+                     <div class="list-group-item">
+                    cpu型号:
+                    <span class="pull-right layui-right">{{ host.cpu_model }}</span>
+                </div>
+                   <div class="list-group-item">
+                    cpu核数:
+                    <span class="pull-right layui-right">{{ host.cpu_num }}</span>
+                </div>
+
+                     <div class="list-group-item">
+                    内存(Mb):
+                    <span class="pull-right layui-right">{{ host.memory }}</span>
+                </div>
+
+                            <div class="list-group-item">
+                    操作系统:
+                    <span class="pull-right layui-right">{{ host.system_type }}</span>
+                </div>
+                 <div class="list-group-item">
+                    序列号（唯一）:
+                    <span class="pull-right layui-right">{{ host.sn }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="layui-col-lg3 layui-col-md3">
+
+    <div class="layui-card">
+        <div class="layui-card-header">主机配置
+        </div>
+        <div class="layui-card-body">
+            <div class="list-group">
+
+                 <div class="list-group-item">
+                     主机类型:
+                    <span class="pull-right layui-right">{{ host.asset_type }}</span>
+                </div>
+                <div class="list-group-item">
+                     机房:
+                    <span class="pull-right layui-right">{{ host.idc.name }}</span>
+                </div>
+                    <div class="list-group-item">
+                     机柜:
+                    <span class="pull-right layui-right">{{ host.cabinet|default_if_none:'' }}</span>
+                </div>
+                      <div class="list-group-item">
+                     机架:
+                    <span class="pull-right layui-right">{{ host.location|default_if_none:'' }}</span>
+                </div>
+                      <div class="list-group-item">
+                     上联端口:
+                    <span class="pull-right layui-right">{{ host.uplink_port|default_if_none:'' }}</span>
+                </div>
+                 <div class="list-group-item">
+                     登陆用户:
+                    <span class="pull-right layui-right">{{ host.username|default_if_none:'' }}</span>
+                </div>
+
+                 <div class="list-group-item">
+                     登陆端口:
+                    <span class="pull-right layui-right">{{ host.port|default_if_none:'' }}</span>
+                </div>
+
+                 <div class="list-group-item">
+                     使用者:
+                    <span class="pull-right layui-right">{{ host.useuser|default_if_none:'' }}</span>
+                </div>
+                 <div class="list-group-item">
+                     用途:
+                    <span class="pull-right layui-right">{{ host.purpose|default_if_none:'' }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="layui-col-lg5 layui-col-md5">
+<div class="layui-card">
+    <div class="layui-card-header">网卡</div>
+    <div class="layui-card-body">
+         <div class="table-responsive">
+                                <table class="layui-table">
+                                    <thead>
+                                        <tr>
+                                            <th>网卡</th>
+                                            <th>IP地址</th>
+                                            <th>Mac地址</th>
+                                            <th>网卡类型</th>
+                                            <th>MTU</th>
+                                            <th>状态</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    	{% for ds in network_cards %}
+                                        <tr>
+                                            <td>{{ds.device}}</td>
+                                            <td>{{ds.ip}}</td>
+                                            <td>{{ds.macaddress}}</td>
+                                            <td>{{ds.module}}</td>
+                                            <td>{{ds.mtu}}</td>
+                                            <td>{% if ds.active == 1 %}
+                                                <button type="button" class="layui-btn layui-btn-green layui-btn-xs">on</button>
+                                            {% else %}
+                                                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">down</button>
+                                            {% endif %}</td>
+
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+{% endblock %}
+
+{% block self_foot %}
+{#    #这里是个性化的底足脚本#}
+
+{% endblock %}

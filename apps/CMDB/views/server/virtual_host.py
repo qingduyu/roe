@@ -8,7 +8,7 @@ from django.http.response import JsonResponse
 from CMDB.model.idc_models import Idc
 from django.contrib.auth.models import User
 from CMDB.model.server_models import Host,Host_fail
-
+from utils.encrpt import prpcrypt
 def xunihost_show(request):
 
     return  render(request,'cmdb/servers/virtual_host_list.html',locals())
@@ -38,12 +38,13 @@ def xunihost_add(request):
                 try:
                     host_check=Host.objects.filter(ip__exact=ip)
                     if not host_check.exists():
+                        pc=prpcrypt()
                         host=Host()
                         host.hostname=hostname
                         host.ip=ip
                         host.hostserver=hostserver
                         host.username=username
-                        host.passwd=passwd
+                        host.passwd=pc.encrypt(passwd)
                         host.idc_id=idc
                         host.vendor=vendor
                         host.ssh_status=ssh_status
@@ -89,13 +90,16 @@ def xunihost_edit(request):
         useuser = request.POST['useuser']
         purpose = request.POST['purpose']
         idc = request.POST['idc']
+        passwd=request.POST['passwd']
         ssh_status = request.POST['ssh_status']
         try:
+                    pc=prpcrypt()
                     host = Host.objects.get(id=id)
 
                     host.onlinedate = onlinedate
                     host.useuser = useuser
                     host.purpose = purpose
+                    host.passwd=pc.encrypt(passwd)
                     host.idc_id = idc
                     host.ssh_status = ssh_status
                     host.save()

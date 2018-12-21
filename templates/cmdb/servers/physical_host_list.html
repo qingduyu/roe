@@ -1,14 +1,14 @@
 {% extends 'base_children.html' %}
 
 {% block self_head %}
-{##这里是 个性化的头部脚本呢#}
+    {##这里是 个性化的头部脚本呢#}
 {% endblock %}
 
 {% block content %}
-{#    #这里是真正的内容部分#}
-       <div class="layui-row">
-       <div class="layui-card">
-                  <div class="layui-card">
+    {#    #这里是真正的内容部分#}
+    <div class="layui-row">
+        <div class="layui-card">
+            <div class="layui-card">
                 <div class="layui-card-header">
 
                     <div class="layui-col-lg6">
@@ -27,192 +27,195 @@
                     </div>
                     <div class="layui-col-lg6">
                         <div class="layui-input-inline">
-                            <input id="keyword" name="keyword" autocomplete="off" placeholder="请输入搜索关键字"
-                                   class="layui-input">
-
+                            <input id="keyword" name="keyword" autocomplete="off" placeholder="请输入搜索关键字" class="layui-input">
                         </div>
 
-                    <div class="layui-input-inline" style="width: 90px">
-                         <button class="layui-btn " id="search" data-type="reload"><i
+                        <div class="layui-input-inline" style="width: 90px">
+                            <button class="layui-btn " id="search" data-type="reload"><i
                                     class="larry-icon larry-suosou"></i></button>
-                    </div>
+                        </div>
                     </div>
 
                 </div>
 
 
-
-<div class="layui-card-body">
-    <table id="demo" lay-filter="demo" class="larryms-table-id" data-url="{%  url 'cmdb_wulihost_api' %}"></table>
-</div>
-       </div>
-
+                <div class="layui-card-body">
+                    <table id="demo" lay-filter="demo" class="larryms-table-id"
+                           data-url="{% url 'cmdb_wulihost_api' %}"></table>
+                </div>
+            </div>
         </div>
-
-
-        </div>
-            <script type="text/html" id="demoBtnBar">
-           <a class="layui-btn layui-btn-xs" data-url="{% url 'cmdb_suzhuhost_edit' %}" lay-event="edit"><i class="layui-icon larry-xiugaimima"></i></a>
-       <a class="layui-btn layui-btn-xs" data-url="{% url 'host_ansible_facts' %}" lay-event="update"><i class="larry-icon larry-shuaxin"></i></a>
-       <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="detail"><i class="larry-icon larry-caidan3"></i></a>
+    </div>
+    <script type="text/html" id="demoBtnBar">
+        <a class="layui-btn layui-btn-xs" data-url="{% url 'cmdb_wulihost_edit' %}" lay-event="edit"><i
+                class="layui-icon larry-xiugaimima"></i></a>
+        <a class="layui-btn layui-btn-xs" data-url="{% url 'host_ansible_facts' %}" lay-event="update"><i
+                class="larry-icon larry-shuaxin"></i></a>
+        <a class="layui-btn layui-btn-xs" data-url="{% url 'cmdb_wulihost_detail' %}" lay-event="detail"><i
+                class="larry-icon larry-caidan3"></i></a>
 
     </script>
 
 {% endblock %}
 
 {% block self_foot %}
-{#    #这里是个性化的底足脚本#}
+    {#    #这里是个性化的底足脚本#}
 
-        <script type="text/javascript">
-      layui.config({
-        version: "2.0.8",
-        base: '/static/larryms/',
-         layertype: 2, //iframe内层弹窗类型不显示返回首页
-        rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
-    }).extend({
-        larry: 'js/base'
-    }).use(['jquery','table', 'form','layer','larry'], function() {
-    var $ = layui.$,
-    larryms = layui.larryms,
-    form = layui.form;
-  table = layui.table;
-  layer=layui.layer;
-  //按钮监听
-  $(' .layui-btn').on('click', function() {
-      var type = $(this).data('type'),
-        url = $(this).data('url'),
-        tit = $(this).children('cite').text();
-      active[type] ? active[type].call(this, url, tit) : '';
-  });
-  var active = {
-      add: function(url, tit) {
-        var that = this;
-        if ($(that).attr('data-flag') == 'exist') {
-          var index = layui.cache.layerIndex,
-              $max = $max = $('#layui-layer' + index).find('.layui-layer-maxmin');
-          $max.click();
-          layui.cache.layerIndex = null;
-        } else {
-          $(that).attr('data-flag', 'exist');
-          var index = layer.open({
-            title: tit,
-            type: 2,
-            area: ['860px', '550px'],
-            content: url,
-            success: function(index, layero) {
-              form.render();
-            },
-            end: function() {
-              $(that).removeAttr("data-flag");
-              layui.cache.layerIndex = null;
-            }
-          });
-
-        }
-      },
-      del: function() {
-        //批量删除
-          checkStatus = table.checkStatus('demo'),
-          data = checkStatus.data,
-          newsId = [];
-          console.log(data);
-         var url = $(this).data('url');
-        console.log(url);
-        if (data.length > 0) {
-          for (var i in data) {
-            //排除默认管理员
-                newsId.push(data[i].id);
-          }
-          if(newsId.length>0){
-               var ids = {"id":newsId };
-              console.log(newsId);
-              larryms.confirm('你确定要执行批量删除吗？',{icon: 3, title:'批量删除提示！'},function(){
-                  $.ajax({
-			    dataType: "JSON",
-			    url:url, //请求地址
-			    type:"DELETE",  //提交类似
-			    contentType: "application/json",
-			    data: JSON.stringify({"id":newsId }),  //提交参数
-			    success:function(res){
-				larryms.msg(res.msg)
-                    table.reload('demo', {})
-			},
-	    	error:function(response){
-				larryms.msg( response.responseText);
-	    	}
-		});
-              });
-          }else{
-              larryms.msg('默认管理员不可删除,我是神一样的存在！');
-          }
-        } else {
-          larryms.msg('请至少选择一项，进行删除操作');
-        }
-      }
-    };
-
-
-    // 来自角色用户组
-        var tableDataUrl = $('#demo').data('url'),
-            roleIndex = table.render({
-                 elem:'#demo',
-                 id:'demo',
-                 cellMinWidth:80,
-                 url:tableDataUrl,
-                 method:'get',
-                 height:'full-130',
-                 page:true,
-                 cols:[
-                   [
-                       {type: "checkbox", fixed: 'left', width: 50},
-                       {field: 'hostname', title: '主机名', minWidth: 80, align: 'center'},
-                       {field: 'ip', title: '访问IP', minWidth: 80, align: 'center'},
-                       {field: 'ip_other', title: '管理IP ', minWidth: 80, align: 'center'},
-                       {field: 'idc', title: '机房', minWidth: 80, align: 'center'},
-                       {field: 'cabinet', title: '机柜机架', minWidth: 30, align: 'center'},
-                       {field: 'vendor', title: '品牌', minWidth: 80, align: 'center'},
-                       {field: 'useuser', title: '使用人', minWidth: 80, align: 'center'},
-                       {field: 'purpose', title: '用途', minWidth: 80, align: 'center'},
-                       {field: 'system_type', title: '系统', minWidth: 80, align: 'center'},
-                       {field: 'uplink_port', title: '上联端口', minWidth: 80, align: 'center'},
-                       {title: '操作', minWidth: 55, templet: '#demoBtnBar', fixed: "right", align: "center"}
-                       ]
-                 ]
+    <script type="text/javascript">
+        layui.config({
+            version: "2.0.8",
+            base: '/static/larryms/',
+            layertype: 2, //iframe内层弹窗类型不显示返回首页
+            rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+        }).extend({
+            larry: 'js/base'
+        }).use(['jquery', 'table', 'form', 'layer', 'larry'], function () {
+            var $ = layui.$,
+                larryms = layui.larryms,
+                form = layui.form;
+            table = layui.table;
+            layer = layui.layer;
+            //按钮监听
+            $(' .layui-btn').on('click', function () {
+                var type = $(this).data('type'),
+                    url = $(this).data('url'),
+                    tit = $(this).children('cite').text();
+                active[type] ? active[type].call(this, url, tit) : '';
             });
+            var active = {
+                add: function (url, tit) {
+                    var that = this;
+                    if ($(that).attr('data-flag') == 'exist') {
+                        var index = layui.cache.layerIndex,
+                            $max = $max = $('#layui-layer' + index).find('.layui-layer-maxmin');
+                        $max.click();
+                        layui.cache.layerIndex = null;
+                    } else {
+                        $(that).attr('data-flag', 'exist');
+                        var index = layer.open({
+                            title: tit,
+                            type: 2,
+                            area: ['960px', '550px'],
+                            content: url,
+                            success: function (index, layero) {
+                                form.render();
+                            },
+                            end: function () {
+                                $(that).removeAttr("data-flag");
+                                layui.cache.layerIndex = null;
+                            }
+                        });
 
-          // 监听工具条
-var pageTableID = $('.larryms-table-id').attr('id');
-table.on('tool('+pageTableID+')', function(obj) {
-      var data = obj.data, tit = '编辑 <em class="tit">'+data.name+ '</em> 信息';
-      console.log(data)
-      if(obj.event == 'edit'){
-          var url =  $(this).data('url')+data.id;
-          var editIndex =  larryms.open({
-              title: tit,
+                    }
+                },
+                del: function () {
+                    //批量删除
+                    checkStatus = table.checkStatus('demo'),
+                        data = checkStatus.data,
+                        newsId = [];
+                    console.log(data);
+                    var url = $(this).data('url');
+                    console.log(url);
+                    if (data.length > 0) {
+                        for (var i in data) {
+                            //排除默认管理员
+                            newsId.push(data[i].id);
+                        }
+                        if (newsId.length > 0) {
+                            var ids = {"id": newsId};
+                            console.log(newsId);
+                            larryms.confirm('你确定要执行批量删除吗？', {icon: 3, title: '批量删除提示！'}, function () {
+                                $.ajax({
+                                    dataType: "JSON",
+                                    url: url, //请求地址
+                                    type: "DELETE",  //提交类似
+                                    contentType: "application/json",
+                                    data: JSON.stringify({"id": newsId}),  //提交参数
+                                    success: function (res) {
+                                        larryms.msg(res.msg)
+                                        table.reload('demo', {})
+                                    },
+                                    error: function (response) {
+                                        larryms.msg(response.responseText);
+                                    }
+                                });
+                            });
+                        } else {
+                            larryms.msg('默认管理员不可删除,我是神一样的存在！');
+                        }
+                    } else {
+                        larryms.msg('请至少选择一项，进行删除操作');
+                    }
+                },
+                      reload:function () {
+         var keyword=$("#keyword").val();
+         table.reload('demo',{
+         method:'post',
+         where:{keyword:keyword}
+    });
+}
+            };
+
+
+            // 来自角色用户组
+            var tableDataUrl = $('#demo').data('url'),
+                roleIndex = table.render({
+                    elem: '#demo',
+                    id: 'demo',
+                    cellMinWidth: 80,
+                    url: tableDataUrl,
+                    method: 'get',
+                    height: 'full-130',
+                    page: true,
+                    cols: [
+                        [
+                            {type: "checkbox", fixed: 'left', width: 25},
+                            {field: 'hostname', title: '主机名', minWidth: 80, align: 'center'},
+                            {field: 'ip', title: '访问IP', minWidth: 80, align: 'center'},
+                            {field: 'idc', title: '机房', minWidth: 80, align: 'center'},
+                            {field: 'cabinet', title: '机柜机架', minWidth: 30, align: 'center'},
+                            {field: 'vendor', title: '品牌', minWidth: 80, align: 'center'},
+                            {field: 'useuser', title: '使用人', minWidth: 80, align: 'center'},
+                            {field: 'purpose', title: '用途', minWidth: 80, align: 'center'},
+                            {field: 'system_type', title: '系统', minWidth: 80, align: 'center'},
+
+                            {title: '操作', minWidth: 55, templet: '#demoBtnBar', fixed: "right", align: "center"}
+                        ]
+                    ]
+                });
+
+            // 监听工具条
+            var pageTableID = $('.larryms-table-id').attr('id');
+            table.on('tool(' + pageTableID + ')', function (obj) {
+                var data = obj.data, tit = '编辑 <em class="tit">' + data.name + '</em> 信息';
+                console.log(data)
+                if (obj.event == 'edit') {
+                    var url = $(this).data('url') +"?id=" +data.id;
+                    var editIndex = larryms.open({
+                        title: tit,
+                        type: 2,
+                        area: ['960px', '450px'],
+                        content: url,
+                        success: function (index, layero) {
+                            form.render();
+                        }
+                    });
+                } else if (obj.event == 'detail') {
+                var url =  $(this).data('url')+'?id='+data.id;
+           var detailIndex =  larryms.open({
+              title: '物理机主机详情',
               type: 2,
-              area: ['860px', '450px'],
+              area: ['1160px', '550px'],
               content: url,
               success: function(index, layero) {
                 form.render();
               }
           });
-      }else if(obj.event == 'detail'){
-          var url = $(this).data('url');
-          larryms.confirm('查看详情还没开始作？',{icon: 3, title:'删除提示'},function(){
+                } else if (obj.event == 'update') {
+                        var url = $(this).data('url');
+           larryms.confirm('更新统计信息',{icon: 3, title:'更新提示'},function(){
               var ids = {"id":data.id};
-              $.post(url,ids,function(res){
-                  if(res.code==200){
-                      larryms.msg(res.msg);
-                      table.reload(pageTableID,{});
-                  }else{
-                     larryms.msg(res.msg);
-                  }
-              });
-          });
-      }else if(obj.event == 'del'){
-          var url = $(this).data('url');
-           larryms.confirm('查看详情还没开始作？',{icon: 3, title:'删除提示'},function(){
-              var ids = {"id":[data.id]};
+
               $.post(url,ids,function(res){
                   if(res.code==200){
                       larryms.msg(res.msg);
@@ -222,9 +225,10 @@ table.on('tool('+pageTableID+')', function(obj) {
                   }
               });
       });
-}})
+                }
+            })
 
-});
+        });
     </script>
 
 

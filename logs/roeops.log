@@ -17,3 +17,8 @@
 2018-12-19 15:32:10 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
 2018-12-19 15:32:17 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
 2018-12-19 20:34:09 [WARNING] 写入服务器网卡信息失败: (1062, "Duplicate entry '5-c6:c3:ee:72:1e:1b' for key 'networkcard_assets_host_id_macaddress_fe227fda_uniq'")
+2018-12-20 09:27:15 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-20 13:59:02 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-20 17:38:39 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-21 09:17:31 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
+2018-12-21 09:47:54 [WARNING] 获取Celery Task失败: '_LocalStack' object has no attribute 'iterkeys'
