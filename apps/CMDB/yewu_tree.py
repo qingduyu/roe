@@ -202,12 +202,13 @@ def yewu_server_ops(request,id):
         yewuid=id
         return render(request, 'cmdb/yewutree/yewu_host_add.html',locals())
     elif request.method=="POST":
-        hostid = request.POST['hostid']
+        hostid_list = request.POST['hostid'].split(',')
         yewuid = request.POST['yewuid']
-        host=Host.objects.get(id=hostid)
-        host.tree_id_id=yewuid
-        host.is_pooled=False
-        host.save()
+        for i in hostid_list:
+            host=Host.objects.get(id=i)
+            host.tree_id_id=yewuid
+            host.is_pooled=False
+            host.save()
         json_data = {'code': 200, 'msg': '数据添加完毕'}
         return JsonResponse(json_data, content_type="application/json")
 

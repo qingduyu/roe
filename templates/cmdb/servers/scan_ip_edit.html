@@ -2,57 +2,24 @@
 
 {% block content %}
     <div class="layui-row larryms-panel auth-user-add">
-     <form action="{% url 'cmdb_host_api' %}" class="layui-form layui-form-pane" method="PUT" id="demoAddForm">
+     <form action="{% url 'cmdb_ip_api' %}" class="layui-form layui-form-pane" method="PUT" id="demoAddForm">
             {% csrf_token %}
         <input name="id" value="{{ data.id }}" type="hidden">
-                <div class="layui-form-item">
-                    <div class="layui-block">
-                        <label class="layui-form-label">主机名</label>
-                        <div class="layui-input-block">
-                            <input class="layui-input" name="hostname" value="{{ data.hostname }}"  type="text" disabled>
-                        </div>
-                    </div>
-                 <div class="layui-form-inline">
-                    <label class="layui-form-label">IP地址</label>
-                    <div class="layui-input-inline">
-                        <input class="layui-input" name="ip" value="{{ data.ip |default_if_none:''}}" type="text" disabled>
-                    </div>
-                </div>
-
-                    <div class="layui-form-item">
-
-                    <div class="layui-form-block">
-                        <label class="layui-form-label">品牌</label>
-                        <div class="layui-input-block">
-                            <input class="layui-input" name="vendor" value="{{ data.vendor |default_if_none:''}}"  type="text" disabled>
-
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-
-         <div class="layui-form-item">
-
-                  <div class="layui-form-block">
-                        <label class="layui-form-label">资产类型</label>
-                        <div class="layui-input-block">
-                            <select name="asset_type" >
-                                    {% for s in asset_type %}
-                                            <option value="{{ s.0 }}"> {{ s.1 }}</option>
-                                    {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-
-                </div>
 
 
                 <div class="layui-form-item">
+
+                              <div class="layui-form-block">
+                        <label class="layui-form-label">ip</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="ip" value="{{ data.ip |default_if_none:''}}" type="text" disabled>
+                        </div>
+                    </div>
+
                     <div class="layui-form-block">
                         <label class="layui-form-label">备注</label>
                         <div class="layui-input-block">
-                            <input class="layui-input" name="memo" value="{{ data.beizhu |default_if_none:''}}" placeholder="备注" type="text">
+                            <input class="layui-input" name="beizhu" value="{{ data.beizhu |default_if_none:''}}" placeholder="备注" type="text">
                         </div>
                     </div>
 
@@ -82,10 +49,9 @@
     }).use(['jquery','larry','layer','larryms','form','laydate'], function() {
            var $ = layui.$,
             larry = layui.larry,
-
+            table = layui.talbe,
             larryms = layui.larryms,
             form = layui.form,
-               layer=layui.layer,
             laydate = layui.laydate;
         var curIfr = parent.layer.getFrameIndex(window.name);
 
@@ -110,9 +76,8 @@
 			    data: JSON.stringify(data.field),  //提交参数
 			    success:function(res){
 				larryms.msg(res.msg,{time:350},function () {
-
-                    parent.layer.close(curIfr);
                     parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
+                    parent.layer.close(curIfr);
                 })
 			    },
 	    	    error:function(response){

@@ -48,7 +48,7 @@ ASSET_TYPE = (
 #主机资源
 class Host(models.Model):
     hostname = models.CharField(max_length=50, verbose_name=u"主机名")
-    ip = models.GenericIPAddressField(u"访问IP", max_length=15,unique=True)
+    ip = models.GenericIPAddressField(u"访问IP", max_length=15)  #
     ip_public = models.GenericIPAddressField(u"公网IP", max_length=15,null=True,blank=True)
     ip_control = models.GenericIPAddressField(u"远程管理卡IP", max_length=15,null=True,blank=True)
     ip_other = models.CharField(max_length=850,verbose_name=u'其他IP',blank=True,null=True)
@@ -62,8 +62,8 @@ class Host(models.Model):
     cpu_num = models.CharField(u"CPU核数", max_length=3, null=True, blank=True)
     memory = models.CharField(u"内存大小", max_length=30, null=True, blank=True)
     disk = models.CharField(u"硬盘信息", max_length=255, null=True, blank=True)
-    sn = models.CharField(u"SN号 码", max_length=60,null=True, blank=True)
-    idc = models.ForeignKey(Idc, verbose_name=u"所在机房", on_delete=models.SET_NULL, null=True, blank=True,related_name='idc')
+    sn = models.CharField(u"SN号 码", max_length=80,null=True, blank=True,unique=True) #这是唯一的
+    idc = models.ForeignKey(Idc, verbose_name=u"所在机房", null=True, blank=True,related_name='host')
     cabinet = models.CharField(max_length=64, verbose_name=u'机柜', null=True, blank=True)
     location = models.CharField(u"机架位置", max_length=100, null=True, blank=True)
     uplink_port = models.CharField(max_length=256, verbose_name=u"上联端口", null=True, blank=True)
@@ -86,6 +86,7 @@ class Host(models.Model):
         verbose_name = u'主机资产'
         verbose_name_plural = verbose_name
         db_table = u"ALLHOSTS"
+        index_together=['ip','hostname']
     def __unicode__(self):
         return self.ip
 

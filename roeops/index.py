@@ -6,7 +6,9 @@ from system.models import LarryMenus
 import json
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-
+from CMDB.model.server_models import Host
+from CMDB.model.mysql_modles import MySQLCluster
+from CMDB.model.oracle_modles import OracleCluster
 @login_required(login_url='/login')
 def index(request):
     try:
@@ -168,3 +170,12 @@ def noperm(request):
 
 def developing(request):
     return render(request, 'developing.html', locals())
+
+
+def home(request):
+    xuniji_count=Host.objects.filter(asset_type__exact=u'虚拟机').count()
+    wuliji_count=Host.objects.filter(asset_type__exact=u'物理机').count()
+    suzhuji_count=Host.objects.filter(asset_type__exact=u'虚拟机宿主机').count()
+    mysql_count=MySQLCluster.objects.count()
+    oracle_count=OracleCluster.objects.count()
+    return render(request,'console.html',locals())

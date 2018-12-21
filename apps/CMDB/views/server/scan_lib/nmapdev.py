@@ -135,7 +135,7 @@ class NmapDev(object):
                         cpu_num=remove_space_line_symbol(res["grep 'processor' /proc/cpuinfo |sort |uniq |wc -l"])
                         mem_total=remove_space_line_symbol(res["cat /proc/meminfo |grep 'MemTotal' |awk -F : '{print $2/1048576}' |sed 's/^[ \t]*//g'"])
 
-                        print ("ssh login and exec command:%s",res)
+
                         logging.info("ssh login and exec command:%s",res)
                         self.can_login_lst[ip] = (port,password,'root',system_info,sys_hostname,sys_mac,sys_sn,machine_type,cpu_model,cpu_num,mem_total)
                     elif res["status"] == "failed" and re.search(r"reading SSH protocol banner",res["res"]):

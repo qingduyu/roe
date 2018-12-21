@@ -39,4 +39,6 @@ def scan_ip(request):
 
 
 def scan_ip_edit(request):
-    return  True
+    id=request.GET['id']
+    data=IpSource.objects.get(id=id)
+    return  render(request,'cmdb/servers/scan_ip_edit.html',locals())

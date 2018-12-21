@@ -473,7 +473,7 @@ class WuLiHOST_API(APIView):
             ##########以下内容在数据展示列表中不需要修改
             pg = MyPageNumberPagination()  # 实例化分页类
             page_data = pg.paginate_queryset(queryset=queryset, request=request, view=self)  # 根据请求的页码数，对数据进行分页
-            s = Host_Serializer(instance=page_data, many=True)  # 序列花这个分页数据
+            s = Host_read_Serializer(instance=page_data, many=True)  # 序列花这个分页数据
             next = pg.get_next_link()  # 获取下一页
             prev = pg.get_previous_link()  # 获取上页
             count = queryset.count()  # 获取数据总数

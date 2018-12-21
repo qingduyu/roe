@@ -107,8 +107,13 @@ class IDCAPI(APIView):
                     #     SqlRecord.objects.filter(workid=work_id.work_id).delete()
                     #     SqlOrder.objects.filter(id=i['id']).delete()
                     # else:
-                    Idc.objects.filter(id=i).delete()
-                json_data = {'code': 200, 'msg': '删除成功'}
+                    idc=Idc.objects.filter(id=i)
+                    if idc.host.exist():
+                        json_data = {'code': 200, 'msg': '这个机房有机器，不能删除'+idc.name}
+                        return Response(json_data)
+                    else:
+                        idc.delete()
+                        json_data = {'code': 200, 'msg': '删除成功'}
                 return Response(json_data)
             except Exception as e:
                 json_data = {'code': 500, 'msg': '删除失败'+e }

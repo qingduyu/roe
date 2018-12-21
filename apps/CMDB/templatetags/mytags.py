@@ -2,7 +2,7 @@
 
 
 from django import template
-
+from utils.encrpt import prpcrypt
 register = template.Library()
 
 
@@ -29,3 +29,8 @@ def res_split(value):
     else:
         return value
 
+@register.filter(name='jiemi')
+def jiemi(value):
+    pc=prpcrypt()
+    jiemi=pc.decrypt(value)
+    return jiemi

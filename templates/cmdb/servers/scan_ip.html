@@ -164,11 +164,11 @@ table.on('tool('+pageTableID+')', function(obj) {
       var data = obj.data, tit = '编辑 <em class="tit">'+data.name+ '</em> 信息';
       console.log(data)
       if(obj.event == 'edit'){
-          var url =  $(this).data('url')+data.id;
+          var url =  $(this).data('url') +'?id='+data.id;
           var editIndex =  larryms.open({
               title: tit,
               type: 2,
-              area: ['160px', '450px'],
+              area: ['460px', '450px'],
               content: url,
               success: function(index, layero) {
                 form.render();

@@ -37,7 +37,7 @@ def  scan_host(request):
             ssh_pass=ip_duan.ssh_pass.split(',')
             port=ip_duan.port.split(',')
             try:
-                do_scan_host.delay(list(port),ip_duan.nets,list(nets_pass),list(ssh_pass))
+                do_scan_host(list(port),ip_duan.nets,list(nets_pass),list(ssh_pass))
                 # aa=do_scan_host(port,ip_duan.nets,nets_pass,ssh_pass)
             except Exception as e:
                 print(e)

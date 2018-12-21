@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from index import index,main,login,logout,noperm
-from index import submenu,codeing,getmenu
+from index import submenu,codeing,getmenu,home
 # from CMDB.views.db.oracle_api import OracleClusterViewset
 
 from index import developing
@@ -52,7 +52,7 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
     url(r'^login',login,name='login'),
-
+    url(r'^home/$', home,name='home'),
     url(r'^logout', logout, name='logout'),
     url(r'^noperm', noperm, name='noperm'),
     url(r'^$',index,name='index' ), #代码首页会获取到顶级菜单

@@ -42,6 +42,7 @@ def xunihost_add(request):
                         host=Host()
                         host.hostname=hostname
                         host.ip=ip
+                        host.ip_other=ip
                         host.hostserver=hostserver
                         host.username=username
                         host.passwd=pc.encrypt(passwd)
@@ -90,7 +91,7 @@ def xunihost_edit(request):
         useuser = request.POST['useuser']
         purpose = request.POST['purpose']
         idc = request.POST['idc']
-        passwd=request.POST['passwd']
+        # passwd=request.POST['passwd']
         ssh_status = request.POST['ssh_status']
         try:
                     pc=prpcrypt()
@@ -99,7 +100,7 @@ def xunihost_edit(request):
                     host.onlinedate = onlinedate
                     host.useuser = useuser
                     host.purpose = purpose
-                    host.passwd=pc.encrypt(passwd)
+                    # host.passwd=pc.encrypt(passwd)
                     host.idc_id = idc
                     host.ssh_status = ssh_status
                     host.save()

@@ -1,4 +1,5 @@
 {% extends 'base_children.html' %}
+
 {% load mytags %}
 {% block content %}
     <div class="layui-row larryms-panel ">
@@ -45,7 +46,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">密码</label>
                     <div class="layui-input-block">
-                        <input class="layui-input" name="passwd" value="{{ host.passwd | default_if_none:"" }}"
+                        <input class="layui-input" name="passwd" value="{{host.passwd|jiemi }}"
                                type="text">
                     </div>
                 </div>
@@ -146,7 +147,7 @@
             rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
         }).extend({
             larry: 'js/base'
-        }).use(['larry', 'layer','jquery' ,'form', 'laydate'], function () {
+        }).use(['larry', 'layer','jquery' ,'table','form', 'laydate'], function () {
             var $ = layui.$,
                 larry = layui.larry,
                 table = layui.talbe,
@@ -175,8 +176,9 @@
                 $.post(data.form.action, data.field, function (res) {
                     if (res.code == 0) {
                         larryms.msg(res.msg);
-                        parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用
+                        {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
                         parent.layer.close(curIfr);
+
                         {#// $('#demoAddForm')[0].reset();继续添加注销上一段#}
                         {#larryms.msg(res.msg, {time: 550}, function () {#}
                         {#    parent.table.reload('demo', {});#}

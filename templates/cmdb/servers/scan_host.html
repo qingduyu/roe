@@ -17,8 +17,11 @@
             <div class="layui-card-header">
                      <div class="layui-col-lg4">
                                     <div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
-                                    <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"
-                                            data-url="{% url 'cmdb_ip_api' %}"><i class="layui-icon">&#xe640;</i>
+                                    <button class="layui-btn layui-btn-sm layui-btn-danger"
+                                            data-type="del"
+                                            data-url="{% url 'cmdb_ip_api' %}"
+                                    >
+                                        <i class="layui-icon">&#xe640;</i>
                                         <cite>删除主机</cite>
                                     </button>
                                 </div>
@@ -28,10 +31,10 @@
 
                                             <div class="layui-col-md10">
                                             <div class="layui-input-block">
-                                                <select  name='ipduan_id'  lay-filter="multiselect" lay-verify="required" xm-select="selectId"s>
+                                                <select  name='ipduan_id'   lay-verify="required" xm-select="selectId"s>
                                                     <option value=""> 选择扫描段</option>
                                                     {% for i in ipduan %}
-                                                         <option value="{{ i.id }}" selected>{{ i.nets }}</option>
+                                                         <option value="{{ i.id }}" >{{ i.nets }}</option>
                                                     {% endfor %}
 
                                                 </select>
@@ -57,7 +60,7 @@
             </div>
                     <div class="layui-card-body">
 
-                        <table id="demo" lay-filter="demo" class="larryms-table-id"        data-url="{% url 'cmdb_host_api' %}"></table>
+                        <table id="demo" lay-filter="demo" class="larryms-table-id"  data-url="{% url 'cmdb_host_api' %}"></table>
                     </div>
                 </section>
             </div>
@@ -66,13 +69,12 @@
             <div class="layui-col-xs12 layui-col-sm12 layui-col-md4 layui-col-lg4">
                 <section class="layui-card">
                     <div class="layui-card-header">
-
-
                             <div class="layui-btn-group larryms-btn-group">
                                 <div class="layui-block">
                                     <div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
-                                    <button class="layui-btn layui-btn-sm layui-btn-danger"><i class="layui-icon">&#xe640;</i>
-                                        <cite>登陆失败主机</cite>
+                                    <button class="layui-btn layui-btn-sm layui-btn-danger"  data-type="del_ip"
+                                            data-url="{% url 'cmdb_hostfail_api' %}" ><i class="layui-icon">&#xe640;</i>
+                                        <cite>删除登陆失败的ip</cite>
                                     </button>
 
                                 </div>
@@ -111,11 +113,12 @@
             {#rightMenu: custom // false关闭，设置为custom时使用自定义，不使用默认menu#}
         }).extend({
             larry: 'js/base'
-        }).use(['jquery', 'table', 'form', 'layer', 'larry', 'formSelects'], function () {
+        }).use(['jquery', 'table', 'form', 'layer','larry', 'formSelects'], function () {
             var $ = layui.$,
                 larryms = layui.larryms,
                 form = layui.form,
                 table = layui.table,
+
                 formSelects = layui.formSelects,
                 layer = layui.layer;
             //按钮监听
@@ -147,6 +150,46 @@
                 {##}
                 {##}
                 {# },#}
+                del_ip:function(){
+                           checkStatus = table.checkStatus('demo2'),
+                        data = checkStatus.data,
+                        newsId = [];
+                    console.log(data);
+                    var url = $(this).data('url');
+                    console.log(url);
+                    if (data.length > 0) {
+                        for (var i in data) {
+                            //排除默认管理员
+                            newsId.push(data[i].id);
+                        }
+                        if (newsId.length > 0) {
+                            var ids = {"id": newsId};
+                            console.log(newsId);
+                            larryms.confirm('你确定删除这些 失败的IP 吗？', {icon: 3, title: '批量删除提示！'}, function () {
+                                $.ajax({
+                                    dataType: "JSON",
+                                    url: url, //请求地址
+                                    type: "DELETE",  //提交类似
+                                    contentType: "application/json",
+                                    data: JSON.stringify({"id": newsId}),  //提交参数
+                                    success: function (res) {
+                                        larryms.msg(res.msg)
+                                        table.reload('demo2', {})
+                                    },
+                                    error: function (response) {
+                                        larryms.msg(response.responseText);
+                                    }
+                                });
+                            });
+                        } else {
+                            larryms.msg('默认管理员不可删除,我是神一样的存在！');
+                        }
+                    } else {
+                        larryms.msg('请至少选择一项，进行删除操作');
+                    }
+                },
+
+
                 del: function () {
                     //批量删除
                     checkStatus = table.checkStatus('demo'),
@@ -190,8 +233,8 @@
 
 
             form.on('submit(demoadd)', function (data) {
-                larryms.msg('已经开吃扫描，请稍后查看本页 '),
-                    console.log(data)
+                larryms.msg('已经开始后台扫描，请稍后查看本页 '),
+
                     $.ajax({
                         {#dataType: "JSON",#}
                         url: data.form.action, //请求地址
@@ -261,8 +304,8 @@
                 console.log(data)
                 if (obj.event == 'edit') {
                     var url = $(this).data('url') + data.id;
-                    var editIndex = larryms.open({
-                        title: tit,
+                    var editIndex = layer.open({
+                        title: '归类',
                         type: 2,
                         area: ['560px', '450px'],
                         content: url,

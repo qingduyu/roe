@@ -108,8 +108,8 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
                     host.idc_id = '1'
                 elif item[0:3] == '10.':
                     host.idc_id = '2'
-                if tempdict['machine_type'][0:6] == 'XenHVM':
-                    host.asset_type = '虚拟机'
+                # if tempdict['machine_type'][0:6] == 'XenHVM':
+                #     host.asset_type = u'虚拟机'
                 ip_temp = host.ip_other.split(',')
                 tem = 0  # 如果 ip other 有这个ip 就是已经保存了这个IP，忽略，增加，如过没有则保存
                 for i in ip_temp:
@@ -139,8 +139,8 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
                     host.idc_id = '1'
                 elif item[0:3] == '10.':
                     host.idc_id = '2'
-                if tempdict['machine_type'][0:6] == 'XenHVM':
-                    host.asset_type = '2'
+                # if tempdict['machine_type'][0:6] == 'XenHVM':
+                #     host.asset_type = '虚拟机'
                 host.save()
 
     if unkown_list:
@@ -163,7 +163,7 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
                 else:
                     is_inhost = False
                     for ips in ip_host:
-                        ip_list = ips['ip_other'].split(',')  # 因为总是出现会过包含主机的信息
+                        ip_list = ips.ip_other.split(',')  # 因为总是出现会过包含主机的信息
                         for ipi in ip_list:
                           if ipi == ip:
                             is_inhost = True
@@ -172,7 +172,7 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
                           break
 
                     if not is_inhost:
-                       Host_fail.objects.update_or_create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'],
+                       Host_fail.objects.create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'],
                                                        is_inhost=is_inhost)
 
             except Exception as e:
@@ -195,7 +195,7 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
                 else:
                     is_inhost=False
                     for ips in ip_host:
-                      ip_list = ips['ip_other'].split(',')   #因为总是出现会过包含主机的信息
+                      ip_list = ips.ip_other.split(',')   #因为总是出现会过包含主机的信息
                       for ipi in ip_list:
                         if ipi == ip:
                             is_inhost = True
@@ -204,7 +204,6 @@ def do_scan_host(port_list,ip_duan,black_list,sshpass_list):
                           break
 
                     if not is_inhost:
-
                          Host_fail.objects.update_or_create(ip=ip, is_ssh=tempdict['is_ssh'], port=tempdict['port'],
                                                                 is_inhost=is_inhost)
 

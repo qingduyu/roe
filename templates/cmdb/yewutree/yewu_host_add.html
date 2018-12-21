@@ -1,30 +1,34 @@
 {% extends 'base_children.html' %}
+{% block self_head %}
+    <link  rel="stylesheet" href="/static/larryms/thirdlib/formSelects-v4.css" >
+{% endblock %}
 {% block content %}
     <body class="auth-user">
     <div class="layui-fluid">
         <div class="layui-row larryms-panel auth-user-add">
-            <form action="{% url 'yewu_host_ops' yewuid %}" class="layui-form" method="post" id="demoAddForm">
+            <form action="{% url 'yewu_host_ops' yewuid %}" class="layui-form layui-form-pane" method="post" id="demoAddForm">
                 {% csrf_token %}
             <input type="hidden" name="yewuid" value="{{ yewuid }}">
                 <div class="layui-form-item">
 
-                    <div class="layui-inline">
+                    <div class="layui-form-inline">
                         <label class="layui-form-label">搜索主机</label>
-                        <div class="layui-input-inline">
-                            <select name="hostid" lay-verify="required" lay-search=""  style="width:100px" size="1">
+<div class="layui-input-block">
+     <select name="hostid" lay-verify="required"  lay-filter='multiselect' xm-select="selectId" xm-select-search=""  xm-select-search-type="">
                                 <option value=''>直接选择或搜索选择</option>
                                 {% for s in host %}
-                                    <option value='{{ s.id }}'> ( {{ s.ip_other }}) + {{ s.hostname }}  </option>
-                                {% endfor %}
+                                    <option value='{{ s.id }}'> ( {{ s.ip_other }}) + {{ s.hostname }}  </option>{% endfor %}
                             </select>
 
-                        </div>
-<a class='layui-btn  layui-btn-normal' lay-submit='' lay-filter='demoadd' id='submitAdd'>确定</a>
-                    </div>
+</div>
 
+
+
+                    </div>
 
                 </div>
 
+<a class='layui-btn  layui-btn-normal' lay-submit='' lay-filter='demoadd' id='submitAdd'>确定</a>
             </form>
 
         </div>
@@ -44,12 +48,16 @@
             rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
         }).extend({
             larry: 'js/base'
-        }).use(['larry', 'layer', 'form'], function () {
+        }).use(['jquery','larry', 'layer','multiSelect', 'form','formSelects'], function () {
             var $ = layui.$,
                 larry = layui.larry,
                 table = layui.talbe,
+                multiSelect=layui.multiSelect,
                 larryms = layui.larryms,
+                formSelects=layui.formSelects,
                 form = layui.form;
+
+             formSelects.btns('selectId', []);
             var curIfr = parent.layer.getFrameIndex(window.name);
             $('#resetAdd').on('click', function () {
                 $('#demoAddForm')[0].reset();

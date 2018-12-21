@@ -25,30 +25,33 @@
             <div class="layui-row larry-shortcut layui-col-space15" id="shortcut">
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
                     <section class="shortcut pos-r larry-ico-rotate">
-                        <a  larry-tab="iframe" class="pos-r" data-url='http://www.baidu.com' data-icon="larry-daohang" data-font="larry-icon">
-                            <div class="larry-ico larry-bg-red"><i class="larry-icon larry-weibiaoti2zhuanhuan"></i></div>
+                        <a   class="pos-r"  data-icon="larry-daohang" data-font="larry-icon">
+                            <div class="larry-ico larry-bg-red"><i class="layui-icon layui-icon-template-1"></i></div>
                             <div class="larry-value">
-                                <cite class="un-nums">百度</cite>
+                                <span class="nums" id="msgNums">{{ xuniji_count }}</span>
+                                <cite>虚拟机</cite>
                             </div>
                         </a>
                     </section>
                 </div>
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
                     <section class="shortcut pos-r larry-ico-rotate">
-                        <a larry-tab="iframe"  class="pos-a" data-url='https://www.aliyun.com'  data-icon="larry-chanpinC" data-font="larry-icon">
+                        <a    data-icon="larry-chanpinC" data-font="larry-icon">
                             <div class="larry-ico larry-bg-two"><i class="larry-icon larry-chanpinC"></i></div>
                             <div class="larry-value">
-                                <cite class="un-nums">阿里云</cite>
+                                <span class="nums" id="msgNums">{{ wuliji_count }}</span>
+                                <cite>物理机</cite>
                             </div>
                         </a>
                     </section>
                 </div>
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col layui-hide-xs">
                     <section class="shortcut pos-r larry-ico-rotate">
-                        <a larry-tab="iframe" class="pos-r" data-url='http://10.0.8.40/zabbix.php?action=dashboard.view'  data-icon="larry-pc" data-font="larry-icon">
-                            <div class="larry-ico larry-bg-green"><i class="larry-icon larry-github"></i></div>
+                        <a  class="pos-r"   data-icon="larry-pc" data-font="larry-icon">
+                            <div class="larry-ico larry-bg-green"><i class="larry-icon larry-fold5"></i></div>
                             <div class="larry-value">
-                                <cite class="un-nums">监控地址</cite>
+                               <span class="nums" id="msgNums">{{ suzhuji_count }}</span>
+                                <cite>宿主机</cite>
                             </div>
                         </a>
                     </section>
@@ -56,9 +59,10 @@
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col  layui-hide-xs">
                     <section class="shortcut pos-r larry-ico-rotate">
                         <a larry-tab="iframe" class="pos-r" data-url='http://www.fanglianchao.top' data-icon="larry-xiangmu" data-font="larry-icon" >
-                            <div class="larry-ico larry-bg-purple"><i class="larry-icon larry-kongzhitaishouye"></i></div>
+                            <div class="larry-ico larry-bg-purple"><i class="larry-icon larry-yingyongzhongxin"></i></div>
                             <div class="larry-value">
-                                <cite class="un-nums">作者博客地址</cite>
+                               <span class="nums" id="msgNums">0</span>
+                                <cite>中间件</cite>
                             </div>
                         </a>
                     </section>
@@ -67,10 +71,10 @@
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
                     <section class="shortcut pos-r larry-ico-rotate">
                         <a larry-tab="iframe" class="pos-r" data-url='https://github.com/qingduyu/roe' data-icon="larry-message_icon" data-font="larry-icon" >
-                            <div class="larry-ico larry-bg-orange"><i class="larry-icon larry-message_icon"></i></div>
+                            <div class="larry-ico larry-bg-orange"><i class="larry-icon larry-shujuku1"></i></div>
                             <div class="larry-value">
-                                <span class="nums" id="msgNums">1000</span>
-                                <cite>测试网址</cite>
+                                <span class="nums" id="msgNums">{{ oracle_count }}</span>
+                                <cite>Oracle</cite>
                             </div>
                         </a>
                     </section>
@@ -78,10 +82,10 @@
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg2 larry-col">
                     <section class="shortcut larry-ico-rotate">
                         <a larry-tab="iframe" class="pos-r" data-url='admin/content/list.html' data-icon="larry-neirongguanli1" data-font="larry-icon" >
-                            <div class="larry-ico larry-bg-blue"><i class="larry-icon larry-neirongguanli1"></i></div>
+                            <div class="larry-ico larry-bg-blue"><i class="larry-icon larry-shujuku"></i></div>
                             <div class="larry-value">
-                                <span class="nums" id="artNums">7666</span>
-                                <cite>所有文章列表</cite>
+                                <span class="nums" id="artNums">{{ mysql_count }}</span>
+                                <cite>mysql</cite>
                             </div>
                         </a>
                     </section>

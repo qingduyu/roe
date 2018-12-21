@@ -71,8 +71,7 @@
     var $ = layui.$,
     larryms = layui.larryms,
     form = layui.form,
-  table = layui.table,
-
+  table = layui.table, larry = layui.larry,
   layer=layui.layer;
   //按钮监听
   {#        laypage({#}
@@ -195,9 +194,9 @@ table.on('tool('+pageTableID+')', function(obj) {
       if(obj.event == 'edit'){
           var url =  $(this).data('url')+"?id="+data.id;
           var editIndex =  larryms.open({
-              title: tit,
+              title: '虚拟机',
               type: 2,
-              area: ['860px', '450px'],
+              area: ['960px', '450px'],
               content: url,
               success: function(index, layero) {
                 form.render();

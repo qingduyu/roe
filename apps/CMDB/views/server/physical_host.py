@@ -108,7 +108,7 @@ def wulihost_edit(request):
             host.useuser = useuser
             host.purpose = purpose
             host.username=username
-            host.passwd=pc.encrypt(passwd)
+            # host.passwd=pc.encrypt(passwd)
             host.port=port
             host.idc_id = idc
             host.cabinet=cabinet
