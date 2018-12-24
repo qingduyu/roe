@@ -3,11 +3,11 @@
 from django.conf.urls import url,include
 from django.contrib import admin
 from yewu_tree import yewu_tree,yewu_huizong,yewu_tree_add_branch,yewu_tree_add_leaf,yewu_tree_delete,yewu_tree_edit_branch,yewu_tree_edit_leaf,yewutree2
-from yewu_tree import yewu_server_ops,yewu_server
+from yewu_tree import yewu_host_add,yewu_server,yewu_host_free
 from yewu_tree import yewu_mysql
 from yewu_tree import yewu_oracle,yewu_mongo,yewu_redis
 
-from yewu_tree_api import get_treehost,get_jsontree
+from yewu_tree_api import get_treehost,get_jsontree,YewuHost_API,YewuHost_free_API
 
 # from views.net import  netdevice,group_net,idc_net
 from CMDB.views.idc import idc_show,idc_add,idc_edit
@@ -19,7 +19,7 @@ from CMDB.views.db.mysql import (mysql_cluster,mysql_cluster_instance, mysql_clu
                                  mysql_cluster_add,mysql_cluster_edit,mysql_cluster_db_add,mysql_cluster_db_edit,
                                  mysql_cluster_instance_add,mysql_cluster_instance_edit,mysql_cluster_user_add,mysql_cluster_user_edit,
                                  )
-from CMDB.views.db.msyql_api import MysqlClusterAPI,MysqlDBAPI,MysqlInstanceAPI,MySQLUserAPI,Mysql_DO_API
+from CMDB.views.db.mysql_api import MysqlClusterAPI,MysqlDBAPI,MysqlInstanceAPI,MySQLUserAPI,Mysql_DO_API
 
 from CMDB.views.server.scan_conf import scan_host_conf_list,scan_host_conf_add,scan_host_conf_edit,scan_host_ip_add,scan_host_ip_del,scan_host_conf_upate
 from CMDB.views.server.scan_conf_api import ScanHostConfAPI
@@ -44,7 +44,7 @@ urlpatterns = [
 ############################以下是mysql 资产相关url
     url(r'^db/mysql_cluster/$',mysql_cluster,name='cmdb_mysql_cluster'),
     url(r'^db/mysql_cluster/add/$', mysql_cluster_add, name='cmdb_mysql_cluster_add'),
-    url(r'^db/mysql_cluster/edit/(?P<id>[0-9]+)$', mysql_cluster, name='cmdb_mysql_cluster_edit'),
+    url(r'^db/mysql_cluster/edit/(?P<id>[0-9]+)$', mysql_cluster_edit, name='cmdb_mysql_cluster_edit'),
     url(r'^db/api/mysql_cluster/$',MysqlClusterAPI.as_view(),name='api_mysql_cluster'),
     url(r'^db/api/mysql_do_update/$',Mysql_DO_API.as_view(),name='api_mysql_do_update'),
 
@@ -91,11 +91,15 @@ urlpatterns = [
     # url('^yewu_tomcat/$', yewu_oracle, name='yewu_tomcat'),
 
     url('^yewu_host/$', yewu_server, name='yewu_host'),
-    url('^yewu_host_ops/(?P<id>[0-9]+)/$', yewu_server_ops, name='yewu_host_ops'),
+    url('^yewu_host_add/(?P<id>[0-9]+)/$', yewu_host_add, name='yewu_host_add'),
     url('^yewu_huizong/$', yewu_huizong, name='yewu_huizong'),
+    url('^yewu_host_api/$',YewuHost_API.as_view() , name='cmdb_yewu_host_api'),
 
+    url('^yewu_host_free/$', yewu_host_free, name='cmdb_yewu_host_free'),
+    url('^yewu_host_free_api/$', YewuHost_free_API.as_view(), name='cmdb_yewu_host_free_api'),
     url('^get_json_tree/$',get_jsontree, name='get_json_tree'),
     url('^get_json_tree_host/(?P<id>[0-9]+)/$', get_treehost, name='get_json_tree_host'),
+
 
 
 

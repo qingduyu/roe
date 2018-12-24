@@ -72,7 +72,7 @@ class MysqlClusterAPI(APIView):
 
             except Exception as e:
                 print(e)
-                json_data = {'code': 500, 'msg': '数据添加失败，测试连接失败'}
+                json_data = {'code': 500, 'msg': '数据添加失败，测试连接失败,请检查用户名密码,或者网络联通性'}
                 return Response(json_data, content_type="application/json")
 
             s.save() #连接成功后保存数据
@@ -87,6 +87,11 @@ class MysqlClusterAPI(APIView):
     def put(self, request, format=None):
         try:
             data_id = request.data['id']
+            foreign_ip = request.data['foreign_ip']
+            foreign_port = request.data['foreign_port']
+            plat_user = request.data['plat_user']
+            plat_user_passwd = request.data['plat_user_pass']
+
         except Exception as e:
             print(e)
             json_data = {'code': 500, 'msg': '数据有错误获取不到id'}
@@ -96,10 +101,17 @@ class MysqlClusterAPI(APIView):
             s = MysqlClusterSerializer(DATA_MODEL, data=request.data)
 
             if s.is_valid(raise_exception=True):
-                s.save()
-                json_data = {'code': 200, 'msg': '更新成功'}
-                return Response(json_data)
-            json_data = {'code': 500, 'msg': '更新失败'}
+                try:
+                    testconn = MySQL(ip=foreign_ip, port=foreign_port, user=plat_user, passwd=plat_user_passwd)
+                    testconn.close()
+                    msg = '数据库连接成功'
+                    s.save()
+                    json_data = {'code': 200, 'msg': '更新成功'}
+                    return Response(json_data)
+                except Exception as e:
+                    json_data = {'code': 500, 'msg': '更新失败，新的用户名密码或者网络不通过'}
+                    return Response(json_data)
+            json_data = {'code': 500, 'msg': '更新失败,数据格式和内部表不一致'}
             return Response(json_data, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 

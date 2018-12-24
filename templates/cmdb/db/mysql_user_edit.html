@@ -1,10 +1,184 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_children.html' %}
+{% load mytags %}
+{% block content %}
+    <div class="layui-row larryms-panel auth-user-add">
+        <form action="{% url 'api_mysql_cluster' %}" class="layui-form layui-form-pane" method="post" id="demoAddForm">
+            {% csrf_token %}
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">集群名称</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="name" lay-verify="required" placeholder="请输入集群名" type="text">
+                    </div>
+                </div>
 
-</body>
-</html>
+            </div>
+
+            <div class="layui-form-item">
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">架构</label>
+                    <div class="layui-input-block">
+                        <select name="arch">
+                            {% for s in mysql_arch %}
+                                <option value="{{ s.0 }}"> {{ s.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">db版本</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="db_version" placeholder="db版本" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">对外IP</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="foreign_ip" lay-verify="ip" placeholder="IP" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">对外端口</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="foreign_port" placeholder="port" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">本平台用用户</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="plat_user" placeholder="user" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户密码</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="plat_user_pass" placeholder="password" type="text">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">可见人</label>
+                    <div class="layui-input-block">
+                        <select name="operator">
+                            <option value="">可见人</option>
+                            {% for ss in operators %}
+                                {% ifequal ss.name  operator %}
+                                    <option value="{{ ss.id }}" selected> {{ ss.name }}</option>
+                                {% else %}
+                                    <option value="{{ ss.id }}"> {{ ss.name }}</option>
+                                {% endifequal %}
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">上线日</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="up_date" id='up_date' placeholder="" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">下线日</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="down_date" id='down_date' placeholder="点击选择" type="text">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-block">
+                        <select name="status">
+                            <option value=""></option>
+                            {% for ss in my_status %}
+                                {% ifequal ss.0  status %}
+                                    <option value="{{ ss.0 }}" selected> {{ ss.1 }}</option>
+                                {% else %}
+                                    <option value="{{ ss.0 }}"> {{ ss.1 }}</option>
+                                {% endifequal %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="larryms-layer-btn">
+                {#                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-normal" id="testconn">测试连接</a>#}
+                <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="demoadd"
+                   id="submitAdd">确定</a>
+                <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
+                <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+            </div>
+
+
+        </form>
+    </div>
+
+{% endblock %}
+{% block self_foot %}
+    <script type="text/javascript">
+        layui.config({
+            version: "2.0.8",
+            base: '/static/larryms/',
+            layertype: 2, //iframe内层弹窗类型不显示返回首页
+            rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+        }).extend({
+            larry: 'js/base'
+        }).use(['larry', 'layer', 'form', 'laydate'], function () {
+            var $ = layui.$,
+                larry = layui.larry,
+                table = layui.talbe,
+                larryms = layui.larryms,
+                laydate = layui.laydate,
+                form = layui.form;
+
+            var curIfr = parent.layer.getFrameIndex(window.name);
+            $('#resetAdd').on('click', function () {
+                $('#demoAddForm')[0].reset();
+            });
+            $('#closeAdd').on('click', function () {
+                parent.layer.close(curIfr);
+            });
+            laydate.render({
+                elem: '#up_date'
+                , value: '{{ data.start_date|date:'Y-n-d' }}', format: 'yyyy-MM-dd', isInitValue: true
+            });
+            laydate.render({
+                elem: '#down_date'
+                , value: '{{ data.end_date|date:'Y-n-d' }}', format: 'yyyy-MM-dd', isInitValue: true
+            });
+
+            form.on('submit(demoadd)', function (data) {
+                $.post(data.form.action, data.field, function (res) {
+                    if (res.code == 200) {
+                        {#larryms.msg(res.msg);#}
+                        {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                        {#parent.layer.close(curIfr);#}
+                        {#// $('#demoAddForm')[0].reset();继续添加注销上一段#}
+                        larryms.msg(res.msg, {time: 350}, function () {
+                            parent.table.reload('demo', {});
+                            parent.layer.close(curIfr);
+                        })
+
+                    } else if (res.code == 911) {
+                        larryms.msg(res.msg);
+                    } else if (res.code == 500) {
+                        larryms.msg(res.msg);
+                    }
+                });
+                return false;
+            });
+
+        });
+
+
+    </script>
+
+{% endblock %}

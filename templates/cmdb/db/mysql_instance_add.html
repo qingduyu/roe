@@ -2,7 +2,7 @@
 {% load mytags %}
 {% block content %}
     <div class="layui-row larryms-panel auth-user-add">
-     <form action="{% url 'api_mysql_instance' %}" class="layui-form" method="post" id="demoAddForm">
+     <form action="{% url 'api_mysql_instance' %}" class="layui-form layui-form-pane" method="post" id="demoAddForm">
 {#            {% csrf_token %}#}
                 <div class="layui-form-item">
                     <div class="layui-inline">

@@ -1,11 +1,7 @@
 {% extends 'base_children.html' %}
 {% load mptt_tags %}
 {% block self_head %}
-
-
     <link rel="stylesheet" href="/static/jquery/jstree/themes/default/style.min.css"/>
-
-
 {% endblock %}
 
 
@@ -23,11 +19,7 @@
     <div class="layui-fluid">
         <div class="layui-row  layui-col-space15 larryms-count-demo">
             <div class="layui-col-xs6 layui-col-sm6 layui-col-md3 layui-col-lg3">
-{#                <fieldset class="layui-elem-field">#}
-{#                    <div class="layui-field-box">#}
-{#                        对树编辑？ 试试右键，拖拽。#}
-{#                    </div>#}
-{#                </fieldset>#}
+
                 <section class="layui-card">
 
                     <div id="tree">
@@ -64,9 +56,9 @@
 </fieldset>
                     <div>
                     <ul>
-                        <li class="layui-btn layui-btn-normal"><a href="#" target="listChannel">空闲机</a></li>
+                        <li class="layui-btn layui-btn-normal"><a href="{% url 'cmdb_yewu_host_free' %}" target="listChannel">空闲机</a></li>
 
-                        <li class="layui-btn layui-btn-warm"><a href="#" target="listChannel">故障机</a></li>
+{#                        <li class="layui-btn layui-btn-warm"><a href="#" target="listChannel">故障机</a></li>#}
                     </ul>
                 </div>
                 </section>

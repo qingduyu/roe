@@ -16,7 +16,7 @@
                             <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="add" data-url="{% url 'cmdb_mysql_cluster_add' %}"><i class="layui-icon">&#xe61f;</i>
                                 <cite>添加mysql集群</cite>
                             </button>
-                            <button class="layui-btn layui-btn-sm layui-btn-warm" data-type="update"  data-url="{% url 'api_mysql_do_update' %}"><i class="layui-icon"></i>
+                            <button class="layui-btn layui-btn-sm layui-btn-green" data-type="update"  data-url="{% url 'api_mysql_do_update' %}"><i class="layui-icon"></i>
                                 <cite>更新集群信息</cite>
                             </button>
                             <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"  data-url="{% url 'api_mysql_cluster' %}"><i class="layui-icon">&#xe640;</i>
@@ -177,7 +177,7 @@
                  cellMinWidth:80,
                  url:tableDataUrl,
                  method:'get',
-                 height:'full-130',
+                 {#height:'full-130',#}
                  page:true,
                  cols:[
                    [
@@ -199,13 +199,13 @@
 var pageTableID = $('.larryms-table-id').attr('id');
 table.on('tool('+pageTableID+')', function(obj) {
       var data = obj.data, tit = '编辑 <em class="tit">'+data.name+ '</em> 信息';
-      console.log(data)
+
       if(obj.event == 'edit'){
           var url =  $(this).data('url')+data.id;
           var editIndex =  larryms.open({
               title: tit,
               type: 2,
-              area: ['860px', '450px'],
+              area: ['900px', '500px'],
               content: url,
               success: function(index, layero) {
                 form.render();

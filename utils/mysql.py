@@ -28,9 +28,10 @@ class MySQL(object):
 
     def connect(self, host, port, dbname, user, passwd):
         try:
-            conn = MySQLdb.connect(host, user, passwd, dbname, port)
+            conn = MySQLdb.connect(host, user, passwd, dbname, port,connect_timeout=2)
             return conn
         except MySQLdb.Error, ex:
+            print ex
             return False
 
     def execute(self, sql, num=1000):
@@ -126,6 +127,13 @@ class MySQL(object):
             return rs
         else:
             return {}
+
+    def getInnoClusterInstance(self):
+        count,result,columns=self.execute(sql='SELECT a.member_host,a.MEMBER_PORT,b.instance_name,a.MEMBER_ROLE,a.MEMBER_STATE '
+                                              'FROM performance_schema.replication_group_members a left JOIN mysql_innodb_cluster_metadata.instances b '
+                                              'on a.MEMBER_ID=b.mysql_server_uuid  order by MEMBER_ROLE;')
+
+        return count,result,columns
 
     def getBinaryLog(self):
         try:

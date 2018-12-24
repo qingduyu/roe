@@ -99,19 +99,19 @@ div[xm-select-skin=danger].xm-form-selected .xm-select,div[xm-select-skin=danger
 /* 多选联动  */
 .xm-select-parent .layui-form-danger+.xm-select-title .xm-select {border-color: #FF5722 !important;}
 .xm-select-linkage li {padding: 10px 0px;cursor: pointer;}
-.xm-select-linkage li span {padding-left: 10px;padding-right: 20px;display: inline-block;height: 20px;overflow: hidden;text-overflow: ellipsis;}
-.xm-select-linkage li.xm-select-this span {border-left: 15px solid #009688;color: #009688;padding-left: 15px;}
+.xm-select-linkage li span {padding-left: 5px;padding-right: 10px;display: inline-block;height: 20px;overflow: hidden;text-overflow: ellipsis;}
+.xm-select-linkage li.xm-select-this span {border-left: 10px solid #009688;color: #009688;padding-left: 10px;}
 .xm-select-linkage-group {position: absolute;left: 0;top: 0;right: 0;bottom: 0;overflow-x: hidden;overflow-y: auto;}
 .xm-select-linkage-group li:hover {border-left: 1px solid #009688;}
 .xm-select-linkage-group li:hover span {padding-left: 10px;}
 .xm-select-linkage-group li.xm-select-this:hover span {padding-left: 5px;border-left-width: 4px;}
 .xm-select-linkage-group:nth-child(4n+1){background-color: #EFEFEF; left: 0;}
 .xm-select-linkage-group:nth-child(4n+1) li.xm-select-active{background-color: #F5F5F5;}
-.xm-select-linkage-group:nth-child(4n+2){background-color: #F5F5F5; left: 20px;}
+.xm-select-linkage-group:nth-child(4n+2){background-color: #F5F5F5; left: 15px;}
 .xm-select-linkage-group:nth-child(4n+3) li.xm-select-active{background-color: #FAFAFA;}
-.xm-select-linkage-group:nth-child(4n+3){background-color: #FAFAFA; left: 50px;}
+.xm-select-linkage-group:nth-child(4n+3){background-color: #FAFAFA; left: 30px;}
 .xm-select-linkage-group:nth-child(4n+3) li.xm-select-active{background-color: #FFFFFF;}
-.xm-select-linkage-group:nth-child(4n+4){background-color: #FFFFFF; left: 70px;}
+.xm-select-linkage-group:nth-child(4n+4){background-color: #FFFFFF; left: 60px;}
 .xm-select-linkage-group:nth-child(4n+4) li.xm-select-active{background-color: #EFEFEF;}
 .xm-select-linkage li{list-style: none;}
 .xm-select-linkage-hide {display: none;}

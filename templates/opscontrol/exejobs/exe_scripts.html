@@ -56,7 +56,7 @@
                                         <label class="layui-form-label">产品线</label>
                                         <div class="layui-input-block">
                                             <select name="prod_line" xm-select='prod_line'  xm-select-radio>
-                                                    <option value="">liandongduoxuan</option>
+                                                    <option value="">先选择业务线的host，再选择机器</option>
                                             </select>
 {#                                             <input type="text" id="yewuxian" class="layu=3i-input" readonly="readonly">#}
                                         </div>
@@ -65,7 +65,7 @@
                                         <label class="layui-form-label">目标机器</label>
                                         <div class="layui-input-block">
                                             <select name='hosts' id="select_host" xm-select='select_host'  xm-select-max="3">
-                                                    <option value="">选择一个服务器</option>
+                                                    <option value="">选择业务线后,选择一个或多个服务器</option>
                                             </select>
 
                                         </div>
@@ -455,7 +455,7 @@ $('#edit_sh').on('click',function(){
                             clearInterval(interval);
                         }
                     });
-                }, 500);  //一秒钟运行2此
+                }, 10);  //一秒钟运行2此
 
 // 	    /* 轮训获取结果结束  */
                 $.ajax({
@@ -564,27 +564,7 @@ $('#edit_sh').on('click',function(){
 	   $('#select_host option:selected').empty();
 
 		   if ( hostid > 0){
-				{#$.ajax({#}
-				{#	dataType: "JSON",#}
-				{#	url:'/cmdb/get_json_tree_host/'+ hostid + '/', //请求地址#}
-				{#	type:"GET",  //提交类似#}
-                    {#data: {"hostid":hostid},#}
-				{#	success: function(res){#}
-                {##}
-				{#		var headHtml = '<select name="hosts" id="select_host" xm-select="select_host" xm-select-max="3">';#}
-                {##}
-				{#		var optionhtml = '';#}
-				{#		for (var i=0; i <res.data.length; i++){#}
-				{#			 optionhtml += '<option  value="' + res.data[i]["id"] +  '"> ' + res.data[i]["hostname"] + '</option>'#}
-				{#		};#}
-				{#		  var  selecthtml =  headHtml + optionhtml + '</select>';#}
-				{#		document.getElementById("select_host").innerHTML= selecthtml;#}
-                {##}
-				{#	},#}
-                {#      error: function (response) {#}
-                {#                        larryms.alert(response.responseText);#}
-                {#                    }#}
-				{# });#}
+
   formSelects.config('select_host', {
     type: 'get',                //ÇëÇó·½Ê½: post, get, put, delete...
     header: {},                 //×Ô¶¨ÒåÇëÇóÍ·

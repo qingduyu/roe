@@ -39,8 +39,8 @@ class MySQLCluster(models.Model):
     operator = models.ForeignKey(User, verbose_name="可见的人", blank=True,null=True)
     status=models.CharField(u"状态", max_length=30, blank=True,null=True)
     is_pooled=models.BooleanField(verbose_name='是否在资源池中',default=True,blank=True) #在资源池中的数据才能被分配给业务,同时本资源移出资源池,不再在业务中和资源池中的表明还没准备好
-    up_date = models.DateField(null=True, blank=True, verbose_name=u'上线日期')
-    down_date = models.DateField(null=True, blank=True, verbose_name=u'下线日期')
+    up_date = models.CharField(max_length=30,null=True, blank=True, verbose_name=u'上线日期')
+    down_date = models.CharField(max_length=30,null=True, blank=True, verbose_name=u'下线日期')
     def __unicode__(self):
         return self.name
     class Meta:
@@ -63,7 +63,7 @@ class Mysql_User(models.Model):
     db_user = models.CharField(max_length=60, null=True,blank=True)
     db_host = models.CharField(max_length=20, null=True,blank=True)
     db_password=models.CharField(max_length=60, null=True,blank=True)
-    privlige=models.CharField(verbose_name='权限',max_length=300, null=True,blank=True)
+    privlige=models.CharField(verbose_name='权限',max_length=4000, null=True,blank=True)
     dbcluster = models.ForeignKey(MySQLCluster,verbose_name=u"所属集群",related_name='mysql_user' , null=True, blank=True)
     memo = models.CharField(max_length=50, verbose_name=u"备注", blank=True, null=True)
     def __unicode__(self):

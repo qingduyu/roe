@@ -48,7 +48,6 @@ def parse_binlog(instance,binname,dbname,tablesname,start_time,stop_time,sql_typ
         'port': instance.foreign_port,
         'user': instance.plat_user,
         'passwd': instance.plat_user_pass
-
     }
     try:
          binlogsql = binlog2sql.Binlog2sql(connection_settings=connect_info, start_file=binname,

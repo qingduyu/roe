@@ -20,7 +20,7 @@ from CMDB.serialize.host_serializers import Host_Serializer,HostFail_Serializer,
 from rest_framework.pagination import PageNumberPagination
 
 class MyPageNumberPagination(PageNumberPagination):
-    page_size = 10
+    page_size = 25
     page_size_query_param = "limit"
     page_query_param = 'page'
     max_page_size = 1000

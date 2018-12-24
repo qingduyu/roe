@@ -193,7 +193,15 @@ def yewu_server(request):
         except Exception as e:
             print e
 
-def yewu_server_ops(request,id):
+
+def yewu_host_free(request):
+    ' 则是展示还未关联业务的主机'
+    if request.method=='GET':
+            return render(request, 'cmdb/yewutree/yewu_host_free.html',locals())
+
+
+
+def yewu_host_add(request,id):
     '''进行主机和业务树的关联,post 方式传递2个参数,以后改成搜索多选框 ,一个是业务树的id,一个是主机的id'''
     #这里应该过滤资源吃
     if request.method=='GET':

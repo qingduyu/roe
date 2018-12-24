@@ -19,7 +19,5 @@ layui.define(function(exports){
 		tabSession:true,//默认开启选项卡缓存记忆功能
 		tabRefresh:true,//tab选项卡切换与导航重新点击是否刷新子页面默认关闭
 		animations:false,//页面默认加载切换动画效果,直接影响全局动画效果，优先级高于主题设置
-		//grantUser:'qingduyu',
- 		//grantKey:'p8End1ZcuudngqiyAYcTNLjC'
 	});
 });

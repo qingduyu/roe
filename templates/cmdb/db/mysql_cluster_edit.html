@@ -2,13 +2,14 @@
 {% load mytags %}
 {% block content %}
     <div class="layui-row larryms-panel auth-user-add">
-        <form action="{% url 'api_mysql_cluster' %}" class="layui-form layui-form-pane" method="post" id="demoAddForm">
+        <form action="{% url 'api_mysql_cluster' %}" class="layui-form layui-form-pane" method="PUT" id="demoAddForm">
             {% csrf_token %}
+         <input class="layui-input" name="id"  value="{{ data.id }}" type="hidden">
             <div class="layui-form-item">
                 <div class="layui-inline">
                     <label class="layui-form-label">集群名称</label>
                     <div class="layui-input-block">
-                        <input class="layui-input" name="name" lay-verify="required" placeholder="请输入集群名" type="text">
+                        <input class="layui-input" name="name" lay-verify="required" value="{{ data.name }}" type="text">
                     </div>
                 </div>
 
@@ -21,7 +22,11 @@
                     <div class="layui-input-block">
                         <select name="arch">
                             {% for s in mysql_arch %}
-                                <option value="{{ s.0 }}"> {{ s.1 }}</option>
+                                {% ifequal s.1 data.arch %}
+                                <option value="{{ s.0 }}" selected> {{ s.1 }}</option>
+                                {% else %}
+                                   <option value="{{ s.0 }}"> {{ s.1 }}</option>
+                                {% endifequal %}
                             {% endfor %}
                         </select>
                     </div>
@@ -29,33 +34,58 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">db版本</label>
                     <div class="layui-input-block">
-                        <input class="layui-input" name="db_version" placeholder="db版本" type="text">
+                        <input class="layui-input" name="db_version" value="{{ data.db_version }} " type="text">
                     </div>
                 </div>
+                 <div class="layui-inline">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-block">
+                        <select name="status">
+                            <option value=""></option>
+                            {% for ss in my_status %}
+                                {% ifequal ss.0  status %}
+                                    <option value="{{ ss.0 }}" selected> {{ ss.1 }}</option>
+                                {% else %}
+                                    <option value="{{ ss.0 }}"> {{ ss.1 }}</option>
+                                {% endifequal %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
                 <div class="layui-inline">
                     <label class="layui-form-label">对外IP</label>
                     <div class="layui-input-block">
-                        <input class="layui-input" name="foreign_ip" lay-verify="ip" placeholder="IP" type="text">
+                        <input class="layui-input" name="foreign_ip" lay-verify="ip" value="{{ data.foreign_ip }}" type="text">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">对外端口</label>
                     <div class="layui-input-block">
-                        <input class="layui-input" name="foreign_port" placeholder="port" type="text">
+                        <input class="layui-input" name="foreign_port" value="{{ data.foreign_port }}" type="text">
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">本平台用用户</label>
+                    <label class="layui-form-label">平台用用户</label>
                     <div class="layui-input-block">
-                        <input class="layui-input" name="plat_user" placeholder="user" type="text">
+                        <input class="layui-input" name="plat_user" value="{{ data.plat_user }}" type="text">
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">用户密码</label>
+                    <label class="layui-form-label">password</label>
                     <div class="layui-input-block">
-                        <input class="layui-input" name="plat_user_pass" placeholder="password" type="text">
+                        <input class="layui-input" name="plat_user_pass"  value="{{ data.plat_user_pass }}" type="text">
                     </div>
                 </div>
+
+               <div class="layui-inline">
+                    <label class="layui-form-label">域名</label>
+                    <div class="layui-input-block">
+                        <input class="layui-input" name="domain"  value="{{ data.domain |default_if_none:''}}" type="text">
+
+                    </div>
+                </div>
+
 
             </div>
 
@@ -78,35 +108,28 @@
                 </div>
 
 
+               <div class="layui-inline">
+                    <label class="layui-form-label">集群描述</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" name="desc"  value="{{ data.desc |default_if_none:''}}" type="text">
+                    </div>
+                </div>
+
             </div>
             <div class="layui-form-item">
                 <div class="layui-inline">
                     <label class="layui-form-label">上线日</label>
                     <div class="layui-input-block">
-                        <input class="layui-input" name="up_date" id='up_date' placeholder="" type="text">
+                        <input class="layui-input" name="up_date" id='up_date' value="{{ data.up_date|default_if_none:'' }}" type="text">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">下线日</label>
                     <div class="layui-input-block">
-                        <input class="layui-input" name="down_date" id='down_date' placeholder="点击选择" type="text">
+                        <input class="layui-input" name="down_date" id='down_date' value="{{ data.down_date |default_if_none:''}}" type="text">
                     </div>
                 </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">状态</label>
-                    <div class="layui-input-block">
-                        <select name="status">
-                            <option value=""></option>
-                            {% for ss in my_status %}
-                                {% ifequal ss.0  status %}
-                                    <option value="{{ ss.0 }}" selected> {{ ss.1 }}</option>
-                                {% else %}
-                                    <option value="{{ ss.0 }}"> {{ ss.1 }}</option>
-                                {% endifequal %}
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
+
             </div>
 
             <div class="larryms-layer-btn">
@@ -156,8 +179,14 @@
             });
 
             form.on('submit(demoadd)', function (data) {
-                $.post(data.form.action, data.field, function (res) {
-                    if (res.code == 200) {
+                  $.ajax({
+			    dataType: "JSON",
+			    url:data.form.action, //请求地址
+			    type:"PUT",  //提交类似
+			    contentType: "application/json",
+			    data: JSON.stringify(data.field),  //提交参数
+			    success:function(res) {
+			           if (res.code == 200) {
                         {#larryms.msg(res.msg);#}
                         {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
                         {#parent.layer.close(curIfr);#}
@@ -167,11 +196,13 @@
                             parent.layer.close(curIfr);
                         })
 
-                    } else if (res.code == 911) {
-                        larryms.msg(res.msg);
-                    } else if (res.code == 500) {
+                    }else if (res.code == 500) {
                         larryms.msg(res.msg);
                     }
+
+                }
+
+
                 });
                 return false;
             });

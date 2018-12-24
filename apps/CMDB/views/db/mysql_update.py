@@ -75,12 +75,12 @@ class MySQL_update(object):
         if self.arch=='主从':
             rs = self._conn.getSlaveIP()
             conn_slave=MySQL(ip=rs[1],port=self.port,user=self.user,passwd=self.passwd)
-            rs2 = conn_slave.getReplStatus()
+            slavestatus = conn_slave.getReplStatus()  #嗲用的是show slave status
             myinstance=self._cluster.mysql_instance
-            if rs2[3]==self.port: #代表主从是一致的
+            if slavestatus[3]==self.port: #代表主从是一致的
                 slave= myinstance.get_or_create(dbcluster_id=self.cluster_id,m_ip=rs[1],port=self.port)
-                slave[0].master_ip=rs2[1]
-                slave[0].master_port=rs2[3]
+                slave[0].master_ip=slavestatus[1]
+                slave[0].master_port=slavestatus[3]
                 slave[0].role=u'从库'
                 # slave[0].db_status=u'仅从库'
                 slave[0].save()
@@ -89,6 +89,42 @@ class MySQL_update(object):
                 master[0].role=u'主库'
                 master[0].db_status=u'服务中'
                 master[0].save()
+            else:
+                print(u'主从添加实例不对阿')
+        elif self.arch==u'单库':
+            myinstance=self._cluster.mysql_instance
+            single=myinstance.get_or_create(dbcluster_id=self.cluster_id,m_ip=self.ip,port=self.port)
+            single[0].vist_ip=self.ip
+            single[0].role=u'单库'
+            single[0].db_status=u'服务中'
+            single[0].save()
+        elif self.arch==u'innodb_cluster':
+            count,result,columns=self._conn.getInnoClusterInstance()
+            myinstance=self._cluster.mysql_instance
+            masterip=''
+            master_port=''
+            for i in range(count):
+                ip=result[i][2].split(':')[0]
 
+                port=result[i][1]
+                role_0=result[i][3]
+                db_status=result[i][4]
 
-        return  True
+                clusertI=myinstance.get_or_create(dbcluster_id=self.cluster_id,m_ip=ip,port=port)
+                clusertI[0].vist_ip=ip
+                if role_0==u'PRIMARY':
+                    clusertI[0].role=u'主库'
+                    masterip=ip
+                    master_port=port
+                else:
+                    clusertI[0].role = u'从库'
+                    clusertI[0].master_ip=masterip
+                    clusertI[0].master_port=master_port
+                if db_status==u'ONLINE':
+                    clusertI[0].db_status=u'服务中'
+                else:
+                    clusertI[0].db_status = u'故障'
+
+                clusertI[0].save()
+
+        return True

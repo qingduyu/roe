@@ -8,7 +8,7 @@ sys.setdefaultencoding("utf-8")
 
 
 class BinlogParseRedo(models.Model):
-    sql = models.CharField(max_length=1900,blank=True, null=True, verbose_name='解析后的sql')
+    sql = models.CharField(max_length=4000,blank=True, null=True, verbose_name='解析后的sql')
     start_pos = models.IntegerField(blank=True, null=True, verbose_name='起始位置')
     end_pos = models.IntegerField(blank=True, null=True, verbose_name='结束位置')
     date = models.CharField(max_length=50,blank=True, null=True, verbose_name='执行日期')
@@ -20,7 +20,7 @@ class BinlogParseRedo(models.Model):
         verbose_name_plural = 'bin日志解析'
 
 class BinlogParseUndo(models.Model):
-    sql = models.CharField(max_length=1900,blank=True, null=True, verbose_name='逆向解析后的sql')
+    sql = models.CharField(max_length=4000,blank=True, null=True, verbose_name='逆向解析后的sql')
     start_pos = models.IntegerField(blank=True, null=True, verbose_name='起始位置')
     end_pos = models.IntegerField(blank=True, null=True, verbose_name='结束位置')
     date = models.CharField(max_length=50,blank=True, null=True, verbose_name='执行日期')
