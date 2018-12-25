@@ -20,7 +20,7 @@ def scan_ip(request):
         '''进行后台扫描函数'''
         ip_duans=scan_host_conf.objects.all()
         for ip_duan in ip_duans:
-            ips=do_scan_ip.delay(ip_duan.nets)
+            ips=do_scan_ip(ip_duan.nets)
             for item in ips:
                 ip = item
                 try:  # 如果主机存在，并且，扫描的IP 在IP 资源表中，则主机的IP_others 增加IP

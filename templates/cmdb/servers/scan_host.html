@@ -15,22 +15,20 @@
                 <section class="layui-card">
 
             <div class="layui-card-header">
-                     <div class="layui-col-lg4">
-                                    <div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
+                     <div class="layui-col-lg2 layui-col-md2">
                                     <button class="layui-btn layui-btn-sm layui-btn-danger"
                                             data-type="del"
-                                            data-url="{% url 'cmdb_ip_api' %}"
-                                    >
+                                            data-url="{% url 'cmdb_ip_api' %}">
                                         <i class="layui-icon">&#xe640;</i>
                                         <cite>删除主机</cite>
                                     </button>
                                 </div>
-                   <div class="layui-col-lg6">
+                   <div class="layui-col-lg4 layui-col-md6">
 
-                                        <form class="layui-form " action="{% url 'cmdb_scan_host' %}">
+                                        <form class="layui-form layui-form-pane " action="{% url 'cmdb_scan_host' %}">
 
-                                            <div class="layui-col-md10">
-                                            <div class="layui-input-block">
+                                            <div class="layui-form-inline">
+                                            <div class="layui-input-inline">
                                                 <select  name='ipduan_id'   lay-verify="required" xm-select="selectId"s>
                                                     <option value=""> 选择扫描段</option>
                                                     {% for i in ipduan %}
@@ -41,15 +39,16 @@
 
                                             </div>
 
-                                            </div>
-                                            <div class="layui-col-md2">
-                                                 <div class="layui-input-inline">
+                                              <div class="layui-input-inline">
                                                      <button class="layui-btn  layui-btn-sm layui-btn-normal" lay-submit=""
                                                     lay-filter="demoadd" id="submitAdd"><cite>扫描主机</cite>
                                             </button>
 
                                                     </div>
-                                            </div>
+
+                                        </div>
+
+
 
                                         </form>
 
