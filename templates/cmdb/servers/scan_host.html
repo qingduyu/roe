@@ -1,7 +1,7 @@
 {% extends 'base_children.html' %}
 
 {% block self_head %}
-<link  rel="stylesheet" href="/static/larryms/thirdlib/formSelects-v4.css" >
+    <link rel="stylesheet" href="/static/larryms/thirdlib/formSelects-v4.css">
 
 {% endblock %}
 
@@ -13,53 +13,40 @@
 
             <div class="layui-col-xs12 layui-col-sm12 layui-col-md8 layui-col-lg8">
                 <section class="layui-card">
-
-            <div class="layui-card-header">
-                     <div class="layui-col-lg2 layui-col-md2">
-                                    <button class="layui-btn layui-btn-sm layui-btn-danger"
-                                            data-type="del"
-                                            data-url="{% url 'cmdb_ip_api' %}">
-                                        <i class="layui-icon">&#xe640;</i>
-                                        <cite>删除主机</cite>
-                                    </button>
+                    <div class="layui-card-header">
+                        <div class="layui-col-lg2 layui-col-md2">
+                            <button class="layui-btn layui-btn-sm layui-btn-danger"
+                                    data-type="del"
+                                    data-url="{% url 'cmdb_host_api' %}">
+                                <i class="layui-icon">&#xe640;</i>
+                                <cite>删除主机</cite>
+                            </button>
+                        </div>
+                        <div class="layui-col-lg4 layui-col-md6">
+                            <form class="layui-form layui-form-pane " action="{% url 'cmdb_scan_host' %}">
+                                <div class="layui-form-inline">
+                                    <div class="layui-input-inline">
+                                        <select name='ipduan_id' lay-verify="required" xm-select="selectId" s>
+                                            <option value=""> 选择扫描段</option>
+                                            {% for i in ipduan %}
+                                                <option value="{{ i.id }}">{{ i.nets }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="layui-input-inline">
+                                        <button class="layui-btn  layui-btn-sm layui-btn-normal" lay-submit=""
+                                                lay-filter="demoadd" id="submitAdd"><cite>扫描主机</cite>
+                                        </button>
+                                    </div>
                                 </div>
-                   <div class="layui-col-lg4 layui-col-md6">
+                            </form>
+                        </div>
+                    </div>
 
-                                        <form class="layui-form layui-form-pane " action="{% url 'cmdb_scan_host' %}">
-
-                                            <div class="layui-form-inline">
-                                            <div class="layui-input-inline">
-                                                <select  name='ipduan_id'   lay-verify="required" xm-select="selectId"s>
-                                                    <option value=""> 选择扫描段</option>
-                                                    {% for i in ipduan %}
-                                                         <option value="{{ i.id }}" >{{ i.nets }}</option>
-                                                    {% endfor %}
-
-                                                </select>
-
-                                            </div>
-
-                                              <div class="layui-input-inline">
-                                                     <button class="layui-btn  layui-btn-sm layui-btn-normal" lay-submit=""
-                                                    lay-filter="demoadd" id="submitAdd"><cite>扫描主机</cite>
-                                            </button>
-
-                                                    </div>
-
-                                        </div>
-
-
-
-                                        </form>
-
-
-
-                                </div>
-
-            </div>
                     <div class="layui-card-body">
 
-                        <table id="demo" lay-filter="demo" class="larryms-table-id"  data-url="{% url 'cmdb_host_api' %}"></table>
+                        <table id="demo" lay-filter="demo" class="larryms-table-id"
+                               data-url="{% url 'cmdb_host_api' %}"></table>
                     </div>
                 </section>
             </div>
@@ -68,22 +55,23 @@
             <div class="layui-col-xs12 layui-col-sm12 layui-col-md4 layui-col-lg4">
                 <section class="layui-card">
                     <div class="layui-card-header">
-                            <div class="layui-btn-group larryms-btn-group">
-                                <div class="layui-block">
-                                    <div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
-                                    <button class="layui-btn layui-btn-sm layui-btn-danger"  data-type="del_ip"
-                                            data-url="{% url 'cmdb_hostfail_api' %}" ><i class="layui-icon">&#xe640;</i>
-                                        <cite>删除登陆失败的ip</cite>
-                                    </button>
+                        <div class="layui-btn-group larryms-btn-group">
+                            <div class="layui-block">
+                                <div class="margin-15 layui-show-xs layui-hide-sm layui-hide-md layui-hide-lg"></div>
+                                <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="del_ip"
+                                        data-url="{% url 'cmdb_hostfail_api' %}"><i class="layui-icon">&#xe640;</i>
+                                    <cite>删除登陆失败的ip</cite>
+                                </button>
 
-                                </div>
                             </div>
+                        </div>
 
                     </div>
 
                     <div class="layui-card-body">
 
-                        <table id="demo2" lay-filter="demo2" class="larryms-table-id2"    data-url="{% url 'cmdb_hostfail_api' %}"></table>
+                        <table id="demo2" lay-filter="demo2" class="larryms-table-id2"
+                               data-url="{% url 'cmdb_hostfail_api' %}"></table>
                     </div>
                 </section>
             </div>
@@ -112,7 +100,7 @@
             {#rightMenu: custom // false关闭，设置为custom时使用自定义，不使用默认menu#}
         }).extend({
             larry: 'js/base'
-        }).use(['jquery', 'table', 'form', 'layer','larry', 'formSelects'], function () {
+        }).use(['jquery', 'table', 'form', 'layer', 'larry', 'formSelects'], function () {
             var $ = layui.$,
                 larryms = layui.larryms,
                 form = layui.form,
@@ -149,8 +137,8 @@
                 {##}
                 {##}
                 {# },#}
-                del_ip:function(){
-                           checkStatus = table.checkStatus('demo2'),
+                del_ip: function () {
+                    checkStatus = table.checkStatus('demo2'),
                         data = checkStatus.data,
                         newsId = [];
                     console.log(data);

@@ -48,14 +48,14 @@
           <entry key="3" value="1" />
           <entry key="conf" value="2" />
           <entry key="css" value="11" />
-          <entry key="html" value="372" />
+          <entry key="html" value="373" />
           <entry key="ini" value="1" />
           <entry key="js" value="105" />
           <entry key="json" value="21" />
           <entry key="log" value="20" />
           <entry key="md" value="10" />
           <entry key="pub" value="2" />
-          <entry key="py" value="712" />
+          <entry key="py" value="714" />
           <entry key="rnc" value="1" />
           <entry key="sh" value="1" />
           <entry key="sql" value="1" />
@@ -68,14 +68,14 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="11" />
-          <entry key="HTML" value="372" />
+          <entry key="HTML" value="373" />
           <entry key="Ini" value="1" />
           <entry key="JSON" value="21" />
           <entry key="JavaScript" value="105" />
           <entry key="Log" value="4" />
           <entry key="Markdown" value="10" />
           <entry key="PLAIN_TEXT" value="36" />
-          <entry key="Python" value="712" />
+          <entry key="Python" value="714" />
           <entry key="RNG Compact" value="1" />
           <entry key="SQL" value="1" />
           <entry key="TypeScript" value="2" />
@@ -88,7 +88,7 @@
           <entry key="conf" value="8" />
           <entry key="css" value="38" />
           <entry key="dummy" value="25" />
-          <entry key="html" value="23328" />
+          <entry key="html" value="23336" />
           <entry key="ini" value="1" />
           <entry key="js" value="227" />
           <entry key="json" value="189" />
@@ -105,7 +105,7 @@
         <counts>
           <entry key="CSS" value="38" />
           <entry key="CommandLine" value="189" />
-          <entry key="HTML" value="23328" />
+          <entry key="HTML" value="23336" />
           <entry key="Ini" value="1" />
           <entry key="JSON" value="189" />
           <entry key="JavaScript" value="227" />
@@ -125,20 +125,20 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_instance_edit.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host.html">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+            <state relative-caret-position="15">
+              <caret line="122" column="27" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="32" />
               <folding>
-                <element signature="n#div#1;n#section#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+                <element signature="e#46#86#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_instance_edit.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -146,6 +146,29 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="100" column="38" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
+              <folding>
+                <element signature="e#46#94#0" expanded="true" />
+                <marker date="1545620399272" expanded="false" signature="13763:13768" ph="..." />
+                <marker date="1545620399272" expanded="true" signature="23666:23667" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -178,15 +201,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="113" column="23" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/scan_ip.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
@@ -200,15 +214,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
               <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/core/handlers/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="179" column="21" selection-start-line="179" selection-start-column="21" selection-end-line="179" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -848,17 +853,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/virtual_host.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="91" column="41" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
-          <folding>
-            <element signature="e#53#88#0" expanded="true" />
-            <marker date="1545384426512" expanded="true" signature="2605:2606" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/yewutree/yewu_host.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1026,16 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="47" column="46" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="50" />
-          <folding>
-            <element signature="e#46#86#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../python-env/roeops/lib/python2.7/site-packages/django/views/decorators/csrf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -1126,9 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_instance_edit.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/CMDB/model/mysql_modles.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -1178,6 +1159,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cmdb/db/mysql_instance_edit.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1185,13 +1169,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="122" column="27" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="32" />
+          <folding>
+            <element signature="e#46#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/CMDB/views/server/host_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="100" column="38" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
+          <folding>
+            <element signature="e#46#94#0" expanded="true" />
+            <marker date="1545620399272" expanded="false" signature="13763:13768" ph="..." />
+            <marker date="1545620399272" expanded="true" signature="23666:23667" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/cmdb/servers/scan_host.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-          <folding>
-            <element signature="n#div#1;n#section#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="148">
+          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
         </state>
       </provider>
     </entry>
