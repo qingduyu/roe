@@ -1,0 +1,164 @@
+.larry-shuttle-box{
+	display: block;
+	width: 100%;
+	min-width: 500px;
+	height: 300px;
+	margin: 0 auto;
+	position: relative;
+}
+.larry-shuttle-box>.larry-shuttle-panel{
+	display: inline-block;
+	vertical-align: top;
+	width: 205px;
+	height: 100%;
+	/*background: red;*/
+	box-sizing: border-box;
+	border: 1px solid #D2D2D2;
+	position: relative;
+}
+.larry-shuttle-box>.larry-shuttle-action{
+	display: block;
+	width: calc(100%-410px);
+	max-width: 80px;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	transform: translate(-50%,0);
+	background: red;
+}
+.larry-shuttle-box>.larry-shuttle-action>.larry-shuttle-sub{
+	display: block;
+	height: 90px;
+	min-width: 60px;
+	max-width: 80px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	overflow: hidden;
+}
+.larry-shuttle-box>.larry-shuttle-action>.larry-shuttle-sub>.layui-btn{
+	display: block;
+	min-width: 60px;
+	min-height: 32px;
+	margin: 0 auto;
+	margin-bottom: 15px;
+
+}
+.larry-shuttle-box>.larry-shuttle-left{
+	float: left;
+}
+.larry-shuttle-box>.larry-shuttle-right{
+	float: right;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-top{
+	box-sizing: border-box;
+	height: 45px;
+	font-size: 15px;
+	text-align: center;
+	line-height: 45px;
+	color: #666;
+	position: relative;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-top>.larry-shuttle-search{
+	display: block;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	bottom: 5px;
+	right: 5px;
+	box-sizing: border-box;
+	overflow:hidden;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-top>.larry-shuttle-search>.sousuo{
+	display: block;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	position: absolute;
+	top: 5px;
+	left: 0px;
+	z-index:5;
+	font-size: 20px;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-top>.larry-shuttle-search>.larry-input{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	font-size: 14px;
+	padding-left: 30px;
+	border: none;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-content{
+	width: 100%;
+	position: absolute;
+	top: 45px;
+	left: 0px;
+	bottom: 38px;
+	right: 0px;
+	background: #fff;
+	padding-top: 5px;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-content>li{
+	padding: 0 10px;
+	height: 32px;
+	line-height: 32px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	padding-top: 0px;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-content>li>.layui-unselect.layui-form-checkbox{
+	margin-top: -1px;
+	line-height: 30px;
+	top: 0px;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-content>li>.layui-unselect.layui-form-checkbox span{
+	display: inline-block;
+	vertical-align: top;
+	top: 0px;
+	line-height: 17px;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-content>li>.layui-unselect.layui-form-checkbox i{
+	display: inline-block;
+	vertical-align: top;
+	line-height: 20px;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-content>li:hover{
+	background: #ddd;
+}
+.larry-shuttle-box>.larry-shuttle-panel>.larry-shuttle-bottom{
+	width: 100%;
+	height: 38px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	box-sizing: border-box;
+	text-align: left;
+	padding-left: 15px;
+}
+
+
+/*默认主题*/
+.larry-skin-sprout>.larry-shuttle-panel{
+	border-radius: 3px;
+}
+.larry-skin-sprout>.larry-shuttle-panel>.larry-shuttle-top{
+	border-bottom: 1px solid #D2D2D2;
+}
+.larry-skin-sprout>.larry-shuttle-panel>.larry-shuttle-top>.larry-shuttle-search{
+	border: 1px solid #e5e5e5;
+	border-radius: 3px;
+}
+.larry-skin-sprout>.larry-shuttle-panel>.larry-shuttle-bottom{
+	background: #f1f1f1;
+	border-top: 1px solid #D2D2D2;
+}
