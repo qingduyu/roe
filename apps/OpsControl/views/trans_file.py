@@ -46,6 +46,7 @@ def ansbile_transfile(request):
         ip_list,hostlist=get_ans_host(dest_hostid_list)
         playbook_vars={}
         playbook_vars['dest_host']=ip_list
+        playbook_vars['dest_port']=hostlist[0]['port']
         playbook_vars['source_host']=source_host
         playbook_vars['source_file']=  source_file
         playbook_vars['dest_file'] = dest_file

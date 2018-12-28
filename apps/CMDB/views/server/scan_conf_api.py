@@ -58,7 +58,7 @@ class ScanHostConfAPI(APIView):
     # 增加行条目
     def post(self, request, format=None):
         s = ScanHostConf_Serializer(data=request.data)
-        if s.is_valid():  # 验证
+        if s.is_valid(raise_exception=True):  # 验证
             s.save()
             json_data = {'code': 200, 'msg': '数据添加成功'}
             json_data['data'] = s.data

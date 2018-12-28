@@ -84,7 +84,7 @@ class MySQL_update(object):
                 slave[0].role=u'从库'
                 # slave[0].db_status=u'仅从库'
                 slave[0].save()
-                master=myinstance.get_or_create(dbcluster_id=self.cluster_id,m_ip=rs2[1],port=self.port)
+                master=myinstance.get_or_create(dbcluster_id=self.cluster_id,m_ip=slavestatus[1],port=self.port)
                 master[0].vist_ip=self.ip
                 master[0].role=u'主库'
                 master[0].db_status=u'服务中'

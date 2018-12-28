@@ -1,5 +1,5 @@
 ---
-- hosts: "{{source_host}}"
+- hosts: "{{dest_host}}"
   gather_facts: False
   tasks:
     - name: test-source-host-sshkey
@@ -14,17 +14,18 @@
         src: /root/.ssh/id_rsa.pub
         dest: /tmp/id_rsa
         flat: yes
-- hosts: "{{ dest_host }}"
+- hosts: "{{ source_host }}"
   gather_facts: False
   serial: 5
   tasks:
     - name: auth
       lineinfile:
-        line:  "{{ lookup('file', '/tmp/id_rsa') }}"
+        line:  "{{lookup('file', '/tmp/id_rsa')}}"
         path: /root/.ssh/authorized_keys
         create: yes
     - name: transfile
       synchronize:
         src: "{{source_file}}"
         dest: "{{dest_file}}"
-      delegate_to: "{{source_host}}"
+        dest_port: "{{dest_port}}"
+      delegate_to: "{{dest_host}}"
