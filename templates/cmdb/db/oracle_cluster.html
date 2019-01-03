@@ -27,9 +27,8 @@
             </div>
         </div>
        <script type="text/html" id="demoBtnBar">
-           <a class="layui-btn layui-btn-xs" data-url="oracle_instance.html" lay-event="show_instacne">查看实例</a>
-           <a class="layui-btn layui-btn-xs" data-url="oracle_user.html" lay-event="show_user">查看用户</a>
-           <a class="layui-btn layui-btn-xs" data-url="oracle_tablespace.html" lay-event="show_tablespace">查看表空间</a>
+
+           <a class="layui-btn layui-btn-xs" data-url="oracle_tablespace.html" lay-event="show_tablespace">详情</a>
            <a class="layui-btn layui-btn-xs" data-url="/cmdb/oracle_cluster_edit.html" lay-event="edit">编辑</a>
 
     </script>
@@ -136,7 +135,7 @@
                  cellMinWidth:80,
                  url:tableDataUrl,
                  method:'get',
-                 height:'full-130',
+                 {#height:'full-130',#}
                  page:true,
                  cols:[
                    [
@@ -148,7 +147,7 @@
                        {field: 'prod_line', title: '产品线', minWidth: 80, align: 'center'},
                        {field: 'desc', title: '描述', minWidth: 80, align: 'center'},
                        {field: 'operator', title: '可见人', minWidth: 80, align: 'center'},
-                       {title: '操作', minWidth: 315, templet: '#demoBtnBar', fixed: "right", align: "center"}
+                       {title: '操作', minWidth: 15, templet: '#demoBtnBar', fixed: "right", align: "center"}
                        ]
                  ]
             });

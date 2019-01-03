@@ -1,12 +1,8 @@
 # !/usr/bin/env python
 # _#_ coding:utf-8 _*_
 
-
-
 from CMDB.model.mysql_modles import Mysql_db,Mysql_User,MySQL_Instance,MySQLCluster
 from CMDB.serializers import *
-
-
 from utils.mysql import MySQL
 
 class MySQL_update(object):

@@ -28,7 +28,7 @@
         </div>
        <script type="text/html" id="demoBtnBar">
 
-           <a class="layui-btn layui-btn-xs" data-url="/cmdb/db/mysql_cluster/edit/" lay-event="edit">编辑</a>
+           <a class="layui-btn layui-btn-xs" data-url="{% url 'cmdb_mysql_user_edit' %}" lay-event="edit">编辑</a>
 
     </script>
 
@@ -71,7 +71,7 @@
           var index = layer.open({
             title: tit,
             type: 2,
-            area: ['860px', '550px'],
+            area: ['880px', '650px'],
             content: url,
             success: function(index, layero) {
               form.render();
@@ -131,20 +131,21 @@
             roleIndex = table.render({
                  elem:'#demo',
                  id:'demo',
-                 cellMinWidth:80,
+                 cellMinWidth:30,
                  url:tableDataUrl,
                  method:'get',
                  height:'full-130',
                  page:true,
                  cols:[
                    [
-                       {type: "checkbox", fixed: 'left', width: 50},
+                       {type: "checkbox", fixed: 'left', width: 30},
                        {field: 'db_user', title: '用户名', minWidth: 30, align: 'center'},
                        {field: 'db_host', title: '授权主机', minWidth: 30, align: 'center'},
                        {field: 'db_password', title: '密码', minWidth: 30, align: 'center'},
                        {field: 'privlige', title: '权限', minWidth: 480, align: 'center'},
                        {field: 'dbcluster', title: '集群', minWidth: 80, align: 'center'},
-                       {title: '操作', minWidth: 35, templet: '#demoBtnBar', fixed: "right", align: "center"}
+                       {field: 'memo', title: '备注', minWidth: 80, align: 'center'},
+                       {title: '操作', minWidth: 15, templet: '#demoBtnBar', fixed: "right", align: "center"}
                        ]
                  ]
             });
@@ -152,14 +153,14 @@
           // 监听工具条
 var pageTableID = $('.larryms-table-id').attr('id');
 table.on('tool('+pageTableID+')', function(obj) {
-      var data = obj.data, tit = '编辑 <em class="tit">'+data.name+ '</em> 信息';
+      var data = obj.data, tit = '编辑 <em class="tit">'+data.db_user+ '</em> 信息';
       console.log(data)
       if(obj.event == 'edit'){
-          var url =  $(this).data('url')+data.id;
+          var url =  $(this).data('url')+'?id='+data.id;
           var editIndex =  larryms.open({
               title: tit,
               type: 2,
-              area: ['860px', '450px'],
+              area: ['360px', '450px'],
               content: url,
               success: function(index, layero) {
                 form.render();

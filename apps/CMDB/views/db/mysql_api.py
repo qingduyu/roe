@@ -423,13 +423,15 @@ class MysqlDBAPI(APIView):
     def put(self, request, format=None):
         try:
             data_id = request.data['id']
+            data=request.data
+            del data['dbcluster']
         except Exception as e:
             print(e)
             json_data = {'code': 500, 'msg': '数据有错误获取不到id'}
             return Response(json_data,status=500)
         else:
             DATA_MODEL = self.get_object(data_id)
-            s = MysqlDB_write_Serializer(DATA_MODEL, data=request.data)
+            s = MysqlDB_write_Serializer(DATA_MODEL, data=data)
 
             if s.is_valid(raise_exception=True):
                 s.save()

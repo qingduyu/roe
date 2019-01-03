@@ -51,17 +51,17 @@ urlpatterns = [
 
     url(r'^db/mysql_instance/$', mysql_cluster_instance, name='cmdb_mysql_instance'),
     url(r'^db/mysql_instance/add/$', mysql_cluster_instance_add, name='cmdb_mysql_instance_add'),
-    url(r'^db/mysql_instance/edit/(?P<id>[0-9]+)$', mysql_cluster_instance_edit, name='cmdb_mysql_instance_edit'),
+    url(r'^db/mysql_instance/edit/$', mysql_cluster_instance_edit, name='cmdb_mysql_instance_edit'),
     url(r'^db/api/mysql_instance/$', MysqlInstanceAPI.as_view(), name='api_mysql_instance'),
 
     url(r'^db/mysql_user$', mysql_cluster_user, name='cmdb_mysql_user'),
     url(r'^db/mysql_user/add$', mysql_cluster_user_add, name='cmdb_mysql_user_add'),
-    url(r'^db/mysql_user/edit/(?P<id>[0-9]+)$', mysql_cluster_user_edit, name='cmdb_mysql_user_edit'),
+    url(r'^db/mysql_user/edit/$', mysql_cluster_user_edit, name='cmdb_mysql_user_edit'),
     url(r'^db/api/mysql_user/$', MySQLUserAPI.as_view(), name='api_mysql_user'),
 
-    url(r'^db/mysql_db$', mysql_cluster_db, name='cmdb_mysql_db'),
-    url(r'^db/mysql_db/add$', mysql_cluster_db_add, name='cmdb_mysql_db_add'),
-    url(r'^db/mysql_db/edit/(?P<id>[0-9]+)$', mysql_cluster_db_edit, name='cmdb_mysql_db_edit'),
+    url(r'^db/mysql_db/$', mysql_cluster_db, name='cmdb_mysql_db'),
+    url(r'^db/mysql_db/add/$', mysql_cluster_db_add, name='cmdb_mysql_db_add'),
+    url(r'^db/mysql_db/edit/$',mysql_cluster_db_edit, name='cmdb_mysql_db_edit'),
     url(r'^db/api/mysql_db/$', MysqlDBAPI.as_view(), name='api_mysql_db'),
 
     ##########################这里是oracle资产相关####################

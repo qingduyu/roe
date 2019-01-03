@@ -16,7 +16,6 @@ def mysql_cluster(request):
 def mysql_cluster_add(request):
     mysql_arch=MyARCH
     operators= UserProfile.objects.all()
-
     my_status=MyDB_STATUS
     return render(request, 'cmdb/db/mysql_cluster_add.html',locals())
 
@@ -54,8 +53,11 @@ def mysql_cluster_instance_add(request):
     return render(request, 'cmdb/db/mysql_instance_add.html',locals())
 
 @login_required()
-def mysql_cluster_instance_edit(request,id):
+def mysql_cluster_instance_edit(request):
+
+    id=request.GET['id']
     data=MySQL_Instance.objects.get(id=id)
+    db_cluster=data.dbcluster.name
     return render(request, 'cmdb/db/mysql_instance_edit.html',locals())
 ####################################################################
 
@@ -73,11 +75,13 @@ def mysql_cluster_user_add(request):
     return render(request, 'cmdb/db/mysql_user_add.html',locals())
 
 @login_required()
-def mysql_cluster_user_edit(request,id):
+def mysql_cluster_user_edit(request):
+    id=request.GET['id']
     data=Mysql_User.objects.get(id=id)
+    db_cluster=data.dbcluster.name
     return render(request, 'cmdb/db/mysql_user_edit.html',locals())
 
-##############################################################
+##################集群内DB 操作#######################################
 @login_required()
 def mysql_cluster_db(request):
     return render(request, 'cmdb/db/mysql_db.html')
@@ -92,6 +96,8 @@ def mysql_cluster_db_add(request):
     return render(request, 'cmdb/db/mysql_db_add.html',locals())
 
 @login_required()
-def mysql_cluster_db_edit(request,id):
+def mysql_cluster_db_edit(request):
+    id=request.GET['id']
     data=Mysql_db.objects.get(id=id)
+    db_cluster=data.dbcluster.name
     return render(request, 'cmdb/db/mysql_db_edit.html',locals())
