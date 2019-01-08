@@ -1,0 +1,87 @@
+{% extends 'base_children.html' %}
+{% block self_head %}
+    <link rel="stylesheet" href="/static/larryms/thirdlib/formSelects-v4.css">
+{% endblock %}
+{% block content %}
+    <body class="auth-user">
+    <div class="layui-fluid">
+        <div class="layui-row larryms-panel auth-user-add">
+            <form action="{% url 'yewu_mysql_add' yewuid %}" class="layui-form layui-form-pane" method="post"
+                  id="demoAddForm">
+                {% csrf_token %}
+                <input type="hidden" name="yewuid" value="{{ yewuid }}">
+                <div class="layui-form-item">
+                    <div class="layui-form-inline">
+                        <label class="layui-form-label">搜索数据库集群</label>
+                        <div class="layui-input-block">
+                            <select name="hostid" lay-verify="required" lay-filter='multiselect' xm-select="selectId"
+                                    xm-select-search="" xm-select-search-type="">
+                                <option value=''>直接选择或搜索选择</option>
+                                {% for s in host %}
+                                    <option value='{{ s.id }}'> ( {{ s.foreign_ip }}/{{ s.foreign_port }})
+                                        + {{ s.name }}  </option>{% endfor %}
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <a class='layui-btn  layui-btn-normal' lay-submit='' lay-filter='demoadd' id='submitAdd'>确定</a>
+            </form>
+
+        </div>
+    </div>
+    <!-- 加载js文件-->
+    </body>
+
+{% endblock %}
+
+{% block self_foot %}
+    {#    以下这种方式为什么不幸呢#}
+    <script type="text/javascript">
+        layui.config({
+            version: "2.0.8",
+            base: '/static/larryms/',
+            layertype: 2, //iframe内层弹窗类型不显示返回首页
+            rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
+        }).extend({
+            larry: 'js/base'
+        }).use(['jquery', 'larry', 'layer', 'form', 'formSelects'], function () {
+            var $ = layui.$,
+                larry = layui.larry,
+                table = layui.talbe,
+
+                larryms = layui.larryms,
+                formSelects = layui.formSelects,
+                form = layui.form;
+
+            formSelects.btns('selectId', []);
+            var curIfr = parent.layer.getFrameIndex(window.name);
+            $('#resetAdd').on('click', function () {
+                $('#demoAddForm')[0].reset();
+            });
+            $('#closeAdd').on('click', function () {
+                parent.layer.close(curIfr);
+            });
+            form.on('submit(demoadd)', function (data) {
+                $.post(data.form.action, data.field, function (res) {
+                    if (res.code == 200) {
+                        larryms.msg(res.msg, {time: 350}, function () {
+                            {#parent.table.reload('demo', {}); //刷新tableid ,中括号是针对分页，刷新某一页的数据时使用#}
+                            parent.location.reload(); // ¸¸Ò³ÃæË¢ÐÂ
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                            parent.layer.close(curIfr);
+                        })
+                    } else if (res.code == 500) {
+                        larryms.msg(res.msg);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+
+{% endblock %}

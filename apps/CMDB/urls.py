@@ -4,10 +4,10 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from yewu_tree import yewu_tree,yewu_huizong,yewu_tree_add_branch,yewu_tree_add_leaf,yewu_tree_delete,yewu_tree_edit_branch,yewu_tree_edit_leaf,yewutree2
 from yewu_tree import yewu_host_add,yewu_server,yewu_host_free
-from yewu_tree import yewu_mysql
+from yewu_tree import yewu_mysql,yewu_mysql_add
 from yewu_tree import yewu_oracle,yewu_mongo,yewu_redis
 
-from yewu_tree_api import get_treehost,get_jsontree,YewuHost_API,YewuHost_free_API
+from yewu_tree_api import get_treehost,get_jsontree,YewuHost_API,YewuHost_free_API,YewuMysql_API
 
 # from views.net import  netdevice,group_net,idc_net
 from CMDB.views.idc import idc_show,idc_add,idc_edit
@@ -82,6 +82,9 @@ urlpatterns = [
 
 
     url('^yewu_mysql/$', yewu_mysql, name='yewu_mysql'),
+    url('^yewu_mysql_api/$',YewuMysql_API.as_view(),name='yewu_mysql_api'),
+    url('^yewu_mysql_add/(?P<id>[0-9]+)$', yewu_mysql_add, name='yewu_mysql_add'),
+
     url('^yewu_oracle/$', yewu_oracle, name='yewu_oracle'),
 
 

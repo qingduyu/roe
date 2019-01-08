@@ -37,3 +37,4 @@ demjson
 pycrypto==2.6.1
 pexpect==4.6.0
 python-nmap==0.6.1
+cx_Oracle==7.0.0

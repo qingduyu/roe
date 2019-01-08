@@ -32,7 +32,17 @@ class BinlogParseUndo(models.Model):
         verbose_name_plural = 'bin日志逆向解析'
 
 
+SQL_EXEC = (
+    (u"主库", u"主库"),
+    (u"从库", u"从库"),
+    (u"集群", u"集群"),
+)
 
+class MysqlFastSQL(models.Model):
+    name= models.CharField(max_length=30,verbose_name='sql名字')
+    desc=models.CharField(max_length=200,blank=True,null=True,verbose_name='说明文字')
+    sql = models.CharField(max_length=1000,verbose_name='sql 语句请自己验证正确')
+    exec_posi = models.CharField(verbose_name=u"执行位置", choices=SQL_EXEC, max_length=30, null=True, blank=True)
 
 
 

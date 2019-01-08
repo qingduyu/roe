@@ -1,0 +1,105 @@
+{% extends 'base_children.html' %}
+{% load mytags %}
+{% block content %}
+    <div class="layui-row larryms-panel auth-user-add">
+        <form action="{% url 'mysql_fast_sql_api' %}" class="layui-form layui-form-pane" method="post" id="demoAddForm">
+            {% csrf_token %}
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">sql标题</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="name" lay-verify="required" placeholder="请给个名字" type="text" required>
+                        </div>
+                    </div>
+
+                            <div class="layui-inline">
+                        <label class="layui-form-label">功能描述</label>
+                        <div class="layui-input-block">
+                            <input class="layui-input" name="desc" placeholder="给点描述" type="text">
+                        </div>
+                    </div>
+
+                     <div class="layui-inline">
+                        <label class="layui-form-label">执行分类</label>
+                        <div class="layui-input-block">
+                            <select name="exec_posi" >
+                                    {% for s in sql_exec_typ %}
+                                            <option value="{{ s.0 }}"> {{ s.1 }}</option>
+                                    {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-form-text">
+
+
+                        <label class="layui-form-label">SQL</label>
+                        <div class="layui-input-block">
+                            <textarea class="layui-textarea" name="sql" placeholder="请输入sql语句， 请在自己测试成功后填写，乱填写会造成不可知后果。" ></textarea>
+                        </div>
+
+
+                </div>
+
+
+
+
+                <div class="larryms-layer-btn">
+{#                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-normal" id="testconn">测试连接</a>#}
+                    <a class="layui-btn layui-btn layui-btn-sm left" lay-submit="" lay-filter="demoadd" id="submitAdd">确定</a>
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="resetAdd">重置</a>
+                    <a class="layui-btn layui-btn layui-btn-sm  layui-btn-danger" id="closeAdd">关闭</a>
+                </div>
+
+
+            </form>
+        </div>
+
+{% endblock %}
+{% block self_foot %}
+<script type="text/javascript">
+    layui.config({
+        version: "2.0.8",
+        base: '/static/larryms/',
+         layertype: 2, //iframe内层弹窗类型不显示返回首页
+        rightMenu: false, // false关闭，设置为custom时使用自定义，不使用默认menu
+    }).extend({
+        larry: 'js/base'
+    }).use(['larry','layer','jquery','form'], function() {
+        var $ = layui.$,
+            larry = layui.larry,
+            larryms = layui.larryms,
+            layer=layui.layer,
+            form = layui.form;
+
+        var curIfr = parent.layer.getFrameIndex(window.name);
+        $('#resetAdd').on('click', function() {
+            $('#demoAddForm')[0].reset();
+        });
+        $('#closeAdd').on('click', function() {
+            parent.layer.close(curIfr);
+        });
+
+        form.on('submit(demoadd)', function(data) {
+            $.post(data.form.action, data.field, function(res) {
+                if (res.code == 200) {
+                    larryms.msg(res.msg)
+                     parent.table.reload('demo',{});
+                    parent.layer.close(curIfr);
+
+                } else if (res.code == 911) {
+                    larryms.msg(res.msg);
+                } else if (res.code == 500) {
+                    larryms.msg(res.msg);
+                }
+            });
+            return false;
+        });
+
+    });
+
+
+    </script>
+
+{% endblock %}

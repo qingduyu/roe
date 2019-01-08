@@ -4,6 +4,7 @@ from django.http import HttpResponse,JsonResponse
 from django.http.response import JsonResponse
 from CMDB.model.yewutree_model import YewuTreeMptt as YewuTree
 from CMDB.model.server_models import Host
+from CMDB.model.mysql_modles import MySQLCluster
 import json
 
 Yezi_type = {
@@ -222,7 +223,36 @@ def yewu_host_add(request,id):
 
 
 def yewu_mysql(request):
-    return render(request, 'cmdb/yewutree/yewu_mysql.html',locals())
+    ' 则是展示业务的的关联主机'
+    if request.method == 'GET':
+        id = request.GET.get('id')
+        try:
+            host = MySQLCluster.objects.filter(tree_id_id=id)
+            yewuid = id
+            return render(request, 'cmdb/yewutree/yewu_mysql.html', locals())
+        except Exception as e:
+            print e
+
+def yewu_mysql_add(request,id):
+    '''进行主机和业务树的关联,post 方式传递2个参数,以后改成搜索多选框 ,一个是业务树的id,一个是主机的id'''
+    #这里应该过滤资源吃
+    if request.method=='GET':
+
+        host=MySQLCluster.objects.filter(tree_id__isnull=True , is_pooled=True)
+        yewuid=id
+        return render(request, 'cmdb/yewutree/yewu_mysql_add.html',locals())
+    elif request.method=="POST":
+        hostid_list = request.POST['hostid'].split(',')
+        yewuid = request.POST['yewuid']
+        for i in hostid_list:
+            host=MySQLCluster.objects.get(id=i)
+            host.tree_id_id=yewuid
+
+            host.save()
+        json_data = {'code': 200, 'msg': '数据添加完毕'}
+        return JsonResponse(json_data, content_type="application/json")
+
+
 
 def yewu_oracle(request):
 
