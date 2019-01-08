@@ -1,10 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base_children.html' %}
+
+{% block self_head %}
+    {##这里是 个性化的头部脚本呢#}
+    <link rel="stylesheet" type="text/css" href="/static/larryms/css/admin/nav.css">
+{% endblock %}
+
+{% block content %}
+    {#    #这里是真正的内容部分#}
+
+
+    {#<hr class="layui-bg-red">#}
+<div class="layui-card">
+        <div class=" layui-card-body larryms-shortcut">
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 5px;">
+  <legend>主库</legend>
+</fieldset>
+            <ul class="layui-row layui-col-space14" id="shortcut">
+                {% for data in zhuku %}
+
+                    <li class="layui-col-xs2" >
+
+                        <button class="layui-btn layui-btn-lg layui-btn-primary" data-type="exec" data-url='{% url 'mysql_fast_sql_result'  data.id %}'>
+{#                            <i class="larry-icon fa-map-pin">{{ data.name }}</i>#}
+                            {{ data.name }}
+                            <cite>{{ data.desc }}</cite>
+                        </button>
+                    </li>
+                {% endfor %}
+            </ul>
+
+
+     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 25px;">
+  <legend>集群</legend>
+</fieldset>
+
+            <ul class="layui-row layui-col-space10" >
+                {% for data in jiqun %}
+                    <li class="layui-col-xs2">
+                         <button class="layui-btn layui-btn-lg layui-btn-green" data-type="exec" data-url='{% url 'mysql_fast_sql_result'  data.id %}'>
+{#                            <i class="larry-icon fa-map-pin">{{ data.name }}</i>#}
+                            {{ data.name }}
+                            <cite>{{ data.desc }}</cite>
+                        </button>
+                    </li>
+                {% endfor %}
+            </ul>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 25px;">
+  <legend>从库</legend>
+</fieldset>
+            <ul class="layui-row layui-col-space10" >
+
+                {% for data in congku %}
+
+                    <li class="layui-col-xs2">
+                            <button class="layui-btn layui-btn-lg layui-btn-green" data-type="exec" data-url='{% url 'mysql_fast_sql_result'  data.id %}'>
+{#                            <i class="larry-icon fa-map-pin">{{ data.name }}</i>#}
+                            {{ data.name }}
+                            <cite>{{ data.desc }}</cite>
+                        </button>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <hr class="layui-bg-cyan">
+
+            <ul class="layui-row layui-col-space10" id="shortcut">
+
+                {% for data in qita %}
+
+                    <li class="layui-col-xs2">
+                        <a larry-tab="iframe" data-url='{% url 'mysql_fast_sql_result'  data.id %}' data-id="41"
+                           data-group="1" data-icon="larry-shengyin" data-font="larry-icon">
+                            <i class="larry-icon ">{{ data.name }}</i>
+                            <cite>{{ data.desc }}</cite>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block self_foot %}
+    {#    #这里是个性化的底足脚本#}
+
+
+
+    <script type="text/javascript">
+        layui.cache.rightMenu = 'false';
+        {#layui.cache.page = 'console';#}
+        layui.config({
+            version: "2.0.8",
+            base: '/static/larryms/',
+
+            rightmenu: 'fasle'
+        }).extend({
+            larry: 'js/base'
+        }).use(['larry', 'layer', 'jquery'], function () {
+            var $ = layui.$,
+                larryms = layui.larryms,
+                util = layui.util,
+                device = layui.device();
+
+        //按钮监听
+  $(' .layui-btn').on('click', function() {
+      var type = $(this).data('type'),
+        url = $(this).data('url'),
+        tit = $(this).children('cite').text();
+      active[type] ? active[type].call(this, url, tit) : '';
+  });
+  var active = {
+      exec: function(url, tit) {
+        var that = this;
+        if ($(that).attr('data-flag') == 'exist') {
+          var index = layui.cache.layerIndex,
+              $max = $max = $('#layui-layer' + index).find('.layui-layer-maxmin');
+          $max.click();
+          layui.cache.layerIndex = null;
+        } else {
+          $(that).attr('data-flag', 'exist');
+          var index = layer.open({
+            title: tit,
+            type: 2,
+            area: ['1290px', '600px'],
+            content: url,
+            success: function(index, layero) {
+              form.render();
+            },
+            end: function() {
+              $(that).removeAttr("data-flag");
+              layui.cache.layerIndex = null;
+            }
+          });
+
+        }
+      }
+
+    };
+        });
+
+
+    </script>
+{% endblock %}

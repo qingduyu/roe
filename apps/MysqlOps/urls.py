@@ -17,4 +17,8 @@ urlpatterns = [
     url(r'^mysql_fast_SQL_edit/$', fast_sql.MyfastSQL_edit, name='mysql_fast_sql_edit'),
     url(r'^mysql_fast_sal_api/$',MyfastSQLAPI.as_view(),name='mysql_fast_sql_api'),
 
+    url(r'^mysql_fast_sql_show/$',fast_sql.MyfastSQL_show,name='mysql_fast_sql_show'),
+    # url(r'^mysql_fast_sql_show/$', fast_sql.MyfastSQL_show, name='mysql_fast_sql_show'),
+    url(r'^mysql_fast_sql_result/(?P<id>[0-9]+)/$',fast_sql.MyfastSQL_result,name='mysql_fast_sql_result')
+
  ]

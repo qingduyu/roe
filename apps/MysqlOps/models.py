@@ -36,6 +36,7 @@ SQL_EXEC = (
     (u"主库", u"主库"),
     (u"从库", u"从库"),
     (u"集群", u"集群"),
+    (u"其他",u'其他')
 )
 
 class MysqlFastSQL(models.Model):
