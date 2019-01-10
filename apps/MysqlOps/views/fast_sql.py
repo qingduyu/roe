@@ -70,6 +70,3 @@ def MyfastSQL_result(request):
                 colName=[u'报错']
                 datalist=[[u'请检查sql语句的错误，查不出来']]
                 return render(request, 'dbops/mysql/MysqlfastSQL_result.html', locals())
-
-
-

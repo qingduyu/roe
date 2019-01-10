@@ -158,14 +158,17 @@ function setAceEditMode(model) {
 	editor.removeLines();
 	editor.setTheme("ace/theme/monokai");
 	if (model == 'sh'){
+	    editor.removeLines()
 		editor.insert("#!/bin/bash");
 		editor.insert("\n");
 	}
 	else if(model == 'python'){
+	     editor.removeLines()
 		editor.insert("#!/usr/bin/python");
 			editor.insert("\n");
 	}
 	else if(model == 'perl'){
+	     editor.removeLines()
 		editor.insert("#!/usr/bin/perl");
 			editor.insert("\n");
 	}

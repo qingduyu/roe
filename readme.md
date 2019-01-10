@@ -42,3 +42,4 @@ supervisorctl stop all #停止全部进程
 ![image](https://github.com/qingduyu/roe/blob/master/demo_image/demo3.jpg)
 ![image](https://github.com/qingduyu/roe/blob/master/demo_image/demo4.png)
 ![image](https://github.com/qingduyu/roe/blob/master/demo_image/demo5.jpg)
+![image](https://github.com/qingduyu/roe/blob/master/demo_image/sql命令.jpg)
