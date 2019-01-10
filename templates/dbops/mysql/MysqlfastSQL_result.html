@@ -5,42 +5,34 @@
 {% block content %}
     <body class="auth-user">
     <div class="layui-fluid">
-        <div class="layui-row ">
-            <form action="{% url 'mysql_fast_sql_result' id %}" class="layui-form layui-form-pane" method="post"
-                  id="demoAddForm">
-                {% csrf_token %}
-                <div class="layui-form-item layui-form-text">
 
-                    <label class="layui-form-label">SQL</label>
-                    <div class="layui-input-block">
-                        <textarea class="layui-textarea" name="sql">{{ Myfastsql.sql }}</textarea>
-                    </div>
-                </div>
+      <div class="layui-row">
 
-                <div class="layui-form-item">
-                    <div class="layui-col-lg4">
-                        <div class="layui-form-inline">
-                            <label class="layui-form-label">搜索数据库集群</label>
-                            <div class="layui-input-block">
-                                <select name="mysqlcluster_id" lay-verify="required" lay-search="'">
-                                    <option value=''>直接选择或搜索选择</option>
-                                    {% for s in mysqlcluster %}
-                                        <option value='{{ s.id }}'> ( {{ s.foreign_ip }}/{{ s.foreign_port }})
-                                            + {{ s.name }}  </option>{% endfor %}
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+ {% if datalist %}
+                            {% include "include/pagejump/pagebutton.html" %}
 
-                    <div class="layui-col-lg2">
-                        <div class="layui-form-inline">
-                            <a class='layui-btn  layui-btn-normal' lay-submit='' lay-filter='demoadd'
-                               id='submitAdd'>确定</a>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+                            <table id="mytable" class="layui-table" border="1">
+                                <thead  class="layui-table-header">
+                                <tr >
+                                    {% for colname in colName %}
+                                        <th>{{ colname }}</th>
+                                    {% endfor %}
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody   >
+                                {% for item in datalist %}
+                                    <tr>
+                                        {% for item_detail in item %}
+                                            <td> {{ item_detail |default_if_none:''|linebreaks}}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+       {% endif %}
+      </div>
     </div>
     <!-- 加载js文件-->
     </body>
@@ -48,6 +40,8 @@
 {% endblock %}
 
 {% block self_foot %}
+
+      {% include "include/pagejump/pagejump.html" %}
     {#    以下这种方式为什么不幸呢#}
     <script type="text/javascript">
         layui.config({
@@ -57,16 +51,13 @@
             rightMenu: false // false关闭，设置为custom时使用自定义，不使用默认menu
         }).extend({
             larry: 'js/base'
-        }).use(['jquery', 'larry', 'layer', 'form', 'formSelects'], function () {
+        }).use(['jquery', 'larry','table', 'layer', 'form'], function () {
             var $ = layui.$,
                 larry = layui.larry,
                 table = layui.talbe,
-
                 larryms = layui.larryms,
-                formSelects = layui.formSelects,
                 form = layui.form;
 
-            formSelects.btns('selectId', []);
             var curIfr = parent.layer.getFrameIndex(window.name);
             $('#resetAdd').on('click', function () {
                 $('#demoAddForm')[0].reset();

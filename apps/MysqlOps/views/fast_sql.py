@@ -31,34 +31,45 @@ def MyfastSQL_edit(request):
 
 @login_required()
 def MyfastSQL_show(request):
-    zhuku=MysqlFastSQL.objects.filter(exec_posi=u'主库')
-    congku=MysqlFastSQL.objects.filter(exec_posi=u'从库')
-    jiqun=MysqlFastSQL.objects.filter(exec_posi=u'集群')
-    qita=MysqlFastSQL.objects.filter(exec_posi=u'其他')
-    return render(request, 'dbops/mysql/MysqlfastSQL_show.html',locals())
+    if request.method=='GET':
+        zhuku=MysqlFastSQL.objects.filter(exec_posi=u'主库')
+        congku=MysqlFastSQL.objects.filter(exec_posi=u'从库')
+        jiqun=MysqlFastSQL.objects.filter(exec_posi=u'集群')
+        qita=MysqlFastSQL.objects.filter(exec_posi=u'其他')
+        mysqlcluster = MySQLCluster.objects.all()
+        return render(request, 'dbops/mysql/MysqlfastSQL_show.html',locals())
+
+    if request.method=='POST':
+        sqlid = request.POST['sqlid']
+        sql=MysqlFastSQL.objects.get(id=sqlid).sql
+        json_data = {'code': 200, 'msg': '选择数据库后，点击确定','sql':sql,'sqlid':sqlid}
+        return JsonResponse(json_data, safe=False)
+
 
 @login_required()
-def MyfastSQL_result(request,id):
+def MyfastSQL_result(request):
     if request.method=='GET':
-        Myfastsql=MysqlFastSQL.objects.get(id=id)
-        id=id
-        mysqlcluster=MySQLCluster.objects.all()
-        return render(request,'dbops/mysql/MysqlfastSQL_result.html',locals())
+        id = request.GET['id']
+        Myfastsql = MysqlFastSQL.objects.get(id=id)
+        sql = request.GET['sql']
 
-    if request.method=="POST":
-        myfastsql = MysqlFastSQL.objects.get(id=id)
-        sql=request.POST['sql']
-        mysqlcluster = MySQLCluster.objects.get(id=request.POST['mysqlcluster_id'])
-
-        if myfastsql.exec_posi==u'从库':
+        cluster = MySQLCluster.objects.get(id=request.GET['mysqlcluster_id'])
+        if Myfastsql.exec_posi == u'从库':
             pass
         else:
-            ip = mysqlcluster.foreign_ip
-            port = mysqlcluster.foreign_port
-            user = mysqlcluster.plat_user
-            arch = mysqlcluster.arch
-            passwd = mysqlcluster.plat_user_pass
-            conn=MySQL(ip=ip,port=port,user=user,passwd=passwd)
-            count, result, colName=conn.execute(sql=sql)
-            json_data = {'code': 200, 'msg': '获取结果', 'count':count,'result':result,'colName':'colName'}
-            return JsonResponse(json_data, safe=False)
+            try:
+                ip = cluster.foreign_ip
+                port = cluster.foreign_port
+                user = cluster.plat_user
+                arch = cluster.arch
+                passwd = cluster.plat_user_pass
+                conn = MySQL(ip=ip, port=port, user=user, passwd=passwd)
+                count, datalist, colName = conn.execute(sql=sql)
+                return render(request, 'dbops/mysql/MysqlfastSQL_result.html', locals())
+            except Exception as e:
+                colName=[u'报错']
+                datalist=[[u'请检查sql语句的错误，查不出来']]
+                return render(request, 'dbops/mysql/MysqlfastSQL_result.html', locals())
+
+
+

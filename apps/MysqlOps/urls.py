@@ -19,6 +19,6 @@ urlpatterns = [
 
     url(r'^mysql_fast_sql_show/$',fast_sql.MyfastSQL_show,name='mysql_fast_sql_show'),
     # url(r'^mysql_fast_sql_show/$', fast_sql.MyfastSQL_show, name='mysql_fast_sql_show'),
-    url(r'^mysql_fast_sql_result/(?P<id>[0-9]+)/$',fast_sql.MyfastSQL_result,name='mysql_fast_sql_result')
+    url(r'^mysql_fast_sql_result/$',fast_sql.MyfastSQL_result,name='mysql_fast_sql_result')
 
  ]
