@@ -42,7 +42,7 @@ SQL_EXEC = (
 class MysqlFastSQL(models.Model):
     name= models.CharField(max_length=30,verbose_name='sql名字')
     desc=models.CharField(max_length=200,blank=True,null=True,verbose_name='说明文字')
-    sql = models.CharField(max_length=1000,verbose_name='sql 语句请自己验证正确')
+    sql = models.CharField(max_length=3000,verbose_name='sql 语句请自己验证正确')
     exec_posi = models.CharField(verbose_name=u"执行位置", choices=SQL_EXEC, max_length=30, null=True, blank=True)
 
 
@@ -61,3 +61,18 @@ class Custom_High_Risk_SQL(models.Model):
         verbose_name = '自定义高危SQL表'
         verbose_name_plural = '自定义高危SQL表'
 
+class mysql_sql_log(models.Model):
+    user = models.CharField(max_length=35)
+    ipaddr = models.CharField(max_length=35)
+    dbcluster = models.CharField(max_length=35)
+    dbname = models.CharField(max_length=40,blank=True,null=True)
+    sqltext = models.TextField()
+    sqltype = models.CharField(max_length=20)
+    exe_status=models.CharField(max_length=50,blank=True,null=True)
+    affect_row=models.CharField(max_length=100,blank=True,null=True)
+    create_time = models.DateTimeField(db_index=True)
+    login_time = models.DateTimeField()
+    def __unicode__(self):
+        return self.dbcluster
+    class Meta:
+        index_together = [["dbcluster","sqltype", "create_time"],]

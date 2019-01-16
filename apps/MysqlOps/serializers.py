@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from rest_framework import serializers
 
-from MysqlOps.models import BinlogParseRedo,BinlogParseUndo,MysqlFastSQL
+from MysqlOps.models import BinlogParseRedo,BinlogParseUndo,MysqlFastSQL,mysql_sql_log
 
 
 
@@ -21,4 +21,10 @@ class BinlogParseUndoSerializer(serializers.ModelSerializer):
 class MysqlfastSQLSerializer(serializers.ModelSerializer):
     class Meta:
         model = MysqlFastSQL
+        fields='__all__'
+
+
+class MysqlSQLLOGSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= mysql_sql_log
         fields='__all__'

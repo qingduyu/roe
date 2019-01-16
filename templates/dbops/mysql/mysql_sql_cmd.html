@@ -1,10 +1,289 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base_children.html' %}
+{% block self_head %}
+
+{# <link  rel="stylesheet" href="/static/larryms/thirdlib/formSelects-v4.css" >#}
+<script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ace.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/ext-language_tools.js"></script>
+   <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-mysql.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-python.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sql.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-yaml.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/mode-sh.js"></script>
+    <script src="/static/larryms/plus/ace-1.4.2/src-min-noconflict/theme-monokai.js"></script>
+
+
+
+<style type="text/css">
+	#editor {
+		/* position: absolute; */
+	width: 100%;
+	height: 400px;
+
+   }	
+</style>
+{% endblock %}
+{% block content %}
+<div class="layui-fluid form-demo-box">
+    <div class="layui-row">
+         <div class="layui-col-lg6">
+             <section>
+                 <div class="layui-card">
+                     <div class="layui-card-header">
+                           <strong>执行sql语句</strong>
+                     </div>
+                     <div class="layui-card-body" style="height: 900px;">
+                         <form class="layui-form layui-form-pane" id="ansiblescriptRun" lay-filter="layui-form" action="{% url 'mysql_sql_command' %}">
+                                      {% csrf_token %}
+                             <div class="layui-form-item">
+                                 <label class="layui-form-label text-r">选择数据库</label>
+                                  <div class="layui-inline">
+                                <select lay-verify="required" required lay-search='' class="select" name="clusterid" url="{% url 'mysql_sql_get_cluster' %}" child="dbid" childDataPath="{% url 'mysql_sql_get_database' %}" selectValue="310000" promtion="请选择数据库集群">
+                                    <option value=" ">选择集群</option>
+                                </select>
+                            </div>
+                            <div class="layui-inline">
+                                <select class="select" name="dbid"   promtion="请选择db">
+                                    <option value="">选择db</option>
+                                </select>
+                            </div>
+{#                                        <label class="layui-form-label">产品线</label>#}
+{#                                        <div class="layui-input-block">#}
+{#                                            <select name="prod_line" xm-select='prod_line'  xm-select-radio>#}
+{#                                                    <option value="">先选择业务线的host，再选择机器</option>#}
+{#                                            </select>#}
+{#                                             <input type="text" id="yewuxian" class="layu=3i-input" readonly="readonly">#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <div class="layui-form-item">#}
+{#                                        <label class="layui-form-label">目标机器</label>#}
+{#                                        <div class="layui-input-block">#}
+{#                                            <select name='hosts' id="select_host" xm-select='select_host'  xm-select-max="3">#}
+{#                                                    <option value="">选择业务线后,选择一个或多个服务器</option>#}
+{#                                            </select>#}
+{##}
+{#                                        </div>#}
+                             </div>
+                              <div id="editor" ></div>
+
+                             <button type="button" class="layui-btn layui-btn-green" lay-submit="" lay-filter='runjob' id="run_ansible_model">运行</button>
+                         </form>
+
+                     </div>
+                 </div>
+             </section>
+
+         </div>
+
+        <div class="layui-col-lg6">
+            <section>
+                     <div class="layui-card">
+                            <div class="layui-card-header">
+
+                                <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="refresh" data-url="">
+                                       <i class="layui-icon layui-icon-refresh-1"></i>
+                                    <cite>刷新看最近1小时执行</cite>
+                                </button>
+
+                            </div>
+                            <div class="layui-card-body">
+
+                              <table id="demo" lay-filter="demo" class="larryms-table-id"
+                           data-url="{% url 'mysql_sql_log_api' %}"></table>
+                            </div>
+
+                        </div>
+            </section>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
+{% block self_foot %}
+    <script type="text/javascript">
+
+
+
+function setAceEditMode(model) {
+	var editor = ace.edit("editor");
+
+	var langTools = ace.require("ace/ext/language_tools");
+
+	editor.removeLines();
+	editor.setTheme("ace/theme/monokai");
+	if (model == 'sh'){
+	    editor.removeLines()
+		editor.insert("#!/bin/bash");
+		editor.insert("\n");
+	}
+	else if(model == 'python'){
+	     editor.removeLines()
+		editor.insert("#!/usr/bin/python");
+			editor.insert("\n");
+	}
+	else if(model == 'perl'){
+	     editor.removeLines()
+		editor.insert("#!/usr/bin/perl");
+			editor.insert("\n");
+	}
+	else{
+		editor.insert("--please insert your sql,务必分号分割;");
+			editor.insert("\n");
+		var model = 'mysql'
+	};
+	editor.getSession().setMode("ace/mode/" + model);
+	editor.setShowPrintMargin(false);
+	editor.setOptions({
+	    enableBasicAutocompletion: true,
+	    enableSnippets: true,
+	    enableLiveAutocompletion: true
+	});
+
+};
+
+
+    setAceEditMode("sql");
+</script>
+
+
+    <script type="text/javascript">
+        layui.config({
+            version: "2.0.8",
+            base: '/static/larryms/',
+            layertype:2
+        }).extend({
+            larry: 'js/base'
+        }).use(['larry', 'layer', 'jquery','table', 'larryms', 'form','cascadeSelect'], function () {
+            var $ = layui.$,
+                larry = layui.larry,
+                form = layui.form,
+                layer = layui.layer,
+                table=layui.table,
+                {#formSelects = layui.formSelects,#}
+                cascadeSelect=layui.cascadeSelect,
+                larryms = layui.larryms;
+
+
+                  $(' .layui-btn').on('click', function () {
+                var type = $(this).data('type'),
+                    url = $(this).data('url'),
+                    tit = $(this).children('cite').text();
+                active[type] ? active[type].call(this, url, tit) : '';
+            });
+            var active = {
+                refresh: function () {
+
+                 table.reload('demo',{})
+                }};
+
+
+
+
+            cascadeSelect.init('clusterid')
+            form.on('submit(runjob)', function (data) {
+                console.log(data.field)
+                var btnObj = $(data);
+                btnObj.attr('disabled', true);
+                var editor = ace.edit("editor");
+                var contents = editor.getSession().getValue();
+                if (contents.length == 0) {
+                    larryms.msg("脚本内容不能为空");
+                    btnObj.removeAttr('disabled');
+                    return false;
+                }
+                ;
+
+                $("#result").html("服务器正在处理，请稍等。。。");
+                {#/* 轮训获取结果 开始  */#}
+                {#var interval = setInterval(function () {#}
+                {#  table.reload('demo',{})#}
+                {# }, 1000);  //一秒钟运行2此#}
+
+                $.ajax({
+                   datatype:'text',
+                   url: data.form.action,
+                   type:'POST',
+                   data:
+                   {
+                       "sql_content": contents,
+                        "clusterid": data.field.clusterid,
+                        "csrfmiddlewaretoken": data.field.csrfmiddlewaretoken,
+                        "dbid": data.field.dbid,
+                   },
+                    success: function(res){
+                       if (res.code=500) {larryms.msg(res.msg)}
+                       else if (res.code=900) {larryms.msg(res.msg)}
+                        else if (res.code=200) {larryms.msg(res.msg)}
+                },error: function (response){
+                      larryms.msg("运行失败");
+                }
+
+
+
+                });
+                {#$.ajax({#}
+                {#    dataType: "text",#}
+                {#    url: '{% url 'ansible_exe_script' %}', //请求地址#}
+                {#    type: "POST",  //提交类似#}
+                    {#contentType: "application/json",#}
+                {#    data: {#}
+                {#        "script_content": contents,#}
+                {#        "ans_uuid": data.field.ans_uuid,#}
+                {#        "csrfmiddlewaretoken": data.field.csrfmiddlewaretoken,#}
+                {#        "hosts": data.field.hosts,#}
+                {#        "script_args": data.field.script_args,#}
+                {#        "script_name": data.field.script_name#}
+                {#    },  //提交参数#}
+                {#    success: function (res) {#}
+                {#        btnObj.removeAttr('disabled');#}
+                {#        if (res["code"] == "500") {#}
+                {#            clearInterval(interval);#}
+                {#            btnObj.removeAttr('disabled');#}
+                {#            larryms.msg(res["msg"]);#}
+                {#        }#}
+                {##}
+                {#    },#}
+                {#    error: function (response) {#}
+                {#        btnObj.removeAttr('disabled');#}
+                {#        larryms.msg("运行失败");#}
+                {#        clearInterval(interval);#}
+                {#    }#}
+                {# });#}
+
+
+            });
+
+           // 来自角色用户组
+            var tableDataUrl = $('#demo').data('url'),
+                roleIndex = table.render({
+                    elem: '#demo',
+                    id: 'demo',
+                    cellMinWidth: 50,
+                    url: tableDataUrl,
+                    method: 'get',
+                    {#height: 'full-130',#}
+                    page: true,
+                    cols: [
+                        [
+
+                            {field: 'dbcluster', title: '集群', minWidth: 50, align: 'center'},
+                            {field: 'dbname', title: '数据库', minWidth: 50, align: 'center'},
+                            {field: 'exe_status', title: '执行结果', minWidth: 30, align: 'center'},
+                            {field: 'affect_row', title: '影响行', minWidth: 50, align: 'center'},
+                            {field: 'create_time', title: '操作时间', minWidth: 120, align: 'center'},
+                            {field: 'sqltext', title: 'sql', minWidth: 80, align: 'center'},
+
+                        ]
+                    ]
+                });
+
+
+        });
+
+
+    </script>
+{%endblock %}

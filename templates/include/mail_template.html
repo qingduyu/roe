@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+{% if tmp %}
+    <table id="mytable1" class="table table-condensed" border="1">
+        <thead>
+        <tr class="danger">
+            <th> 申请人 </th>
+            <th> 操作数据库 </th>
+            <th> 执行说明 </th>
+            <th> SQL语句 </th>
+            <th> 是否备份 </th>
+        </tr>
+        </thead>
+        <tbody  >
+        <tr>
+            <td> {{ tmp.user }}</td>
+            <td> {{ tmp.dbtag }}</td>
+            <td> {{ tmp.specification }}</td>
+            <td> {{ tmp.sqltext|linebreaks }}</td>
+            {% if tmp.backup_status == 1 %}
+                <td> 需要备份</td>
+            {% else  %}
+                <td> 不需要备份</td>
+            {% endif %}
+        </tr>
+        </tbody>
+    </table>
+{% endif %}
+
+{% if result_status %}
+    <table id="mytable1" class="table table-condensed" border="1">
+        <thead>
+        <tr class="danger">
+            <th> myid </th>
+            <th> stage </th>
+            <th> errlevel </th>
+            <th> stagestatus </th>
+            <th> errormessage </th>
+            <th> sqltext </th>
+            <th> affectrow </th>
+            <th> backup_db </th>
+            <th> execute_time </th>
+            <th> create_time </th>
+            <th> finish_time </th>
+        </tr>
+        </thead>
+        <tbody  >
+        {% for item in result_status %}
+            <tr>
+                <td> {{ item.myid }}</td>
+                <td> {{ item.stage }}</td>
+                <td> {{ item.errlevel }}</td>
+                <td> {{ item.stagestatus|linebreaks }}</td>
+                <td> {{ item.errormessage|linebreaks }}</td>
+                <td> {{ item.sqltext|linebreaks }}</td>
+                <td> {{ item.affectrow }}</td>
+                <td> {{ item.backup_db}}</td>
+                <td> {{ item.execute_time }}</td>
+                <td> {{ item.create_time|date:"Y-m-d H:i:s"  }}</td>
+                <td> {{ item.finish_time|date:"Y-m-d H:i:s"  }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% if sqllist %}
+    <table id="mytable1" class="table table-condensed" border="1">
+        <thead>
+        <tr class="danger">
+            <th> ID </th>
+            <th> SQL </th>
+        </tr>
+        </thead>
+        <tbody  >
+        {% for item in sqllist %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td> <pre>{{ item }}</pre></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+{% if dbinfo %}
+    <pre> {{ dbinfo }}</pre>
+{% endif %}
+{% if mon_sqllist %}
+    <table id="mytable1" class="table table-condensed" border="1">
+        <thead>
+        <tr class="danger">
+            <th> ID </th>
+            <th> USER </th>
+            <th> HOST </th>
+            <th> DB </th>
+            <th> COMMAND </th>
+            <th> TIME </th>
+            <th> STATE </th>
+            <th> INFO </th>
+        </tr>
+        </thead>
+        <tbody  >
+        {% for item in mon_sqllist %}
+            <tr>
+                <td> <pre>{{ item.0 }}</pre></td>
+                <td> <pre>{{ item.1 }}</pre></td>
+                <td> <pre>{{ item.2 }}</pre></td>
+                <td> <pre>{{ item.3 }}</pre></td>
+                <td> <pre>{{ item.4 }}</pre></td>
+                <td> <pre>{{ item.5 }}</pre></td>
+                <td> <pre>{{ item.6 }}</pre></td>
+                <td> <pre>{{ item.7 }}</pre></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% if alarm_information %}
+    <pre>{{ alarm_information }}</pre>
+{% endif %}
+
+
+{% if max_tbdata  %}
+    BIG TABLE REPORT :
+    <table id="mytable1" class="table table-condensed" border="1">
+        <thead>
+        <tr class="danger">
+            <th> DBTAG </th>
+            <th> TABLE_SCHEMA </th>
+            <th> TABLE_NAME </th>
+            <th> TOTAL(M) </th>
+            <th> DATA(M) </th>
+            <th> INDEX(M) </th>
+        </tr>
+        </thead>
+        <tbody  >
+        {% for item in max_tbdata %}
+            <tr>
+                <td> <pre>{{ item.0 }}</pre></td>
+                <td> <pre>{{ item.1 }}</pre></td>
+                <td> <pre>{{ item.2 }}</pre></td>
+                <td> <pre>{{ item.3 }}</pre></td>
+                <td> <pre>{{ item.4 }}</pre></td>
+                <td> <pre>{{ item.5 }}</pre></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+
+{% if max_incre  %}
+    AUTO_INCREMENT USE REPORT :
+    <table id="mytable1" class="table table-condensed" border="1">
+        <thead>
+        <tr class="danger">
+            {% for colname in max_increcols %}
+                <th>{{ colname }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody  >
+        {% for item in max_incre %}
+            <tr>
+                <td> <pre>{{ item.0 }}</pre></td>
+                <td> <pre>{{ item.1 }}</pre></td>
+                <td> <pre>{{ item.2 }}</pre></td>
+                <td> <pre>{{ item.3 }}</pre></td>
+                <td> <pre>{{ item.4 }}</pre></td>
+                <td> <pre>{{ item.5 }}</pre></td>
+                <td> <pre>{{ item.6 }}</pre></td>
+                <td> <pre>{{ item.7 }}</pre></td>
+                <td> <pre>{{ item.8 }}</pre></td>
+                <td> <pre>{{ item.9 }}</pre></td>
+                <td> <pre>{{ item.10 }}</pre></td>
+                <td> <pre>{{ item.11 }}</pre></td>
+                <td> <pre>{{ item.12 }}</pre></td>
+                <td> <pre>{{ item.13 }}</pre></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+
+
+{% if dup_result %}
+    <pre>{{ dup_result }}</pre>
+{% endif %}
+
+{% if message %}
+    请通过下方链接重新设置密码(链接有效时间30分钟):
+    </br>
+    <a href="{{ message }}">点击此处链接</a>
+{% endif %}
+{% if partResult %}
+
+    <table id="mytable1" class="table table-condensed" border="1">
+        <thead>
+        <tr class="danger">
+            <th>DBTAG</th>
+            <th>TABLE_SCHEMA</th>
+            <th>TABLE_NAME</th>
+            <th>PARTITION_NAME</th>
+            <th>MAX_DATE</th>
+        </tr>
+        </thead>
+        <tbody  >
+        {% for item in partResult %}
+            <tr>
+                <td> <pre>{{ item.0 }}</pre></td>
+                <td> <pre>{{ item.1 }}</pre></td>
+                <td> <pre>{{ item.2 }}</pre></td>
+                <td> <pre>{{ item.3 }}</pre></td>
+                <td> <pre>{{ item.4 }}</pre></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+</body>
+</html>
