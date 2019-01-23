@@ -43,7 +43,7 @@ def mysql_deploy_single_soft(request):
         if mysql_version=='mysql8.0':
             playbook_name= 'mysql8_0_soft_install.yaml'
         else:
-            playbook_name='mysql5_7_soft_install.yaml'
+            playbook_name= 'mysql5_7_soft_install.yaml'
         playbook_file = os.getcwd() + '/upload/selfuse/'+ playbook_name
 
         if DsRedis.OpsAnsiblePlayBookLock.get(redisKey=redisKey + '-locked') is None:  # 判断剧本是否有人在执行
