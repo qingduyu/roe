@@ -5,7 +5,7 @@ import MySQLdb,sys
 from utils.mysql import MySQL
 from celery import task
 from CMDB.model.mysql_modles import MySQLCluster
-import  sqlparse
+
 
 
 #mysql

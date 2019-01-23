@@ -18,8 +18,6 @@ from utils.ansible_api_v2 import ANSRunner
 import time
 
 
-
-
 def exe_script(request):
 
     if request.method=='GET':

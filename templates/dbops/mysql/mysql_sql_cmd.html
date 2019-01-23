@@ -29,7 +29,7 @@
              <section>
                  <div class="layui-card">
                      <div class="layui-card-header">
-                           <strong>执行sql语句</strong>
+                           <strong>执行sql语句(自动过滤对mysql库下的任何改动,创建,删除用户和数据库等危险命令均禁止)</strong>
                      </div>
                      <div class="layui-card-body" style="height: 900px;">
                          <form class="layui-form layui-form-pane" id="ansiblescriptRun" lay-filter="layui-form" action="{% url 'mysql_sql_command' %}">

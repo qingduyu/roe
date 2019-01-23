@@ -6998,3 +6998,128 @@
 2019-01-10 10:56:25 [ERROR] MySQL执行SQL语句失败: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asdfsadfdsaasdd' at line 1") sql:asdfsadfdsaasdd
 2019-01-16 11:48:17 [ERROR] MySQL执行SQL语句失败: (1054, "Unknown column 'OLUMN_TYPE' in 'field list'") sql:SELECT        TABLE_SCHEMA,        TABLE_NAME,        COLUMNS.COLUMN_NAME,        COLUMNS.DATA_TYPE,        COLUMNS.COLUMN_TYPE,        IF(LOCATE('unsigned', OLUMN_TYPE) > 0,1,0) AS IS_UNSIGNED,        IF(LOCATE('int', DATA_TYPE) > 0,  1,  0  ) AS IS_INT,        (CASE DATA_TYPE        WHEN 'tinyint' THEN 255    WHEN 'smallint' THEN 65535    WHEN 'mediumint' THEN 16777215    WHEN 'int' THEN 4294967295    WHEN 'bigint' THEN 18446744073709551615    END >> IF(LOCATE('unsigned', COLUMN_TYPE) > 0, 0, 1)    ) AS MAX_VALUE,    AUTO_INCREMENT,    INDEX_NAME,    SEQ_IN_INDEX    FROM INFORMATION_SCHEMA.COLUMNS INNER JOIN INFORMATION_SCHEMA.TABLES USING (TABLE_SCHEMA, TABLE_NAME) INNER JOIN INFORMATION_SCHEMA.STATISTICS USING (TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME)WHERE TABLE_SCHEMA not IN ('INFORMATION_SCHEMA','mysql','performance_schema') AND SEQ_IN_INDEX=1 AND EXTRA='auto_increment' GROUP BY TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME order by AUTO_INCREMENT/MAX_VALUE desc limit 100
 2019-01-16 11:59:56 [ERROR] MySQL执行SQL语句失败: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\        TABLE_SCHEMA,\\        TABLE_NAME,\\        COLUMNS.COLUMN_NAME,\\        ' at line 1") sql:SELECT\        TABLE_SCHEMA,\        TABLE_NAME,\        COLUMNS.COLUMN_NAME,\        COLUMNS.DATA_TYPE,\        COLUMNS.COLUMN_TYPE,\        IF(LOCATE('unsigned', COLUMN_TYPE) > 0,\        1,\        0\        ) AS IS_UNSIGNED,\        IF(LOCATE('int', DATA_TYPE) > 0,\        1,\        0\        ) AS IS_INT,\        (CASE DATA_TYPE\        WHEN 'tinyint' THEN 255\    WHEN 'smallint' THEN 65535\    WHEN 'mediumint' THEN 16777215\    WHEN 'int' THEN 4294967295\    WHEN 'bigint' THEN 18446744073709551615\    END >> IF(LOCATE('unsigned', COLUMN_TYPE) > 0, 0, 1)\    ) AS MAX_VALUE,\    AUTO_INCREMENT,\    INDEX_NAME,\    SEQ_IN_INDEX\    FROM INFORMATION_SCHEMA.COLUMNS INNER JOIN INFORMATION_SCHEMA.TABLES USING (TABLE_SCHEMA, TABLE_NAME) INNER JOIN INFORMATION_SCHEMA.STATISTICS USING (TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME)\WHERE TABLE_SCHEMA not IN ('INFORMATION_SCHEMA','mysql','performance_schema') \AND SEQ_IN_INDEX=1 AND EXTRA='auto_increment' \GROUP BY TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME order by AUTO_INCREMENT/MAX_VALUE desc limit 100
+2019-01-17 11:46:29 [ERROR] MySQL执行SQL语句失败: 'latin-1' codec can't encode characters in position 26-28: ordinal not in range(256) sql:select     event_name, -- 事件名    count_star  -- 等待次数from performance_schema.events_waits_summary_global_by_event_nameorder by count_star desc limit 7
+2019-01-22 17:11:08 [ERROR] run playbook failed: 'unarchive' is not a valid attribute for a Play
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 8, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+ #tar -xvf /tmp/mysq-xxxx.tar.gz -C /usr/local/
+ - name: transfer mysql install package to remote host and unarchive to /usr/local/
+   ^ here
+
+2019-01-22 17:34:44 [ERROR] run playbook failed: 'unarchive' is not a valid attribute for a Play
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 6, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+ #等价bash  #scp mysql-xxxx.tar.gz 192.168.xx.xx:/tmp/ #tar -xvf /tmp/mysq-xxxx.tar.gz -C /usr/local/
+ - name: transfer mysql install package to remote host and unarchive to /usr/local/
+   ^ here
+
+2019-01-22 17:40:01 [ERROR] run playbook failed: Syntax Error while loading YAML.
+
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 4, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+   gather_facts: False
+   - name: transfer mysql install package to remote host and unarchive to /usr/local/
+   ^ here
+
+2019-01-22 17:40:16 [ERROR] run playbook failed: Syntax Error while loading YAML.
+
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 5, column 15, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+ - name: transfer mysql install package to remote host and unarchive to /usr/local/
+     unarchive:
+              ^ here
+
+2019-01-22 17:40:31 [ERROR] run playbook failed: Syntax Error while loading YAML.
+
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 12, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+   - name: change owner to mysql user
+   ^ here
+
+2019-01-22 17:41:00 [ERROR] run playbook failed: Syntax Error while loading YAML.
+
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 22, column 13, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+   when: ansible_distribution_major_version == "7"
+     systemd:
+            ^ here
+
+2019-01-22 17:41:24 [ERROR] run playbook failed: 'unarchive' is not a valid attribute for a Play
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 4, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+   gather_facts: False
+ - name: transfer mysql install package to remote host and unarchive to /usr/local/
+   ^ here
+
+2019-01-22 17:42:09 [ERROR] run playbook failed: 'unarchive' is not a valid attribute for a Play
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 4, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+   gather_facts: False
+ - name: transfer mysql install package to remote host and unarchive
+   ^ here
+
+2019-01-22 17:50:26 [ERROR] run playbook failed: 'unarchive' is not a valid attribute for a Play
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 4, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+   gather_facts: False
+ - name: transfer mysql install package to remote host and unarchive
+   ^ here
+
+2019-01-22 18:17:34 [ERROR] run playbook failed: conflicting action statements: group, user
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 5, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+   tasks:
+     - name: useradd mysql
+       ^ here
+
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 5, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+   tasks:
+     - name: useradd mysql
+       ^ here
+

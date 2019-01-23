@@ -4,6 +4,7 @@ from django.conf.urls import url
 from roeops.settings import MEDIA_ROOT
 from django.views.static import serve
 from  MysqlOps.views import  binlog_parse,fast_sql,mysql_sql_cmd
+from MysqlOps.views.mysql_deploy_single import mysql_deploy_single_soft
 from MysqlOps.views.fast_sql_api import MyfastSQLAPI
 from MysqlOps.views.mysql_sql_log_api import MySQLSQLLOGAPI
 from MysqlOps.views.binlog_parse_api import BinlogRedoAPI,BinlogUndoAPI
@@ -25,5 +26,6 @@ urlpatterns = [
     url(r'^mysql_sql_cmd/$',mysql_sql_cmd.mysql_sql_cmd,name='mysql_sql_command'),
     url(r'^mysql_sql_get_cluster',mysql_sql_cmd.get_mysql_cluster,name='mysql_sql_get_cluster'),
     url(r'^mysql_sql_get_database', mysql_sql_cmd.get_mysql_db, name='mysql_sql_get_database'),
-    url(r'^mysql_sql_log_api/$',MySQLSQLLOGAPI.as_view(),name='mysql_sql_log_api')
+    url(r'^mysql_sql_log_api/$',MySQLSQLLOGAPI.as_view(),name='mysql_sql_log_api'),
+    url(r'^mysql_deploy_single_soft/$', mysql_deploy_single_soft, name='mysql_deploy_single_soft'),
  ]

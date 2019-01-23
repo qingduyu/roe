@@ -19,7 +19,7 @@ import time
 from utils.base import isIP
 
 
-def ansbile_transfile(request):
+def mysql_deploy_single_soft(request):
 
     if request.method=='GET':
         # jsonTree2=jsonTree.replace(' ','').replace('\n','')
@@ -27,15 +27,11 @@ def ansbile_transfile(request):
         time_now=time.strftime('%Y%m%d%H%M%S',time.localtime(time.time()))
 
      #无法同时渲染页面和传递json格式，渲染页面的编码和json编码是不一样的，因此只能通过异步的方式获取json格式数据
-        return render(request,'opscontrol/exejobs/exe_transfile.html',locals())
+        return render(request,'dbops/mysql/mysql_deploy_soft.html',locals())
     elif request.method=='POST':
-        source_host=request.POST['source_host']
-
-        if not isIP(source_host):
-            return JsonResponse({'msg': "操作失败，源主机要是IP 地址", "code": 500, 'data': []})
         dest_hostid_list = request.POST['dest_hosts'].split(',')
-        source_file = request.POST['source_file']
-        dest_file = request.POST['dest_file']
+        mysql_version = request.POST['mysql_version']
+
         redisKey = request.POST['ans_uuid']
         try:
          ans_debug=request.POST['ans_debug']
@@ -44,11 +40,10 @@ def ansbile_transfile(request):
         ip_list,hostlist=get_ans_host(dest_hostid_list)
         playbook_vars={}
         playbook_vars['dest_host']=ip_list
-        playbook_vars['dest_port']=hostlist[0]['port']
-        playbook_vars['source_host']=source_host
-        playbook_vars['source_file']=  source_file
-        playbook_vars['dest_file'] = dest_file
-        playbook_name= 'copy_file_between_remote.yaml'
+        if mysql_version=='mysql8.0':
+            playbook_name= 'mysql8_0_soft_install.yaml'
+        else:
+            playbook_name='mysql5_7_soft_install.yaml'
         playbook_file = os.getcwd() + '/upload/selfuse/'+ playbook_name
 
         if DsRedis.OpsAnsiblePlayBookLock.get(redisKey=redisKey + '-locked') is None:  # 判断剧本是否有人在执行
@@ -56,12 +51,9 @@ def ansbile_transfile(request):
             DsRedis.OpsAnsiblePlayBookLock.set(redisKey=redisKey+ '-locked', value=request.user)
             # 删除旧的执行消息
             DsRedis.OpsAnsiblePlayBook.delete(redisKey)
-
-
             if ip_list:
 
                 logId = AnsibleRecord.PlayBook.insert(user=str(request.user), ans_id=1,ans_name=playbook_name, ans_content="执行文件分发",ans_server=','.join(ip_list))
-
                 # 执行ansible playbook
                 if ans_debug == 'on':
                     ANS = ANSRunner(hostlist, redisKey=redisKey, logId=logId, verbosity=4)

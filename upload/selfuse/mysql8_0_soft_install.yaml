@@ -1,0 +1,82 @@
+---
+ - hosts: "{{dest_host}}"
+   tasks:
+     - name: groupadd mysql
+       group:
+         name: mysql
+         state: present
+     - name: useradd mysql
+       user:
+         name: mysql
+         shell: /bin/bash
+         groups: mysql
+         createhome: yes
+         home: /home/mysql
+         state: present
+
+     - name: export path env variable
+       lineinfile:
+         path: /etc/profile
+         line: export PATH=/usr/local/mysql/bin/:$PATH
+         insertafter: EOF
+
+     - name: export path env to /root/.bashrc
+       lineinfile:
+         path: /home/mysql/.bash_profile
+         line: export PATH=/usr/local/mysql/bin/:$PATH
+         insertafter: EOF
+
+     - name: transfer mysql install package to remote host and unarchive
+       unarchive:
+           src: /data/soft/mysql/mysql_8_0_14.tar.gz
+           dest: /usr/local
+           owner: mysql
+           group: mysql
+      
+     - name: make link /usr/local/mysql_8_0_14 to /usr/local/mysql
+       file:
+        src: /usr/local/mysql_8_0_14
+        dest: /usr/local/mysql
+        state: link
+        owner: mysql
+        group: mysql
+
+     - name: disable selinux
+       selinux:
+        state: disabled
+
+     - name: install libaio-devel
+       yum:
+        name: libaio-devel
+        state: present
+
+     - name: install numactl-devel
+       yum:
+        name: numactl-devel
+        state: present
+
+     - name: install perl-Data-Dumper
+       yum:
+        name: perl-Data-Dumper
+        state: present
+
+     - name: add or modify nofile soft limit for the user mysql
+       pam_limits:
+        domain: mysql
+        limit_type: soft
+        limit_item: nofile
+        value: 65535
+     - name: add or modify hard nofile limit for user mysql
+       pam_limits:
+        domain: mysql
+        limit_type: hard
+        limit_item: nofile
+        value: 65535
+
+     - name: Add or modify nproc, both soft and hard, limit for the user mysql with a comment.
+       pam_limits:
+        domain: mysql
+        limit_type: '-'
+        limit_item: nproc
+        value: unlimited
+        comment: unlimited memory lock for mysql

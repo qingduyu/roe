@@ -14,7 +14,7 @@ from django.http import JsonResponse
 from MysqlOps.models import mysql_sql_log
 from MysqlOps.mysql_ops import mysql_exec,mysql_query
 import  datetime
-import  sqlparse
+
 from utils import sqlfilter
 
 
