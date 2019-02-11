@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c358d7b-feae-4550-8a0c-bdcb838c9d87" name="Default" comment="这是增加一些内容">
+      <change afterPath="$PROJECT_DIR$/roeops.sql" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/dbops/mysql/mysql_deploy_single_database.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/upload/selfuse/mysql5_7_data_single.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/upload/selfuse/mysql8_0_data_single.yaml" afterDir="false" />
@@ -106,7 +107,7 @@
           <entry key="js" value="296" />
           <entry key="json" value="224" />
           <entry key="log" value="7" />
-          <entry key="md" value="541" />
+          <entry key="md" value="542" />
           <entry key="py" value="31938" />
           <entry key="py@roeops" value="236" />
           <entry key="sh" value="2" />
@@ -122,7 +123,7 @@
           <entry key="Ini" value="1" />
           <entry key="JSON" value="224" />
           <entry key="JavaScript" value="296" />
-          <entry key="Markdown" value="541" />
+          <entry key="Markdown" value="542" />
           <entry key="PLAIN_TEXT" value="2363" />
           <entry key="Python" value="32077" />
           <entry key="SQL" value="4" />
@@ -154,8 +155,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="516">
-                <caret line="56" column="74" lean-forward="true" selection-start-line="56" selection-start-column="74" selection-end-line="56" selection-end-column="74" />
+              <first_editor relative-caret-position="225">
+                <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               </first_editor>
               <second_editor />
             </state>
@@ -1240,8 +1241,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="516">
-            <caret line="56" column="74" lean-forward="true" selection-start-line="56" selection-start-column="74" selection-end-line="56" selection-end-column="74" />
+          <first_editor relative-caret-position="225">
+            <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           </first_editor>
           <second_editor />
         </state>
