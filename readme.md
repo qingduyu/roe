@@ -16,7 +16,7 @@
 ## 安装部署：
 https://www.cnblogs.com/fangxuanlang/p/10138216.html
 
-##初始化sql 
+## 初始化sql 
 就在目录中，请不要使用 diango的 makemigrations。
 直接导入本sql 文件。
 

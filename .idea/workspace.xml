@@ -107,7 +107,7 @@
           <entry key="js" value="296" />
           <entry key="json" value="224" />
           <entry key="log" value="7" />
-          <entry key="md" value="542" />
+          <entry key="md" value="543" />
           <entry key="py" value="31938" />
           <entry key="py@roeops" value="236" />
           <entry key="sh" value="2" />
@@ -123,7 +123,7 @@
           <entry key="Ini" value="1" />
           <entry key="JSON" value="224" />
           <entry key="JavaScript" value="296" />
-          <entry key="Markdown" value="542" />
+          <entry key="Markdown" value="543" />
           <entry key="PLAIN_TEXT" value="2363" />
           <entry key="Python" value="32077" />
           <entry key="SQL" value="4" />
@@ -155,8 +155,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="225">
-                <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+              <first_editor relative-caret-position="330">
+                <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               </first_editor>
               <second_editor />
             </state>
@@ -1241,8 +1241,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="225">
-            <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <first_editor relative-caret-position="330">
+            <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
           </first_editor>
           <second_editor />
         </state>
