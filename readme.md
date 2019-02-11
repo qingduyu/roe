@@ -17,8 +17,7 @@
 https://www.cnblogs.com/fangxuanlang/p/10138216.html
 
 ## 初始化sql 
-就在目录中，请不要使用 diango的 makemigrations。
-直接导入本sql 文件。
+就在目录中，请直接导入本sql 文件，不要使用 diango的 makemigrations
 
 数据库的IP 和秘密信息 请在 roeops/settings.py  中更改
 
