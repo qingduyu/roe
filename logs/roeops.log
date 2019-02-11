@@ -7123,3 +7123,15 @@ The offending line appears to be:
      - name: useradd mysql
        ^ here
 
+2019-01-23 19:40:35 [ERROR] run playbook failed: Syntax Error while loading YAML.
+
+
+The error appears to have been in '/data/PycharmProject/roeops/upload/selfuse/mysql8_0_soft_install.yaml': line 30, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+       - name: export path env to /root/.bashrc
+       ^ here
+

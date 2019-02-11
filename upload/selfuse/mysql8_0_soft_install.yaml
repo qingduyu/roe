@@ -1,6 +1,12 @@
 ---
  - hosts: "{{dest_host}}"
+   gather_facts: False
    tasks:
+     - name: if soft has been installed , throw faild and stop
+       shell: find /usr/local/mysql
+       register: result
+       failed_when: "'/usr/local/mysql' in result.stdout"
+
      - name: groupadd mysql
        group:
          name: mysql
@@ -32,7 +38,7 @@
            dest: /usr/local
            owner: mysql
            group: mysql
-      
+
      - name: make link /usr/local/mysql_8_0_14 to /usr/local/mysql
        file:
         src: /usr/local/mysql_8_0_14
